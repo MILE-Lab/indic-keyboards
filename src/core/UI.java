@@ -20,7 +20,6 @@
 package core;
 
 import java.io.File;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.program.Program;
@@ -95,8 +94,9 @@ public class UI {
 															 * clicked
 															 */
 			/* Used to load user defined keyboard layouts */
-
-			File dirname = new File("./kblayoutxmls");
+			//URL url1 = IndicKeyboards.class.getResource("kblayoutxmls"); 
+			File dirname = new File(System.getProperty("user.dir"),"/kblayouts/userdefined");
+		
 			String[] userDefinedLayouts = dirname.list();
 			if (userDefinedLayouts == null) {
 				// Either dir does not exist or is not a directory
@@ -108,10 +108,35 @@ public class UI {
 				new MenuItem(menu, SWT.SEPARATOR);
 				for (int i = 0; i < userDefinedLayouts.length; i++) {
 					// Get filename of file or directory
-					String filename = userDefinedLayouts[i];
+					final String filename = userDefinedLayouts[i];
 					final MenuItem mi = new MenuItem(submenu_user_def, SWT.PUSH);
 					mi.setText(filename.substring(0, filename.length() - 4));
-					System.out.println(filename);
+					//System.out.println(filename);
+					
+					//Listeners for the user defined keyboard layout menu items
+					mi.addListener(SWT.Selection, new Listener() {
+
+						public void handleEvent(Event event) {
+							//String s = event.toString();
+							// String q=s.substring(28, 35);
+
+							mi.setSelection(false);
+							{
+								String qk = filename.substring(0, filename.length() - 4);
+
+								Shell sh = new Shell(display);
+								sh.setImage(image);
+								MessageBox messageBox = new MessageBox(sh, SWT.OK
+										| SWT.ICON_INFORMATION);
+								messageBox.setText("Language Selection");
+								messageBox.setMessage("You have selected " + qk);
+								messageBox.open();
+								sh.dispose();
+								ParseXML.setlang("userdefined/"+filename);
+							}
+						}
+					});
+					//End of listener
 
 				}
 
@@ -153,7 +178,12 @@ public class UI {
 			tamil.setMenu(submenu_tam);
 			final MenuItem tamil99 = new MenuItem(submenu_tam, SWT.PUSH);
 			tamil99.setText("Tamilnet99");
-
+			
+			
+			new MenuItem(menu, SWT.SEPARATOR);
+			final MenuItem XMLCreate = new MenuItem(menu, SWT.PUSH);
+			XMLCreate.setText("Add New Layout");
+			
 			new MenuItem(menu, SWT.SEPARATOR);
 
 			final MenuItem help = new MenuItem(menu, SWT.PUSH);
@@ -200,6 +230,7 @@ public class UI {
 							image.dispose();
 							shell.dispose();
 							display.dispose();
+							System.runFinalization();
 							System.exit(0);
 
 						} else {
@@ -246,6 +277,25 @@ public class UI {
 				}
 			});
 
+			//XML Create Listener
+			XMLCreate.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+
+					// String q=s.substring(28, 35);
+					String d = XMLCreate.getText();
+					exit.setSelection(false);
+					if (d.compareTo("Add New Layout") == 0) {
+
+						XMLGenerator.GenerateXMLUI();
+		
+						}
+					else {
+					
+					}
+				}
+			});
+			
 			// All the kannada layouts go here
 			{
 
@@ -267,6 +317,7 @@ public class UI {
 							messageBox.setMessage("You have selected " + qk);
 							messageBox.open();
 							sh.dispose();
+							ParseXML.setlang("kan_kagapa.xml");
 						}
 					}
 				});
@@ -290,7 +341,7 @@ public class UI {
 							messageBox.setMessage("You have selected " + qk);
 							messageBox.open();
 							sh.dispose();
-
+							ParseXML.setlang("kan_inscript.xml");
 						}
 					}
 				});
@@ -319,6 +370,8 @@ public class UI {
 							mBox1.open();
 
 							sh1.dispose();
+							ParseXML.setlang("tamilnet99.xml");
+
 
 						}
 
@@ -326,6 +379,38 @@ public class UI {
 				});
 
 			}// End of tamil section
+			
+			// All the gujarati layouts go here
+			{
+				gujLay.addListener(SWT.Selection, new Listener() {
+
+					public void handleEvent(Event event) {
+						String s = event.toString();
+						// String q=s.substring(28, 35);
+
+						gujLay.setSelection(false);
+						{
+							String qt = s.substring(25, 35);
+
+							Shell sh1 = new Shell(display);
+							sh1.setImage(image);
+							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
+									| SWT.ICON_INFORMATION);
+							mBox1.setText("Language Selection");
+
+							mBox1.setMessage("You have selected " + qt);
+							mBox1.open();
+
+							sh1.dispose();
+							ParseXML.setlang("gucodes.xml");
+
+
+						}
+
+					}
+				});
+
+			}// End of gujarati section
 
 			langtech.addListener(SWT.Selection, new Listener() {
 

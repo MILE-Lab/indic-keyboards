@@ -1,7 +1,8 @@
 package core;
 
 import java.io.File;
-import org.w3c.dom.Document;
+import java.io.FileNotFoundException;
+
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -10,13 +11,13 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException; 
 
 public class ParseXML{
-
+	public static String keyboardlayoutname;
     public void getPattern(String pattern){
     try {
 
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse (new File("gucodes.xml"));
+            Document doc = docBuilder.parse (new File(System.getProperty("user.dir"),"/kblayouts/"+keyboardlayoutname));
 
             // normalize text representation
             doc.getDocumentElement ().normalize ();
@@ -38,7 +39,7 @@ public class ParseXML{
 
                     NodeList textFNList = charElement.getChildNodes();
                    
-                   // System.out.println("The inputChar param =" + inputChar);
+                    //System.out.println("The inputChar param =" + inputChar);
                     if(pattern.equals(textFNList.item(0).getNodeValue().trim())){
                     System.out.println("Char : " + 
                            ((Node)textFNList.item(0)).getNodeValue().trim());
@@ -48,8 +49,9 @@ public class ParseXML{
                     Element lastNameElement = (Element)lastNameList.item(0);
 
                     NodeList textLNList = lastNameElement.getChildNodes();
-                    System.out.println("Unicode : " + 
-                           ((Node)textLNList.item(0)).getNodeValue().trim());
+                    
+                    System.out.println("Unicode : " + ((Node)textLNList.item(0)).getNodeValue().trim());
+                    //core.OutputUCode.outputCode(((Node)textLNList.item(0)).getNodeValue().trim());
                     }
                 }//end of if clause
 
@@ -66,12 +68,18 @@ public class ParseXML{
         Exception x = e.getException ();
         ((x == null) ? e : x).printStackTrace ();
 
+        }catch(FileNotFoundException fnf){
+        	System.out.println("Select a keyboard layout first!!");
+        	
         }catch (Throwable t) {
         t.printStackTrace ();
         }
+    
         //System.exit (0);
 
-    }//end of main
-
+    }//End of getPattern
+    public static void setlang(String name){
+    	keyboardlayoutname = name;
+    }
 
 }
