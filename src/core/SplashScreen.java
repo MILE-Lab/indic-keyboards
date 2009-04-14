@@ -1,5 +1,5 @@
 /** ********************************************************************
- * File:           CKI.java 
+ * File:           SplashScreen.java 
  * Description:    Creates the Splash Screen for the Common Keyboard Interface
  * Authors:        Akshay,Abhinava,Revati,Arun 
  * Created:        Wed Oct 29 23:31:25 GMT 2008

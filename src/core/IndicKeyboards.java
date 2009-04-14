@@ -107,8 +107,8 @@ public class IndicKeyboards implements KeyboardEventListener {
 				String inputChar = new Character((char) event
 						.getVirtualKeyCode()).toString().toLowerCase();
 				test.getPattern(inputChar);
-				// System.out.println("Key Pressed: " +
-				// event.getVirtualKeyCode());
+				 //System.out.println("Key Pressed: " +
+				//event.getVirtualKeyCode());
 			}
 		}
 	}
