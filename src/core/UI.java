@@ -37,6 +37,7 @@ public class UI {
 	// Creating the main display.Since SWT 3.1, support for multiple
 	// displays has been
 	// discontinued. SO at a time, only one active display can exist.
+	static Image image;
 	UI() {
 		final Display display = new Display();
 		final Shell shell = new Shell(display);
@@ -44,8 +45,7 @@ public class UI {
 		// the image path. The image File must be in the same directory/package
 		// as that of the source file
 
-		final Image image = new Image(display, IndicKeyboards.class
-				.getResourceAsStream("pifmgr1.ico"));
+		image = new Image(display, IndicKeyboards.class.getResourceAsStream("pifmgr1.ico"));
 
 		// Creating the tray icon
 		final Tray tray = display.getSystemTray();
@@ -318,6 +318,9 @@ public class UI {
 							messageBox.open();
 							sh.dispose();
 							ParseXML.setlang("kan_kagapa.xml");
+							
+							Image image1 = new Image(display, IndicKeyboards.class.getResourceAsStream("kan.ico"));
+							item.setImage(image1);
 						}
 					}
 				});
@@ -342,6 +345,9 @@ public class UI {
 							messageBox.open();
 							sh.dispose();
 							ParseXML.setlang("kan_inscript.xml");
+							
+							Image image1 = new Image(display, IndicKeyboards.class.getResourceAsStream("kan.ico"));
+							item.setImage(image1);
 						}
 					}
 				});
@@ -371,8 +377,9 @@ public class UI {
 
 							sh1.dispose();
 							ParseXML.setlang("tamilnet99.xml");
-
-
+							
+							Image image1 = new Image(display, IndicKeyboards.class.getResourceAsStream("tamil.ico"));
+							item.setImage(image1);
 						}
 
 					}
@@ -404,6 +411,8 @@ public class UI {
 							sh1.dispose();
 							ParseXML.setlang("gucodes.xml");
 
+							Image image1 = new Image(display, IndicKeyboards.class.getResourceAsStream("guj.ico"));
+							item.setImage(image1);
 
 						}
 
@@ -412,6 +421,73 @@ public class UI {
 
 			}// End of gujarati section
 
+			// All the Hindi layouts go here
+			{
+				hinLay.addListener(SWT.Selection, new Listener() {
+
+					public void handleEvent(Event event) {
+						String s = event.toString();
+						// String q=s.substring(28, 35);
+
+						hinLay.setSelection(false);
+						{
+							String qt = s.substring(25, 35);
+
+							Shell sh1 = new Shell(display);
+							sh1.setImage(image);
+							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
+									| SWT.ICON_INFORMATION);
+							mBox1.setText("Language Selection");
+
+							mBox1.setMessage("You have selected " + qt);
+							mBox1.open();
+
+							sh1.dispose();
+							ParseXML.setlang("devanagarihmtw.xml");
+
+							Image image1 = new Image(display, IndicKeyboards.class.getResourceAsStream("hin.ico"));
+							item.setImage(image1);
+							
+						}
+
+					}
+				});
+
+			}// End of hindi section
+			
+			// All the marathi layouts go here
+			{
+				marLay.addListener(SWT.Selection, new Listener() {
+
+					public void handleEvent(Event event) {
+						String s = event.toString();
+						// String q=s.substring(28, 35);
+
+						marLay.setSelection(false);
+						{
+							String qt = s.substring(25, 35);
+
+							Shell sh1 = new Shell(display);
+							sh1.setImage(image);
+							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
+									| SWT.ICON_INFORMATION);
+							mBox1.setText("Language Selection");
+
+							mBox1.setMessage("You have selected " + qt);
+							mBox1.open();
+
+							sh1.dispose();
+							ParseXML.setlang("devanagarihmtw.xml");
+
+							Image image1 = new Image(display, IndicKeyboards.class.getResourceAsStream("hin.ico"));
+							item.setImage(image1);
+						}
+
+					}
+				});
+
+			}// End of marathi section
+			
 			langtech.addListener(SWT.Selection, new Listener() {
 
 				public void handleEvent(Event event) {

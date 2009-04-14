@@ -1,5 +1,8 @@
 package core;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -12,8 +15,9 @@ import org.xml.sax.SAXParseException;
 
 public class ParseXML {
 	public static String keyboardlayoutname;
+
 	public native void opChars(int opchar);
-	
+
 	public void getPattern(String pattern) {
 		try {
 
@@ -46,38 +50,51 @@ public class ParseXML {
 					// System.out.println("The inputChar param =" + inputChar);
 					if (pattern
 							.equals(textFNList.item(0).getNodeValue().trim())) {
-						/*System.out.println("Char : "
-								+ ((Node) textFNList.item(0)).getNodeValue()
-										.trim());
-                        */
-						
+						/*
+						 * System.out.println("Char : " + ((Node)
+						 * textFNList.item(0)).getNodeValue() .trim());
+						 */
+
 						// -------
-						
 						NodeList lastNameList = firstPatternElement
 								.getElementsByTagName("unicode");
 						Element lastNameElement = (Element) lastNameList
 								.item(0);
 						NodeList textLNList = lastNameElement.getChildNodes();
 
-						
 						/**
-						 * Instead of printing the unicode here call the native code
-						 * and print the unicode by passing the unicode to be printed
-						 * as a parameter to the native code
+						 * Instead of printing the unicode here call the native
+						 * code and print the unicode by passing the unicode to
+						 * be printed as a parameter to the native code
 						 */
-						/*System.out.println("Unicode : "
-								+ ((Node) textLNList.item(0)).getNodeValue()
-										.trim());*/
-						
-						String ucodeValue = ((Node)textLNList.item(0)).getNodeValue().trim();
-						//@Debug
-						//System.out.println("String unicode is"+ ucodeValue);
+						/*
+						 * System.out.println("Unicode : " + ((Node)
+						 * textLNList.item(0)).getNodeValue() .trim());
+						 */
+
+						String ucodeValue = ((Node) textLNList.item(0))
+								.getNodeValue().trim();
+						// @Debug
+						// System.out.println("String unicode is"+ ucodeValue);
 						System.loadLibrary("opChars");
 						int i = Integer.valueOf(ucodeValue, 16).intValue();
+
+						// Delete the echoed characters
+						try {
+							Robot r = new Robot();
+							r.keyPress(KeyEvent.VK_BACK_SPACE);
+							r.keyRelease(KeyEvent.VK_BACK_SPACE);
+						} catch (AWTException e) {
+							e.printStackTrace();
+						}
+
+						// Call native method with the unicode
+
 						opChars(i);
-						//@Debug
-						//System.out.println("float unicode i"+ i);
-						
+
+						// @Debug
+						// System.out.println("float unicode i"+ i);
+
 						//core.OutputUCode.outputCode(((Node)textLNList.item(0))
 						// .getNodeValue().trim());
 					}

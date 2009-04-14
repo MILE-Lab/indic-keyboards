@@ -36,7 +36,7 @@ import java.io.FileNotFoundException;
 public class IndicKeyboards implements KeyboardEventListener {
 
 	private Boolean flag = false;
-	private long withShiftPressed;
+	private long withShiftPressed = 48;
 	private Boolean enable = false;
 
 	public static void main(String[] args) throws FileNotFoundException {
@@ -91,24 +91,95 @@ public class IndicKeyboards implements KeyboardEventListener {
 				flag = true;
 			}
 			if (flag) {
-				withShiftPressed = event.getVirtualKeyCode() + 32;
-				if (withShiftPressed == 48) {
+				withShiftPressed = event.getVirtualKeyCode();
+
+				/**
+				 * Managing the shift+ key presses.
+				 */
+				if ((event.getVirtualKeyCode() >= 65)
+						&& (event.getVirtualKeyCode() <= 90))
+					withShiftPressed = event.getVirtualKeyCode() + 32;
+
+				else {
+					switch (event.getVirtualKeyCode()) {
+
+					case 48:
+						withShiftPressed = event.getVirtualKeyCode() - 7;
+						break;
+
+					case 50:
+						withShiftPressed = event.getVirtualKeyCode() + 14;
+						break;
+
+					case 54:
+						withShiftPressed = event.getVirtualKeyCode() + 40;
+						break;
+
+					case 57:
+					case 55:
+						withShiftPressed = event.getVirtualKeyCode() - 17;
+						break;
+
+					case 56:
+						withShiftPressed = event.getVirtualKeyCode() - 14;
+						break;
+
+					case 49:
+					case 51:
+					case 52:
+					case 53:
+						withShiftPressed = event.getVirtualKeyCode() - 16;
+						break;
+
+					case 59:
+						withShiftPressed = event.getVirtualKeyCode() - 1;
+						break;
+
+					case 44:
+					case 46:
+					case 47:
+						withShiftPressed = event.getVirtualKeyCode() + 16;
+						break;
+
+					case 45:
+						withShiftPressed = event.getVirtualKeyCode() + 50;
+						break;
+
+					case 39:
+						withShiftPressed = event.getVirtualKeyCode() - 5;
+						break;
+
+					case 61:
+						withShiftPressed = event.getVirtualKeyCode() - 18;
+						break;
+
+					case 91:
+					case 92:
+					case 93:
+						withShiftPressed = event.getVirtualKeyCode() + 32;
+						break;
+
+					case 96:
+						withShiftPressed = event.getVirtualKeyCode() + 30;
+						break;
+					}
+				}
+				if (withShiftPressed == 48 || withShiftPressed == 16) {
 					// do not print shift while it is pressed
 				} else {
 					ParseXML test = new ParseXML();
 					String inputChar = new Character((char) event
 							.getVirtualKeyCode()).toString().toUpperCase();
 					test.getPattern(inputChar);
-					//System.out.println("Key Pressed with shift: "
-					//		+ withShiftPressed);
+					System.out.println("Key Pressed with shift: "
+							+ withShiftPressed);
 				}
 			} else {
 				ParseXML test = new ParseXML();
 				String inputChar = new Character((char) event
 						.getVirtualKeyCode()).toString().toLowerCase();
 				test.getPattern(inputChar);
-				 //System.out.println("Key Pressed: " +
-				//event.getVirtualKeyCode());
+				System.out.println("Key Pressed: " + event.getVirtualKeyCode());
 			}
 		}
 	}
