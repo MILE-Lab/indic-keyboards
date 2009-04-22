@@ -80,6 +80,8 @@ public class IndicKeyboards implements KeyboardEventListener {
 			enable = !enable;
 			if (enable) {
 				System.out.println("Software enabled");
+				// Reset the consonant flags present in ParseXML.java
+				ParseXML.previousConsonantFlag = 0;
 			} else {
 				System.out
 						.println("Software disabled... Press F12 to re-enable");

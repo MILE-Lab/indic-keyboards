@@ -1708,6 +1708,15 @@ public class XMLGenerator extends org.eclipse.swt.widgets.Composite {
                 newXML.println("<unicode>" + zero.getText() + "</unicode>");
                 newXML.println("</pattern>\n");
             }
+            
+            if (one.getText().compareTo("1") == 0) {
+                //don't add to the XML file
+            } else {
+                newXML.println("<pattern>");
+                newXML.println("<char>" + "1" + "</char>");
+                newXML.println("<unicode>" + one.getText() + "</unicode>");
+                newXML.println("</pattern>\n");
+            }
 
             if (exclaim.getText().compareTo("!") == 0) {
                 //don't add to the XML file
@@ -1821,7 +1830,7 @@ public class XMLGenerator extends org.eclipse.swt.widgets.Composite {
                 //don't add to the XML file
             } else {
                 newXML.println("<pattern>");
-                newXML.println("<char>" + "&" + "</char>");
+                newXML.println("<char>" + "&amp;" + "</char>");
                 newXML.println("<unicode>" + ampersand.getText() + "</unicode>");
                 newXML.println("</pattern>\n");
             }
@@ -2023,7 +2032,7 @@ public class XMLGenerator extends org.eclipse.swt.widgets.Composite {
                 //don't add to the XML file
             } else {
                 newXML.println("<pattern>");
-                newXML.println("<char>" + "<" + "</char>");
+                newXML.println("<char>" + "&lt;" + "</char>");
                 newXML.println("<unicode>" + leftAngularBracket.getText() + "</unicode>");
                 newXML.println("</pattern>\n");
             }
@@ -2032,7 +2041,7 @@ public class XMLGenerator extends org.eclipse.swt.widgets.Composite {
                 //don't add to the XML file
             } else {
                 newXML.println("<pattern>");
-                newXML.println("<char>" + ">" + "</char>");
+                newXML.println("<char>" + "&gt;" + "</char>");
                 newXML.println("<unicode>" + rightAngularBracket.getText() + "</unicode>");
                 newXML.println("</pattern>\n");
             }

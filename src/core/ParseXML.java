@@ -16,9 +16,25 @@ import org.xml.sax.SAXParseException;
 public class ParseXML {
 	public static String keyboardlayoutname;
 
+	public static final int INSCRIPT_KB = 1;
+	public static final int OTHER_KB = 0;
+	public static int inscriptothers = 0;
+	public static int previousConsonantFlag = 0;
+	public static String currentconsonantflag;
+
 	public native void opChars(int opchar);
 
 	public void getPattern(String pattern) {
+		/*
+		 * This is to set the flag to zero whenever the space key is pressed or
+		 * else the dependent vowel will be printed (For layouts other than
+		 * inscript keyboard layouts)
+		 */
+
+		if (pattern.compareTo(" ") == 0) {
+			previousConsonantFlag = 0;
+		}
+
 		try {
 
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
@@ -72,13 +88,6 @@ public class ParseXML {
 						 * textLNList.item(0)).getNodeValue() .trim());
 						 */
 
-						String ucodeValue = ((Node) textLNList.item(0))
-								.getNodeValue().trim();
-						// @Debug
-						// System.out.println("String unicode is"+ ucodeValue);
-						System.loadLibrary("opChars");
-						int i = Integer.valueOf(ucodeValue, 16).intValue();
-
 						// Delete the echoed characters
 						try {
 							Robot r = new Robot();
@@ -87,10 +96,94 @@ public class ParseXML {
 						} catch (AWTException e) {
 							e.printStackTrace();
 						}
+						// Load the dll for output
+						System.loadLibrary("opChars");
 
-						// Call native method with the unicode
+						if (inscriptothers == 1) {
+							String ucodeValue = ((Node) textLNList.item(0))
+									.getNodeValue().trim();
+							// @Debug
+							// System.out.println("String unicode is"+
+							// ucodeValue);
 
-						opChars(i);
+							// For key presses which have multiple unicodes
+							StringBuilder temp = new StringBuilder(4);
+							int i;
+							if (ucodeValue.length() > 4) {
+								for (int j = 0; j < ucodeValue.length(); j++) {
+									temp.append(ucodeValue.charAt(j));
+									if (temp.length() == 4) {
+										System.out.println(temp.toString());
+										i = Integer
+												.valueOf(temp.toString(), 16)
+												.intValue();
+										opChars(i);
+										temp.delete(0, 4);
+									}
+								}
+							} else {
+								// Call native method with the unicode
+								i = Integer.valueOf(ucodeValue, 16).intValue();
+								opChars(i);
+							}
+						} else {
+							String ucodeValue;
+							NodeList vovelList = firstPatternElement
+									.getElementsByTagName("consonant");
+							Element vovelElement = (Element) vovelList.item(0);
+							NodeList vovelEtext = vovelElement.getChildNodes();
+							currentconsonantflag = ((Node) vovelEtext.item(0))
+									.getNodeValue().trim();
+							System.out.println("Previous Flag:"
+									+ previousConsonantFlag);
+							System.out.println("Flag :"
+									+ ((Node) vovelEtext.item(0))
+											.getNodeValue().trim());
+							// Using the same class instead.
+							// ParseXML.processCode(pattern);
+							if (previousConsonantFlag == 1
+									&& Integer.valueOf(currentconsonantflag) == 0) {
+								// Get the dependant vovel unicode
+								NodeList uniList = firstPatternElement
+										.getElementsByTagName("uni2");
+								Element uniEle = (Element) uniList.item(0);
+								NodeList uniEdepList = uniEle.getChildNodes();
+								ucodeValue = ((Node) uniEdepList.item(0))
+										.getNodeValue().trim();
+							} else {
+								// put as it is
+								ucodeValue = ((Node) textLNList.item(0))
+										.getNodeValue().trim();
+							}
+							// @Debug
+							System.out
+									.println("String unicode is" + ucodeValue);
+
+							// For key presses which have multiple unicodes
+							StringBuilder temp = new StringBuilder(4);
+							int i;
+							if (ucodeValue.length() > 4) {
+								for (int j = 0; j < ucodeValue.length(); j++) {
+									temp.append(ucodeValue.charAt(j));
+									if (temp.length() == 4) {
+										System.out.println(temp.toString());
+										i = Integer
+												.valueOf(temp.toString(), 16)
+												.intValue();
+										opChars(i);
+										temp.delete(0, 4);
+									}
+								}
+
+							} else {
+								// Call native method with the unicode
+								i = Integer.valueOf(ucodeValue, 16).intValue();
+								opChars(i);
+							}
+							previousConsonantFlag = Integer
+									.valueOf(currentconsonantflag);
+
+						}// end of else of if(inscriptothers==1)
 
 						// @Debug
 						// System.out.println("float unicode i"+ i);
@@ -124,6 +217,11 @@ public class ParseXML {
 
 	public static void setlang(String name) {
 		keyboardlayoutname = name;
+		if (keyboardlayoutname.contains("inscript") == true)
+			inscriptothers = INSCRIPT_KB;
+		else
+			inscriptothers = OTHER_KB;
+
 	}
 
 }
