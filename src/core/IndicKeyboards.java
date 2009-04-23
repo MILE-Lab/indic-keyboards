@@ -207,17 +207,79 @@ public class IndicKeyboards implements KeyboardEventListener {
 					}
 				}
 			} else {
+				
+				int tempKeyCode = 0;
 				if (PhoneticParseXML.PhoneticFlag == 0) {
 					ParseXML test = new ParseXML();
-					inputChar = new Character((char) event.getVirtualKeyCode())
-							.toString().toLowerCase();
+
+					if (event.getVirtualKeyCode() >= 65
+							&& event.getVirtualKeyCode() <= 90) {
+						inputChar = new Character((char) event
+								.getVirtualKeyCode()).toString().toLowerCase();
+					} else {
+						
+						switch (event.getVirtualKeyCode()) {
+
+						case 222:
+							tempKeyCode = 39;
+							break;
+
+						case 188:
+							tempKeyCode = 44;
+							break;
+
+						case 190:
+							tempKeyCode = 46;
+							break;
+
+						case 191:
+							tempKeyCode = 47;
+							break;
+
+						case 219:
+							tempKeyCode = 91;
+							break;
+
+						case 221:
+							tempKeyCode = 93;
+							break;
+
+						case 192:
+							tempKeyCode = 96;
+							break;
+
+						case 189:
+							tempKeyCode = 45;
+							break;
+
+						case 187:
+							tempKeyCode = 61;
+							break;
+
+						case 220:
+							tempKeyCode = 92;
+							break;
+
+						}
+						inputChar = new Character((char) tempKeyCode)
+								.toString();
+					}
+
 					test.getPattern(inputChar);
 					System.out.println("Key Pressed: "
 							+ event.getVirtualKeyCode());
 				} else {
 					PhoneticParseXML test1 = new PhoneticParseXML();
-					inputChar = new Character((char) event.getVirtualKeyCode())
-							.toString().toLowerCase();
+					
+					if (event.getVirtualKeyCode() >= 65
+							&& event.getVirtualKeyCode() <= 90) {
+						inputChar = new Character((char) event
+								.getVirtualKeyCode()).toString().toLowerCase();
+					}
+					else{
+					inputChar = new Character((char) tempKeyCode)
+							.toString();
+					}
 					test1.getPhoneticPattern(inputChar);
 					System.out.println("Key Pressed: "
 							+ event.getVirtualKeyCode());

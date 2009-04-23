@@ -1,8 +1,8 @@
 package core;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
+//import java.awt.AWTException;
+//import java.awt.Robot;
+//import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -19,7 +19,7 @@ public class ParseXML {
 	public static final int INSCRIPT_KB = 1;
 	public static final int OTHER_KB = 0;
 	public static int inscriptothers = 0;
-	public static int previousConsonantFlaglog=0;
+	public static int previousConsonantFlaglog = 0;
 	public static int previousConsonantFlag = 0;
 	public static String currentconsonantflag;
 
@@ -31,8 +31,7 @@ public class ParseXML {
 		 * else the dependent vowel will be printed (For layouts other than
 		 * inscript keyboard layouts)
 		 */
-		
-		
+
 		if (pattern.compareTo(" ") == 0) {
 			previousConsonantFlag = 0;
 		}
@@ -93,14 +92,6 @@ public class ParseXML {
 						 * textLNList.item(0)).getNodeValue() .trim());
 						 */
 
-						// Delete the echoed characters
-						try {
-							Robot r = new Robot();
-							r.keyPress(KeyEvent.VK_BACK_SPACE);
-							r.keyRelease(KeyEvent.VK_BACK_SPACE);
-						} catch (AWTException e) {
-							e.printStackTrace();
-						}
 						// Load the dll for output
 						System.loadLibrary("opChars");
 
@@ -110,6 +101,9 @@ public class ParseXML {
 							// @Debug
 							// System.out.println("String unicode is"+
 							// ucodeValue);
+
+							// delete echoed chars
+							PhoneticParseXML.putbkspace();
 
 							// For key presses which have multiple unicodes
 							StringBuilder temp = new StringBuilder(4);
@@ -133,6 +127,7 @@ public class ParseXML {
 							}
 						} else {
 							String ucodeValue;
+							PhoneticParseXML.putbkspace();
 							NodeList vovelList = firstPatternElement
 									.getElementsByTagName("consonant");
 							Element vovelElement = (Element) vovelList.item(0);
@@ -185,7 +180,7 @@ public class ParseXML {
 								i = Integer.valueOf(ucodeValue, 16).intValue();
 								opChars(i);
 							}
-							previousConsonantFlaglog=previousConsonantFlag;
+							previousConsonantFlaglog = previousConsonantFlag;
 							previousConsonantFlag = Integer
 									.valueOf(currentconsonantflag);
 
@@ -229,7 +224,8 @@ public class ParseXML {
 			inscriptothers = OTHER_KB;
 
 	}
-	public void loadopcharsDLL(){
+
+	public void loadopcharsDLL() {
 		System.loadLibrary("opChars");
 
 	}
