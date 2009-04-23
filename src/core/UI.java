@@ -38,14 +38,15 @@ public class UI {
 	// Creating the main display.Since SWT 3.1, support for multiple
 	// displays has been
 	// discontinued. SO at a time, only one active display can exist.
-	
+
 	static Image image;
-	
+
 	public static Shell shell1 = new Shell(Display.getCurrent());
-	public static ToolTip tip = new ToolTip(shell1, SWT.BALLOON | SWT.ICON_INFORMATION);
-	
+	public static ToolTip tip = new ToolTip(shell1, SWT.BALLOON
+			| SWT.ICON_INFORMATION);
+
 	public UI() {
-		
+
 		// the image path. The image File must be in the same directory/package
 		// as that of the source file
 		final Display display = Display.getCurrent();
@@ -57,21 +58,21 @@ public class UI {
 		final Tray tray = display.getSystemTray();
 		System.out.println("No. of tray Items : " + tray.getItemCount());
 		tip.setMessage("Right click the tray icon to get going.");
-		
+
 		if (tray == null) {
 			System.err.println("The system tray is not available");
 			tip.setText("Notification from anywhere");
-		    tip.setLocation(400, 400);
+			tip.setLocation(400, 400);
 		} else {
 			final TrayItem item = new TrayItem(tray, SWT.NONE);
 			item.setImage(image);
-			item.setToolTipText("indic-keyboards\nDouble click to visit homepage");
-			
+			item
+					.setToolTipText("indic-keyboards\nDouble click to visit homepage");
+
 			tip.setText("indic-keyboards");
 			item.setToolTip(tip);
 			tip.setVisible(true);
-			
-			
+
 			/* DefaultSelection is Double-click */
 			item.addListener(SWT.DefaultSelection, new Listener() {
 
@@ -139,20 +140,33 @@ public class UI {
 
 							mi.setSelection(false);
 							{
-								/*String qk = filename.substring(0, filename
-										.length() - 4);
+								/*
+								 * String qk = filename.substring(0, filename
+								 * .length() - 4);
+								 * 
+								 * Shell sh = new Shell(display);
+								 * sh.setImage(image); MessageBox messageBox =
+								 * new MessageBox(sh, SWT.OK |
+								 * SWT.ICON_INFORMATION);
+								 * messageBox.setText("Language Selection");
+								 * messageBox .setMessage("You have selected " +
+								 * qk); messageBox.open(); sh.dispose();
+								 */
+								tip.setMessage(filename.substring(0, filename
+										.length() - 4));
+								tip.setVisible(true);
 
-								Shell sh = new Shell(display);
-								sh.setImage(image);
-								MessageBox messageBox = new MessageBox(sh,
-										SWT.OK | SWT.ICON_INFORMATION);
-								messageBox.setText("Language Selection");
-								messageBox
-										.setMessage("You have selected " + qk);
-								messageBox.open();
-								sh.dispose();*/
-								
+								Image image1 = new Image(display,
+										IndicKeyboards.class
+												.getResourceAsStream("UD.ico"));
+								item.setImage(image1);
+								item
+										.setToolTipText("indic-keyboards - User Defined - "
+												+ filename.substring(0,
+														filename.length() - 4));
 								ParseXML.setlang("userdefined/" + filename);
+								PhoneticParseXML.PhoneticFlag = 0;
+
 							}
 						}
 					});
@@ -169,7 +183,10 @@ public class UI {
 			final MenuItem kgp = new MenuItem(submenu_kan, SWT.PUSH);
 			kgp.setText("KaGaPa");
 			final MenuItem kanInscript = new MenuItem(submenu_kan, SWT.PUSH);
-			kanInscript.setText("Kannada Inscript");
+			kanInscript.setText("Inscript");
+			new MenuItem(submenu_kan, SWT.SEPARATOR);
+			final MenuItem kanPhonetic = new MenuItem(submenu_kan, SWT.PUSH);
+			kanPhonetic.setText("Phonetic");
 
 			final MenuItem gujarati = new MenuItem(menu, SWT.CASCADE);
 			gujarati.setText("Gujarati");
@@ -178,25 +195,25 @@ public class UI {
 			final MenuItem gujLay = new MenuItem(submenu_guj, SWT.PUSH);
 			gujLay.setText("Gujarati Layout");
 			final MenuItem gujInscript = new MenuItem(submenu_guj, SWT.PUSH);
-			gujInscript.setText("Gujarati Inscript");
+			gujInscript.setText("Inscript");
 
 			final MenuItem marathi = new MenuItem(menu, SWT.CASCADE);
 			marathi.setText("Marathi");
 			final Menu submenu_mar = new Menu(shell, SWT.DROP_DOWN);
 			marathi.setMenu(submenu_mar);
 			final MenuItem marLay = new MenuItem(submenu_mar, SWT.PUSH);
-			marLay.setText("Marathi Layout");
+			marLay.setText("Remington");
 			final MenuItem marInscript = new MenuItem(submenu_mar, SWT.PUSH);
-			marInscript.setText("Marathi Inscript");
+			marInscript.setText("Inscript");
 
 			final MenuItem hindi = new MenuItem(menu, SWT.CASCADE);
 			hindi.setText("Hindi");
 			final Menu submenu_hin = new Menu(shell, SWT.DROP_DOWN);
 			hindi.setMenu(submenu_hin);
 			final MenuItem hinLay = new MenuItem(submenu_hin, SWT.PUSH);
-			hinLay.setText("Hindi Layout");
+			hinLay.setText("Remington");
 			final MenuItem hinInscript = new MenuItem(submenu_hin, SWT.PUSH);
-			hinInscript.setText("Hindi Inscript");
+			hinInscript.setText("Inscript");
 
 			final MenuItem tamil = new MenuItem(menu, SWT.CASCADE);
 			tamil.setText("Tamil");
@@ -205,7 +222,9 @@ public class UI {
 			final MenuItem tamil99 = new MenuItem(submenu_tam, SWT.PUSH);
 			tamil99.setText("Tamilnet99");
 			final MenuItem tamInscript = new MenuItem(submenu_tam, SWT.PUSH);
-			tamInscript.setText("Tamil Inscript");
+			tamInscript.setText("Inscript");
+			final MenuItem tamRemington = new MenuItem(submenu_tam, SWT.PUSH);
+			tamRemington.setText("Remington");
 
 			final MenuItem telugu = new MenuItem(menu, SWT.CASCADE);
 			telugu.setText("Telugu");
@@ -214,19 +233,38 @@ public class UI {
 			final MenuItem telLay = new MenuItem(submenu_tel, SWT.PUSH);
 			telLay.setText("Telugu Layout");
 			final MenuItem telInscript = new MenuItem(submenu_tel, SWT.PUSH);
-			telInscript.setText("Telugu Inscript");
+			telInscript.setText("Inscript");
 
 			new MenuItem(menu, SWT.SEPARATOR);
 			final MenuItem addLayouts = new MenuItem(menu, SWT.CASCADE);
 			addLayouts.setText("Add New Layouts");
 			final Menu submenu_newLay = new Menu(shell, SWT.DROP_DOWN);
 			addLayouts.setMenu(submenu_newLay);
-			
+
 			final MenuItem XMLCreateIns = new MenuItem(submenu_newLay, SWT.PUSH);
 			XMLCreateIns.setText("Add Inscript Layout");
 
 			final MenuItem XMLCreateOth = new MenuItem(submenu_newLay, SWT.PUSH);
 			XMLCreateOth.setText("Add Other Layout");
+
+			new MenuItem(menu, SWT.SEPARATOR);
+			final MenuItem enableDisable = new MenuItem(menu, SWT.PUSH);
+			enableDisable.setText("Enable/Disable [F12]");
+			enableDisable.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+					IndicKeyboards.enable = ! IndicKeyboards.enable;
+					
+					if(IndicKeyboards.enable){
+						tip.setMessage("Enabled");
+						tip.setVisible(true);
+					}
+					else{
+						tip.setMessage("Disabled");
+						tip.setVisible(true);
+					}
+				}
+			});
 
 			new MenuItem(menu, SWT.SEPARATOR);
 
@@ -290,6 +328,21 @@ public class UI {
 							sh.dispose();
 						}
 					}
+				}
+			});
+
+			// Listner for Enable/Disable
+			enableDisable.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+
+					// This is to enable and disable the software using the
+					// menu.
+					/*
+					 * if(IndicKeyboards.enable==true)
+					 * IndicKeyboards.enable=false; else
+					 * IndicKeyboards.enable=true;
+					 */
 				}
 			});
 
@@ -378,18 +431,19 @@ public class UI {
 						{
 							// String qk = s.substring(25, 31);
 
-							/*Shell sh = new Shell(display);
-							sh.setImage(image);
-							MessageBox messageBox = new MessageBox(sh, SWT.OK
-									| SWT.ICON_INFORMATION);
-							messageBox.setText("Language Selection");
-							messageBox
-									.setMessage("You have selected Kannada - KaGaPa");
-							messageBox.open();
-							sh.dispose();*/
+							/*
+							 * Shell sh = new Shell(display);
+							 * sh.setImage(image); MessageBox messageBox = new
+							 * MessageBox(sh, SWT.OK | SWT.ICON_INFORMATION);
+							 * messageBox.setText("Language Selection");
+							 * messageBox
+							 * .setMessage("You have selected Kannada - KaGaPa"
+							 * ); messageBox.open(); sh.dispose();
+							 */
 							tip.setMessage("KaGaPa");
 							tip.setVisible(true);
 							ParseXML.setlang("kan_kagapa.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -411,19 +465,20 @@ public class UI {
 						{
 							// String qk = s.substring(25, 43);
 
-							/*Shell sh = new Shell(display);
-							sh.setImage(image);
-							MessageBox messageBox = new MessageBox(sh, SWT.OK
-									| SWT.ICON_INFORMATION);
-							messageBox.setText("Language Selection");
-
-							messageBox
-									.setMessage("You have selected Kannada Inscript");
-							messageBox.open();
-							sh.dispose();*/
+							/*
+							 * Shell sh = new Shell(display);
+							 * sh.setImage(image); MessageBox messageBox = new
+							 * MessageBox(sh, SWT.OK | SWT.ICON_INFORMATION);
+							 * messageBox.setText("Language Selection");
+							 * 
+							 * messageBox
+							 * .setMessage("You have selected Kannada Inscript"
+							 * ); messageBox.open(); sh.dispose();
+							 */
 							tip.setMessage("Kannada Inscript");
 							tip.setVisible(true);
 							ParseXML.setlang("kan_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -435,6 +490,39 @@ public class UI {
 					}
 				});
 
+				kanPhonetic.addListener(SWT.Selection, new Listener() {
+
+					public void handleEvent(Event event) {
+						// String s = event.toString();
+						// String q=s.substring(28, 35);
+
+						kanPhonetic.setSelection(false);
+						{
+							// String qk = s.substring(25, 43);
+
+							/*
+							 * Shell sh = new Shell(display);
+							 * sh.setImage(image); MessageBox messageBox = new
+							 * MessageBox(sh, SWT.OK | SWT.ICON_INFORMATION);
+							 * messageBox.setText("Language Selection");
+							 * 
+							 * messageBox
+							 * .setMessage("You have selected Kannada Inscript"
+							 * ); messageBox.open(); sh.dispose();
+							 */
+							tip.setMessage("Kannada Phonetic");
+							tip.setVisible(true);
+							PhoneticParseXML.setlang("kan_phonetic.xml");
+							PhoneticParseXML.PhoneticFlag = 1;
+							Image image1 = new Image(display,
+									IndicKeyboards.class
+											.getResourceAsStream("kan.ico"));
+							item.setImage(image1);
+							item
+									.setToolTipText("indic-keyboards - KANNADA Phonetic");
+						}
+					}
+				});
 			}// End of kannada section
 
 			// All the tamil layouts go here
@@ -449,20 +537,22 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1
-									.setMessage("You have selected Tamil - Tamilnet99");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1
+							 * .setMessage("You have selected Tamil - Tamilnet99"
+							 * ); mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Tamilnet99");
 							tip.setVisible(true);
 							ParseXML.setlang("tamilnet99.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -475,6 +565,43 @@ public class UI {
 					}
 				});
 
+				tamRemington.addListener(SWT.Selection, new Listener() {
+
+					public void handleEvent(Event event) {
+						// String s = event.toString();
+						// String q=s.substring(28, 35);
+
+						tamRemington.setSelection(false);
+						{
+							// String qt = s.substring(25, 35);
+
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1
+							 * .setMessage("You have selected Tamil - Tamilnet99"
+							 * ); mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
+							tip.setMessage("Tamil Remington");
+							tip.setVisible(true);
+							ParseXML.setlang("tam_remington_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
+
+							Image image1 = new Image(display,
+									IndicKeyboards.class
+											.getResourceAsStream("tamil.ico"));
+							item.setImage(image1);
+							item
+									.setToolTipText("indic-keyboards - TAMIL Remington");
+						}
+
+					}
+				});
 				tamInscript.addListener(SWT.Selection, new Listener() {
 
 					public void handleEvent(Event event) {
@@ -485,20 +612,22 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1
-									.setMessage("You have selected Tamil Inscript");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1
+							 * .setMessage("You have selected Tamil Inscript");
+							 * mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Tamil Inscript");
 							tip.setVisible(true);
 							ParseXML.setlang("tam_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -525,19 +654,23 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1.setMessage("You have selected Telugu Layout");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * 
+							 * 
+							 * mBox1.setMessage("You have selected Telugu Layout"
+							 * ); mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Telugu Layout");
 							tip.setVisible(true);
 							ParseXML.setlang("tel_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -548,7 +681,7 @@ public class UI {
 
 					}
 				});
-
+				// All telugu layouts go here.
 				telInscript.addListener(SWT.Selection, new Listener() {
 
 					public void handleEvent(Event event) {
@@ -559,20 +692,22 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1
-									.setMessage("You have selected Telugu Inscript");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1
+							 * .setMessage("You have selected Telugu Inscript");
+							 * mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Telugu Inscript");
 							tip.setVisible(true);
 							ParseXML.setlang("tel_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -599,19 +734,21 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1.setMessage("You have selected Gujrati");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1.setMessage("You have selected Gujrati");
+							 * mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Gujrathi Layout");
 							tip.setVisible(true);
 							ParseXML.setlang("guj_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -634,20 +771,22 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1
-									.setMessage("You have selected Gujrati Inscript");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1
+							 * .setMessage("You have selected Gujrati Inscript"
+							 * ); mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Gujrathi Inscript");
 							tip.setVisible(true);
 							ParseXML.setlang("guj_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -675,19 +814,21 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1.setMessage("You have selected Hindi");
-							mBox1.open();
-
-							sh1.dispose();*/
-							tip.setMessage("Hindi Layout");
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1.setMessage("You have selected Hindi");
+							 * mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
+							tip.setMessage("Hindi Remington");
 							tip.setVisible(true);
-							ParseXML.setlang("hin_inscript.xml");
+							ParseXML.setlang("hin_remington_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -710,22 +851,24 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1
-									.setMessage("You have selected Hindi Inscript");
-							mBox1.open();
-
-							
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1
+							 * .setMessage("You have selected Hindi Inscript");
+							 * mBox1.open();
+							 * 
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Hindi Inscript");
 							tip.setVisible(true);
-							
+
 							ParseXML.setlang("hin_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -753,19 +896,21 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1.setMessage("You have selected Marathi");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1.setMessage("You have selected Marathi");
+							 * mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Marathi Layout");
 							tip.setVisible(true);
 							ParseXML.setlang("mar_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -787,20 +932,22 @@ public class UI {
 						{
 							// String qt = s.substring(25, 35);
 
-							/*Shell sh1 = new Shell(display);
-							sh1.setImage(image);
-							MessageBox mBox1 = new MessageBox(sh1, SWT.OK
-									| SWT.ICON_INFORMATION);
-							mBox1.setText("Language Selection");
-
-							mBox1
-									.setMessage("You have selected Marathi Inscript");
-							mBox1.open();
-
-							sh1.dispose();*/
+							/*
+							 * Shell sh1 = new Shell(display);
+							 * sh1.setImage(image); MessageBox mBox1 = new
+							 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+							 * mBox1.setText("Language Selection");
+							 * 
+							 * mBox1
+							 * .setMessage("You have selected Marathi Inscript"
+							 * ); mBox1.open();
+							 * 
+							 * sh1.dispose();
+							 */
 							tip.setMessage("Marathi Inscript");
 							tip.setVisible(true);
 							ParseXML.setlang("mar_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
 
 							Image image1 = new Image(display,
 									IndicKeyboards.class
@@ -872,14 +1019,14 @@ public class UI {
 					menu.setVisible(true);
 				}
 			});
-			
+
 			item.addListener(SWT.Selection, new Listener() {
 
 				public void handleEvent(Event event) {
 					tip.setVisible(true);
 				}
 			});
-			
+
 		}// end of else
 
 		while (!shell.isDisposed()) {
@@ -890,7 +1037,6 @@ public class UI {
 		image.dispose();
 		shell.dispose();
 		display.dispose();
-		
 
 	}
 }

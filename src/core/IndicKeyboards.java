@@ -37,7 +37,7 @@ public class IndicKeyboards implements KeyboardEventListener {
 
 	private Boolean flag = false;
 	private long withShiftPressed = 48;
-	private Boolean enable = false;
+	public static Boolean enable = false;
 
 	public static void main(String[] args) throws FileNotFoundException {
 
@@ -46,26 +46,6 @@ public class IndicKeyboards implements KeyboardEventListener {
 		kh.addEventListener(new IndicKeyboards());
 
 		System.out.println("Press F12 to enable key logging");
-
-		/*
-		 * This is to keep the key monitor in an infite loop BufferedReader br =
-		 * new BufferedReader(new InputStreamReader(System.in)); try {
-		 * br.readLine(); } catch (IOException ex) { }
-		 */
-
-		/*
-		 * Creating an instance of the SplashScreenMain class for the Splash
-		 * screen.The constructor takes in the number of milliseconds splash
-		 * screen will be active.
-		 */
-		/*
-		 * final SplashScreenMain splash = new SplashScreenMain(3000);
-		 * splash.SplashScreenShow();
-		 * 
-		 * The method has been modified to deal with the milliseconds in the
-		 * file SplashScreen.java itself
-		 */
-
 		SplashScreen s = new SplashScreen();
 		s.screen();
 		@SuppressWarnings("unused")
@@ -75,6 +55,8 @@ public class IndicKeyboards implements KeyboardEventListener {
 
 	// Methods to monitor global key presses
 	public void GlobalKeyPressed(KeyboardEvent event) {
+
+		String inputChar;
 
 		if (event.getVirtualKeyCode() == 123) {
 			enable = !enable;
@@ -90,6 +72,7 @@ public class IndicKeyboards implements KeyboardEventListener {
 		if (enable) {
 			if ((event.getVirtualKeyCode() == 16)
 					&& (event.getTransitionState())) {
+				// Flag shift press
 				flag = true;
 			}
 			if (flag) {
@@ -105,83 +88,140 @@ public class IndicKeyboards implements KeyboardEventListener {
 				else {
 					switch (event.getVirtualKeyCode()) {
 
+					case 186:
+						withShiftPressed = 58;
+						break;
+
+					case 188:
+						withShiftPressed = 60;
+						break;
+
+					case 190:
+						withShiftPressed = 62;
+						break;
+
+					case 191:
+						withShiftPressed = 63;
+						break;
+
+					case 192:
+						withShiftPressed = 126;
+						break;
+
+					case 222:
+						withShiftPressed = 34;
+						break;
+
+					case 221:
+						withShiftPressed = 125;
+						break;
+
+					case 219:
+						withShiftPressed = 123;
+						break;
+
+					case 189:
+						withShiftPressed = 95;
+						break;
+
+					case 187:
+						withShiftPressed = 43;
+						break;
+
+					case 220:
+						withShiftPressed = 124;
+						break;
+
+					// shift plus numbers
 					case 48:
-						withShiftPressed = event.getVirtualKeyCode() - 7;
+						withShiftPressed = 41;
 						break;
-
-					case 50:
-						withShiftPressed = event.getVirtualKeyCode() + 14;
-						break;
-
-					case 54:
-						withShiftPressed = event.getVirtualKeyCode() + 40;
-						break;
-
-					case 57:
-					case 55:
-						withShiftPressed = event.getVirtualKeyCode() - 17;
-						break;
-
-					case 56:
-						withShiftPressed = event.getVirtualKeyCode() - 14;
-						break;
-
 					case 49:
+						withShiftPressed = 33;
+						break;
+					case 50:
+						withShiftPressed = 64;
+						break;
 					case 51:
+						withShiftPressed = 35;
+						break;
 					case 52:
+						withShiftPressed = 36;
+						break;
 					case 53:
-						withShiftPressed = event.getVirtualKeyCode() - 16;
+						withShiftPressed = 37;
+						break;
+					case 54:
+						withShiftPressed = 94;
+						break;
+					case 55:
+						withShiftPressed = 38;
+						break;
+					case 56:
+						withShiftPressed = 42;
+						break;
+					case 57:
+						withShiftPressed = 40;
 						break;
 
-					case 59:
-						withShiftPressed = event.getVirtualKeyCode() - 1;
-						break;
-
-					case 44:
-					case 46:
-					case 47:
-						withShiftPressed = event.getVirtualKeyCode() + 16;
-						break;
-
-					case 45:
-						withShiftPressed = event.getVirtualKeyCode() + 50;
-						break;
-
-					case 39:
-						withShiftPressed = event.getVirtualKeyCode() - 5;
-						break;
-
-					case 61:
-						withShiftPressed = event.getVirtualKeyCode() - 18;
-						break;
-
-					case 91:
-					case 92:
-					case 93:
-						withShiftPressed = event.getVirtualKeyCode() + 32;
-						break;
-
-					case 96:
-						withShiftPressed = event.getVirtualKeyCode() + 30;
-						break;
 					}
 				}
 				if (withShiftPressed == 48 || withShiftPressed == 16) {
 					// do not print shift while it is pressed
 				} else {
-					ParseXML test = new ParseXML();
-					String inputChar = new Character((char) event
-							.getVirtualKeyCode()).toString().toUpperCase();
-					test.getPattern(inputChar);
-					System.out.println("Key Pressed with shift: "
-							+ withShiftPressed);
+					if (PhoneticParseXML.PhoneticFlag == 0) {
+						ParseXML test = new ParseXML();
+
+						/*
+						 * If the key pressed is a character, send uppercase
+						 * chars else the keycode which is stored in
+						 * withShiftPressed variable is sent to the parser
+						 */
+						if (withShiftPressed >= 97 && withShiftPressed <= 122) {
+							inputChar = new Character((char) withShiftPressed)
+									.toString().toUpperCase();
+						} else {
+							inputChar = new Character((char) withShiftPressed)
+									.toString();
+						}
+						test.getPattern(inputChar);
+						System.out.println("Key Pressed with shift: "
+								+ withShiftPressed);
+
+						/*
+						 * The following code is in case the option chosen is
+						 * phonetic No manipulations required.
+						 */
+					} else {
+						PhoneticParseXML test1 = new PhoneticParseXML();
+						if (withShiftPressed >= 97 && withShiftPressed <= 122) {
+							inputChar = new Character((char) withShiftPressed)
+									.toString().toUpperCase();
+						} else {
+							inputChar = new Character((char) withShiftPressed)
+									.toString();
+						}
+						test1.getPhoneticPattern(inputChar);
+						System.out.println("Key Pressed with shift: "
+								+ withShiftPressed);
+					}
 				}
 			} else {
-				ParseXML test = new ParseXML();
-				String inputChar = new Character((char) event
-						.getVirtualKeyCode()).toString().toLowerCase();
-				test.getPattern(inputChar);
-				System.out.println("Key Pressed: " + event.getVirtualKeyCode());
+				if (PhoneticParseXML.PhoneticFlag == 0) {
+					ParseXML test = new ParseXML();
+					inputChar = new Character((char) event.getVirtualKeyCode())
+							.toString().toLowerCase();
+					test.getPattern(inputChar);
+					System.out.println("Key Pressed: "
+							+ event.getVirtualKeyCode());
+				} else {
+					PhoneticParseXML test1 = new PhoneticParseXML();
+					inputChar = new Character((char) event.getVirtualKeyCode())
+							.toString().toLowerCase();
+					test1.getPhoneticPattern(inputChar);
+					System.out.println("Key Pressed: "
+							+ event.getVirtualKeyCode());
+				}
 			}
 		}
 	}

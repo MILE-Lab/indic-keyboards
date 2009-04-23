@@ -19,6 +19,7 @@ public class ParseXML {
 	public static final int INSCRIPT_KB = 1;
 	public static final int OTHER_KB = 0;
 	public static int inscriptothers = 0;
+	public static int previousConsonantFlaglog=0;
 	public static int previousConsonantFlag = 0;
 	public static String currentconsonantflag;
 
@@ -30,9 +31,13 @@ public class ParseXML {
 		 * else the dependent vowel will be printed (For layouts other than
 		 * inscript keyboard layouts)
 		 */
-
+		
+		
 		if (pattern.compareTo(" ") == 0) {
 			previousConsonantFlag = 0;
+		}
+		if (pattern.compareTo("\b") == 0) {
+			previousConsonantFlag = previousConsonantFlaglog;
 		}
 
 		try {
@@ -180,6 +185,7 @@ public class ParseXML {
 								i = Integer.valueOf(ucodeValue, 16).intValue();
 								opChars(i);
 							}
+							previousConsonantFlaglog=previousConsonantFlag;
 							previousConsonantFlag = Integer
 									.valueOf(currentconsonantflag);
 
@@ -221,6 +227,10 @@ public class ParseXML {
 			inscriptothers = INSCRIPT_KB;
 		else
 			inscriptothers = OTHER_KB;
+
+	}
+	public void loadopcharsDLL(){
+		System.loadLibrary("opChars");
 
 	}
 
