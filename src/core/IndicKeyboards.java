@@ -1,8 +1,8 @@
 /** ********************************************************************
  * File:           IndicKeyboards.java 
- * Description:    UI for the Common Keyboard Interface
+ * Description:    The File with all the initializations
  * Authors:        Akshay,Abhinava,Revati,Arun 
- * Created:        Mon Oct 20 19:31:25 GMT 2008
+ * Created:        Thu Mar 26 20:01:25 IST 2009
  *
  * (C) Copyright 2008, MILE Lab, IISc
  ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -76,6 +76,12 @@ public class IndicKeyboards implements KeyboardEventListener {
 				flag = true;
 			}
 			if (flag) {
+				// Flag of PhoneticParseXML.previousConsonantFlag=0;
+				if (event.getVirtualKeyCode() == 13) {
+					PhoneticParseXML.previousConsonantFlag = 0;
+
+				}
+
 				withShiftPressed = event.getVirtualKeyCode();
 
 				/**
@@ -207,18 +213,25 @@ public class IndicKeyboards implements KeyboardEventListener {
 					}
 				}
 			} else {
-				
+				// Added flag reset in PhoneticParseXML
+				if (event.getVirtualKeyCode() == 13) {
+					PhoneticParseXML.previousConsonantFlag = 0;
+
+				}
 				int tempKeyCode = 0;
 				if (PhoneticParseXML.PhoneticFlag == 0) {
 					ParseXML test = new ParseXML();
 
-					if (event.getVirtualKeyCode() >= 65
-							&& event.getVirtualKeyCode() <= 90) {
+					if (event.getVirtualKeyCode() <= 185) {
 						inputChar = new Character((char) event
 								.getVirtualKeyCode()).toString().toLowerCase();
 					} else {
-						
+
 						switch (event.getVirtualKeyCode()) {
+
+						case 186:
+							tempKeyCode = 59;
+							break;
 
 						case 222:
 							tempKeyCode = 39;
@@ -270,16 +283,8 @@ public class IndicKeyboards implements KeyboardEventListener {
 							+ event.getVirtualKeyCode());
 				} else {
 					PhoneticParseXML test1 = new PhoneticParseXML();
-					
-					if (event.getVirtualKeyCode() >= 65
-							&& event.getVirtualKeyCode() <= 90) {
-						inputChar = new Character((char) event
-								.getVirtualKeyCode()).toString().toLowerCase();
-					}
-					else{
-					inputChar = new Character((char) tempKeyCode)
-							.toString();
-					}
+					inputChar = new Character((char) event.getVirtualKeyCode())
+							.toString().toLowerCase();
 					test1.getPhoneticPattern(inputChar);
 					System.out.println("Key Pressed: "
 							+ event.getVirtualKeyCode());

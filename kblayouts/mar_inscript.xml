@@ -28,16 +28,32 @@
 </char><unicode>096B</unicode>
 </pattern>
 
+<pattern><char>%
+</char><unicode>0917094D091E</unicode>
+</pattern>
+
 <pattern><char>6
 </char><unicode>096C</unicode>
+</pattern>
+
+<pattern><char>^
+</char><unicode>0924094D0930</unicode>
 </pattern>
 
 <pattern><char>7
 </char><unicode>096D</unicode>
 </pattern>
 
+<pattern><char>&amp;
+</char><unicode>0915094D0937</unicode>
+</pattern>
+
 <pattern><char>8
 </char><unicode>096E</unicode>
+</pattern>
+
+<pattern><char>*
+</char><unicode>0936094D0930</unicode>
 </pattern>
 
 <pattern><char>9
@@ -184,7 +200,7 @@
 </pattern>
 
 <pattern><char>d
-</char><unicode>0943</unicode>
+</char><unicode>094D</unicode>
 </pattern>
 
 <pattern><char>F

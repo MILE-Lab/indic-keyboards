@@ -1,417 +1,417 @@
-<kan_phonetic>
+<tel_phonetic>
 <pattern>
 <char>a</char>
-<unicode>0C85</unicode>
+<unicode>0C05</unicode>
 <consonant>0</consonant>
-<uni2>0C85</uni2>
+<uni2>0C05</uni2>
 </pattern>
 
 <pattern>
 <char>th</char>
-<unicode>0CA4</unicode>
+<unicode>0C24</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Th</char>
-<unicode>0CA5</unicode>
+<unicode>0C25</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>A</char>
-<unicode>0C86</unicode>
+<unicode>0C06</unicode>
 <consonant>0</consonant>
-<uni2>0CBE</uni2>
+<uni2>0C3E</uni2>
 </pattern>
 
 <pattern>
 <char>s</char>
-<unicode>0CB8</unicode>
+<unicode>0C38</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>S</char>
-<unicode>0CB6</unicode>
+<unicode>0C36</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>sh</char>
-<unicode>0CB6</unicode>
+<unicode>0C36</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Sh</char>
-<unicode>0CB7</unicode>
+<unicode>0C37</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>d</char>
-<unicode>0CA1</unicode>
+<unicode>0C21</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>D</char>
-<unicode>0CA2</unicode>
+<unicode>0C22</unicode>
 <consonant>1</consonant>
 </pattern>
 
 
 <pattern>
 <char>dh</char>
-<unicode>0CA6</unicode>
+<unicode>0C26</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Dh</char>
-<unicode>0CA7</unicode>
+<unicode>0C27</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>f</char>
-<unicode>0CAB</unicode>
+<unicode>0C2B</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>F</char>
-<unicode>0CCD</unicode>
+<unicode>0C4D</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>g</char>
-<unicode>0C97</unicode>
+<unicode>0C17</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>G</char>
-<unicode>0C98</unicode>
+<unicode>0C18</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>h</char>
-<unicode>0CB9</unicode>
+<unicode>0C39</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>H</char>
-<unicode>0C83</unicode>
+<unicode>0C03</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>j</char>
-<unicode>0C9C</unicode>
+<unicode>0C1C</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>J</char>
-<unicode>0C9D</unicode>
+<unicode>0C1D</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>k</char>
-<unicode>0C95</unicode>
+<unicode>0C15</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>K</char>
-<unicode>0C96</unicode>
+<unicode>0C16</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>l</char>
-<unicode>0CB2</unicode>
+<unicode>0C32</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>L</char>
-<unicode>0CB3</unicode>
+<unicode>0C33</unicode>
 <consonant>1</consonant>
 </pattern>
 <!--
 <pattern>
 <char>q</char>
-<unicode>0C9F</unicode>
+<unicode>0C1F</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Q</char>
-<unicode>0CA0</unicode>
+<unicode>0C20</unicode>
 <consonant>1</consonant>
 </pattern>
 -->
 <pattern>
 <char>w</char>
-<unicode>0CB5</unicode>
+<unicode>0C35</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>e</char>
-<unicode>0C8E</unicode>
+<unicode>0C0E</unicode>
 <consonant>0</consonant>
-<uni2>0CC6</uni2>
+<uni2>0C46</uni2>
 </pattern>
 
 <pattern>
 <char>E</char>
-<unicode>0C8F</unicode>
+<unicode>0C0F</unicode>
 <consonant>0</consonant>
-<uni2>0CC7</uni2>
+<uni2>0C47</uni2>
 </pattern>
 
 <pattern>
 <char>r</char>
-<unicode>0CB0</unicode>
+<unicode>0C30</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>R</char>
-<unicode>0C8B</unicode>
+<unicode>0C0B</unicode>
 <consonant>0</consonant>
-<uni2>0CC3</uni2>
+<uni2>0C43</uni2>
 </pattern>
 
 <pattern>
 <char>t</char>
-<unicode>0C9F</unicode>
+<unicode>0C1F</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>T</char>
-<unicode>0CA0</unicode>
+<unicode>0C20</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>y</char>
-<unicode>0CAF</unicode>
+<unicode>0C2F</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Y</char>
-<unicode>0C90</unicode>
+<unicode>0C10</unicode>
 <consonant>0</consonant>
-<uni2>0CC8</uni2>
+<uni2>0C48</uni2>
 </pattern>
 
 <pattern>
 <char>u</char>
-<unicode>0C89</unicode>
+<unicode>0C09</unicode>
 <consonant>0</consonant>
-<uni2>0CC1</uni2>
+<uni2>0C41</uni2>
 </pattern>
 
 <pattern>
 <char>U</char>
-<unicode>0C8A</unicode>
+<unicode>0C0A</unicode>
 <consonant>0</consonant>
-<uni2>0CC2</uni2>
+<uni2>0C42</uni2>
 </pattern>
 
 <pattern>
 <char>i</char>
-<unicode>0C87</unicode>
+<unicode>0C07</unicode>
 <consonant>0</consonant>
-<uni2>0CBF</uni2>
+<uni2>0C3F</uni2>
 </pattern>
 
 <pattern>
 <char>I</char>
-<unicode>0C88</unicode>
+<unicode>0C08</unicode>
 <consonant>0</consonant>
-<uni2>0CC0</uni2>
+<uni2>0C40</uni2>
 </pattern>
 
 <pattern>
 <char>o</char>
-<unicode>0C92</unicode>
+<unicode>0C12</unicode>
 <consonant>0</consonant>
-<uni2>0CCA</uni2>
+<uni2>0C4A</uni2>
 </pattern>
 
 <pattern>
 <char>O</char>
-<unicode>0C93</unicode>
+<unicode>0C13</unicode>
 <consonant>0</consonant>
-<uni2>0CCB</uni2>
+<uni2>0C4B</uni2>
 </pattern>
 
 <pattern>
 <char>p</char>
-<unicode>0CAA</unicode>
+<unicode>0C2A</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>P</char>
-<unicode>0CAB</unicode>
+<unicode>0C2B</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>z</char>
-<unicode>0C9E</unicode>
+<unicode>0C1E</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Z</char>
-<unicode>0C99</unicode>
+<unicode>0C19</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>x</char>
-<unicode>0CB7</unicode>
+<unicode>0C37</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>X</char>
-<unicode>0C950CCD0CB7</unicode>
+<unicode>0C150C4D0C37</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>c</char>
-<unicode>0C9A</unicode>
+<unicode>0C1A</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>C</char>
-<unicode>0C9B</unicode>
+<unicode>0C1B</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>v</char>
-<unicode>0CB5</unicode>
+<unicode>0C35</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>V</char>
-<unicode>0C94</unicode>
+<unicode>0C14</unicode>
 <consonant>0</consonant>
-<uni2>0CCC</uni2>
+<uni2>0C4C</uni2>
 </pattern>
 
 <pattern>
 <char>b</char>
-<unicode>0CAC</unicode>
+<unicode>0C2C</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>B</char>
-<unicode>0CAD</unicode>
+<unicode>0C2D</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>n</char>
-<unicode>0CA8</unicode>
+<unicode>0C28</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>N</char>
-<unicode>0CA3</unicode>
+<unicode>0C23</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>m</char>
-<unicode>0CAE</unicode>
+<unicode>0C2E</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>M</char>
-<unicode>0C82</unicode>
+<unicode>0C02</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>1</char>
-<unicode>0CE7</unicode>
+<unicode>0C67</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>2</char>
-<unicode>0CE8</unicode>
+<unicode>0C68</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>3</char>
-<unicode>0CE9</unicode>
+<unicode>0C69</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>4</char>
-<unicode>0CEA</unicode>
+<unicode>0C6A</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>5</char>
-<unicode>0CEB</unicode>
+<unicode>0C6B</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>6</char>
-<unicode>0CEC</unicode>
+<unicode>0C6C</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>7</char>
-<unicode>0CED</unicode>
+<unicode>0C6D</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>8</char>
-<unicode>0CEE</unicode>
+<unicode>0C6E</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>9</char>
-<unicode>0CEF</unicode>
+<unicode>0C6F</unicode>
 <consonant>0</consonant>
 </pattern>
 
 <pattern>
 <char>0</char>
-<unicode>0CE6</unicode>
+<unicode>0C66</unicode>
 <consonant>0</consonant>
 </pattern>
 
@@ -420,6 +420,6 @@
 
 <pattern>
 <char>halant</char>
-<unicode>0CCD</unicode>
+<unicode>0C4D</unicode>
 </pattern>
-</kan_phonetic>
+</tel_phonetic>

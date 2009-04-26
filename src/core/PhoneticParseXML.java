@@ -1,3 +1,22 @@
+/** ********************************************************************
+ * File:           ParseXML.java 
+ * Description:    XML parser for Phonetic input 
+ * Authors:        Akshay,Abhinava,Revati,Arun 
+ * Created:        Thu Mar 26 20:01:25 IST 2009
+ *
+ * (C) Copyright 2008, MILE Lab, IISc
+ ** Licensed under the Apache License, Version 2.0 (the "License");
+ ** you may not use this file except in compliance with the License.
+ ** You may obtain a copy of the License at
+ ** http://www.apache.org/licenses/LICENSE-2.0
+ ** Unless required by applicable law or agreed to in writing, software
+ ** distributed under the License is distributed on an "AS IS" BASIS,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ** See the License for the specific language governing permissions and
+ ** limitations under the License.
+ *
+ **********************************************************************/
+
 package core;
 
 import java.awt.AWTException;
@@ -5,9 +24,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import org.w3c.dom.*;
-
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.xml.sax.SAXException;
@@ -25,7 +42,7 @@ public class PhoneticParseXML {
 	public static StringBuilder tmp;
 	public static int aflag = 0;
 
-	public native void opChars(int opchar);
+	// public native void opChars(int opchar);
 
 	public void getPhoneticPattern(String pattern) {
 
@@ -138,42 +155,48 @@ public class PhoneticParseXML {
 							} else {
 
 								if (previousChar.compareTo("t") == 0
-										&& pattern.compareTo("h") == 0) {
+										&& pattern.compareTo("h") == 0
+										&& previousConsonantFlag == 1) {
 									putbkspace();
 									putbkspace();
 									ucodeValue = getunicode("th");
 									// get unicode of th
 								}// end of if(previousChar.compareTo("t")==0
 								if (previousChar.compareTo("T") == 0
-										&& pattern.compareTo("h") == 0) {
+										&& pattern.compareTo("h") == 0
+										&& previousConsonantFlag == 1) {
 									putbkspace();
 									putbkspace();
 									ucodeValue = getunicode("Th");
 									// get unicode of Th
 								}// end of if(previousChar.compareTo("T")==0
 								if (previousChar.compareTo("s") == 0
-										&& pattern.compareTo("h") == 0) {
+										&& pattern.compareTo("h") == 0
+										&& previousConsonantFlag == 1) {
 									putbkspace();
 									putbkspace();
 									ucodeValue = getunicode("sh");
 									// get unicode of sh
 								}// end of if(previousChar.compareTo("s")==0
 								if (previousChar.compareTo("S") == 0
-										&& pattern.compareTo("h") == 0) {
+										&& pattern.compareTo("h") == 0
+										&& previousConsonantFlag == 1) {
 									putbkspace();
 									putbkspace();
 									ucodeValue = getunicode("Sh");
 									// get unicode of Sh
 								}// end of if(previousChar.compareTo("t")==0
 								if (previousChar.compareTo("d") == 0
-										&& pattern.compareTo("h") == 0) {
+										&& pattern.compareTo("h") == 0
+										&& previousConsonantFlag == 1) {
 									putbkspace();
 									putbkspace();
 									ucodeValue = getunicode("dh");
 									// get unicode of dh
 								}// end of if(previousChar.compareTo("t")==0
 								if (previousChar.compareTo("D") == 0
-										&& pattern.compareTo("h") == 0) {
+										&& pattern.compareTo("h") == 0
+										&& previousConsonantFlag == 1) {
 									putbkspace();
 									putbkspace();
 									ucodeValue = getunicode("Dh");

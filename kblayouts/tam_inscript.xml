@@ -45,6 +45,13 @@
 <unicode>0B89</unicode>
 </pattern>
 
+<!--
+<pattern>
+<char>g</char>
+<unicode></unicode>
+</pattern>
+-->
+
 <pattern>
 <char>h</char>
 <unicode>0BAA</unicode>
@@ -114,6 +121,15 @@
 <char>T</char>
 <unicode>0B8A</unicode>
 </pattern>
+
+<!--
+<pattern>
+<char>t</char>
+<unicode></unicode>
+</pattern>
+-->
+
+
 
 <pattern>
 <char>u</char>
@@ -220,14 +236,26 @@
 <unicode>0BEC</unicode>
 </pattern>
 
+
 <pattern>
 <char>7</char>
 <unicode>0BED</unicode>
 </pattern>
 
+
+<pattern>
+<char>&amp;</char>
+<unicode>0B950BCD0BB7</unicode>
+</pattern>
+
 <pattern>
 <char>8</char>
 <unicode>0BEE</unicode>
+</pattern>
+
+<pattern>
+<char>*</char>
+<unicode>0BB70BCD0BB0</unicode>
 </pattern>
 
 <pattern>

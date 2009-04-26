@@ -2,7 +2,7 @@
  * File:           SplashScreen.java 
  * Description:    Creates the Splash Screen for the Common Keyboard Interface
  * Authors:        Akshay,Abhinava,Revati,Arun 
- * Created:        Wed Oct 29 23:31:25 GMT 2008
+ * Created:        Thu Mar 26 20:01:25 IST 2009
  *
  * (C) Copyright 2008, MILE Lab, IISc
  ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,7 +37,8 @@ class SplashScreen {
 		sh.setLayout(new RowLayout(SWT.HORIZONTAL));
 		sh.setBackground(d.getSystemColor(SWT.COLOR_DARK_GRAY));
 
-		Image im = new Image(d, IndicKeyboards.class.getResourceAsStream("splash1.jpg"));
+		Image im = new Image(d, IndicKeyboards.class
+				.getResourceAsStream("splash1.jpg"));
 
 		int width = 455;
 		int height = 115;
