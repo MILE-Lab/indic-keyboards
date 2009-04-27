@@ -20,18 +20,17 @@
 package core;
 
 /**
- *
+ * 
  * @author Abhinav
  */
 public class KeyMonitor implements Runnable {
 
-    public void run()
-    {
-            System.out.println(Thread.currentThread().getName());
-            KeyMonitorMethods k = new KeyMonitorMethods();
-            k.identifyKB();
-            k.grabKB();
+	public void run() {
+		System.out.println(Thread.currentThread().getName());
+		KeyMonitorMethods k = new KeyMonitorMethods();
+		k.identifyKB();
+		k.grabKB();
 
-    }
+	}
 
 }

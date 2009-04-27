@@ -23,6 +23,14 @@ JNIEXPORT jstring JNICALL Java_core_KeyMonitorMethods_identify
 JNIEXPORT void JNICALL Java_core_KeyMonitorMethods_grab
   (JNIEnv *, jobject, jstring);
 
+/*
+ * Class:     core_KeyMonitorMethods
+ * Method:    keyrepeat
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_core_KeyMonitorMethods_keyrepeat
+  (JNIEnv *, jobject, jint);
+
 #ifdef __cplusplus
 }
 #endif

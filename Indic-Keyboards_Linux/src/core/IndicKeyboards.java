@@ -32,7 +32,7 @@
 package core;
 
 import java.io.FileNotFoundException;
-
+import java.lang.management.ManagementFactory;
 
 public class IndicKeyboards {
 
@@ -50,16 +50,17 @@ public class IndicKeyboards {
 		 * The method has been modified to deal with the milliseconds in the
 		 * file SplashScreen.java itself
 		 */
-        System.out.println(Thread.currentThread().getName());
-        Runnable r = new KeyMonitor();
-        Thread t = new Thread(r);
-        t.setName("Key Monitor");
-        t.start();
+		String pid = ManagementFactory.getRuntimeMXBean().getName();
+    	int index=pid.indexOf("@");
+    	System.out.println("This is the process ID : " +pid.substring(0, index));
+		System.out.println(Thread.currentThread().getName());
+		Runnable r = new KeyMonitor();
+		Thread t = new Thread(r);
+		t.setName("Key Monitor");
+		t.start();
 		SplashScreen s = new SplashScreen();
 		s.screen();
-        UI iFace = new UI();
-
-		
+		UI iFace = new UI();
 
 	}// end of main
 }// end of class CKI

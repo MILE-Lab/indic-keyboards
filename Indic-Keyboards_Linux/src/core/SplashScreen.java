@@ -37,7 +37,8 @@ class SplashScreen {
 		sh.setLayout(new RowLayout(SWT.HORIZONTAL));
 		sh.setBackground(d.getSystemColor(SWT.COLOR_DARK_GRAY));
 
-		Image im = new Image(d, IndicKeyboards.class.getResourceAsStream("splash1.jpg"));
+		Image im = new Image(d, IndicKeyboards.class
+				.getResourceAsStream("splash1.jpg"));
 
 		int width = 455;
 		int height = 115;
@@ -46,7 +47,7 @@ class SplashScreen {
 
 		sh.setBounds(x, y - 25, width, height + 135);
 		sh.setBackgroundImage(im);
-        System.out.println(SWT.getPlatform());
+		System.out.println(SWT.getPlatform());
 		sh.open();
 
 		ProgressBar pg = new ProgressBar(sh, SWT.SMOOTH);

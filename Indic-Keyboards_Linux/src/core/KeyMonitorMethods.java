@@ -19,9 +19,8 @@
  **********************************************************************/
 package core;
 
-
 /**
- *
+ * 
  * @author Abhinav
  */
 public class KeyMonitorMethods {
@@ -29,239 +28,385 @@ public class KeyMonitorMethods {
     private native String identify(String cmd);
 
     private native void grab(String KB);
-    //private native void xwin(int kcode);
+
+    private native void keyrepeat(int flag);
     static int cLock = 0;
     static int nLock = 1;
     static boolean loggingEnabled = false;
     String actualKB;
     String pathKB;
+    String pattern = "";
+    //private static int numLock =100;
 
-    private void printKeys(int code) {
-        //xwin(code);
-        ParseXML xmlobj=new ParseXML();
+    void printKeys(int code) {
+
         if (code == 88) {
             if (loggingEnabled == true) {
                 loggingEnabled = false;
                 System.out.println("Key Logging Disabled");
-                            
+            //keyrepeat(1);
+
 
             } else if (loggingEnabled == false) {
                 loggingEnabled = true;
                 System.out.println("Key Logging Enabled");
+                ParseXML.previousConsonantFlag = 0;
+            //keyrepeat(0);
+
             }
         }
-
-        if (loggingEnabled == true) {
+        if (loggingEnabled == false) {
+            // do nothing
+        } else if (loggingEnabled == true) {
             switch (code) {
                 case 1:
-                    xmlobj.getPattern(" Esc ");
+                    pattern = " Esc ";
                     break;
                 case 2:
-                    xmlobj.getPattern("1");
+                    pattern = "1";
+                    break;
+                case 202:
+                    pattern = "!";
                     break;
                 case 3:
-                    xmlobj.getPattern("2");
+                    pattern = "2";
+                    break;
+                case 203:
+                    pattern = "@";
                     break;
                 case 4:
-                    xmlobj.getPattern("3");
+                    pattern = "3";
+                    break;
+                case 204:
+                    pattern = "#";
                     break;
                 case 5:
-                    xmlobj.getPattern("4");
+                    pattern = "4";
+                    break;
+                case 205:
+                    pattern = "$";
                     break;
                 case 6:
-                    xmlobj.getPattern("5");
+                    pattern = "5";
+                    break;
+                case 206:
+                    pattern = "%";
                     break;
                 case 7:
-                    xmlobj.getPattern("6");
+                    pattern = "6";
+                    break;
+                case 207:
+                    pattern = "^";
                     break;
                 case 8:
-                    xmlobj.getPattern("7");
+                    pattern = "7";
+                    break;
+                case 208:
+                    pattern = "&";
                     break;
                 case 9:
-                    xmlobj.getPattern("8");
+                    pattern = "8";
+                    break;
+                case 209:
+                    pattern = "*";
                     break;
                 case 10:
-                    xmlobj.getPattern("9");
+                    pattern = "9";
+                    break;
+                case 210:
+                    pattern = "(";
                     break;
                 case 11:
-                    xmlobj.getPattern("0");
+                    pattern = "0";
+                    break;
+                case 211:
+                    pattern = ")";
                     break;
                 case 12:
-                    xmlobj.getPattern("-");
+                    pattern = "-";
+                    break;
+                case 212:
+                    pattern = "_";
                     break;
                 case 13:
-                    xmlobj.getPattern("=");
+                    pattern = "=";
+                    break;
+                case 213:
+                    pattern = "+";
                     break;
                 case 14:
-                    xmlobj.getPattern("\b");
+                    pattern = "\b";
+                    break;
+                case 214:
+                    pattern = "\b";
                     break;
                 case 15:
-                    xmlobj.getPattern("\t");
+                    pattern = "\t";
                     break;
                 case 16:
-                    xmlobj.getPattern("q");
+                    pattern = "q";
+                    break;
+                case 216:
+                    pattern = "Q";
                     break;
                 case 17:
-                    xmlobj.getPattern("w");
+                    pattern = "w";
+                    break;
+                case 217:
+                    pattern = "W";
                     break;
                 case 18:
-                    xmlobj.getPattern("e");
+                    pattern = "e";
+                    break;
+                case 218:
+                    pattern = "E";
                     break;
                 case 19:
-                    xmlobj.getPattern("r");
+                    pattern = "r";
+                    break;
+                case 219:
+                    pattern = "R";
                     break;
                 case 20:
-                    xmlobj.getPattern("t");
+                    pattern = "t";
+                    break;
+                case 220:
+                    pattern = "T";
                     break;
                 case 21:
-                    xmlobj.getPattern("y");
+                    pattern = "y";
+                    break;
+                case 221:
+                    pattern = "Y";
                     break;
                 case 22:
-                    xmlobj.getPattern("u");
+                    pattern = "u";
+                    break;
+                case 222:
+                    pattern = "U";
                     break;
                 case 23:
-                    xmlobj.getPattern("i");
+                    pattern = "i";
+                    break;
+                case 223:
+                    pattern = "I";
                     break;
                 case 24:
-                    xmlobj.getPattern("o");
+                    pattern = "o";
+                    break;
+                case 224:
+                    pattern = "O";
                     break;
                 case 25:
-                    xmlobj.getPattern("p");
+                    pattern = "p";
+                    break;
+                case 225:
+                    pattern = "P";
                     break;
                 case 26:
-                    xmlobj.getPattern("[");
+                    pattern = "[";
+                    break;
+                case 226:
+                    pattern = "{";
                     break;
                 case 27:
-                    xmlobj.getPattern("]");
+                    pattern = "]";
+                    break;
+                case 227:
+                    pattern = "}";
                     break;
                 case 28:
-                //    xmlobj.getPattern();
+                    pattern = "\n";
                     break;
                 case 29:
-                    xmlobj.getPattern(" Left Ctrl ");
+                    pattern = " Left Ctrl ";
                     break;
                 case 30:
-                    xmlobj.getPattern("a");
-                    break;//xmlobj.getPattern("\u0C85");break;
+                    pattern = "a";
+                    break;
+                case 230:
+                    pattern = "A";
+                    break;
                 case 31:
-                    xmlobj.getPattern("s");
+                    pattern = "s";
+                    break;
+                case 231:
+                    pattern = "S";
                     break;
                 case 32:
-                    xmlobj.getPattern("d");
+                    pattern = "d";
+                    break;
+                case 232:
+                    pattern = "D";
                     break;
                 case 33:
-                    xmlobj.getPattern("f");
+                    pattern = "f";
+                    break;
+                case 233:
+                    pattern = "F";
                     break;
                 case 34:
-                    xmlobj.getPattern("g");
+                    pattern = "g";
+                    break;
+                case 234:
+                    pattern = "G";
                     break;
                 case 35:
-                    xmlobj.getPattern("h");
+                    pattern = "h";
+                    break;
+                case 235:
+                    pattern = "H";
                     break;
                 case 36:
-                    xmlobj.getPattern("j");
+                    pattern = "j";
+                    break;
+                case 236:
+                    pattern = "J";
                     break;
                 case 37:
-                    xmlobj.getPattern("k");
+                    pattern = "k";
+                    break;
+                case 237:
+                    pattern = "K";
                     break;
                 case 38:
-                    xmlobj.getPattern("l");
+                    pattern = "l";
+                    break;
+                case 238:
+                    pattern = "L";
                     break;
                 case 39:
-                    xmlobj.getPattern(";");
+                    pattern = ";";
+                    break;
+                case 239:
+                    pattern = ":";
                     break;
                 case 40:
-                    xmlobj.getPattern("'");
+                    pattern = "'";
+                    break;
+                case 240:
+                    pattern = "\"";
                     break;
                 case 41:
-                    xmlobj.getPattern("`");
+                    pattern = "`";
+                    break;
+                case 241:
+                    pattern = "~";
                     break;
                 case 42:
-                    xmlobj.getPattern(" Left Shift ");
+                    pattern = " Left Shift ";
                     break;
                 case 43:
-                    xmlobj.getPattern("\\");
+                    pattern = "\\";
+                    break;
+                case 243:
+                    pattern = "|";
                     break;
                 case 44:
-                    xmlobj.getPattern("z");
+                    pattern = "z";
+                    break;
+                case 244:
+                    pattern = "Z";
                     break;
                 case 45:
-                    xmlobj.getPattern("x");
+                    pattern = "x";
+                    break;
+                case 245:
+                    pattern = "X";
                     break;
                 case 46:
-                    xmlobj.getPattern("c");
+                    pattern = "c";
+                    break;
+                case 246:
+                    pattern = "C";
                     break;
                 case 47:
-                    xmlobj.getPattern("v");
+                    pattern = "v";
+                    break;
+                case 247:
+                    pattern = "V";
                     break;
                 case 48:
-                    xmlobj.getPattern("b");
+                    pattern = "b";
+                    break;
+                case 248:
+                    pattern = "B";
                     break;
                 case 49:
-                    xmlobj.getPattern("n");
+                    pattern = "n";
+                    break;
+                case 249:
+                    pattern = "N";
                     break;
                 case 50:
-                    xmlobj.getPattern("m");
+                    pattern = "m";
+                    break;
+                case 250:
+                    pattern = "M";
                     break;
                 case 51:
-                    xmlobj.getPattern(",");
+                    pattern = ",";
+                    break;
+                case 251:
+                    pattern = "<";
                     break;
                 case 52:
-                    xmlobj.getPattern(".");
+                    pattern = ".";
+                    break;
+                case 252:
+                    pattern = ">";
                     break;
                 case 53:
-                    xmlobj.getPattern("/");
+                    pattern = "/";
+                    break;
+                case 253:
+                    pattern = "?";
                     break;
                 case 54:
-                    xmlobj.getPattern(" Right Shift ");
+                    pattern = " Right Shift ";
                     break;
                 case 55:
-                    xmlobj.getPattern("*");
+                    pattern = "*";
                     break;
                 case 56:
-                    xmlobj.getPattern(" Left Alt ");
+                    pattern = " Left Alt ";
                     break;
                 case 57:
-                    xmlobj.getPattern(" ");
+                    pattern = " ";
                     break;
                 case 58:
-                    if (cLock == 0) {
-                        xmlobj.getPattern(" Caps Lock On ");
-                        cLock = 1;
-                    } else {
-                        xmlobj.getPattern(" Caps Lock Off ");
-                        cLock = 0;
-                    }
+                    break;
+                case 111:
                     break;
                 case 59:
-                    xmlobj.getPattern(" F1 ");
+                    pattern = " F1 ";
                     break;
                 case 60:
-                    xmlobj.getPattern(" F2 ");
+                    pattern = " F2 ";
                     break;
                 case 61:
-                    xmlobj.getPattern(" F3 ");
+                    pattern = " F3 ";
                     break;
                 case 62:
-                    xmlobj.getPattern(" F4 ");
+                    pattern = " F4 ";
                     break;
                 case 63:
-                    xmlobj.getPattern(" F5 ");
+                    pattern = " F5 ";
                     break;
                 case 64:
-                    xmlobj.getPattern(" F6 ");
+                    pattern = " F6 ";
                     break;
                 case 65:
-                    xmlobj.getPattern(" F7 ");
+                    pattern = " F7 ";
                     break;
                 case 66:
-                    xmlobj.getPattern(" F8 ");
+                    pattern = " F8 ";
                     break;
                 case 67:
-                    xmlobj.getPattern(" F9 ");
+                    pattern = " F9 ";
                     break;
                 case 68:
-                    xmlobj.getPattern(" F10 ");
+                    pattern = " F10 ";
                     break;
                 case 69:
                     if (nLock == 1) {
@@ -273,56 +418,83 @@ public class KeyMonitorMethods {
                     }
                     break;
                 case 70:
-                    xmlobj.getPattern(" Scroll Lock ");
+                    pattern = " Scroll Lock ";
                     break;
                 case 71:
-                    xmlobj.getPattern("7");
+                    pattern = "7";
                     break;
                 case 72:
-                    xmlobj.getPattern("8");
+                    pattern = "8";
                     break;
                 case 73:
-                    xmlobj.getPattern("9");
+
+                    pattern = "9";
+
                     break;
                 case 74:
-                    xmlobj.getPattern("-");
+                    pattern = "-";
                     break;
                 case 75:
-                    xmlobj.getPattern("4");
+
+                    pattern = "4";
+
                     break;
                 case 76:
-                    xmlobj.getPattern("5");
+
+                    pattern = "5";
+
                     break;
                 case 77:
-                    xmlobj.getPattern("6");
+
+                    pattern = "6";
+
                     break;
                 case 78:
-                    xmlobj.getPattern("+");
+                    pattern = "+";
                     break;
                 case 79:
-                    xmlobj.getPattern("1");
+
+                    pattern = "1";
+
                     break;
                 case 80:
-                    xmlobj.getPattern("2");
+
+                    pattern = "2";
+
                     break;
                 case 81:
-                    xmlobj.getPattern("3");
+
+                    pattern = "3";
+
                     break;
                 case 82:
-                    xmlobj.getPattern("0");
+
+                    pattern = "0";
+
                     break;
                 case 83:
-                    xmlobj.getPattern(".");
+                    pattern = ".";
                     break;
                 case 87:
-                    xmlobj.getPattern(" F11 ");
+                    pattern = " F11 ";
                     break;
-                default: break;
+                default: pattern = "";
+                    break;
+            }
+            if (PhoneticParseXML.PhoneticFlag == 0) {
+                System.out.println(pattern);
+                ParseXML xmlobj = new ParseXML();
+                xmlobj.getPattern(pattern);
+
+
+            } else if (PhoneticParseXML.PhoneticFlag == 1) {
+                PhoneticParseXML pxmlobj = new PhoneticParseXML();
+                System.out.println(pattern);
+                pxmlobj.getPhoneticPattern(pattern);
+
             }
         }
-        if (loggingEnabled == false) {
-            //do nothing
-        }
+
     }
 
     void identifyKB() {
@@ -353,16 +525,15 @@ public class KeyMonitorMethods {
 
 
     static {
-    	System.out.println(System.getProperty("user.dir"));
-    	String path = System.getProperty("user.dir");
-        try{
-    	System.load(path+"/libKeyMonitor.so.1.0");
+        System.out.println(System.getProperty("user.dir"));
+        String path = System.getProperty("user.dir");
+        try {
+            System.load(path + "/libKeyMonitor.so.1.0");
+            System.load(path + "/libKeyRepeat.so.1.0");
+        } catch (UnsatisfiedLinkError e) {
+            System.load("/usr/lib/libKeyMonitor.so.1.0");
+            System.load("/usr/lib/libKeyRepeat.so.1.0");
         }
-        catch (UnsatisfiedLinkError e)
-        {
-        	System.load("/usr/lib/libKeyMonitor.so.1.0");
-        }
+
     }
 }
-
-
