@@ -3,7 +3,8 @@
 <pattern>
 <char>a</char>
 <unicode>0B85</unicode>
-<consonant>1</consonant>
+<consonant>0</consonant>
+<uni2>0B85</uni2>
 </pattern>
 
 <pattern>
@@ -37,12 +38,13 @@
 <consonant>1</consonant>
 </pattern>
 
-<!--
+
 <pattern>
 <char>f</char>
-<unicode>0BCD</unicode>
+<unicode>0bcd</unicode>
+<consonant>1</consonant>
 </pattern>
--->
+
 
 <pattern>
 <char>F</char>
@@ -355,6 +357,7 @@
 <pattern>
 <char>[</char>
 <unicode>0B9A</unicode>
+<consonant>1</consonant>
 </pattern>
 
 <pattern>

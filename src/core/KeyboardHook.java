@@ -46,7 +46,7 @@ public class KeyboardHook {
 			}
 		}
 	}
-
+	
 	void keyReleased(KeyboardEvent event) {
 		Object[] listeners = listenerList.getListenerList();
 		for (int i = 0; i < listeners.length; i += 2) {
@@ -85,7 +85,7 @@ class PollThread extends Thread {
 		KeyboardEvent event = new KeyboardEvent(this, ts, vk, ap, ek);
 		if (ts) {
 			kbh.keyPressed(event);
-		} else {
+		}else {
 			kbh.keyReleased(event);
 		}
 	}

@@ -1,8 +1,8 @@
 /** ********************************************************************
  * File:           IndicKeyboards.java 
- * Description:    The File with all the initializations
+ * Description:    UI for the Common Keyboard Interface
  * Authors:        Akshay,Abhinava,Revati,Arun 
- * Created:        Thu Mar 26 20:01:25 IST 2009
+ * Created:        Mon Oct 20 19:31:25 GMT 2008
  *
  * (C) Copyright 2008, MILE Lab, IISc
  ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,8 +36,9 @@ import java.io.FileNotFoundException;
 public class IndicKeyboards implements KeyboardEventListener {
 
 	private Boolean flag = false;
-	private long withShiftPressed = 48;
-	public static Boolean enable = false;
+	private long withShiftPressed = 48, throwAwayKey = 18;
+	public static Boolean enable = false, altPressed = false;
+
 
 	public static void main(String[] args) throws FileNotFoundException {
 
@@ -57,18 +58,27 @@ public class IndicKeyboards implements KeyboardEventListener {
 	public void GlobalKeyPressed(KeyboardEvent event) {
 
 		String inputChar;
-
-		if (event.getVirtualKeyCode() == 123) {
-			enable = !enable;
+		if ((event.getVirtualKeyCode() == 18) && (event.getTransitionState())) {
+			altPressed = true;
+		}
+		if (altPressed) {
+			throwAwayKey = event.getVirtualKeyCode();
+			if (event.getVirtualKeyCode() == 123) {
+				throwAwayKey = 123;
+				enable = !enable;
+				altPressed = !altPressed;
+				System.out.println("keycode" + throwAwayKey);
+			}
 			if (enable) {
 				System.out.println("Software enabled");
 				// Reset the consonant flags present in ParseXML.java
 				ParseXML.previousConsonantFlag = 0;
 			} else {
 				System.out
-						.println("Software disabled... Press F12 to re-enable");
+						.println("Software disabled... Press Alt + F12 to re-enable");
 			}
 		}
+
 		if (enable) {
 			if ((event.getVirtualKeyCode() == 16)
 					&& (event.getTransitionState())) {
@@ -77,11 +87,13 @@ public class IndicKeyboards implements KeyboardEventListener {
 			}
 			if (flag) {
 				// Flag of PhoneticParseXML.previousConsonantFlag=0;
-				if (event.getVirtualKeyCode() == 13) {
-					PhoneticParseXML.previousConsonantFlag = 0;
+				if(event.getVirtualKeyCode()==13){
+					PhoneticParseXML.previousConsonantFlag=0;
+					ParseXML.tamil99count=0;
+					ParseXML.previousConsonantFlag=0;
 
-				}
-
+				} 
+				
 				withShiftPressed = event.getVirtualKeyCode();
 
 				/**
@@ -214,10 +226,11 @@ public class IndicKeyboards implements KeyboardEventListener {
 				}
 			} else {
 				// Added flag reset in PhoneticParseXML
-				if (event.getVirtualKeyCode() == 13) {
-					PhoneticParseXML.previousConsonantFlag = 0;
-
-				}
+				if(event.getVirtualKeyCode()==13){
+					PhoneticParseXML.previousConsonantFlag=0;
+					ParseXML.previousConsonantFlag=0;
+					ParseXML.tamil99count=0;
+				} 
 				int tempKeyCode = 0;
 				if (PhoneticParseXML.PhoneticFlag == 0) {
 					ParseXML test = new ParseXML();

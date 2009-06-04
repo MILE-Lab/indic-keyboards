@@ -115,26 +115,15 @@ public class PhoneticParseXML {
 						// Using the same class instead.
 						// ParseXML.processCode(pattern);
 						// Delete the echoed characters
-						try {
-							Robot r = new Robot();
-							r.keyPress(KeyEvent.VK_BACK_SPACE);
-							r.keyRelease(KeyEvent.VK_BACK_SPACE);
-						} catch (AWTException e) {
-							e.printStackTrace();
-						}
+						PhoneticParseXML.putbkspace();
 						// Load the dll for output
 						ob.loadopcharsDLL();
 						if (previousConsonantFlag == 1
 								&& Integer.valueOf(currentconsonantflag) == 0) {
 							// Knock off the halant and o/p dependant vovel
 							// unicode.
-							try {
-								Robot r = new Robot();
-								r.keyPress(KeyEvent.VK_BACK_SPACE);
-								r.keyRelease(KeyEvent.VK_BACK_SPACE);
-							} catch (AWTException e) {
-								e.printStackTrace();
-							} // Halant is knocked off.
+							PhoneticParseXML.putbkspace();
+							 // Halant is knocked off.
 							// Get the dependant vovel unicode
 							NodeList uniList = firstPatternElement
 									.getElementsByTagName("uni2");

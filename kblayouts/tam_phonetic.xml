@@ -47,32 +47,34 @@
 <char>Sh</char>
 <unicode>0BB7</unicode>
 <consonant>1</consonant>
-</pattern><!--
+</pattern>
 
 <pattern>
 <char>d</char>
-<unicode>0BA1</unicode>
+<unicode>0B9F</unicode>
 <consonant>1</consonant>
 </pattern>
-
+<!--
 <pattern>
 <char>D</char>
 <unicode>0BA2</unicode>
 <consonant>1</consonant>
 </pattern>
 
-
+-->
 <pattern>
 <char>dh</char>
-<unicode>0BA6</unicode>
+<unicode>0BA4</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Dh</char>
-<unicode>0BA7</unicode>
+<unicode>0BA5</unicode>
 <consonant>1</consonant>
 </pattern>
+
+<!--
 <pattern>
 <char>f</char>
 <unicode>0BAB</unicode>
@@ -86,19 +88,19 @@
 <consonant>1</consonant>
 </pattern>
 
-<!--<pattern>
+<pattern>
 <char>g</char>
-<unicode>0B97</unicode>
+<unicode>0B95</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>G</char>
-<unicode>0B98</unicode>
+<unicode>0B99</unicode>
 <consonant>1</consonant>
 </pattern>
 
---><pattern>
+<pattern>
 <char>h</char>
 <unicode>0BB9</unicode>
 <consonant>1</consonant>
@@ -145,19 +147,18 @@
 <unicode>0BB3</unicode>
 <consonant>1</consonant>
 </pattern>
-<!--
+
 <pattern>
 <char>q</char>
-<unicode>0B9F</unicode>
+<unicode>0BA9</unicode>
 <consonant>1</consonant>
 </pattern>
 
 <pattern>
 <char>Q</char>
-<unicode>0BA0</unicode>
+<unicode>0BB4</unicode>
 <consonant>1</consonant>
 </pattern>
--->
 <pattern>
 <char>w</char>
 <unicode>0BB5</unicode>
@@ -184,12 +185,11 @@
 <consonant>1</consonant>
 </pattern>
 
-<!--<pattern>
+<pattern>
 <char>R</char>
-<unicode>0B8B</unicode>
-<consonant>0</consonant>
-<uni2>0BC3</uni2>
-</pattern>-->
+<unicode>0BB1</unicode>
+<consonant>1</consonant>
+</pattern>
 
 <pattern>
 <char>t</char>
@@ -317,14 +317,14 @@
 <unicode>0B94</unicode>
 <consonant>0</consonant>
 <uni2>0BCC</uni2>
-</pattern><!--
+</pattern>
 
 <pattern>
 <char>b</char>
-<unicode>0BAC</unicode>
+<unicode>0BAA</unicode>
 <consonant>1</consonant>
 </pattern>
-
+<!--
 <pattern>
 <char>B</char>
 <unicode>0BAD</unicode>

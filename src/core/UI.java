@@ -187,22 +187,54 @@ public class UI {
 			final MenuItem tamPhonetic = new MenuItem(submenu_tam, SWT.PUSH);
 			tamPhonetic.setText("Phonetic");
 
+			
+
 			final MenuItem telugu = new MenuItem(menu, SWT.CASCADE);
 			telugu.setText("Telugu");
 			final Menu submenu_tel = new Menu(shell, SWT.DROP_DOWN);
 			telugu.setMenu(submenu_tel);
-			/*
-			 * final MenuItem telLay = new MenuItem(submenu_tel, SWT.PUSH);
-			 * telLay.setText("Telugu Layout");
-			 */
 			final MenuItem telInscript = new MenuItem(submenu_tel, SWT.PUSH);
 			telInscript.setText("Inscript");
 			new MenuItem(submenu_tel, SWT.SEPARATOR);
 			final MenuItem telPhonetic = new MenuItem(submenu_tel, SWT.PUSH);
 			telPhonetic.setText("Phonetic");
+			
+			
+			
+			final MenuItem bengali = new MenuItem(menu,SWT.CASCADE);
+			bengali.setText("Bengali");
+			final Menu submenu_ben = new Menu(shell,SWT.DROP_DOWN);
+			bengali.setMenu(submenu_ben);
+			final MenuItem benInscript=new MenuItem(submenu_ben,SWT.PUSH);
+			benInscript.setText("Inscript");
 
+			
+			final MenuItem  punjabi= new MenuItem(menu,SWT.CASCADE);
+			punjabi.setText("Punjabi");
+			final Menu submenu_pun = new Menu(shell,SWT.DROP_DOWN);
+			punjabi.setMenu(submenu_pun);
+			final MenuItem punInscript=new MenuItem(submenu_pun,SWT.PUSH);
+			punInscript.setText("Inscript");
+			
+			
+			
+			final MenuItem malayalam = new MenuItem(menu,SWT.CASCADE);
+			malayalam.setText("Malayalam");
+			final Menu submenu_mal = new Menu(shell,SWT.DROP_DOWN);
+			malayalam.setMenu(submenu_mal);
+			final MenuItem malInscript=new MenuItem(submenu_mal,SWT.PUSH);
+			malInscript.setText("Inscript");
+			
+			
+			final MenuItem oriya = new MenuItem(menu,SWT.CASCADE);
+			oriya.setText("Oriya");
+			final Menu submenu_ori = new Menu(shell,SWT.DROP_DOWN);
+			oriya.setMenu(submenu_ori);
+			final MenuItem oriInscript=new MenuItem(submenu_ori,SWT.PUSH);
+			oriInscript.setText("Inscript");
+			
+			
 			new MenuItem(menu, SWT.SEPARATOR);
-
 			File dirname = new File(System.getProperty("user.dir"),
 					"/kblayouts/userdefined");
 
@@ -243,7 +275,7 @@ public class UI {
 								 * messageBox .setMessage("You have selected " +
 								 * qk); messageBox.open(); sh.dispose();
 								 */
-								layoutImg = "na";
+								layoutImg ="na";
 								currentLayout.setEnabled(false);
 								Image image1 = new Image(display,
 										IndicKeyboards.class
@@ -267,7 +299,11 @@ public class UI {
 				}
 
 			}
+			
 
+			
+
+			
 			final MenuItem addLayouts = new MenuItem(menu, SWT.CASCADE);
 			addLayouts.setText("Add New Layouts");
 			final Menu submenu_newLay = new Menu(shell, SWT.DROP_DOWN);
@@ -282,15 +318,10 @@ public class UI {
 			new MenuItem(menu, SWT.SEPARATOR);
 
 			final MenuItem enableDisable = new MenuItem(menu, SWT.PUSH);
-			enableDisable.setText("Enable/Disable [F12]");
+			enableDisable.setText("Enable/Disable [Alt+F12]");
 
 			new MenuItem(menu, SWT.SEPARATOR);
-
-			final MenuItem help = new MenuItem(menu, SWT.PUSH);
-			help.setText("Help");
-
-			new MenuItem(menu, SWT.SEPARATOR);
-
+			
 			final MenuItem links = new MenuItem(menu, SWT.CASCADE);
 			links.setText("Useful Links");
 			final Menu submenu2 = new Menu(shell, SWT.DROP_DOWN);
@@ -307,10 +338,22 @@ public class UI {
 			IKuser.setText("indic-keyboards User mailing list");
 
 			new MenuItem(menu, SWT.SEPARATOR);
+			
+			final MenuItem help = new MenuItem(menu, SWT.PUSH);
+			help.setText("Help");
+
+			
+			new MenuItem(menu, SWT.SEPARATOR);
+
+			final MenuItem about = new MenuItem(menu, SWT.PUSH);
+			about.setText("About indic-keyboards");
+			
+			new MenuItem(menu, SWT.SEPARATOR);
 
 			final MenuItem exit = new MenuItem(menu, SWT.PUSH);
 			exit.setText("Exit");
 
+			
 			exit.addListener(SWT.Selection, new Listener() {
 
 				public void handleEvent(Event event) {
@@ -348,6 +391,8 @@ public class UI {
 					}
 				}
 			});
+
+
 
 			help.addListener(SWT.Selection, new Listener() {
 
@@ -650,7 +695,7 @@ public class UI {
 
 					}
 				});
-
+				
 				// Tamil Phonetic keyboard layout
 				tamPhonetic.addListener(SWT.Selection, new Listener() {
 
@@ -685,6 +730,7 @@ public class UI {
 						}
 					}
 				});
+
 
 			}// End of tamil section
 
@@ -916,8 +962,7 @@ public class UI {
 									IndicKeyboards.class
 											.getResourceAsStream("hin.ico"));
 							item.setImage(image1);
-							item
-									.setToolTipText("indic-keyboards - HINDI Remington");
+							item.setToolTipText("indic-keyboards - HINDI Remington");
 
 						}
 
@@ -1118,15 +1163,176 @@ public class UI {
 
 			}// End of marathi section
 
+			// Bengali layout listener goes here
+			benInscript.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+					// String s = event.toString();
+					// String q=s.substring(28, 35);
+
+					benInscript.setSelection(false);
+					{
+						// String qt = s.substring(25, 35);
+
+						/*
+						 * Shell sh1 = new Shell(display);
+						 * sh1.setImage(image); MessageBox mBox1 = new
+						 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+						 * mBox1.setText("Language Selection");
+						 * 
+						 * mBox1
+						 * .setMessage("You have selected Marathi Inscript"
+						 * ); mBox1.open();
+						 * 
+						 * sh1.dispose();
+						 */
+						layoutImg = "bengali_inscript";
+						currentLayout.setEnabled(true);
+						tip.setMessage("Bengali Inscript");
+						tip.setVisible(true);
+						ParseXML.setlang("ben_inscript.xml");
+						PhoneticParseXML.PhoneticFlag = 0;
+						Image image1 = new Image(display,
+								IndicKeyboards.class
+										.getResourceAsStream("bengali.ico"));
+						item.setImage(image1);
+						item
+								.setToolTipText("indic-keyboards - BENGALI Inscript");
+					}
+
+				}
+			});
+			
+			// Punjabi layout listeners goes here
+			punInscript.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+					// String s = event.toString();
+					// String q=s.substring(28, 35);
+
+					punInscript.setSelection(false);
+					{
+						// String qt = s.substring(25, 35);
+
+						/*
+						 * Shell sh1 = new Shell(display);
+						 * sh1.setImage(image); MessageBox mBox1 = new
+						 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+						 * mBox1.setText("Language Selection");
+						 * 
+						 * mBox1
+						 * .setMessage("You have selected Marathi Inscript"
+						 * ); mBox1.open();
+						 * 
+						 * sh1.dispose();
+						 */
+						layoutImg = "punjabi_inscript";
+						currentLayout.setEnabled(true);
+						tip.setMessage("Punjabi Inscript");
+						tip.setVisible(true);
+						ParseXML.setlang("pun_inscript.xml");
+						PhoneticParseXML.PhoneticFlag = 0;
+						Image image1 = new Image(display,
+								IndicKeyboards.class
+										.getResourceAsStream("gurumukhi.ico"));
+						item.setImage(image1);
+						item
+								.setToolTipText("indic-keyboards - PUNJABI Inscript");
+					}
+
+				}
+			});
+			
+			// Malayalam layout listener goes here
+			malInscript.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+					// String s = event.toString();
+					// String q=s.substring(28, 35);
+
+					malInscript.setSelection(false);
+					{
+						// String qt = s.substring(25, 35);
+
+						/*
+						 * Shell sh1 = new Shell(display);
+						 * sh1.setImage(image); MessageBox mBox1 = new
+						 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+						 * mBox1.setText("Language Selection");
+						 * 
+						 * mBox1
+						 * .setMessage("You have selected Marathi Inscript"
+						 * ); mBox1.open();
+						 * 
+						 * sh1.dispose();
+						 */
+						layoutImg = "malayalam_inscript";
+						currentLayout.setEnabled(true);
+						tip.setMessage("Malayalam Inscript");
+						tip.setVisible(true);
+						ParseXML.setlang("mal_inscript.xml");
+						PhoneticParseXML.PhoneticFlag = 0;
+						Image image1 = new Image(display,
+								IndicKeyboards.class
+										.getResourceAsStream("malayalam.ico"));
+						item.setImage(image1);
+						item
+								.setToolTipText("indic-keyboards - MALAYALAM Inscript");
+					}
+
+				}
+			});
+			
+			// Oriya layout listeners goes here
+			oriInscript.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+					// String s = event.toString();
+					// String q=s.substring(28, 35);
+
+					oriInscript.setSelection(false);
+					{
+						// String qt = s.substring(25, 35);
+
+						/*
+						 * Shell sh1 = new Shell(display);
+						 * sh1.setImage(image); MessageBox mBox1 = new
+						 * MessageBox(sh1, SWT.OK | SWT.ICON_INFORMATION);
+						 * mBox1.setText("Language Selection");
+						 * 
+						 * mBox1
+						 * .setMessage("You have selected Marathi Inscript"
+						 * ); mBox1.open();
+						 * 
+						 * sh1.dispose();
+						 */
+						layoutImg = "oriya_inscript";
+						currentLayout.setEnabled(true);
+						tip.setMessage("Oriya Inscript");
+						tip.setVisible(true);
+						ParseXML.setlang("ori_inscript.xml");
+						PhoneticParseXML.PhoneticFlag = 0;
+						Image image1 = new Image(display,
+								IndicKeyboards.class
+										.getResourceAsStream("oriya.ico"));
+						item.setImage(image1);
+						item
+								.setToolTipText("indic-keyboards - Oriya Inscript");
+					}
+
+				}
+			});
+			
+			
 			currentLayout.addListener(SWT.Selection, new Listener() {
 
 				public void handleEvent(Event event) {
 					try {
 						final Shell layoutImage = new Shell(display,
 								SWT.DIALOG_TRIM);
-						layoutImage.setLocation(
+						/*layoutImage.setLocation(
 								display.getClientArea().width - 500 - 506,
-								display.getClientArea().height - 500 - 400);
+								display.getClientArea().height - 500 - 400);*/
 						final Image layImage = new Image(display,
 								IndicKeyboards.class
 										.getResourceAsStream("trayicon.ico"));
@@ -1141,7 +1347,7 @@ public class UI {
 							layoutImage.setBackgroundImage(kagapa);
 							layoutImage.open();
 							layoutImage.setActive();
-							kagapa.dispose();
+							//kagapa.dispose();
 						}
 						if (layoutImg.compareTo("kannada_inscript") == 0) {
 							final Image kan_inscript = new Image(
@@ -1153,7 +1359,7 @@ public class UI {
 							layoutImage.setBackgroundImage(kan_inscript);
 							layoutImage.open();
 							layoutImage.setActive();
-							kan_inscript.dispose();
+							//kan_inscript.dispose();
 						}
 						if (layoutImg.compareTo("tamil99") == 0) {
 							final Image tamil99 = new Image(display,
@@ -1164,7 +1370,7 @@ public class UI {
 							layoutImage.setBackgroundImage(tamil99);
 							layoutImage.open();
 							layoutImage.setActive();
-							tamil99.dispose();
+							//tamil99.dispose();
 						}
 						if (layoutImg.compareTo("tamil_inscript") == 0) {
 							final Image tamil_inscript = new Image(
@@ -1176,7 +1382,7 @@ public class UI {
 							layoutImage.setBackgroundImage(tamil_inscript);
 							layoutImage.open();
 							layoutImage.setActive();
-							tamil_inscript.dispose();
+							//tamil_inscript.dispose();
 						}
 						if (layoutImg.compareTo("tamil_remington") == 0) {
 							final Image tamil_remington = new Image(
@@ -1191,7 +1397,7 @@ public class UI {
 							layoutImage.setBackgroundImage(tamil_remington);
 							layoutImage.open();
 							layoutImage.setActive();
-							tamil_remington.dispose();
+							//tamil_remington.dispose();
 						}
 						if (layoutImg.compareTo("hindi_inscript") == 0) {
 							final Image hindi_inscript = new Image(
@@ -1203,7 +1409,7 @@ public class UI {
 							layoutImage.setBackgroundImage(hindi_inscript);
 							layoutImage.open();
 							layoutImage.setActive();
-							hindi_inscript.dispose();
+							//hindi_inscript.dispose();
 						}
 						if (layoutImg.compareTo("hindi_remington") == 0) {
 							final Image hindi_remington = new Image(
@@ -1215,7 +1421,7 @@ public class UI {
 							layoutImage.setBackgroundImage(hindi_remington);
 							layoutImage.open();
 							layoutImage.setActive();
-							hindi_remington.dispose();
+							//hindi_remington.dispose();
 						}
 						if (layoutImg.compareTo("gujarati_inscript") == 0) {
 							final Image gujarati_inscript = new Image(
@@ -1227,7 +1433,7 @@ public class UI {
 							layoutImage.setBackgroundImage(gujarati_inscript);
 							layoutImage.open();
 							layoutImage.setActive();
-							gujarati_inscript.dispose();
+							//gujarati_inscript.dispose();
 						}
 						if (layoutImg.compareTo("telugu_inscript") == 0) {
 							final Image telugu_inscript = new Image(
@@ -1239,9 +1445,57 @@ public class UI {
 							layoutImage.setBackgroundImage(telugu_inscript);
 							layoutImage.open();
 							layoutImage.setActive();
-							telugu_inscript.dispose();
+							//telugu_inscript.dispose();
 						}
-						if (layoutImg.compareTo("na") == 0) {
+						if (layoutImg.compareTo("bengali_inscript") == 0) {
+							final Image bengali_inscript = new Image(
+									display,
+									IndicKeyboards.class
+											.getResourceAsStream("bengali_inscript.png"));
+							layoutImage.setText("Bengali Inscript");
+							layoutImage.setSize(1006, 280);
+							layoutImage.setBackgroundImage(bengali_inscript);
+							layoutImage.open();
+							layoutImage.setActive();
+							//bengali_inscript.dispose();
+						}
+						if (layoutImg.compareTo("punjabi_inscript") == 0) {
+							final Image punjabi_inscript = new Image(
+									display,
+									IndicKeyboards.class
+											.getResourceAsStream("punjabi_inscript.png"));
+							layoutImage.setText("Punjabi Inscript");
+							layoutImage.setSize(1006, 280);
+							layoutImage.setBackgroundImage(punjabi_inscript);
+							layoutImage.open();
+							layoutImage.setActive();
+							//punjabi_inscript.dispose();
+						}
+						if (layoutImg.compareTo("malayalam_inscript") == 0) {
+							final Image malayalam_inscript = new Image(
+									display,
+									IndicKeyboards.class
+											.getResourceAsStream("malayalam_inscript.png"));
+							layoutImage.setText("Malayalam Inscript");
+							layoutImage.setSize(1006, 280);
+							layoutImage.setBackgroundImage(malayalam_inscript);
+							layoutImage.open();
+							layoutImage.setActive();
+						    //malayalam_inscript.dispose();
+						}
+						if (layoutImg.compareTo("oriya_inscript") == 0) {
+							final Image oriya_inscript = new Image(
+									display,
+									IndicKeyboards.class
+											.getResourceAsStream("oriya_inscript.png"));
+							layoutImage.setText("Oriya Inscript");
+							layoutImage.setSize(1006, 300);
+							layoutImage.setBackgroundImage(oriya_inscript);
+							layoutImage.open();
+							layoutImage.setActive();
+							//oriya_inscript.dispose();
+						}
+						if(layoutImg.compareTo("na")==0){
 							currentLayout.setEnabled(false);
 						}
 					} catch (NullPointerException e) {
@@ -1266,12 +1520,13 @@ public class UI {
 			enableDisable.addListener(SWT.Selection, new Listener() {
 
 				public void handleEvent(Event event) {
-					IndicKeyboards.enable = !IndicKeyboards.enable;
-
-					if (IndicKeyboards.enable) {
+					IndicKeyboards.enable = ! IndicKeyboards.enable;
+					
+					if(IndicKeyboards.enable){
 						tip.setMessage("Enabled");
 						tip.setVisible(true);
-					} else {
+					}
+					else{
 						tip.setMessage("Disabled");
 						tip.setVisible(true);
 					}
@@ -1326,6 +1581,15 @@ public class UI {
 					Program pBrowse = Program.findProgram(".html");
 					pBrowse.execute("http://groups.google.com/group/cki-users");
 
+				}
+			});
+			
+			about.addListener(SWT.Selection, new Listener() {
+
+				public void handleEvent(Event event) {
+
+					AboutUs a = new AboutUs();
+					a.run();
 				}
 			});
 
