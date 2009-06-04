@@ -1,10 +1,10 @@
 /** ********************************************************************
  * File:           AboutUs.java 
  * Description:    File which creates the "About indic-keyboards" shell.
- * Authors:        Abhinava,Akshay. Revati,Arun 
+ * Authors:        Abhinava,Akshay,Revati,Arun 
  * Created:        Sun May 25 02:01:25 IST 2009
  *
- * (C) Copyright 20098, MILE Lab, IISc
+ * (C) Copyright 2009, MILE Lab, IISc
  ** Licensed under the Apache License, Version 2.0 (the "License");
  ** you may not use this file except in compliance with the License.
  ** You may obtain a copy of the License at
