@@ -1,3 +1,24 @@
+/** ********************************************************************
+ * File:           PhoneticParseXML.java 
+ * Description:    Contains the code which parses the XML files of
+ * 				   phonetic layouts.
+ * Authors:        Akshay,Abhinava,Revati,Arun 
+ * Created:        Thu Apr 23 14:01:25 IST 2009
+ *
+ * (C) Copyright 2008, MILE Lab, IISc
+ ** Licensed under the Apache License, Version 2.0 (the "License");
+ ** you may not use this file except in compliance with the License.
+ ** You may obtain a copy of the License at
+ ** http://www.apache.org/licenses/LICENSE-2.0
+ ** Unless required by applicable law or agreed to in writing, software
+ ** distributed under the License is distributed on an "AS IS" BASIS,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ** See the License for the specific language governing permissions and
+ ** limitations under the License.
+ *
+ **********************************************************************/
+
+
 package core;
 
 import java.awt.AWTException;
@@ -98,25 +119,26 @@ public class PhoneticParseXML {
 						// Using the same class instead.
 						// ParseXML.processCode(pattern);
 						// Delete the echoed characters
-						try {
+						/*try {
 							Robot r = new Robot();
 							r.keyPress(KeyEvent.VK_BACK_SPACE);
 							r.keyRelease(KeyEvent.VK_BACK_SPACE);
 						} catch (AWTException e) {
 							e.printStackTrace();
-						}
-						
+						}*/
+						ob.bkSpace();
 						if (previousConsonantFlag == 1
 								&& Integer.valueOf(currentconsonantflag) == 0) {
 							// Knock off the halant and o/p dependant vovel
 							// unicode.
-							try {
+							ob.bkSpace();
+							/*try {
 								Robot r = new Robot();
 								r.keyPress(KeyEvent.VK_BACK_SPACE);
 								r.keyRelease(KeyEvent.VK_BACK_SPACE);
 							} catch (AWTException e) {
 								e.printStackTrace();
-							} // Halant is knocked off.
+							}*/ // Halant is knocked off.
 							// Get the dependant vovel unicode
 							NodeList uniList = firstPatternElement
 									.getElementsByTagName("uni2");
@@ -341,13 +363,15 @@ public class PhoneticParseXML {
 	// End of getPattern
 	public static void putbkspace() {
 		// Delete the echoed characters
-		try {
+		/*try {
 			Robot r = new Robot();
 			r.keyPress(KeyEvent.VK_BACK_SPACE);
 			r.keyRelease(KeyEvent.VK_BACK_SPACE);
 		} catch (AWTException e) {
 			e.printStackTrace();
-		}
+		}*/
+		ParseXML ob = new ParseXML();
+		ob.bkSpace();
 	}
 
 	public static void setlang(String name) {

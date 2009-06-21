@@ -1,38 +1,64 @@
+/** ********************************************************************
+ * File:           ParseXML.java 
+ * Description:    XML parser for inscript and other layouts 
+ * Authors:        Akshay,Abhinava,Revati,Arun 
+ * Created:        Thu Mar 26 20:01:25 IST 2009
+ *
+ * (C) Copyright 2008, MILE Lab, IISc
+ ** Licensed under the Apache License, Version 2.0 (the "License");
+ ** you may not use this file except in compliance with the License.
+ ** You may obtain a copy of the License at
+ ** http://www.apache.org/licenses/LICENSE-2.0
+ ** Unless required by applicable law or agreed to in writing, software
+ ** distributed under the License is distributed on an "AS IS" BASIS,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ** See the License for the specific language governing permissions and
+ ** limitations under the License.
+ *
+ **********************************************************************/
+
 package core;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import org.w3c.dom.*;
-
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 public class ParseXML {
+	/*
+	 * Variable declarations.
+	 */
 	public static String keyboardlayoutname;
-
+	/*
+	 * Flag variables used to keep track of type of keyboard Layout selected.
+	 */
 	public static final int INSCRIPT_KB = 1;
 	public static final int OTHER_KB = 0;
 	public static int inscriptothers = 0;
-	public static int previousConsonantFlaglog=0;
+
+	/*
+	 * Flag variables used to keep track of the type of indic character -
+	 * consonants and vowels
+	 */
+	public static int previousConsonantFlaglog = 0;
 	public static int previousConsonantFlag = 0;
 	public static String currentconsonantflag;
+	public static String previousChar = "";
+	public static int tamil99count=0;
 
 	public native void OutputActiveWindow(String ucode);
+	
+	public native void bkSpace();
 
 	public void getPattern(String pattern) {
 		/*
-		 * This is to set the flag to zero whenever the space key is pressed or
-		 * else the dependent vowel will be printed (For layouts other than
-		 * inscript keyboard layouts)
+		 * This is to set the flag to zero whenever the space key is pressed so
+		 * as to prevent the dependent vowel to be printed (For layouts other
+		 * than inscript keyboard layouts)
 		 */
-
-        System.out.print("\n\nPattern = "+ pattern +"\n\n");
 
 		if (pattern.compareTo(" ") == 0) {
 			previousConsonantFlag = 0;
@@ -42,7 +68,9 @@ public class ParseXML {
 		}
 
 		try {
-
+			/*
+			 * Load the XML document into the memory. XML document name is specified by the keyboardlayoutname variable.
+			 */
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
@@ -94,27 +122,20 @@ public class ParseXML {
 						 * textLNList.item(0)).getNodeValue() .trim());
 						 */
 
-						// Delete the echoed characters
-						try {
-							Robot r = new Robot();
-							r.keyPress(KeyEvent.VK_BACK_SPACE);
-							r.keyRelease(KeyEvent.VK_BACK_SPACE);
-						} catch (AWTException e) {
-							e.printStackTrace();
-						}
 						
-						
-
 						if (inscriptothers == 1) {
 							String ucodeValue = ((Node) textLNList.item(0))
 									.getNodeValue().trim();
 							// @Debug
-							 System.out.println("String unicode is"+
-							 ucodeValue);
+							// System.out.println("String unicode is"+
+							// ucodeValue);
+
+							// delete echoed chars
+							PhoneticParseXML.putbkspace();
 
 							// For key presses which have multiple unicodes
 							StringBuilder temp = new StringBuilder(4);
-							
+							int i;
 							if (ucodeValue.length() > 4) {
 								for (int j = 0; j < ucodeValue.length(); j++) {
 									temp.append(ucodeValue.charAt(j));
@@ -130,6 +151,7 @@ public class ParseXML {
 							}
 						} else {
 							String ucodeValue;
+							PhoneticParseXML.putbkspace();
 							NodeList vovelList = firstPatternElement
 									.getElementsByTagName("consonant");
 							Element vovelElement = (Element) vovelList.item(0);
@@ -141,6 +163,7 @@ public class ParseXML {
 							System.out.println("Flag :"
 									+ ((Node) vovelEtext.item(0))
 											.getNodeValue().trim());
+
 							// Using the same class instead.
 							// ParseXML.processCode(pattern);
 							if (previousConsonantFlag == 1
@@ -152,14 +175,33 @@ public class ParseXML {
 								NodeList uniEdepList = uniEle.getChildNodes();
 								ucodeValue = ((Node) uniEdepList.item(0))
 										.getNodeValue().trim();
+								// For tamil99
+								/*if (ParseXML.keyboardlayoutname
+										.compareTo("tamil99.xml") == 0) {
+									PhoneticParseXML.putbkspace();
+									System.out.println("Knock off halant");
+								}*/
 							} else {
 								// put as it is
 								ucodeValue = ((Node) textLNList.item(0))
 										.getNodeValue().trim();
+								// For tamil99 only
+								if (ParseXML.keyboardlayoutname
+										.compareTo("tamil99.xml") == 0
+										&& Integer
+												.valueOf(currentconsonantflag) == 1 && previousConsonantFlag==1
+										&& pattern.compareTo("f") != 0 && previousChar.compareTo(pattern) == 0 ) {
+									if(tamil99count%2 ==0){
+									 ucodeValue =  "0bcd" + ucodeValue;
+									  System.out.println("Halant to be printed!");
+									}
+									tamil99count++;
+									
+								}
 							}
 							// @Debug
 							System.out
-									.println("String unicode is : " + ucodeValue);
+									.println("String unicode is" + ucodeValue);
 
 							// For key presses which have multiple unicodes
 							StringBuilder temp = new StringBuilder(4);
@@ -169,7 +211,6 @@ public class ParseXML {
 									temp.append(ucodeValue.charAt(j));
 									if (temp.length() == 4) {
 										System.out.println(temp.toString());
-										
 										OutputActiveWindow("U" + temp.toString());
 										temp.delete(0, 4);
 									}
@@ -177,11 +218,21 @@ public class ParseXML {
 
 							} else {
 								// Call native method with the unicode
-								OutputActiveWindow("U" + ucodeValue);
+								if (ParseXML.keyboardlayoutname
+										.compareTo("tamil99.xml") == 0
+										&& pattern.compareTo("a") == 0
+										&& previousConsonantFlag != 0) {
+
+								} else {
+
+									OutputActiveWindow("U" + ucodeValue);
+								}
 							}
-							previousConsonantFlaglog=previousConsonantFlag;
+							previousConsonantFlaglog = previousConsonantFlag;
 							previousConsonantFlag = Integer
 									.valueOf(currentconsonantflag);
+						
+							previousChar = pattern;
 
 						}// end of else of if(inscriptothers==1)
 
@@ -207,17 +258,7 @@ public class ParseXML {
 		} catch (FileNotFoundException fnf) {
 			System.out.println("Select a keyboard layout first!!");
 
-		} catch (NullPointerException n) {
-            char unDef = pattern.charAt(0);
-            /*
-             * convert string "pattern" to character
-             * and convert it to a hex string.
-             * Then pass it to the native method which
-             * puts character to the active window.
-             */
-            OutputActiveWindow("U"+ Integer.toHexString(unDef));
-        }
-        catch (Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		}
 
@@ -233,13 +274,16 @@ public class ParseXML {
 			inscriptothers = OTHER_KB;
 
 	}
+
 	static {
 		System.out.println(System.getProperty("user.dir"));
 		String path = System.getProperty("user.dir");
 		try {
 			System.load(path + "/libOutputActiveWindow.so.1.0");
+			System.load(path + "/libbkSpace.so.1.0");
 		} catch (UnsatisfiedLinkError e) {
 			System.load("/usr/lib/libOutputActiveWindow.so.1.0");
+			System.load("/usr/lib/libbkSpace.so.1.0");
 		}
 
 	}
