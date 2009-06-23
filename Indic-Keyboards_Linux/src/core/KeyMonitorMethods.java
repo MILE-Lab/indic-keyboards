@@ -56,8 +56,6 @@ public class KeyMonitorMethods {
 				loggingEnabled = true;
 				System.out.println("Key Logging Enabled");
 				ParseXML.previousConsonantFlag = 0;
-				PhoneticParseXML.previousConsonantFlag=0;
-				ParseXML.tamil99count=0;
 				if (IndicKeyboards.AutoRepeat == false) {
 					keyrepeat(0);
 				}
@@ -225,10 +223,7 @@ public class KeyMonitorMethods {
 			case 227:
 				pattern = "}";
 				break;
-			case 28://Flags added for enter.
-				ParseXML.previousConsonantFlag = 0;
-				PhoneticParseXML.previousConsonantFlag=0;
-				ParseXML.tamil99count=0;
+			case 28:
 				pattern = "\n";
 				break;
 			case 29:

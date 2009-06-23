@@ -1,0 +1,132 @@
+--------------------------------
+Steps to compile Indic-Keyboards
+--------------------------------
+
+Requirements :  JDK
+		gcc and its dependencies (32 bit or 64 bit or both depending on the machine architecture)
+		Ant 1.5 or higher
+		X11 libraries (32 bit or 64 bit or both depending on the machine architecture)
+		XTest libraries (An extension to X11. Mostly comes bundled with X11)
+		Eclipse SWT libraries (32 bit or 64 bit or both depending on the machine architecture) - swt.jar file
+		
+		GNOME Terminal, Konsole, xterm or such equivalent terminals
+
+This file is a guide to compile Indic-Keyboards from console, run and build it int an executable JAR file from the source. Steps necessary to create the linux
+libraries (shared objects) are also described here. The requirements have been specified above. This is helpful for developers not having Java IDEs like Eclipse
+or NetBeans. For developers having IDEs, see the website http://code.google.com/p/indic-keyboards for more details.
+
+Ant is not a requirement. But it is highly recommended to use Ant as it simplifies the process. This guide makes use of Ant.
+
+Assuming that the source has been checked out from the online repository, you will next need Eclipse SWT library. The 32-bit SWT library can be downloaded from the
+Eclipse SWT website. For 64-bit users, there is an FAQ which says how to compile the 64-bit library from source. Some naive developers might find it difficult.
+For such people, a ready-to-use 64-bit SWT jar file is made available on the code Google website. It can be downloaded from there.
+
+The initial directory structure is as follows :
+
+indic-keyboards-x86
+	|
+	|-libOutputActiveWindow.so.1.0, libKeyMonitor.so.1.0, libKeyRepeat.so.1.0, libbkSpace.so.1.0
+	|-preferences.conf
+	|-build.xml
+	|-kblayouts - All the layout XML files.
+	|	|		
+	|	|-userdefined : All the user defined layouts' XML files.
+	|-src
+	   |
+	   |-core : All the Java, C source files. Layout and icon images.
+
+indic-keyboards-x86_64
+	|
+	|-libOutputActiveWindow-64.so.1.0, libKeyMonitor-64.so.1.0, libKeyRepeat-64.so.1.0, libbkSpace-64.so.1.0
+	|-preferences.conf
+	|-build.xml
+	|-kblayouts - All the layout XML files.
+	|	|		
+	|	|-userdefined : All the user defined layouts' XML files.
+	|-src
+	   |
+	   |-core : All the Java, C source files. Layout and icon images.
+
+(The directories indic-keyboards-x86 and indic-keyboards-x86_64 will be referred to as the main or the parent directory).
+
+STEPS:
+
+Step 1 : Put the swt.jar file in the main directory i.e. indic-keyboards-x86. For 64-bit users, rename the file to swt64.jar and put it in the main directory.
+	 NOTE : The swt files must be named as swt.jar or swt64.jar otherwise the compilation will fail. To use changed names, go to the build.xml file and make
+		appropriate changes.
+
+Step 2 : Verify Ant's installation by typing in the command "ant -p". It should show the project description and the build targets. If this is shown, then 
+	 Ant is configured properly. The build.xml file must be present.
+
+Step 3 : As seen above, the build targets are shown. To compile, just run "ant compile". Or, just "ant". Default target is compile. Once compiled, a directory "bin"
+	 is created in the main directory. This has all the class files.
+
+Step 4 : Now that it's compiled, we can run by issuing "ant run". The project starts running and it's ready to be used. (Refer User Documentation for help).
+	 NOTE : The libraries (.so files) must be present in the parent directory for the software to run. Steps on how to compile the libraries is given later.
+
+Step 5 : To package the project into an executable JAR, build the target "ant jar". A directory called "dist" will be created which will have the distributable
+	 copy of the project.
+
+Step 6 : To clean the project by deleting the the .class files and all the native headers, run the target "ant clean".
+
+STEPS TO COMPILE THE LINUX LIBRARIES :
+
+The steps to compile the libraries are given below. The requirements are specified above. These steps are applicable to developers who want to modify the native code.
+For others, there is no need to recompile. The packaged binaries should work.
+
+Step 1 : The files are written in C. They can be found in indic-keyboards/src/core.
+	 indic-keyboards-x86
+		|
+		|-src
+		   |
+		   |-core
+		   |   |
+		       |-KeyMonitor.c, OutputActiveWindow.c, bkSpace.c, KeyRepeat.c
+
+Step 2 : Java Native Interface (JNI) has been used. The native headers for the various java classes have to be generated first using "javah". This has been made
+	 simpler through Ant. Run the target "ant headers". The native headers are generated in the src/core directory. (Prior knowledge of JNI required).
+
+Step 3 : Chage directory to src/core. "cd src/core".
+
+Step 4 : Run the following commands inside the src/core directory. 
+	
+For 32-bit
+----------
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -I/path-to-JDK home/include -I/path-to-JDK home/include/linux KeyMonitor.c -m32
+gcc -shared -Wl,-soname=libKeyMonitor.so.1 -o libKeyMonitor.so.1.0 KeyMonitor.o -lc -m32
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -lX11 -I/usr/include/X11 OutputActiveWindow.c -m32
+gcc -shared -Wl,-soname=libOutputActiveWindow.so.1 -o libOutputActiveWindow.so.1.0 OutputActiveWindow.o -lc -lX11 -m32
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -lX11 -lXtst -I/usr/include/X11 bkSpace.c -m32
+gcc -shared -Wl,-soname=libbkSpace.so.1 -o libbkSpace.so.1.0 bkSpace.o -lc -lX11 -l Xtst -m32
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -lX11 -I/usr/include/X11 KeyRepeat.c -m32
+gcc -shared -Wl,-soname=libKeyRepeat.so.1 -o libKeyRepeat.so.1.0 KeyRepeat.o -lc -lX11 -m32
+
+For 64-bit
+----------
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -I/path-to-JDK home/include -I/path-to-JDK home/include/linux KeyMonitor.c -m64
+gcc -shared -Wl,-soname=libKeyMonitor-64.so.1 -o libKeyMonitor-64.so.1.0 KeyMonitor.o -lc -m64
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -lX11 -I/usr/include/X11 OutputActiveWindow.c -m64
+gcc -shared -Wl,-soname=libOutputActiveWindow-64.so.1 -o libOutputActiveWindow-64.so.1.0 OutputActiveWindow.o -lc -lX11 -m64
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -lX11 -lXtst -I/usr/include/X11 bkSpace.c -m64
+gcc -shared -Wl,-soname=libbkSpace-64.so.1 -o libbkSpace-64.so.1.0 bkSpace.o -lc -lX11 -l Xtst -m64
+
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -lX11 -I/usr/include/X11 KeyRepeat.c -m64
+gcc -shared -Wl,-soname=libKeyRepeat-64.so.1 -o libKeyRepeat-64.so.1.0 KeyRepeat.o -lc -lX11 -m64
+
+The .so files are generated at the end of these steps. 4 Libraries are created. Copy/Cut them and paste it into the parent directory. It may be noted that the path to JDK home
+has to be replaced with the appropriate paths. For example, 
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -I/usr/java/latest/include -I/usr/java/latest/include/linux KeyMonitor.c -m32
+	[OR]
+gcc -fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -I/usr/lib64/jvm/java-1.6.0-openjdk-1.6.0/include -I/usr/lib64/jvm/java-1.6.0-openjdk-1.6.0/include/linux KeyMonitor.c -m64
+
+Step 5 : Run "ant clean" to clean up the intermediate object files.
+
+For further information, visit the code Google website or you can contact the authors.
+
