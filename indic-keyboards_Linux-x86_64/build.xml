@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<project name="indic-keyboards-x86_64" default="compile" >
+<description>indic-keyboards - A Common Keyboard Interface for Indic Scripts</description>
+
+<property name="debug" value="false" />
+<property name="verbose" value="false" />
+<property name="main.class" value="core.IndicKeyboards" />
+<property name="swt" value="swt64.jar" />
+
+<fileset id="ImagesIcons" dir="src/core" >
+    <patternset includes="*.ico,*.png,*.gif,*.jpg,*.jpeg" />
+</fileset>
+
+<fileset id="otherfiles" dir="." >
+    <patternset includes="*.txt,*.conf" />
+</fileset>
+
+<!--
+<fileset id="kblayouts" dir="kblayouts" >
+    <patternset includes="**/**" />
+</fileset>
+-->
+<fileset id="swtorg" dir="./swt" >
+    <patternset includes="**/org/**" />
+</fileset>
+
+<fileset id="swtso" dir="./swt" >
+    <patternset> 
+		<include name="libswt*.so" />
+		<include name="libcai*.so" />
+		<include name="version.txt" />
+	</patternset>
+</fileset>
+
+<fileset id="ourso" dir="." >
+    <patternset includes="lib*.so.*" />
+</fileset>
+
+<target name="init" description="Initialization by creating the directory structure">
+    <mkdir dir="bin" />
+</target>
+
+<target name="compile" depends="init" description="Compiles the java source code. Copies all class and image files to bin/core">
+    <echo>Compiling ${ant.project.name}</echo>
+    <javac srcdir="src" destdir="bin" classpath="${swt}" debug="${debug}" verbose="${verbose}" />
+
+    <copy todir="./bin/core">
+      <fileset refid="ImagesIcons"/>
+    </copy>
+</target>
+
+<target name="run" depends="compile" description="Executes the project">
+    <echo>Using Java ${ant.java.version} present at ${java.home}</echo>
+    <java classpath="${swt}:./bin" classname="core.IndicKeyboards" fork="true" />
+</target>
+
+<target name="header" depends="compile" description="Generates the platform specific header files for building libraries">
+    <javah destdir="./src/core" classpath="./bin" >
+    <class name="core.KeyMonitorMethods" />
+    <class name="core.ParseXML" />
+    </javah>
+</target>
+
+<target name="jar" depends="compile" description="Packages into an executable JAR">
+	<mkdir dir="dist" />
+	<mkdir dir="swt" />
+	<unjar src="${swt}" dest="./swt" />
+		
+	<manifest file="MANIFEST.MF" >
+		<attribute name="Class-Path" value="." />
+		<attribute name="Main-Class" value="${main.class}"/>
+	</manifest>
+	<jar destfile="./dist/${ant.project.name}.jar" basedir="bin" duplicate="preserve" manifest="./MANIFEST.MF">
+	<fileset refid="swtso" />
+	<fileset refid="swtorg" />
+	</jar>
+	<delete dir="META-INF" />
+	<delete file="./MANIFEST.MF" />
+	<delete dir="swt" />
+	<copy todir="./dist">
+		<fileset refid="ourso" />
+	</copy>
+	<!--
+	<mkdir dir="./dist/kblayouts" />
+	<copy todir="./dist/kblayouts">
+		<fileset refid="kblayouts" />
+	</copy>
+	-->
+	<mkdir dir="./dist/kblayouts" />
+	<copy todir="./dist/kblayouts">
+		<fileset dir="./kblayouts" />
+	</copy>
+	
+	<copy todir="./dist">
+		<fileset refid="otherfiles" />
+	</copy>
+	<antcall target="clean" />
+
+</target>
+
+<target name="clean" description="Clean up after compile">
+    <delete dir="./bin" />
+    <antcall target="clean-native" />
+</target>
+
+<target name="copy-project" depends="clean,clean-native" description="Copies the entire source code into a new folder in the parent directory">
+    <mkdir dir="../${ant.project.name}_copy" />
+    <copy todir="../${ant.project.name}_copy">
+      <fileset dir="../${ant.project.name}" >
+      <exclude name="*.jar"/>
+      <exclude name="*.so.*"/>
+      <exclude name="*.jar"/>
+    </fileset>
+    </copy>
+    <delete dir="../${ant.project.name}_copy/${ant.project.name}_copy" />
+</target>
+
+<target name="clean-native" description="Cleans up native header files and intermediate object files">
+    <delete>
+      <fileset dir="./src/core" includes="*.h" />
+      <fileset dir="." includes="*.o" />
+      <fileset dir="." includes="*.O" />
+    </delete>
+</target>
+
+</project>
