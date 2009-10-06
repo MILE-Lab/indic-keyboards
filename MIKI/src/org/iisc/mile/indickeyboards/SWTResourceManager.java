@@ -1,6 +1,7 @@
 /** ********************************************************************
  * File:           SWTResourceManager.java
- * Description:    Used by the XMLGenerator.java file.
+ * Description:    Used by the XMLGenerator.java file to do SWT
+ * 					memory clean up.
  * Authors:        Akshay,Abhinava,Revati,Arun
  * Created:        Thu Mar 26 20:01:25 IST 2009
  *

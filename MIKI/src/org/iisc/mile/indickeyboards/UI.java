@@ -38,7 +38,6 @@ import org.eclipse.swt.widgets.TrayItem;
 import org.iisc.mile.indickeyboards.linux.InitLinux;
 import org.iisc.mile.indickeyboards.linux.KeyMonitorMethods;
 import org.iisc.mile.indickeyboards.windows.InitWin;
-
 import sun.management.ManagementFactory;
 
 /**
@@ -214,9 +213,9 @@ public class UI {
 
 			final MenuItem gurmukhi = new MenuItem(menu, SWT.CASCADE);
 			gurmukhi.setText("Gurmukhi");
-			final Menu submenu_pun = new Menu(shell, SWT.DROP_DOWN);
-			gurmukhi.setMenu(submenu_pun);
-			final MenuItem gurInscript = new MenuItem(submenu_pun, SWT.PUSH);
+			final Menu submenu_gur = new Menu(shell, SWT.DROP_DOWN);
+			gurmukhi.setMenu(submenu_gur);
+			final MenuItem gurInscript = new MenuItem(submenu_gur, SWT.PUSH);
 			gurInscript.setText("Inscript");
 
 			final MenuItem hindi = new MenuItem(menu, SWT.CASCADE);

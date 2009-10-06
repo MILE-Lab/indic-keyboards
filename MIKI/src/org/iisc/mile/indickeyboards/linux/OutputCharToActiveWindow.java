@@ -1,3 +1,22 @@
+/**********************************************************************
+ * File:           OutputCharToActiveWindow.java
+ * Description:    Java code that takes Unicode and puts them onto
+ * 					to the current active window.
+ * Authors:        Akshay,Abhinava,Revati,Arun
+ * Created:        Thu Oct 1 18:31:25 GMT 2009
+ *
+ * (C) Copyright 2009, MILE Lab, IISc
+ ** Licensed under the Apache License, Version 2.0 (the "License");
+ ** you may not use this file except in compliance with the License.
+ ** You may obtain a copy of the License at
+ ** http://www.apache.org/licenses/LICENSE-2.0
+ ** Unless required by applicable law or agreed to in writing, software
+ ** distributed under the License is distributed on an "AS IS" BASIS,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ** See the License for the specific language governing permissions and
+ ** limitations under the License.
+ *
+ **********************************************************************/
 package org.iisc.mile.indickeyboards.linux;
 
 import org.iisc.mile.indickeyboards.ParseXML;

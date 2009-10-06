@@ -5,7 +5,7 @@
  * Authors:        Akshay,Abhinava,Revati,Arun
  * Created:        Sat Mat 28 18:31:25 GMT 2009
  *
- * (C) Copyright 2008, MILE Lab, IISc
+ * (C) Copyright 2009, MILE Lab, IISc
  ** Licensed under the Apache License, Version 2.0 (the "License");
  ** you may not use this file except in compliance with the License.
  ** You may obtain a copy of the License at
@@ -71,7 +71,7 @@ JNIEXPORT void JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_gr
 	
 	jmethodID constructor = (*env)->GetMethodID(env, class, "<init>", "()V");
 	jobject object = (*env)->NewObject(env,class,constructor);
-	
+
 	long delay,press1,press2;
 	const jbyte *str;
 	str = (*env)->GetStringUTFChars(env, kb, NULL);
@@ -110,7 +110,7 @@ JNIEXPORT void JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_gr
 					}
 					press2 = ev1[0].time.tv_usec;
 					delay = press2 - press1;
-					
+
 					if (ev1[0].value == 1) {
 						(*env)->CallVoidMethod(env, object, mid, ev1[0].code + 200);
 						break;
@@ -129,7 +129,7 @@ JNIEXPORT void JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_gr
 						perror("evtest: short read");
 						exit(1);
 					}
-					
+
 					if (ev1[0].value == 1 && ev1[0].code==88) {
 						(*env)->CallVoidMethod(env, object, mid,666);
 						break;
@@ -195,7 +195,7 @@ JNIEXPORT void JNICALL JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibr
 	event.xkey.keycode = code;
 	event.xkey.state = 0;
 	XSendEvent( event.xkey.display, focus_return, True, KeyPressMask, &event);
-	
+
 	XCloseDisplay(display);
 }
 
