@@ -1,6 +1,6 @@
 /** ********************************************************************
  * File:           InitLinux.java 
- * Description:    Initialize MIKI on Linux.
+ * Description:    Initialize indic-keyboards on Linux.
  * Authors:        Abhinava,Akshay. Revati,Arun 
  * Created:        Sun July 2 02:01:25 IST 2009
  *
@@ -229,7 +229,7 @@ public class InitLinux {
 					| SWT.ICON_ERROR);
 			messageBox.setText("Missing Library");
 			messageBox
-					.setMessage("The libraries necessary to run\nMIKI are missing."
+					.setMessage("The libraries necessary to run\nindic-keyboards are missing."
 							+ "Please put the "
 							+ linuxLibraryName
 							+ " in the program folder.");

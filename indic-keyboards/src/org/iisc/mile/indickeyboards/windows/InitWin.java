@@ -1,6 +1,6 @@
 /** ********************************************************************
  * File:           InitWin.java 
- * Description:    Initialize MIKI on Windows.
+ * Description:    Initialize indic-keyboards on Windows.
  * Authors:        Akshay,Abhinava,Revati,Arun 
  * Created:        Mon July 2 19:31:25 GMT 2009
  *

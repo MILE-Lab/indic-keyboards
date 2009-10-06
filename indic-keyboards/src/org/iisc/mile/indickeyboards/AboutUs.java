@@ -1,6 +1,6 @@
 /** ********************************************************************
  * File:           AboutUs.java 
- * Description:    File which creates the "About MIKI" shell.
+ * Description:    File which creates the "About indic-keyboards" shell.
  * Authors:        Abhinava,Akshay. Revati,Arun 
  * Created:        Sun May 25 02:01:25 IST 2009
  *
@@ -35,8 +35,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 
-
-
 /**
  * Creates a tabbed display with four tabs, and a few controls on each page
  */
@@ -64,8 +62,9 @@ public class AboutUs {
 		int x = (display.getClientArea().width) / 2;
 		int y = (display.getClientArea().height) / 2;
 		shell.setLocation(x - 150, y - 220);
-		shell.setText("About - MIKI");
-		Image image = new Image(display, IndicKeyboards.workingDirectory+"/resources/trayicon.ico");
+		shell.setText("About - indic-keyboards");
+		Image image = new Image(display, IndicKeyboards.workingDirectory
+				+ "/resources/trayicon.ico");
 		shell.setImage(image);
 		createContents(shell);
 		shell.open();
@@ -80,7 +79,8 @@ public class AboutUs {
 		link2.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
 				System.out.println("Selection: " + event.text);
-				if (event.text.contains("mailto")) {
+				if (event.text.contains("mailto")
+						|| event.text.contains("http")) {
 					Program pBrowse = Program.findProgram(".html");
 					pBrowse.execute(event.text);
 				}
@@ -145,13 +145,15 @@ public class AboutUs {
 		RowLayout canvas1Layout = new RowLayout(org.eclipse.swt.SWT.HORIZONTAL);
 		canvas1.setLayout(canvas1Layout);
 		canvas1.setLayoutData(canvas1LData);
-		Image image1 = new Image(display, IndicKeyboards.workingDirectory+"/resources/about.png");
+		Image image1 = new Image(display, IndicKeyboards.workingDirectory
+				+ "/resources/about.png");
 		canvas1.setBackgroundImage(image1);
 
 		// Create each tab and set its text, tool tip text,
 		// image, and control
 
-		Image star = new Image(display, IndicKeyboards.workingDirectory+"/resources/star.png");
+		Image star = new Image(display, IndicKeyboards.workingDirectory
+				+ "/resources/star.png");
 
 		about = new TabItem(tabFolder, SWT.NONE);
 		about.setText("About");
@@ -186,8 +188,8 @@ public class AboutUs {
 
 		link1 = new Link(tabFolder, SWT.NONE);
 
-		String text = "\n\nA Common Keyboard Interface for Indic Scripts - like BarahaIME\n\n"
-				+ "\u00A9MILE Lab IISc, Bangalore. 2009.\n\n"
+		String text = "\n\nA Multilingual Indic Keyboard Interface - like BarahaIME\n\n"
+				+ "\u00A9 MILE Lab Indian Institute of Science, Bangalore. 2009.\n\n"
 				+ "<a href=\"http://code.google.com/p/indic-keyboards\">http://code.google.com/p/indic-keyboards</a>\n\n"
 				+ "User Mailing List :\n<a href=\"http://groups.google.com/group/cki-users/\">http://groups.google.com/group/cki-users/</a>\n\n"
 				+ "Developer Mailing List :\n<a href=\"http://groups.google.com/group/cki-dev/\">http://groups.google.com/group/cki-dev/</a>\n\n"
@@ -202,37 +204,34 @@ public class AboutUs {
 
 		link2 = new Link(tabFolder, SWT.NONE);
 		String text = "\n\nAbhinava Shivakumar S.\n"
-				+ "<a href=\"mailto:abhinav.zoso@gmail.com\">abhinav.zoso@gmail.com</a>\n\n"
+				+ "<a href=\"http://www.linkedin.com/in/abhinavask\">http://www.linkedin.com/in/abhinavask</a>\n\n"
 				+ "Akshay Rao\n<a href=\"mailto:u.akshay@gmail.com\">u.akshay@gmail.com</a>\n\n"
-				+ "Arun S.\n<a href=\"mailto:sarun87@gmail.com\">sarun87@gmail.com</a>\n\n"
+				+ "Arun S.\n<a href=\"http://www.linkedin.com/in/aruns87\">http://www.linkedin.com/in/aruns87</a>\n\n"
 				+ "Revati P. Junnarkar\n<a href=\"mailto:revengr@gmail.com\">revengr@gmail.com</a>";
 		link2.setText(text);
 		return link2;
 	}
 
 	private Control getTabThanksControl(TabFolder tabFolder) {
-				
+
 		link3 = new Link(tabFolder, SWT.NONE);
 		String text = "\n"
 				+ "Dr. A. G. Ramakrishnan\nProfessor\n"
 				+ "Department of Electrical Engineering\n"
 				+ "Indian Institute of Science\n"
 				+ "Bangalore 560 012, INDIA\n"
-				+ "91 (0) 80 2293 2556\n"
-				+ "<a href=\"mailto:ramakiag@ee.iisc.ernet.in\">ramkiag@ee.iisc.ernet.in</a>\n"
-				+ "<a href=\"http://ragashri.ee.iisc.ernet.in/MILE/index.htm\">http://ragashri.ee.iisc.ernet.in/MILE/index.htm</a>\n\n"
-				+ "Shiva Kumar H. R.\n"
-				+ "<a href=\"mailto:shivahr@gmail.com\">shivahr@gmail.com</a>\n"
-				+ "<a href=\"mailto:shivahr@ee.iisc.ernet.in\">shivahr@ee.iisc.ernet.in</a>\n"
-				+ "<a href=\"http://languagetechnology.org\">http://languagetechnology.org</a>";
+				+ "<a href=\"http://ragashri.ee.iisc.ernet.in/MILE/index_files/AGR/index.htm\">http://ragashri.ee.iisc.ernet.in/MILE/index_files/AGR/index.htm</a>\n\n"
+				+ "Shiva Kumar H R\n"
+				+ "Apache Geronimo Committer and PMC Member\n"
+				+ "<a href=\"http://people.apache.org/~shivahr/\">http://people.apache.org/~shivahr/</a>";
 		link3.setText(text);
 		return link3;
 	}
 
-  private Control getTabLicenseControl(TabFolder tabFolder) {
-		
+	private Control getTabLicenseControl(TabFolder tabFolder) {
+
 		link4 = new Link(tabFolder, SWT.NONE);
-		String text = "\n\n\nTHIS SOFTWARE IS LICENSED UNDER THE APACHE 2.0 LICENSE. A COPY OF THE LICENSE IS GVEN IN THE PROGRAM FOLDER. IF YOU DOWNLOADED THIS SOFTWARE AND THE LICENSE WAS NOT INCLUDED IN THE FOLDER, PLEASE CONTACT THE AUTHORS. IN SUCH A CASE WHEREIN THE LICENSE IS NOT PRESENT IN THE PROGRAM FOLDER, CLICK <a href=\"http://www.apache.org/licenses/LICENSE-2.0\">HERE</a>. THIS SOFTWARE IS GIVEN \"AS IS\" WITH NO WARRANTY WHATSOEVER. THE AUTHORS ARE NOT LIABLE IN ANY FORM IMPLIED OR OTHERWISE FOR THE DAMAGES THAT MAY OCCUR DIRECTLY OR INDIRECTLY ON USE OF THIS SOFTWARE.";
+		String text = "\n\n\n\u00A9 Copyright 2009, MILE Lab, Indian Institute of Science\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at <a href=\"http://www.apache.org/licenses/LICENSE-2.0\">http://www.apache.org/licenses/LICENSE-2.0</a> . Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language overning permissions and limitations under the License.";
 		link4.setText(text);
 		return link4;
 	}

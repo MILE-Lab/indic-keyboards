@@ -33,7 +33,7 @@ public class SplashScreen {
 		Shell sh = new Shell(d, SWT.NO_TRIM);
 
 		sh.setLayout(new GridLayout(2, true));
-		sh.setText("Opening InitWin...");
+		sh.setText("Opening indic-keyboards...");
 		sh.setLayout(new RowLayout(SWT.HORIZONTAL));
 		sh.setBackground(d.getSystemColor(SWT.COLOR_DARK_GRAY));
 

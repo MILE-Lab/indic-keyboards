@@ -138,9 +138,9 @@ public class UI {
 		} else {
 			item = new TrayItem(tray, SWT.NONE);
 			item.setImage(image);
-			item.setToolTipText("MIKI\nDouble click to visit homepage");
+			item.setToolTipText("indic-keyboards\nDouble click to visit homepage");
 
-			tip.setText("MIKI");
+			tip.setText("indic-keyboards");
 			item.setToolTip(tip);
 			tip.setVisible(true);
 
@@ -158,7 +158,7 @@ public class UI {
 					messageBox.setText("Open Browser");
 
 					messageBox
-							.setMessage("Dou you want to open MIKI' webpage??\n\n(Opens in the default internet browser)");
+							.setMessage("Dou you want to open indic-keyboards' webpage??\n\n(Opens in the default internet browser)");
 					int rCode = messageBox.open();
 					if (rCode == SWT.YES) {
 						/*
@@ -333,7 +333,7 @@ public class UI {
 								tip.setVisible(true);
 								ParseXML.setlang("userdefined/" + filename);
 								PhoneticParseXML.PhoneticFlag = 0;
-								item.setToolTipText("MIKI - User Defined - "
+								item.setToolTipText("indic-keyboards - User Defined - "
 										+ filename.substring(0, filename
 												.length() - 4));
 							}
@@ -370,13 +370,13 @@ public class UI {
 			final MenuItem langtech = new MenuItem(submenu2, SWT.PUSH);
 			langtech.setText("Language Technology");
 			final MenuItem codegoogle = new MenuItem(submenu2, SWT.PUSH);
-			codegoogle.setText("MIKI code.google.com");
+			codegoogle.setText("indic-keyboards code.google.com");
 			final MenuItem IKdev = new MenuItem(submenu2, SWT.PUSH);
-			IKdev.setText("MIKI Developer mailing list");
+			IKdev.setText("indic-keyboards Developer mailing list");
 			final MenuItem IKscm = new MenuItem(submenu2, SWT.PUSH);
-			IKscm.setText("MIKI SCM group");
+			IKscm.setText("indic-keyboards SCM group");
 			final MenuItem IKuser = new MenuItem(submenu2, SWT.PUSH);
-			IKuser.setText("MIKI User mailing list");
+			IKuser.setText("indic-keyboards User mailing list");
 
 			new MenuItem(menu, SWT.SEPARATOR);
 
@@ -386,7 +386,7 @@ public class UI {
 			new MenuItem(menu, SWT.SEPARATOR);
 
 			final MenuItem about = new MenuItem(menu, SWT.PUSH);
-			about.setText("About MIKI");
+			about.setText("About indic-keyboards");
 
 			new MenuItem(menu, SWT.SEPARATOR);
 
@@ -407,13 +407,13 @@ public class UI {
 						messageBox.setText("Exit...");
 						if (System.getProperty("os.name").contains("Windows")) {
 							messageBox
-									.setMessage("Are you sure to quit MIKI??");
+									.setMessage("Are you sure to quit indic-keyboards??");
 						} else {
 							String pid = ManagementFactory.getRuntimeMXBean()
 									.getName();
 							int index = pid.indexOf("@");
 							messageBox
-									.setMessage("Are you sure to quit MIKI??"
+									.setMessage("Are you sure to quit indic-keyboards??"
 											+ "\n\nIf the application doesn't close\nwhen Exit is selected, "
 											+ "kill the process.\n\n(The process ID is "
 											+ pid.substring(0, index) + ")");
@@ -463,10 +463,10 @@ public class UI {
 						sh.setImage(image);
 						MessageBox messageBox = new MessageBox(sh, SWT.YES
 								| SWT.NO | SWT.ICON_QUESTION);
-						messageBox.setText("Opening MIKI' help...");
+						messageBox.setText("Opening indic-keyboards' help...");
 
 						messageBox
-								.setMessage("Dou you want to open MIKI help ??\n\n(Requires an Internet connection)");
+								.setMessage("Dou you want to open indic-keyboards help ??\n\n(Requires an Internet connection)");
 						int rCode = messageBox.open();
 						if (rCode == SWT.YES) {
 							/*
@@ -533,7 +533,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/kannada.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - KANNADA KaGaPa");
+							item.setToolTipText("indic-keyboards - KANNADA KaGaPa");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -551,7 +551,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/kannada.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - KANNADA Inscript");
+							item.setToolTipText("indic-keyboards - KANNADA Inscript");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -569,7 +569,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/kannada.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - KANNADA Phonetic");
+							item.setToolTipText("indic-keyboards - KANNADA Phonetic");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -592,7 +592,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - TAMIL Tamil99");
+							item.setToolTipText("indic-keyboards - TAMIL Tamil99");
 							previousKeyboardIcon=item.getImage();
 						}
 
@@ -612,7 +612,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - TAMIL Inscript");
+							item.setToolTipText("indic-keyboards - TAMIL Inscript");
 							previousKeyboardIcon=item.getImage();
 						}
 
@@ -632,7 +632,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - TAMIL Remington");
+							item.setToolTipText("indic-keyboards - TAMIL Remington");
 							previousKeyboardIcon=item.getImage();
 						}
 
@@ -652,7 +652,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - TAMIL Phonetic");
+							item.setToolTipText("indic-keyboards - TAMIL Phonetic");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -676,7 +676,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/telugu.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - TELUGU Inscript");
+							item.setToolTipText("indic-keyboards - TELUGU Inscript");
 							previousKeyboardIcon=item.getImage();
 						}
 
@@ -696,7 +696,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/telugu.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - TELUGU Phonetic");
+							item.setToolTipText("indic-keyboards - TELUGU Phonetic");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -721,7 +721,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/gujarati.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - GUJRATI Inscript");
+							item.setToolTipText("indic-keyboards - GUJRATI Inscript");
 							previousKeyboardIcon=item.getImage();
 
 						}
@@ -743,7 +743,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/gujarati.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - GUJARATI Phonetic");
+							item.setToolTipText("indic-keyboards - GUJARATI Phonetic");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -768,7 +768,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - HINDI Remington");
+							item.setToolTipText("indic-keyboards - HINDI Remington");
 							previousKeyboardIcon=item.getImage();
 
 						}
@@ -792,7 +792,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - HINDI Inscript");
+							item.setToolTipText("indic-keyboards - HINDI Inscript");
 							previousKeyboardIcon=item.getImage();
 						}
 
@@ -813,7 +813,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - HINDI Phonetic");
+							item.setToolTipText("indic-keyboards - HINDI Phonetic");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -838,7 +838,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - MARATHI");
+							item.setToolTipText("indic-keyboards - MARATHI");
 							previousKeyboardIcon=item.getImage();
 						}
 
@@ -860,7 +860,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - MARATHI Inscript");
+							item.setToolTipText("indic-keyboards - MARATHI Inscript");
 							previousKeyboardIcon=item.getImage();
 						}
 
@@ -881,7 +881,7 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("MIKI - MARATHI Phonetic");
+							item.setToolTipText("indic-keyboards - MARATHI Phonetic");
 							previousKeyboardIcon=item.getImage();
 						}
 					}
@@ -905,7 +905,7 @@ public class UI {
 								IndicKeyboards.workingDirectory
 										+ "/resources/bengali.ico");
 						item.setImage(image1);
-						item.setToolTipText("MIKI - BENGALI Inscript");
+						item.setToolTipText("indic-keyboards - BENGALI Inscript");
 						previousKeyboardIcon=item.getImage();
 					}
 
@@ -928,7 +928,7 @@ public class UI {
 								IndicKeyboards.workingDirectory
 										+ "/resources/gurmukhi.ico");
 						item.setImage(image1);
-						item.setToolTipText("MIKI - GURMUKHI Inscript");
+						item.setToolTipText("indic-keyboards - GURMUKHI Inscript");
 						previousKeyboardIcon=item.getImage();
 					}
 
@@ -951,7 +951,7 @@ public class UI {
 								IndicKeyboards.workingDirectory
 										+ "/resources/malayalam.ico");
 						item.setImage(image1);
-						item.setToolTipText("MIKI - MALAYALAM Inscript");
+						item.setToolTipText("indic-keyboards - MALAYALAM Inscript");
 						previousKeyboardIcon=item.getImage();
 					}
 
@@ -974,7 +974,7 @@ public class UI {
 								IndicKeyboards.workingDirectory
 										+ "/resources/oriya.ico");
 						item.setImage(image1);
-						item.setToolTipText("MIKI - ORIYA Inscript");
+						item.setToolTipText("indic-keyboards - ORIYA Inscript");
 						previousKeyboardIcon=item.getImage();
 					}
 
@@ -1225,7 +1225,7 @@ public class UI {
 
 			item.addListener(SWT.Selection, new Listener() {
 				public void handleEvent(Event event) {
-					tip.setText("MIKI");
+					tip.setText("indic-keyboards");
 					tip.setMessage("Please right click");
 					tip.setVisible(true);
 				}

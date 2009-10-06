@@ -1,6 +1,6 @@
 /** ********************************************************************
  * File:           IndicKeyboards.java 
- * Description:    Entry point to MIKI. Branches appropriately to
+ * Description:    Entry point to indic-keyboards. Branches appropriately to
  * 					initialize the Windows/Linux version.
  * Authors:        Abhinava,Akshay. Revati,Arun 
  * Created:        Sun July 2 02:01:25 IST 2009

@@ -82,7 +82,7 @@ class PollThread extends Thread {
 					| SWT.ICON_ERROR);
 			messageBox.setText("Missing Library");
 			messageBox
-					.setMessage("The libraries necessary to run MIKI are missing.\n"
+					.setMessage("The libraries necessary to run indic-keyboards are missing.\n"
 							+ "Please put the "
 							+ windowsSysHookLibraryName
 							+ " in the program folder.");
