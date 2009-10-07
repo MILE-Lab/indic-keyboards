@@ -309,8 +309,19 @@ public class ParseXML {
 												.println("Halant to be printed!");
 									}
 									tamil99count++;
-
+								}else
+								if (ParseXML.keyboardlayoutname
+										.compareTo("tamil99.xml") == 0
+										&& Integer
+												.valueOf(currentconsonantflag) == 1
+										&& previousConsonantFlag == 1
+										&& pattern.compareTo("f") != 0){
+									//ucodeValue="0bcd"+ucodeValue;
+									tamil99count=0;
+									if(tamil99count%2!=0)
+										ucodeValue="0bcd"+ucodeValue;
 								}
+								
 							}
 							// @Debug
 							System.out.println("String unicode is " + ucodeValue);
