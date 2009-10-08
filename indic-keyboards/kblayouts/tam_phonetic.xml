@@ -355,6 +355,7 @@
 <consonant>1</consonant>
 </pattern>
 
+<!--
 <pattern>
 <char>1</char>
 <unicode>0BE7</unicode>
@@ -414,7 +415,7 @@
 <unicode>0BE6</unicode>
 <consonant>1</consonant>
 </pattern>
-
+-->
 
 
 

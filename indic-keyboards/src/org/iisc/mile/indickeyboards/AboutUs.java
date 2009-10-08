@@ -188,7 +188,7 @@ public class AboutUs {
 
 		link1 = new Link(tabFolder, SWT.NONE);
 
-		String text = "\n\nA Multilingual Indic Keyboard Interface - like BarahaIME\n\n"
+		String text = "\n\nA Multilingual Indic Keyboard Interface\n\n"
 				+ "\u00A9 MILE Lab, Indian Institute of Science, Bangalore. 2009.\n\n"
 				+ "<a href=\"http://code.google.com/p/indic-keyboards\">http://code.google.com/p/indic-keyboards</a>\n\n"
 				+ "User Mailing List :\n<a href=\"http://groups.google.com/group/cki-users/\">http://groups.google.com/group/cki-users/</a>\n\n"

@@ -353,9 +353,10 @@ public class UI {
 			final MenuItem XMLCreateIns = new MenuItem(submenu_newLay, SWT.PUSH);
 			XMLCreateIns.setText("Add Inscript Layout");
 
-			final MenuItem XMLCreateOth = new MenuItem(submenu_newLay, SWT.PUSH);
-			XMLCreateOth.setText("Add Other Layout");
-
+			/*
+			 * final MenuItem XMLCreateOth = new MenuItem(submenu_newLay,
+			 * SWT.PUSH); XMLCreateOth.setText("Add Other Layout");
+			 */
 			new MenuItem(menu, SWT.SEPARATOR);
 
 			enableDisable = new MenuItem(menu, SWT.PUSH);
@@ -500,21 +501,17 @@ public class UI {
 					}
 				}
 			});
-
-			// XML Create Listener for other keyboards
-			XMLCreateOth.addListener(SWT.Selection, new Listener() {
-
-				public void handleEvent(Event event) {
-					String d = XMLCreateOth.getText();
-					exit.setSelection(false);
-					if (d.compareTo("Add Other Layout") == 0) {
-						XMLGenerator.GenerateXMLUI();
-					} else {
-
-					}
-				}
-			});
-
+			/*
+			 * // XML Create Listener for other keyboards
+			 * XMLCreateOth.addListener(SWT.Selection, new Listener() {
+			 * 
+			 * public void handleEvent(Event event) { String d =
+			 * XMLCreateOth.getText(); exit.setSelection(false); if
+			 * (d.compareTo("Add Other Layout") == 0) {
+			 * XMLGenerator.GenerateXMLUI(); } else {
+			 * 
+			 * } } });
+			 */
 			// All the kannada layouts go here
 			{
 

@@ -294,6 +294,7 @@
 <unicode>002F</unicode>
 </pattern>
 
+<!--
 <pattern>
 <char>0</char>
 <unicode>0BE6</unicode>
@@ -353,7 +354,7 @@
 <unicode>0BEF</unicode>
 <consonant>0</consonant>
 </pattern>
-
+-->
 <pattern>
 <char>[</char>
 <unicode>0B9A</unicode>
