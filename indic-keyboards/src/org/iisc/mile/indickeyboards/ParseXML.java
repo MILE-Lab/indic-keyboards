@@ -274,7 +274,7 @@ public class ParseXML {
 								NodeList uniEdepList = uniEle.getChildNodes();
 								ucodeValue = ((Node) uniEdepList.item(0))
 										.getNodeValue().trim();
-
+								
 								// For tamil99
 								/*
 								 * if (ParseXML.keyboardlayoutname
@@ -282,7 +282,7 @@ public class ParseXML {
 								 * PhoneticParseXML.putbkspace();
 								 * System.out.println("Knock off halant"); }
 								 */
-
+								tamil99count=0;
 							} else {
 								/*
 								 * If vowel doesn't follow a consonant then put
@@ -315,6 +315,7 @@ public class ParseXML {
 																				 || (pattern.compareTo("l")==0 && previousChar.compareTo(";")==0)
 																				 || (pattern.compareTo("o")==0 && previousChar.compareTo("p")==0)
 										    )){
+									
 									if (tamil99count % 2 == 0) {
 										ucodeValue = "0bcd" + ucodeValue;
 										System.out
