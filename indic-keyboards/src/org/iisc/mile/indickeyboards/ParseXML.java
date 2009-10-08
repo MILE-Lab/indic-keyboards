@@ -80,6 +80,11 @@ public class ParseXML {
 	 */
 	public static String previousChar = "";
 	/**
+	 * The 2nd previous keystroke is stored here. This is only to facilitate the
+	 * processing of Tamil99 Keyboard Layout for backspace
+	 */
+	public static String previousCharlog="";
+	/**
 	 * Counr variable which keeps track of the number of same consonant that is
 	 * typed continuously. This is done for Tamil99 to provide the rule of
 	 * applying halant for the consonant when even repetitions occur.
@@ -122,6 +127,7 @@ public class ParseXML {
 		 */
 		if (pattern.compareTo("\b") == 0) {
 			previousConsonantFlag = previousConsonantFlaglog;
+			previousChar=previousCharlog;
 		}
 
 		try {
@@ -295,6 +301,7 @@ public class ParseXML {
 								 * number of times the same input is repeated.
 								 * If it is even number of times then output the
 								 * halant first and then the consonant.
+								 * The last && condition in the if statement is used to check the nasal + consonant = nasal + halant + consonant rule
 								 */
 								if (ParseXML.keyboardlayoutname
 										.compareTo("tamil99.xml") == 0
@@ -302,7 +309,12 @@ public class ParseXML {
 												.valueOf(currentconsonantflag) == 1
 										&& previousConsonantFlag == 1
 										&& pattern.compareTo("f") != 0
-										&& previousChar.compareTo(pattern) == 0) {
+										&& (previousChar.compareTo(pattern) == 0 || (pattern.compareTo("h")==0 && previousChar.compareTo("b")==0)
+																				 || ((pattern.compareTo("[")==0 || pattern.compareTo("E")==0) && previousChar.compareTo("]")==0)
+																				 || (pattern.compareTo("j")==0 && previousChar.compareTo("k")==0)
+																				 || (pattern.compareTo("l")==0 && previousChar.compareTo(";")==0)
+																				 || (pattern.compareTo("o")==0 && previousChar.compareTo("p")==0)
+										    )){
 									if (tamil99count % 2 == 0) {
 										ucodeValue = "0bcd" + ucodeValue;
 										System.out
@@ -345,7 +357,7 @@ public class ParseXML {
 							previousConsonantFlaglog = previousConsonantFlag;
 							previousConsonantFlag = Integer
 									.valueOf(currentconsonantflag);
-
+							previousCharlog=previousChar;
 							previousChar = pattern;
 
 						}// end of else of if(inscriptothers==1)

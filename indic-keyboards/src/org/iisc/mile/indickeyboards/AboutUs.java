@@ -189,7 +189,7 @@ public class AboutUs {
 		link1 = new Link(tabFolder, SWT.NONE);
 
 		String text = "\n\nA Multilingual Indic Keyboard Interface - like BarahaIME\n\n"
-				+ "\u00A9 MILE Lab Indian Institute of Science, Bangalore. 2009.\n\n"
+				+ "\u00A9 MILE Lab, Indian Institute of Science, Bangalore. 2009.\n\n"
 				+ "<a href=\"http://code.google.com/p/indic-keyboards\">http://code.google.com/p/indic-keyboards</a>\n\n"
 				+ "User Mailing List :\n<a href=\"http://groups.google.com/group/cki-users/\">http://groups.google.com/group/cki-users/</a>\n\n"
 				+ "Developer Mailing List :\n<a href=\"http://groups.google.com/group/cki-dev/\">http://groups.google.com/group/cki-dev/</a>\n\n"
@@ -204,9 +204,9 @@ public class AboutUs {
 
 		link2 = new Link(tabFolder, SWT.NONE);
 		String text = "\n\nAbhinava Shivakumar S.\n"
-				+ "<a href=\"http://www.linkedin.com/in/abhinavask\">http://www.linkedin.com/in/abhinavask</a>\n\n"
+				+ "<a href=\"http://www.linkedin.com/in/abhinavask\">Webpage</a>\n\n"
 				+ "Akshay Rao\n<a href=\"mailto:u.akshay@gmail.com\">u.akshay@gmail.com</a>\n\n"
-				+ "Arun S.\n<a href=\"http://www.linkedin.com/in/aruns87\">http://www.linkedin.com/in/aruns87</a>\n\n"
+				+ "Arun S.\n<a href=\"http://www.linkedin.com/in/aruns87\">Webpage</a>\n\n"
 				+ "Revati P. Junnarkar\n<a href=\"mailto:revengr@gmail.com\">revengr@gmail.com</a>";
 		link2.setText(text);
 		return link2;
@@ -220,7 +220,7 @@ public class AboutUs {
 				+ "Department of Electrical Engineering\n"
 				+ "Indian Institute of Science\n"
 				+ "Bangalore 560 012, INDIA\n"
-				+ "<a href=\"http://ragashri.ee.iisc.ernet.in/MILE/index_files/AGR/index.htm\">http://ragashri.ee.iisc.ernet.in/MILE/index_files/AGR/index.htm</a>\n\n"
+				+ "<a href=\"http://ragashri.ee.iisc.ernet.in/MILE/index_files/AGR/index.htm\">Webpage</a>\n\n"
 				+ "Shiva Kumar H R\n"
 				+ "Apache Geronimo Committer and PMC Member\n"
 				+ "<a href=\"http://people.apache.org/~shivahr/\">http://people.apache.org/~shivahr/</a>";
