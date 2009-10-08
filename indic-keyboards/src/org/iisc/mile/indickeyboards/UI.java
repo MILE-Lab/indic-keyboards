@@ -538,6 +538,7 @@ public class UI {
 				kanInscript.addListener(SWT.Selection, new Listener() {
 					public void handleEvent(Event event) {
 						{
+							layoutImg = "kannada_inscript";
 							currentLayout.setEnabled(true);
 							tip.setMessage("Kannada Inscript");
 							tip.setVisible(true);
@@ -599,6 +600,7 @@ public class UI {
 
 					public void handleEvent(Event event) {
 						{
+							layoutImg = "tamil_inscript";
 							currentLayout.setEnabled(true);
 							tip.setMessage("Tamil Inscript");
 							tip.setVisible(true);
@@ -619,6 +621,7 @@ public class UI {
 
 					public void handleEvent(Event event) {
 						{
+							layoutImg = "tamil_remington";
 							currentLayout.setEnabled(true);
 							tip.setMessage("Tamil Remington");
 							tip.setVisible(true);
