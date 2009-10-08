@@ -495,7 +495,6 @@ public class UI {
 					exit.setSelection(false);
 					if (d.compareTo("Add Inscript Layout") == 0) {
 						XMLGenerator.GenerateXMLUI();
-
 					} else {
 
 					}
@@ -720,7 +719,6 @@ public class UI {
 							item.setImage(image1);
 							item.setToolTipText("indic-keyboards - GUJRATI Inscript");
 							previousKeyboardIcon=item.getImage();
-
 						}
 
 					}
@@ -982,113 +980,44 @@ public class UI {
 			currentLayout.addListener(SWT.Selection, new Listener() {
 				public void handleEvent(Event event) {
 					try {
-						final Shell currentLayout = new Shell(display,
-								SWT.DIALOG_TRIM);
-
-						Image layImage = new Image(display,
-								IndicKeyboards.workingDirectory
-										+ "/resources/trayicon.ico");
-						currentLayout.setImage(layImage);
-
 						if (layoutImg.compareTo("kagapa") == 0) {
-							showCurrentLayout(display, currentLayout, "KaGaPa",
-									IndicKeyboards.workingDirectory
-											+ "/resources/kagapa.png", 1006,
-									290);
+							showCurrentLayout("KaGaPa", IndicKeyboards.workingDirectory	+ "/resources/kagapa.png");
 						}
 						if (layoutImg.compareTo("kannada_inscript") == 0) {
-							showCurrentLayout(
-									display,
-									currentLayout,
-									"Kannada Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/kannada_inscript.png",
-									1006, 300);
+							showCurrentLayout("Kannada Inscript", IndicKeyboards.workingDirectory + "/resources/kannada_inscript.png");
 						}
 						if (layoutImg.compareTo("tamil99") == 0) {
-							showCurrentLayout(display, currentLayout,
-									"Tamil 99", IndicKeyboards.workingDirectory
-											+ "/resources/tamil99.png", 1006,
-									275);
+							showCurrentLayout("Tamil 99", IndicKeyboards.workingDirectory + "/resources/tamil99.png");
 						}
 						if (layoutImg.compareTo("tamil_inscript") == 0) {
-							showCurrentLayout(display, currentLayout,
-									"Tamil Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/tamil_inscript.png",
-									1006, 275);
-
+							showCurrentLayout("Tamil Inscript",	IndicKeyboards.workingDirectory	+ "/resources/tamil_inscript.png");
 						}
 						if (layoutImg.compareTo("tamil_remington") == 0) {
-							showCurrentLayout(display, currentLayout,
-									"Tamil Remington",
-									IndicKeyboards.workingDirectory
-											+ "/resources/tamil_remington.gif",
-									800, 250);
+							showCurrentLayout("Tamil Remington", IndicKeyboards.workingDirectory + "/resources/tamil_remington.gif");
 						}
 						if (layoutImg.compareTo("hindi_inscript") == 0) {
-							showCurrentLayout(display, currentLayout,
-									"Hindi Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/hindi_inscript.png",
-									1006, 275);
+							showCurrentLayout("Hindi Inscript",	IndicKeyboards.workingDirectory	+ "/resources/hindi_inscript.png");
 						}
 						if (layoutImg.compareTo("hindi_remington") == 0) {
-							showCurrentLayout(display, currentLayout,
-									"Hindi Remington",
-									IndicKeyboards.workingDirectory
-											+ "/resources/hindi_remington.png",
-									1006, 300);
+							showCurrentLayout("Hindi Remington", IndicKeyboards.workingDirectory + "/resources/hindi_remington.png");
 						}
 						if (layoutImg.compareTo("gujarati_inscript") == 0) {
-							showCurrentLayout(
-									display,
-									currentLayout,
-									"Gujarati Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/gujarati_inscript.png",
-									1006, 280);
+							showCurrentLayout("Gujarati Inscript", IndicKeyboards.workingDirectory + "/resources/gujarati_inscript.png");
 						}
 						if (layoutImg.compareTo("telugu_inscript") == 0) {
-							showCurrentLayout(display, currentLayout,
-									"Telugu Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/telugu_inscript.png",
-									1006, 255);
+							showCurrentLayout("Telugu Inscript", IndicKeyboards.workingDirectory + "/resources/telugu_inscript.png");
 						}
 						if (layoutImg.compareTo("bengali_inscript") == 0) {
-							showCurrentLayout(
-									display,
-									currentLayout,
-									"Bengali Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/bengali_inscript.png",
-									1006, 280);
+							showCurrentLayout("Bengali Inscript", IndicKeyboards.workingDirectory + "/resources/bengali_inscript.png");
 						}
 						if (layoutImg.compareTo("gurmukhi_inscript") == 0) {
-							showCurrentLayout(
-									display,
-									currentLayout,
-									"Gurmukhi Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/gurmukhi_inscript.png",
-									1006, 280);
+							showCurrentLayout("Gurmukhi Inscript", IndicKeyboards.workingDirectory + "/resources/gurmukhi_inscript.png");
 						}
 						if (layoutImg.compareTo("malayalam_inscript") == 0) {
-							showCurrentLayout(
-									display,
-									currentLayout,
-									"Malayalam Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/malayalam_inscript.png",
-									1006, 280);
+							showCurrentLayout("Malayalam Inscript",	IndicKeyboards.workingDirectory	+ "/resources/malayalam_inscript.png");
 						}
 						if (layoutImg.compareTo("oriya_inscript") == 0) {
-							showCurrentLayout(display, currentLayout,
-									"Oriya Inscript",
-									IndicKeyboards.workingDirectory
-											+ "/resources/oriya_inscript.png",
-									1006, 300);
+							showCurrentLayout("Oriya Inscript",	IndicKeyboards.workingDirectory	+ "/resources/oriya_inscript.png");
 						}
 						if (layoutImg.compareTo("na") == 0) {
 							currentLayout.setEnabled(false);
@@ -1113,7 +1042,7 @@ public class UI {
 							item.setImage(previousKeyboardIcon);
 							tip.setMessage("Enabled");
 							tip.setVisible(true);
-							enableDisable.setText("Disable [Alt+F12]");
+							enableDisable.setText("Disable [Alt + F12]");
 							System.gc();
 						} else {
 							previousKeyboardIcon = item.getImage();
@@ -1124,7 +1053,7 @@ public class UI {
 							item.setImage(image1);
 							tip.setMessage("Disabled");
 							tip.setVisible(true);
-							enableDisable.setText("Enable [Alt+F12]");
+							enableDisable.setText("Enable [Alt + F12]");
 							System.gc();
 						}
 					}
@@ -1238,15 +1167,20 @@ public class UI {
 		image.dispose();
 		shell.dispose();
 		display.dispose();
-
 	}
 
-	public static void showCurrentLayout(Display display, Shell currentLayout,
-			String text, String imagePath, int height, int width) {
-		final Image image = new Image(display, imagePath);
+	public static void showCurrentLayout(String text, String imagePath) {
+		
+		Shell currentLayout = new Shell(Display.getCurrent(), SWT.DIALOG_TRIM);
+
+		Image currentLayoutShellIcon = new Image(Display.getCurrent(),IndicKeyboards.workingDirectory + "/resources/trayicon.ico");
+		currentLayout.setImage(currentLayoutShellIcon);
+
+		final Image layoutImage = new Image(Display.getCurrent(), imagePath);
+		
 		currentLayout.setText(text);
-		currentLayout.setSize(height, width);
-		currentLayout.setBackgroundImage(image);
+		currentLayout.setSize(layoutImage.getBounds().width, layoutImage.getBounds().height + 30);
+		currentLayout.setBackgroundImage(layoutImage);
 		currentLayout.open();
 		currentLayout.setActive();
 		currentLayout.setFocus();

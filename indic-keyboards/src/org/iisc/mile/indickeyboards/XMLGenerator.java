@@ -22,7 +22,6 @@ package org.iisc.mile.indickeyboards;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.eclipse.swt.SWT;
@@ -42,7 +41,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.iisc.mile.indickeyboards.windows.InitWin;
 
 
 
@@ -1150,10 +1148,9 @@ public class XMLGenerator extends org.eclipse.swt.widgets.Composite {
      * org.eclipse.swt.widgets.Composite inside a new Shell.
      */
     public static void GenerateXMLUI() {
-        Display display = Display.getDefault();
-        Shell shell = new Shell(display, SWT.DIALOG_TRIM);
+        Shell shell = new Shell(Display.getCurrent(), SWT.DIALOG_TRIM);
         XMLGenerator inst = new XMLGenerator(shell, SWT.NULL);
-        Image image = new Image(display, InitWin.class.getResourceAsStream("trayicon.ico"));
+        Image image = new Image(Display.getCurrent(), IndicKeyboards.workingDirectory + "/resources/trayicon.ico");
         Point size = inst.getSize();
         shell.setImage(image);
         shell.setText("XML Generator");
@@ -1170,8 +1167,8 @@ public class XMLGenerator extends org.eclipse.swt.widgets.Composite {
         shell.open();
 
         while (!shell.isDisposed()) {
-            if (!display.readAndDispatch()) {
-                display.sleep();
+            if (!Display.getCurrent().readAndDispatch()) {
+                Display.getCurrent().sleep();
             }
             
             
