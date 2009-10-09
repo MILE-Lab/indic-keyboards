@@ -1,7 +1,7 @@
 /**********************************************************************
  * File:           linuxLibraries.c
  * Description:    All the native methods declared in the file
- 					linuxLibraries.java are defined here.
+					 linuxLibraries.java are defined here.
  * Authors:        Akshay,Abhinava,Revati,Arun
  * Created:        Sat Mat 28 18:31:25 GMT 2009
  *
@@ -31,10 +31,11 @@
 #include "org_iisc_mile_indickeyboards_linux_LinuxLibraries.h"
 #define test_bit(bit, array)    (array[bit/8] & (1<<(bit%8)))
 
-JNIEXPORT jstring JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_identify(JNIEnv *env, jobject obj, jstring id) {
+JNIEXPORT jstring JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_identify(JNIEnv *env,
+		jobject obj, jstring id) {
 
 	jint fd = -1;
-	jint yalv;
+	jint index;
 
 	const jbyte *str;
 	char buf[128];
@@ -59,20 +60,35 @@ JNIEXPORT jstring JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries
 
 JNIEXPORT void JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_grab(JNIEnv *env, jobject obj, jstring kb) {
 
-	int evtype_b[EV_MAX / 8 + 1];
-	int led_bitmask[LED_MAX / 8 + 1];
+	const int LEFT_SHIFT = 42;
+	const int RIGHT_SHIFT = 54;
+
+	const int ALT = 56;
+	const int ALT_GRAPH = 100;
+
+	const int LEFT_CTRL = 29;
+	const int RIGHT_CTRL = 97;
+
+	const int F12 = 88;
+
+	const int KEY_PRESS = 1;
+	const int KEY_RELEASE = 0;
+	const int KEY_AUTOREPEAT = 2;
 
 	jint fd = -1;
-	jint yalv;
+	jint index;
 
 	jclass class = (*env)->FindClass(env,"org/iisc/mile/indickeyboards/linux/KeyMonitorMethods");
 	//jclass cls = (*env)->GetObjectClass(env, obj);
 	jmethodID mid = (*env)->GetMethodID(env, class, "printKeys", "(I)V");
-	
+
 	jmethodID constructor = (*env)->GetMethodID(env, class, "<init>", "()V");
 	jobject object = (*env)->NewObject(env,class,constructor);
 
-	long delay,press1,press2;
+	jint shiftFlag = False;
+	jint altFlag = False;
+	jint ctrlFlag = False;
+
 	const jbyte *str;
 	str = (*env)->GetStringUTFChars(env, kb, NULL);
 
@@ -81,63 +97,59 @@ JNIEXPORT void JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_gr
 		exit(1);
 	}
 
-	/* how many bytes were read */
 	int rd;
 
-	/* the events (up to 64 at once) */
-	struct input_event ev[1];
+	/*
+	 * Linux input device event interface (Linux USB subsystem).
+	 * View the file <linux/input.h> for more info.
+	 */
+	struct input_event event[1];
 
 	while (1) {
-		rd = read(fd, ev, sizeof (struct input_event) *1);
+		rd = read(fd, event, sizeof (struct input_event) *1);
 
 		if (rd < (int) sizeof (struct input_event)) {
 			perror("evtest: short read");
 			exit(1);
 		}
+		for (index = 0; index < (int) (rd / sizeof(struct input_event)); index++)
+		{
 
-		if (ev[0].value == 1) {
-			press1 = ev[0].time.tv_usec;
-			if ((ev[0].code == 42 && ev[0].value != 0) || (ev[0].code == 42 && ev[0].value == 1) || (ev[0].code == 42 && ev[0].value != 0) || (ev[0].code == 54 && ev[0].value != 0) || (ev[0].code == 54 && ev[0].value == 1) || (ev[0].code == 54 && ev[0].value != 0)) {
-				int rd1;
-				struct input_event ev1[1];
-				while (ev[0].value!=0) {
+			if (EV_KEY == event[index].type) {
+				if ((event[index].code == LEFT_SHIFT || event[index].code == RIGHT_SHIFT)) {
+					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT)
+					shiftFlag = True;
+					else if (event[index].value == KEY_RELEASE)
+					shiftFlag = False;
 
-					rd1 = read(fd, ev1, sizeof (struct input_event) *1);
-
-					if (rd1 < (int) sizeof (struct input_event)) {
-						perror("evtest: short read");
-						exit(1);
-					}
-					press2 = ev1[0].time.tv_usec;
-					delay = press2 - press1;
-
-					if (ev1[0].value == 1) {
-						(*env)->CallVoidMethod(env, object, mid, ev1[0].code + 200);
-						break;
-					}
 				}
-			}
 
-			else if ((ev[0].code == 56 && ev[0].value != 0) || (ev[0].code == 56 && ev[0].value == 1) || (ev[0].code == 56 && ev[0].value != 0) || (ev[0].code == 100 && ev[0].value != 0) || (ev[0].code == 100 && ev[0].value == 1) || (ev[0].code == 100 && ev[0].value != 0)) {
-				int rd1;
-				struct input_event ev1[1];
-				while (ev[0].value!=0) {
+				if ((event[index].code == ALT || event[index].code == ALT_GRAPH)) {
+					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT)
+					altFlag = True;
+					else if (event[index].value == KEY_RELEASE)
+					altFlag = False;
 
-					rd1 = read(fd, ev1, sizeof (struct input_event) *1);
-
-					if (rd1 < (int) sizeof (struct input_event)) {
-						perror("evtest: short read");
-						exit(1);
-					}
-
-					if (ev1[0].value == 1 && ev1[0].code==88) {
-						(*env)->CallVoidMethod(env, object, mid,666);
-						break;
-					}
 				}
-			}
-			else if(ev[0].code != 42 || ev[0].code != 54 || ev[0].code != 56 || ev[0].code != 100) {
-				(*env)->CallVoidMethod(env, object, mid, ev[0].code);
+
+				if ((event[index].code == LEFT_CTRL || event[index].code == RIGHT_CTRL)) {
+					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT)
+					ctrlFlag = True;
+					else if (event[index].value == KEY_RELEASE)
+					ctrlFlag = False;
+
+				}
+
+				else if (event[index].value == KEY_RELEASE || event[index].value == KEY_AUTOREPEAT) {
+					if(ctrlFlag) {}
+					else if(shiftFlag)
+					(*env)->CallVoidMethod(env, object, mid, event[index].code + 200);
+					else if(!shiftFlag)
+					(*env)->CallVoidMethod(env, object, mid, event[index].code);
+					if(altFlag)
+					if (event[index].code == F12)
+					(*env)->CallVoidMethod(env, object, mid, 666);
+				}
 			}
 		}
 	}
@@ -187,10 +199,6 @@ JNIEXPORT void JNICALL JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibr
 	event.xkey.y_root = 1;
 	event.xkey.same_screen = True;
 	event.xkey.type = KeyPress;
-
-	/*event.xkey.keycode=22;
-	 event.xkey.state = 0;
-	 XSendEvent( event.xkey.display, focus_return, True, KeyPressMask, &event);*/
 
 	event.xkey.keycode = code;
 	event.xkey.state = 0;

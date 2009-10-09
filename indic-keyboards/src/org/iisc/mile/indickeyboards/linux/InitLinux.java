@@ -1,7 +1,7 @@
-/** ********************************************************************
+/**********************************************************************
  * File:           InitLinux.java 
  * Description:    Initialize indic-keyboards on Linux.
- * Authors:        Abhinava,Akshay. Revati,Arun 
+ * Authors:        Abhinava,Akshay,Revati,Arun 
  * Created:        Sun July 2 02:01:25 IST 2009
  *
  * (C) Copyright 2009, MILE Lab, IISc
@@ -156,8 +156,7 @@ public class InitLinux {
 			MessageBox messageBox = new MessageBox(shell, SWT.OK
 					| SWT.ICON_ERROR);
 			messageBox.setText("Duplicate Instance");
-			messageBox
-					.setMessage("There is already an instance of indic-keyboards running. "
+			messageBox.setMessage("There is already an instance of indic-keyboards running. "
 							+ "Close it first. If "
 							+ "another instance isn't running, close any connections on port "
 							+ portNumber
@@ -228,8 +227,7 @@ public class InitLinux {
 			MessageBox messageBox = new MessageBox(shell, SWT.OK
 					| SWT.ICON_ERROR);
 			messageBox.setText("Missing Library");
-			messageBox
-					.setMessage("The libraries necessary to run\nindic-keyboards are missing."
+			messageBox.setMessage("The libraries necessary to run\nindic-keyboards are missing."
 							+ "Please put the "
 							+ linuxLibraryName
 							+ " in the program folder.");

@@ -39,7 +39,7 @@ public class KeyMonitor implements Runnable {
          * Create an instance of the <code>KeyNonitorMethods</code> class.
          */
 		KeyMonitorMethods k = new KeyMonitorMethods();
-		k.identifyKB();
-		k.grabKB();
+		k.identifyKeyBoard();
+		k.grabKeyBoard();
 	}
 }
