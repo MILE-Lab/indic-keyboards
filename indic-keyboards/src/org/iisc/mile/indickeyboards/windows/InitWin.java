@@ -87,9 +87,13 @@ public class InitWin implements KeyboardEventListener {
 	public static final int SHIFTKEY = 16;
 	public static final int F12KEY = 123;
 	public static final int ALTKEY = 18;
+	public static final int CTRLKEY = 17;
 	private Boolean shiftPressed = false;
 	private long withShiftPressed = NUM_0, throwAwayKey = ALTKEY;
 	public static Boolean enable = false, altPressed = false;
+
+	private Boolean ctrlPressed = false;
+	private long withCtrlPressed = NUM_0;
 
 	public void InitWinStart() throws FileNotFoundException {
 		// instantiation of the KeyboardHook class
@@ -101,6 +105,7 @@ public class InitWin implements KeyboardEventListener {
 	public void GlobalKeyPressed(KeyboardEvent event) {
 
 		String inputChar;
+
 		if ((event.getVirtualKeyCode() == ALTKEY)
 				&& (event.getTransitionState())) {
 			altPressed = true;
@@ -152,6 +157,21 @@ public class InitWin implements KeyboardEventListener {
 		}
 
 		if (enable) {
+			// Allow the "Ctrl +" combinations to work 
+			if ((event.getVirtualKeyCode() == CTRLKEY) && event.getTransitionState()) {
+				ctrlPressed = true;
+
+			}
+			if (ctrlPressed) {
+				withCtrlPressed = event.getVirtualKeyCode();
+				if (withCtrlPressed == CTRLKEY) {
+
+				} else {
+
+				}
+				return;
+			}
+			// End of block for "Ctrl +" combination code
 			if ((event.getVirtualKeyCode() == SHIFTKEY)
 					&& (event.getTransitionState())) {
 				// Flag shift press
@@ -373,6 +393,17 @@ public class InitWin implements KeyboardEventListener {
 
 	public void GlobalKeyReleased(KeyboardEvent event) {
 		if (enable) {
+			// For "Control +" actions
+			if ((event.getVirtualKeyCode() == CTRLKEY)
+					&& (!event.getTransitionState())) {
+				ctrlPressed = false;
+				if (withCtrlPressed == NUM_0) {
+
+				} else {
+
+				}
+			}
+			// End of "Control +" actions code
 			if ((event.getVirtualKeyCode() == SHIFTKEY)
 					&& (!event.getTransitionState())) {
 				shiftPressed = false;
