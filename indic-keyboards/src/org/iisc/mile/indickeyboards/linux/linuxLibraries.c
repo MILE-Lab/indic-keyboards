@@ -29,7 +29,6 @@
 #include <fcntl.h>
 #include <math.h>
 #include "org_iisc_mile_indickeyboards_linux_LinuxLibraries.h"
-#define test_bit(bit, array)    (array[bit/8] & (1<<(bit%8)))
 
 JNIEXPORT jstring JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_identify(JNIEnv *env,
 		jobject obj, jstring id) {
@@ -79,7 +78,6 @@ JNIEXPORT void JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_gr
 	jint index;
 
 	jclass class = (*env)->FindClass(env,"org/iisc/mile/indickeyboards/linux/KeyMonitorMethods");
-	//jclass cls = (*env)->GetObjectClass(env, obj);
 	jmethodID mid = (*env)->GetMethodID(env, class, "printKeys", "(I)V");
 
 	jmethodID constructor = (*env)->GetMethodID(env, class, "<init>", "()V");
@@ -114,41 +112,51 @@ JNIEXPORT void JNICALL Java_org_iisc_mile_indickeyboards_linux_LinuxLibraries_gr
 		}
 		for (index = 0; index < (int) (rd / sizeof(struct input_event)); index++)
 		{
-
 			if (EV_KEY == event[index].type) {
 				if ((event[index].code == LEFT_SHIFT || event[index].code == RIGHT_SHIFT)) {
-					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT)
-					shiftFlag = True;
-					else if (event[index].value == KEY_RELEASE)
-					shiftFlag = False;
-
+					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT) {
+						shiftFlag = True;
+					}
+					else if (event[index].value == KEY_RELEASE) {
+						shiftFlag = False;
+					}
 				}
 
 				if ((event[index].code == ALT || event[index].code == ALT_GRAPH)) {
-					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT)
-					altFlag = True;
-					else if (event[index].value == KEY_RELEASE)
-					altFlag = False;
-
+					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT) {
+						altFlag = True;
+					}
+					else if (event[index].value == KEY_RELEASE) {
+						altFlag = False;
+					}
 				}
 
 				if ((event[index].code == LEFT_CTRL || event[index].code == RIGHT_CTRL)) {
-					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT)
-					ctrlFlag = True;
-					else if (event[index].value == KEY_RELEASE)
-					ctrlFlag = False;
-
+					if (event[index].value == KEY_PRESS || event[index].value == KEY_AUTOREPEAT) {
+						ctrlFlag = True;
+					}
+					else if (event[index].value == KEY_RELEASE) {
+						ctrlFlag = False;
+					}
 				}
 
 				else if (event[index].value == KEY_RELEASE || event[index].value == KEY_AUTOREPEAT) {
-					if(ctrlFlag) {}
-					else if(shiftFlag)
-					(*env)->CallVoidMethod(env, object, mid, event[index].code + 200);
-					else if(!shiftFlag)
-					(*env)->CallVoidMethod(env, object, mid, event[index].code);
-					if(altFlag)
-					if (event[index].code == F12)
-					(*env)->CallVoidMethod(env, object, mid, 666);
+					if(ctrlFlag) {
+						//When Ctrl is pressed, don't process the key presses.
+					}
+					else if(shiftFlag) {
+						// If Shift is pressed, add 200 to the keycodes
+						(*env)->CallVoidMethod(env, object, mid, event[index].code + 200);
+					}
+					else if(!shiftFlag) {
+						// The normal key presses without any modifiers.
+						(*env)->CallVoidMethod(env, object, mid, event[index].code);
+					}
+					if(altFlag) {
+						if (event[index].code == F12) {
+							(*env)->CallVoidMethod(env, object, mid, 666);
+						}
+					}
 				}
 			}
 		}
