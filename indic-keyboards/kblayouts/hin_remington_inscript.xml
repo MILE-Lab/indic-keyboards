@@ -1,9 +1,10 @@
-<xml>
-<layout id="100">
-<characters>
+<?xml version="1.0"?>
 
-<pattern><char>~
-</char><unicode>0943</unicode>
+<hindi_remington_inscript>
+
+<pattern>
+	<char>~</char>
+	<unicode>0943</unicode>
 </pattern>
 
 <pattern><char>1
@@ -339,7 +340,4 @@
 </char><unicode>0927094D</unicode>
 </pattern>
 
-
-</characters>
-</layout>
-</xml>
+</hindi_remington_inscript>

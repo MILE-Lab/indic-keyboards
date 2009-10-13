@@ -1,4 +1,6 @@
-<dev>
+<?xml version="1.0"?>
+
+<hin_inscript>
 
 <pattern><char>!
 </char><unicode>090D</unicode>
@@ -330,4 +332,4 @@
 </char><unicode>092F</unicode>
 </pattern>
 
-</dev>
+</hin_inscript>

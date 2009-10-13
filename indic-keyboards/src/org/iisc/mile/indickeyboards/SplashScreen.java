@@ -64,7 +64,7 @@ public class SplashScreen {
 		for (int i = 0; i <= 45; i++) {
 			try {
 
-				Thread.sleep(40);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

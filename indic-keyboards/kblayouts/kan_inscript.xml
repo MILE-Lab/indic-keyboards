@@ -1,423 +1,424 @@
+<?xml version="1.0"?>
 <kan_inscript>
 
-<pattern>
-<char>a</char>
-<unicode>0CCB</unicode>
-</pattern>
-
-<pattern>
-<char>A</char>
-<unicode>0C93</unicode>
-</pattern>
-
-<pattern>
-<char>s</char>
-<unicode>0CC7</unicode>
-</pattern>
-
-<pattern>
-<char>S</char>
-<unicode>0C8F</unicode>
-</pattern>
-
-<pattern>
-<char>d</char>
-<unicode>0CCD</unicode>
-</pattern>
-
-<pattern>
-<char>D</char>
-<unicode>0C85</unicode>
-</pattern>
-
-<pattern>
-<char>f</char>
-<unicode>0CBF</unicode>
-</pattern>
-
-<pattern>
-<char>F</char>
-<unicode>0C87</unicode>
-</pattern>
-
-<pattern>
-<char>g</char>
-<unicode>0CC1</unicode>
-</pattern>
-
-<pattern>
-<char>G</char>
-<unicode>0C89</unicode>
-</pattern>
-
-<pattern>
-<char>h</char>
-<unicode>0CAA</unicode>
-</pattern>
-
-<pattern>
-<char>H</char>
-<unicode>0CAB</unicode>
-</pattern>
-
-<pattern>
-<char>j</char>
-<unicode>0CB0</unicode>
-</pattern>
-
-<pattern>
-<char>J</char>
-<unicode>0CB1</unicode>
-</pattern>
-
-<pattern>
-<char>k</char>
-<unicode>0C95</unicode>
-</pattern>
-
-<pattern>
-<char>K</char>
-<unicode>0C96</unicode>
-</pattern>
-
-<pattern>
-<char>l</char>
-<unicode>0CA4</unicode>
-</pattern>
-
-<pattern>
-<char>L</char>
-<unicode>0CA5</unicode>
-</pattern>
-
-<pattern>
-<char>q</char>
-<unicode>0CCC</unicode>
-</pattern>
-
-<pattern>
-<char>Q</char>
-<unicode>0C94</unicode>
-</pattern>
-
-<pattern>
-<char>w</char>
-<unicode>0CC8</unicode>
-</pattern>
-
-<pattern>
-<char>W</char>
-<unicode>0C90</unicode>
-</pattern>
-
-<pattern>
-<char>e</char>
-<unicode>0CBE</unicode>
-</pattern>
-
-<pattern>
-<char>E</char>
-<unicode>0C86</unicode>
-</pattern>
-
-<pattern>
-<char>r</char>
-<unicode>0CC7</unicode>
-</pattern>
-
-<pattern>
-<char>R</char>
-<unicode>0C88</unicode>
-</pattern>
-
-<pattern>
-<char>t</char>
-<unicode>0CC2</unicode>
-</pattern>
-
-<pattern>
-<char>T</char>
-<unicode>0C8A</unicode>
-</pattern>
-
-<pattern>
-<char>y</char>
-<unicode>0CAC</unicode>
-</pattern>
-
-<pattern>
-<char>Y</char>
-<unicode>0CAD</unicode>
-</pattern>
-
-<pattern>
-<char>u</char>
-<unicode>0CB9</unicode>
-</pattern>
-
-<pattern>
-<char>U</char>
-<unicode>0C99</unicode>
-</pattern>
-
-<pattern>
-<char>i</char>
-<unicode>0C97</unicode>
-</pattern>
-
-<pattern>
-<char>I</char>
-<unicode>0C98</unicode>
-</pattern>
-
-<pattern>
-<char>o</char>
-<unicode>0CA6</unicode>
-</pattern>
-
-<pattern>
-<char>O</char>
-<unicode>0CA7</unicode>
-</pattern>
-
-<pattern>
-<char>p</char>
-<unicode>OC9C</unicode>
-</pattern>
-
-<pattern>
-<char>P</char>
-<unicode>0C9D</unicode>
-</pattern>
-
-<pattern>
-<char>z</char>
-<unicode>0CC6</unicode>
-</pattern>
-
-<pattern>
-<char>Z</char>
-<unicode>0C8E</unicode>
-</pattern>
-
-<pattern>
-<char>x</char>
-<unicode>0C82</unicode>
-</pattern>
-
-<pattern>
-<char>X</char>
-<unicode></unicode>
-</pattern>
-
-<pattern>
-<char>c</char>
-<unicode>0CAE</unicode>
-</pattern>
-
-<pattern>
-<char>C</char>
-<unicode>0CA3</unicode>
-</pattern>
-
-<pattern>
-<char>v</char>
-<unicode>0CA8</unicode>
-</pattern>
-
-<pattern>
-<char>V</char>
-<unicode></unicode>
-</pattern>
-
-<pattern>
-<char>b</char>
-<unicode>0CB5</unicode>
-</pattern>
-
-<pattern>
-<char>B</char>
-<unicode></unicode>
-</pattern>
-
-<pattern>
-<char>n</char>
-<unicode>0CB2</unicode>
-</pattern>
-
-<pattern>
-<char>N</char>
-<unicode>0CB3</unicode>
-</pattern>
-
-<pattern>
-<char>m</char>
-<unicode>0CB8</unicode>
-</pattern>
-
-<pattern>
-<char>M</char>
-<unicode>0CB6</unicode>
-</pattern>
-
-<pattern>
-<char>0</char>
-<unicode>0CE6</unicode>
-</pattern>
-
-<pattern>
-<char>1</char>
-<unicode>0CE7</unicode>
-</pattern>
-
-<pattern>
-<char>2</char>
-<unicode>0CE8</unicode>
-</pattern>
-
-<pattern>
-<char>3</char>
-<unicode>0CE9</unicode>
-</pattern>
-
-<pattern>
-<char>4</char>
-<unicode>0CEA</unicode>
-</pattern>
-
-<pattern>
-<char>5</char>
-<unicode>0CEB</unicode>
-</pattern>
-
-<pattern>
-<char>%</char>
-<unicode>0C9C0CCD0C9E</unicode>
-</pattern>
-
-<pattern>
-<char>6</char>
-<unicode>0CEC</unicode>
-</pattern>
-
-<pattern>
-<char>^</char>
-<unicode>0CA40CCD0CB0</unicode>
-</pattern>
-
-<pattern>
-<char>7</char>
-<unicode>0CED</unicode>
-</pattern>
-
-<pattern>
-<char>&amp;</char>
-<unicode>0C950CCD0CB7</unicode>
-</pattern>
-
-<pattern>
-<char>8</char>
-<unicode>0CEE</unicode>
-</pattern>
-
-<pattern>
-<char>*</char>
-<unicode>0CB60CCD0CB0</unicode>
-</pattern>
-
-<pattern>
-<char>9</char>
-<unicode>0CEF</unicode>
-</pattern>
-
-<pattern>
-<char>=</char>
-<unicode>0CC3</unicode>
-</pattern>
-
-<pattern>
-<char>+</char>
-<unicode>0C8B</unicode>
-</pattern>
-
-<pattern>
-<char>_</char>
-<unicode>0C83</unicode>
-</pattern>
-
-<pattern>
-<char>[</char>
-<unicode>0CA1</unicode>
-</pattern>
-
-<pattern>
-<char>{</char>
-<unicode>0CA2</unicode>
-</pattern>
-
-<pattern>
-<char>}</char>
-<unicode>0C9E</unicode>
-</pattern>
-
-<pattern>
-<char>;</char>
-<unicode>0C9A</unicode>
-</pattern>
-
-<pattern>
-<char>:</char>
-<unicode>0C9B</unicode>
-</pattern>
-
-<pattern>
-<char>"</char>
-<unicode>0CA0</unicode>
-</pattern>
-
-<pattern>
-<char>'</char>
-<unicode>0C9F</unicode>
-</pattern>
-
-<pattern>
-<char>,</char>
-<unicode></unicode>
-</pattern>
-
-<pattern>
-<char>.</char>
-<unicode></unicode>
-</pattern>
-
-<pattern>
-<char>&lt;</char>
-<unicode>0CB7</unicode>
-</pattern>
-
-<pattern>
-<char>&gt;</char>
-<unicode>0CBE</unicode>
-</pattern>
-
-<pattern>
-<char>?</char>
-<unicode></unicode>
-</pattern>
-
-<pattern>
-<char>/</char>
-<unicode>0CAF</unicode>
-</pattern>
-
-<pattern>
-<char>~</char>
-<unicode>0C92</unicode>
-</pattern>
-
-<pattern>
-<char>`</char>
-<unicode>0CCA</unicode>
-</pattern>
+	<pattern>
+		<char>a</char>
+		<unicode>0CCB</unicode>
+	</pattern>
+
+	<pattern>
+		<char>A</char>
+		<unicode>0C93</unicode>
+	</pattern>
+
+	<pattern>
+		<char>s</char>
+		<unicode>0CC7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>S</char>
+		<unicode>0C8F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>d</char>
+		<unicode>0CCD</unicode>
+	</pattern>
+
+	<pattern>
+		<char>D</char>
+		<unicode>0C85</unicode>
+	</pattern>
+
+	<pattern>
+		<char>f</char>
+		<unicode>0CBF</unicode>
+	</pattern>
+
+	<pattern>
+		<char>F</char>
+		<unicode>0C87</unicode>
+	</pattern>
+
+	<pattern>
+		<char>g</char>
+		<unicode>0CC1</unicode>
+	</pattern>
+
+	<pattern>
+		<char>G</char>
+		<unicode>0C89</unicode>
+	</pattern>
+
+	<pattern>
+		<char>h</char>
+		<unicode>0CAA</unicode>
+	</pattern>
+
+	<pattern>
+		<char>H</char>
+		<unicode>0CAB</unicode>
+	</pattern>
+
+	<pattern>
+		<char>j</char>
+		<unicode>0CB0</unicode>
+	</pattern>
+
+	<pattern>
+		<char>J</char>
+		<unicode>0CB1</unicode>
+	</pattern>
+
+	<pattern>
+		<char>k</char>
+		<unicode>0C95</unicode>
+	</pattern>
+
+	<pattern>
+		<char>K</char>
+		<unicode>0C96</unicode>
+	</pattern>
+
+	<pattern>
+		<char>l</char>
+		<unicode>0CA4</unicode>
+	</pattern>
+
+	<pattern>
+		<char>L</char>
+		<unicode>0CA5</unicode>
+	</pattern>
+
+	<pattern>
+		<char>q</char>
+		<unicode>0CCC</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Q</char>
+		<unicode>0C94</unicode>
+	</pattern>
+
+	<pattern>
+		<char>w</char>
+		<unicode>0CC8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>W</char>
+		<unicode>0C90</unicode>
+	</pattern>
+
+	<pattern>
+		<char>e</char>
+		<unicode>0CBE</unicode>
+	</pattern>
+
+	<pattern>
+		<char>E</char>
+		<unicode>0C86</unicode>
+	</pattern>
+
+	<pattern>
+		<char>r</char>
+		<unicode>0CC7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>R</char>
+		<unicode>0C88</unicode>
+	</pattern>
+
+	<pattern>
+		<char>t</char>
+		<unicode>0CC2</unicode>
+	</pattern>
+
+	<pattern>
+		<char>T</char>
+		<unicode>0C8A</unicode>
+	</pattern>
+
+	<pattern>
+		<char>y</char>
+		<unicode>0CAC</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Y</char>
+		<unicode>0CAD</unicode>
+	</pattern>
+
+	<pattern>
+		<char>u</char>
+		<unicode>0CB9</unicode>
+	</pattern>
+
+	<pattern>
+		<char>U</char>
+		<unicode>0C99</unicode>
+	</pattern>
+
+	<pattern>
+		<char>i</char>
+		<unicode>0C97</unicode>
+	</pattern>
+
+	<pattern>
+		<char>I</char>
+		<unicode>0C98</unicode>
+	</pattern>
+
+	<pattern>
+		<char>o</char>
+		<unicode>0CA6</unicode>
+	</pattern>
+
+	<pattern>
+		<char>O</char>
+		<unicode>0CA7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>p</char>
+		<unicode>OC9C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>P</char>
+		<unicode>0C9D</unicode>
+	</pattern>
+
+	<pattern>
+		<char>z</char>
+		<unicode>0CC6</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Z</char>
+		<unicode>0C8E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>x</char>
+		<unicode>0C82</unicode>
+	</pattern>
+
+	<pattern>
+		<char>X</char>
+		<unicode></unicode>
+	</pattern>
+
+	<pattern>
+		<char>c</char>
+		<unicode>0CAE</unicode>
+	</pattern>
+
+	<pattern>
+		<char>C</char>
+		<unicode>0CA3</unicode>
+	</pattern>
+
+	<pattern>
+		<char>v</char>
+		<unicode>0CA8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>V</char>
+		<unicode></unicode>
+	</pattern>
+
+	<pattern>
+		<char>b</char>
+		<unicode>0CB5</unicode>
+	</pattern>
+
+	<pattern>
+		<char>B</char>
+		<unicode></unicode>
+	</pattern>
+
+	<pattern>
+		<char>n</char>
+		<unicode>0CB2</unicode>
+	</pattern>
+
+	<pattern>
+		<char>N</char>
+		<unicode>0CB3</unicode>
+	</pattern>
+
+	<pattern>
+		<char>m</char>
+		<unicode>0CB8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>M</char>
+		<unicode>0CB6</unicode>
+	</pattern>
+
+	<pattern>
+		<char>0</char>
+		<unicode>0CE6</unicode>
+	</pattern>
+
+	<pattern>
+		<char>1</char>
+		<unicode>0CE7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>2</char>
+		<unicode>0CE8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>3</char>
+		<unicode>0CE9</unicode>
+	</pattern>
+
+	<pattern>
+		<char>4</char>
+		<unicode>0CEA</unicode>
+	</pattern>
+
+	<pattern>
+		<char>5</char>
+		<unicode>0CEB</unicode>
+	</pattern>
+
+	<pattern>
+		<char>%</char>
+		<unicode>0C9C0CCD0C9E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>6</char>
+		<unicode>0CEC</unicode>
+	</pattern>
+
+	<pattern>
+		<char>^</char>
+		<unicode>0CA40CCD0CB0</unicode>
+	</pattern>
+
+	<pattern>
+		<char>7</char>
+		<unicode>0CED</unicode>
+	</pattern>
+
+	<pattern>
+		<char>&amp;</char>
+		<unicode>0C950CCD0CB7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>8</char>
+		<unicode>0CEE</unicode>
+	</pattern>
+
+	<pattern>
+		<char>*</char>
+		<unicode>0CB60CCD0CB0</unicode>
+	</pattern>
+
+	<pattern>
+		<char>9</char>
+		<unicode>0CEF</unicode>
+	</pattern>
+
+	<pattern>
+		<char>=</char>
+		<unicode>0CC3</unicode>
+	</pattern>
+
+	<pattern>
+		<char>+</char>
+		<unicode>0C8B</unicode>
+	</pattern>
+
+	<pattern>
+		<char>_</char>
+		<unicode>0C83</unicode>
+	</pattern>
+
+	<pattern>
+		<char>[</char>
+		<unicode>0CA1</unicode>
+	</pattern>
+
+	<pattern>
+		<char>{</char>
+		<unicode>0CA2</unicode>
+	</pattern>
+
+	<pattern>
+		<char>}</char>
+		<unicode>0C9E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>;</char>
+		<unicode>0C9A</unicode>
+	</pattern>
+
+	<pattern>
+		<char>:</char>
+		<unicode>0C9B</unicode>
+	</pattern>
+
+	<pattern>
+		<char>"</char>
+		<unicode>0CA0</unicode>
+	</pattern>
+
+	<pattern>
+		<char>'</char>
+		<unicode>0C9F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>,</char>
+		<unicode></unicode>
+	</pattern>
+
+	<pattern>
+		<char>.</char>
+		<unicode></unicode>
+	</pattern>
+
+	<pattern>
+		<char>&lt;</char>
+		<unicode>0CB7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>&gt;</char>
+		<unicode>0CBE</unicode>
+	</pattern>
+
+	<pattern>
+		<char>?</char>
+		<unicode></unicode>
+	</pattern>
+
+	<pattern>
+		<char>/</char>
+		<unicode>0CAF</unicode>
+	</pattern>
+
+	<pattern>
+		<char>~</char>
+		<unicode>0C92</unicode>
+	</pattern>
+
+	<pattern>
+		<char>`</char>
+		<unicode>0CCA</unicode>
+	</pattern>
 
 </kan_inscript>

@@ -1,4 +1,6 @@
-<tam_remington_inscript>
+<?xml version="1.0"?>
+
+<tam_remington_inscript>
 
 <pattern>
 <char>a</char>
@@ -60,6 +62,11 @@
 <unicode>0BC0</unicode>
 </pattern>
 
+<pattern>
+<char>k</char>
+<unicode>0BC1</unicode>
+</pattern>
+
 <pattern>
 <char>K</char>
 <unicode>0B89</unicode>
@@ -156,11 +163,16 @@
 </pattern>
 
 <pattern>
-<char>O</char>
-<unicode>0BD7</unicode>
-</pattern>
+<char>o</char>
+<unicode>0BC2</unicode>
+</pattern>
 
 <pattern>
+<char>O</char>
+<unicode>0BB3</unicode>
+</pattern>
+
+<pattern>
 <char>F</char>
 <unicode>0BA40BC1</unicode>
 </pattern>
@@ -182,8 +194,8 @@
 </pattern>
 
 <pattern>
-<char>N</char>
-<unicode>0B9F0BBF</unicode>
+<char>M</char>
+<unicode>0B9F0BBF</unicode>
 </pattern>
 
 <!--
@@ -200,12 +212,10 @@
 </pattern>
 -->
 
-<!--
 <pattern>
-<char>G</char>
-<unicode></unicode>
-</pattern>
--->
+<char>g</char>
+<unicode>0BB0</unicode>
+</pattern>
 
 <pattern>
 <char>p</char>
@@ -214,8 +224,8 @@
 
 <pattern>
 <char>P</char>
-<unicode>0B99</unicode>
-</pattern>
+<unicode>0BA80BC1</unicode>
+</pattern>
 
 <pattern>
 <char>"</char>
@@ -247,6 +257,11 @@
 <unicode>0B9A</unicode>
 </pattern>
 
+<pattern>
+<char>V</char>
+<unicode>0B9A0BC1</unicode>
+</pattern>
+
 <pattern>
 <char>b</char>
 <unicode>0B99</unicode>

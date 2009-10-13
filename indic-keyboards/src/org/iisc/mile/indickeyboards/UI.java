@@ -38,6 +38,7 @@ import org.eclipse.swt.widgets.TrayItem;
 import org.iisc.mile.indickeyboards.linux.InitLinux;
 import org.iisc.mile.indickeyboards.linux.KeyMonitorMethods;
 import org.iisc.mile.indickeyboards.windows.InitWin;
+
 import sun.management.ManagementFactory;
 
 /**
@@ -80,15 +81,15 @@ public class UI {
 	 * <em>Image</em> Object used for Enable/Disable functionality.
 	 */
 	public static Image previousKeyboardIcon;
-	
+
 	/**
 	 * <em>Tray</em> Object that is to be present in the system tray.
 	 */
 	public Tray tray;
-	
+
 	/**
-	 * A <em>TrayItem</em> object which creates a new tray item in the
-	 * System Tray/Notification Area.
+	 * A <em>TrayItem</em> object which creates a new tray item in the System
+	 * Tray/Notification Area.
 	 */
 	public static TrayItem item;
 
@@ -118,8 +119,8 @@ public class UI {
 		previousKeyboardIcon = image;
 
 		/**
-		 * Initialise the tray object. Obtain the resources to the 
-		 * System Tray/Notification area from the underlying platform.
+		 * Initialise the tray object. Obtain the resources to the System
+		 * Tray/Notification area from the underlying platform.
 		 */
 		tray = display.getSystemTray();
 
@@ -138,7 +139,8 @@ public class UI {
 		} else {
 			item = new TrayItem(tray, SWT.NONE);
 			item.setImage(image);
-			item.setToolTipText("indic-keyboards\nDouble click to visit homepage");
+			item
+					.setToolTipText("indic-keyboards\nDouble click to visit homepage");
 
 			tip.setText("indic-keyboards");
 			item.setToolTip(tip);
@@ -333,16 +335,15 @@ public class UI {
 								tip.setVisible(true);
 								ParseXML.setlang("userdefined/" + filename);
 								PhoneticParseXML.PhoneticFlag = 0;
-								item.setToolTipText("indic-keyboards - User Defined - "
-										+ filename.substring(0, filename
-												.length() - 4));
+								item
+										.setToolTipText("indic-keyboards - User Defined - "
+												+ filename.substring(0,
+														filename.length() - 4));
 							}
 						}
 					});
 					// End of listener
-
 				}
-
 			}
 
 			final MenuItem addLayouts = new MenuItem(menu, SWT.CASCADE);
@@ -395,60 +396,50 @@ public class UI {
 			exit.setText("Exit");
 
 			exit.addListener(SWT.Selection, new Listener() {
-
 				public void handleEvent(Event event) {
-					String d = exit.getText();
-					exit.setSelection(false);
-					if (d.compareTo("Exit") == 0) {
-
-						Shell sh = new Shell(display, SWT.APPLICATION_MODAL);
-						sh.setImage(image);
-						MessageBox messageBox = new MessageBox(sh, SWT.YES
-								| SWT.NO | SWT.ICON_QUESTION);
-						messageBox.setText("Exit...");
+					Shell sh = new Shell(display, SWT.APPLICATION_MODAL);
+					sh.setImage(image);
+					MessageBox messageBox = new MessageBox(sh, SWT.YES | SWT.NO
+							| SWT.ICON_QUESTION);
+					messageBox.setText("Exit");
+					if (System.getProperty("os.name").contains("Windows")) {
+						messageBox.setMessage("Do you want to exit indic-keyboards?");
+					} else {
+						String pid = ManagementFactory.getRuntimeMXBean()
+								.getName();
+						int index = pid.indexOf("@");
+						messageBox.setMessage("Do you want to exit indic-keyboards?"
+										+ "\n\nIf the application doesn't close\nwhen Exit is selected, "
+										+ "kill the process.\n\n(The process ID is "
+										+ pid.substring(0, index) + ")");
+					}
+					int rCode = messageBox.open();
+					if (rCode == SWT.YES) {
+						image.dispose();
+						shell.dispose();
+						display.dispose();
+						/*
+						 * When the program stops running, if the Key Logging is
+						 * enabled, auto repeat will stop working. So make sure
+						 * that auto repeat is ON when the program quits.
+						 */
 						if (System.getProperty("os.name").contains("Windows")) {
-							messageBox
-									.setMessage("Are you sure to quit indic-keyboards??");
+							System.runFinalization();
+							System.exit(0);
 						} else {
-							String pid = ManagementFactory.getRuntimeMXBean()
-									.getName();
-							int index = pid.indexOf("@");
-							messageBox
-									.setMessage("Are you sure to quit indic-keyboards??"
-											+ "\n\nIf the application doesn't close\nwhen Exit is selected, "
-											+ "kill the process.\n\n(The process ID is "
-											+ pid.substring(0, index) + ")");
-						}
-						int rCode = messageBox.open();
-						if (rCode == SWT.YES) {
-							image.dispose();
-							shell.dispose();
-							display.dispose();
-							/*
-							 * When the program stops running, if the Key
-							 * Logging is enabled, auto repeat will stop
-							 * working. So make sure that auto repeat is ON when
-							 * the program quits.
-							 */
-							if (System.getProperty("os.name").contains(
-									"Windows")) {
-								System.runFinalization();
-								System.exit(0);
-							} else {
-								KeyMonitorMethods quit = new KeyMonitorMethods();
-								KeyMonitorMethods.loggingEnabled = true;
-								quit.printKeys(88); // Enable Auto Repeat.
-								try {
-									InitLinux.socket.close();
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
-								System.runFinalization();
-								System.exit(0);
+							KeyMonitorMethods quit = new KeyMonitorMethods();
+							KeyMonitorMethods.loggingEnabled = true;
+							quit.printKeys(88); // Enable Auto Repeat.
+							try {
+								InitLinux.socket.close();
+							} catch (IOException e) {
+								e.printStackTrace();
 							}
-						} else {
-							sh.dispose();
+							System.runFinalization();
+							System.exit(0);
 						}
+					} else {
+						sh.dispose();
 					}
 				}
 			});
@@ -456,34 +447,21 @@ public class UI {
 			help.addListener(SWT.Selection, new Listener() {
 
 				public void handleEvent(Event event) {
-					String d = help.getText();
-					exit.setSelection(false);
-					if (d.compareTo("Help") == 0) {
-
+					File docsDir = new File("./docs/index.html");
+					if (!docsDir.exists()) {
 						Shell sh = new Shell(display, SWT.APPLICATION_MODAL);
 						sh.setImage(image);
-						MessageBox messageBox = new MessageBox(sh, SWT.YES
-								| SWT.NO | SWT.ICON_QUESTION);
-						messageBox.setText("Opening indic-keyboards' help...");
-
+						MessageBox messageBox = new MessageBox(sh, SWT.OK
+								| SWT.ICON_ERROR);
+						messageBox.setText("Help File Not Found");
 						messageBox
-								.setMessage("Dou you want to open indic-keyboards help ??\n\n(Requires an Internet connection)");
-						int rCode = messageBox.open();
-						if (rCode == SWT.YES) {
-							/*
-							 * Opens the default browser. Or any program which
-							 * opens .html files by default
-							 */
-							Program pBrowse = Program.findProgram(".html");
-
-							pBrowse
-									.execute("http://groups.google.com/group/cki-users/web/help-for-users");
-
-						} else {
-
-							sh.dispose();
-						}
+								.setMessage("index.html not found! Make sure it is present in docs\ndirectory");
+						messageBox.open();
+					} else {
+						Program pBrowse = Program.findProgram(".html");
+						pBrowse.execute("./docs/index.html");
 					}
+
 				}
 			});
 
@@ -491,13 +469,7 @@ public class UI {
 			XMLCreateIns.addListener(SWT.Selection, new Listener() {
 
 				public void handleEvent(Event event) {
-					String d = XMLCreateIns.getText();
-					exit.setSelection(false);
-					if (d.compareTo("Add Inscript Layout") == 0) {
-						XMLGenerator.GenerateXMLUI();
-					} else {
-
-					}
+					XMLGenerator.GenerateXMLUI();
 				}
 			});
 			/*
@@ -529,8 +501,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/kannada.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - KANNADA KaGaPa");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - KANNADA KaGaPa");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -548,8 +521,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/kannada.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - KANNADA Inscript");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - KANNADA Inscript");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -566,8 +540,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/kannada.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - KANNADA Phonetic");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - KANNADA Phonetic");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -589,8 +564,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - TAMIL Tamil99");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - TAMIL Tamil99");
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -610,8 +586,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - TAMIL Inscript");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - TAMIL Inscript");
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -631,8 +608,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - TAMIL Remington");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - TAMIL Remington");
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -651,8 +629,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - TAMIL Phonetic");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - TAMIL Phonetic");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -675,8 +654,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/telugu.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - TELUGU Inscript");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - TELUGU Inscript");
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -695,8 +675,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/telugu.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - TELUGU Phonetic");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - TELUGU Phonetic");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -720,8 +701,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/gujarati.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - GUJRATI Inscript");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - GUJRATI Inscript");
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -741,8 +723,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/gujarati.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - GUJARATI Phonetic");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - GUJARATI Phonetic");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -766,8 +749,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - HINDI Remington");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - HINDI Remington");
+							previousKeyboardIcon = item.getImage();
 
 						}
 
@@ -790,8 +774,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - HINDI Inscript");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - HINDI Inscript");
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -811,8 +796,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - HINDI Phonetic");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - HINDI Phonetic");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -837,7 +823,7 @@ public class UI {
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
 							item.setToolTipText("indic-keyboards - MARATHI");
-							previousKeyboardIcon=item.getImage();
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -858,8 +844,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - MARATHI Inscript");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - MARATHI Inscript");
+							previousKeyboardIcon = item.getImage();
 						}
 
 					}
@@ -879,8 +866,9 @@ public class UI {
 									IndicKeyboards.workingDirectory
 											+ "/resources/hindi.ico");
 							item.setImage(image1);
-							item.setToolTipText("indic-keyboards - MARATHI Phonetic");
-							previousKeyboardIcon=item.getImage();
+							item
+									.setToolTipText("indic-keyboards - MARATHI Phonetic");
+							previousKeyboardIcon = item.getImage();
 						}
 					}
 				});
@@ -903,8 +891,9 @@ public class UI {
 								IndicKeyboards.workingDirectory
 										+ "/resources/bengali.ico");
 						item.setImage(image1);
-						item.setToolTipText("indic-keyboards - BENGALI Inscript");
-						previousKeyboardIcon=item.getImage();
+						item
+								.setToolTipText("indic-keyboards - BENGALI Inscript");
+						previousKeyboardIcon = item.getImage();
 					}
 
 				}
@@ -926,8 +915,9 @@ public class UI {
 								IndicKeyboards.workingDirectory
 										+ "/resources/gurmukhi.ico");
 						item.setImage(image1);
-						item.setToolTipText("indic-keyboards - GURMUKHI Inscript");
-						previousKeyboardIcon=item.getImage();
+						item
+								.setToolTipText("indic-keyboards - GURMUKHI Inscript");
+						previousKeyboardIcon = item.getImage();
 					}
 
 				}
@@ -949,8 +939,9 @@ public class UI {
 								IndicKeyboards.workingDirectory
 										+ "/resources/malayalam.ico");
 						item.setImage(image1);
-						item.setToolTipText("indic-keyboards - MALAYALAM Inscript");
-						previousKeyboardIcon=item.getImage();
+						item
+								.setToolTipText("indic-keyboards - MALAYALAM Inscript");
+						previousKeyboardIcon = item.getImage();
 					}
 
 				}
@@ -973,7 +964,7 @@ public class UI {
 										+ "/resources/oriya.ico");
 						item.setImage(image1);
 						item.setToolTipText("indic-keyboards - ORIYA Inscript");
-						previousKeyboardIcon=item.getImage();
+						previousKeyboardIcon = item.getImage();
 					}
 
 				}
@@ -984,43 +975,72 @@ public class UI {
 				public void handleEvent(Event event) {
 					try {
 						if (layoutImg.compareTo("kagapa") == 0) {
-							showCurrentLayout("KaGaPa", IndicKeyboards.workingDirectory	+ "/resources/kagapa.png");
+							showCurrentLayout("KaGaPa",
+									IndicKeyboards.workingDirectory
+											+ "/resources/kagapa.png");
 						}
 						if (layoutImg.compareTo("kannada_inscript") == 0) {
-							showCurrentLayout("Kannada Inscript", IndicKeyboards.workingDirectory + "/resources/kannada_inscript.png");
+							showCurrentLayout("Kannada Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/kannada_inscript.png");
 						}
 						if (layoutImg.compareTo("tamil99") == 0) {
-							showCurrentLayout("Tamil 99", IndicKeyboards.workingDirectory + "/resources/tamil99.png");
+							showCurrentLayout("Tamil 99",
+									IndicKeyboards.workingDirectory
+											+ "/resources/tamil99.png");
 						}
 						if (layoutImg.compareTo("tamil_inscript") == 0) {
-							showCurrentLayout("Tamil Inscript",	IndicKeyboards.workingDirectory	+ "/resources/tamil_inscript.png");
+							showCurrentLayout("Tamil Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/tamil_inscript.png");
 						}
 						if (layoutImg.compareTo("tamil_remington") == 0) {
-							showCurrentLayout("Tamil Remington", IndicKeyboards.workingDirectory + "/resources/tamil_remington.gif");
+							showCurrentLayout("Tamil Remington",
+									IndicKeyboards.workingDirectory
+											+ "/resources/tamil_remington.gif");
 						}
 						if (layoutImg.compareTo("hindi_inscript") == 0) {
-							showCurrentLayout("Hindi Inscript",	IndicKeyboards.workingDirectory	+ "/resources/hindi_inscript.png");
+							showCurrentLayout("Hindi Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/hindi_inscript.png");
 						}
 						if (layoutImg.compareTo("hindi_remington") == 0) {
-							showCurrentLayout("Hindi Remington", IndicKeyboards.workingDirectory + "/resources/hindi_remington.png");
+							showCurrentLayout("Hindi Remington",
+									IndicKeyboards.workingDirectory
+											+ "/resources/hindi_remington.png");
 						}
 						if (layoutImg.compareTo("gujarati_inscript") == 0) {
-							showCurrentLayout("Gujarati Inscript", IndicKeyboards.workingDirectory + "/resources/gujarati_inscript.png");
+							showCurrentLayout(
+									"Gujarati Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/gujarati_inscript.png");
 						}
 						if (layoutImg.compareTo("telugu_inscript") == 0) {
-							showCurrentLayout("Telugu Inscript", IndicKeyboards.workingDirectory + "/resources/telugu_inscript.png");
+							showCurrentLayout("Telugu Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/telugu_inscript.png");
 						}
 						if (layoutImg.compareTo("bengali_inscript") == 0) {
-							showCurrentLayout("Bengali Inscript", IndicKeyboards.workingDirectory + "/resources/bengali_inscript.png");
+							showCurrentLayout("Bengali Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/bengali_inscript.png");
 						}
 						if (layoutImg.compareTo("gurmukhi_inscript") == 0) {
-							showCurrentLayout("Gurmukhi Inscript", IndicKeyboards.workingDirectory + "/resources/gurmukhi_inscript.png");
+							showCurrentLayout(
+									"Gurmukhi Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/gurmukhi_inscript.png");
 						}
 						if (layoutImg.compareTo("malayalam_inscript") == 0) {
-							showCurrentLayout("Malayalam Inscript",	IndicKeyboards.workingDirectory	+ "/resources/malayalam_inscript.png");
+							showCurrentLayout(
+									"Malayalam Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/malayalam_inscript.png");
 						}
 						if (layoutImg.compareTo("oriya_inscript") == 0) {
-							showCurrentLayout("Oriya Inscript",	IndicKeyboards.workingDirectory	+ "/resources/oriya_inscript.png");
+							showCurrentLayout("Oriya Inscript",
+									IndicKeyboards.workingDirectory
+											+ "/resources/oriya_inscript.png");
 						}
 						if (layoutImg.compareTo("na") == 0) {
 							currentLayout.setEnabled(false);
@@ -1173,16 +1193,18 @@ public class UI {
 	}
 
 	public static void showCurrentLayout(String text, String imagePath) {
-		
+
 		Shell currentLayout = new Shell(Display.getCurrent(), SWT.DIALOG_TRIM);
 
-		Image currentLayoutShellIcon = new Image(Display.getCurrent(),IndicKeyboards.workingDirectory + "/resources/trayicon.ico");
+		Image currentLayoutShellIcon = new Image(Display.getCurrent(),
+				IndicKeyboards.workingDirectory + "/resources/trayicon.ico");
 		currentLayout.setImage(currentLayoutShellIcon);
 
 		final Image layoutImage = new Image(Display.getCurrent(), imagePath);
-		
+
 		currentLayout.setText(text);
-		currentLayout.setSize(layoutImage.getBounds().width, layoutImage.getBounds().height + 30);
+		currentLayout.setSize(layoutImage.getBounds().width, layoutImage
+				.getBounds().height + 30);
 		currentLayout.setBackgroundImage(layoutImage);
 		currentLayout.open();
 		currentLayout.setActive();

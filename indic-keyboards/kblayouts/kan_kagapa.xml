@@ -1,388 +1,389 @@
+<?xml version="1.0"?>
 <kan_kagapa>
 
-<pattern>
-<char>a</char>
-<unicode>0C85</unicode>
-<consonant>0</consonant>
-<uni2>0C85</uni2>
-</pattern>
+	<pattern>
+		<char>a</char>
+		<unicode>0C85</unicode>
+		<consonant>0</consonant>
+		<uni2>0C85</uni2>
+	</pattern>
 
-<pattern>
-<char>A</char>
-<unicode>0C86</unicode>
-<consonant>0</consonant>
-<uni2>0CBE</uni2>
-</pattern>
+	<pattern>
+		<char>A</char>
+		<unicode>0C86</unicode>
+		<consonant>0</consonant>
+		<uni2>0CBE</uni2>
+	</pattern>
 
-<pattern>
-<char>s</char>
-<unicode>0CB8</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>s</char>
+		<unicode>0CB8</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>S</char>
-<unicode>0CB6</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>S</char>
+		<unicode>0CB6</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>d</char>
-<unicode>0CA6</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>d</char>
+		<unicode>0CA6</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>D</char>
-<unicode>0CA7</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>D</char>
+		<unicode>0CA7</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>f</char>
-<unicode>0CCD</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>f</char>
+		<unicode>0CCD</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>F</char>
-<unicode>0CEF</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>F</char>
+		<unicode>0CEF</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>g</char>
-<unicode>0C97</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>g</char>
+		<unicode>0C97</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>G</char>
-<unicode>0C98</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>G</char>
+		<unicode>0C98</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>h</char>
-<unicode>0CB9</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>h</char>
+		<unicode>0CB9</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>H</char>
-<unicode>0C83</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>H</char>
+		<unicode>0C83</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>j</char>
-<unicode>0C9C</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>j</char>
+		<unicode>0C9C</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>J</char>
-<unicode>0C9D</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>J</char>
+		<unicode>0C9D</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>k</char>
-<unicode>0C95</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>k</char>
+		<unicode>0C95</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>K</char>
-<unicode>0C96</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>K</char>
+		<unicode>0C96</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>l</char>
-<unicode>0CB2</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>l</char>
+		<unicode>0CB2</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>L</char>
-<unicode>0CB3</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>L</char>
+		<unicode>0CB3</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>q</char>
-<unicode>0C9F</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>q</char>
+		<unicode>0C9F</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>Q</char>
-<unicode>0CA0</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>Q</char>
+		<unicode>0CA0</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>w</char>
-<unicode>0CA1</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>w</char>
+		<unicode>0CA1</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>W</char>
-<unicode>0CA2</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>W</char>
+		<unicode>0CA2</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>e</char>
-<unicode>0C8E</unicode>
-<consonant>0</consonant>
-<uni2>0CC6</uni2>
-</pattern>
+	<pattern>
+		<char>e</char>
+		<unicode>0C8E</unicode>
+		<consonant>0</consonant>
+		<uni2>0CC6</uni2>
+	</pattern>
 
-<pattern>
-<char>E</char>
-<unicode>0C8F</unicode>
-<consonant>0</consonant>
-<uni2>0CC7</uni2>
-</pattern>
+	<pattern>
+		<char>E</char>
+		<unicode>0C8F</unicode>
+		<consonant>0</consonant>
+		<uni2>0CC7</uni2>
+	</pattern>
 
-<pattern>
-<char>r</char>
-<unicode>0CB0</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>r</char>
+		<unicode>0CB0</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>R</char>
-<unicode>0C8B</unicode>
-<consonant>0</consonant>
-<uni2>0CC3</uni2>
-</pattern>
+	<pattern>
+		<char>R</char>
+		<unicode>0C8B</unicode>
+		<consonant>0</consonant>
+		<uni2>0CC3</uni2>
+	</pattern>
 
-<pattern>
-<char>t</char>
-<unicode>0CA4</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>t</char>
+		<unicode>0CA4</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>T</char>
-<unicode>0CA5</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>T</char>
+		<unicode>0CA5</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>y</char>
-<unicode>0CAF</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>y</char>
+		<unicode>0CAF</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>Y</char>
-<unicode>0C90</unicode>
-<consonant>0</consonant>
-<uni2>0CC8</uni2>
-</pattern>
+	<pattern>
+		<char>Y</char>
+		<unicode>0C90</unicode>
+		<consonant>0</consonant>
+		<uni2>0CC8</uni2>
+	</pattern>
 
-<pattern>
-<char>u</char>
-<unicode>0C89</unicode>
-<consonant>0</consonant>
-<uni2>0CC1</uni2>
-</pattern>
+	<pattern>
+		<char>u</char>
+		<unicode>0C89</unicode>
+		<consonant>0</consonant>
+		<uni2>0CC1</uni2>
+	</pattern>
 
-<pattern>
-<char>U</char>
-<unicode>0C8A</unicode>
-<consonant>0</consonant>
-<uni2>0CC2</uni2>
-</pattern>
+	<pattern>
+		<char>U</char>
+		<unicode>0C8A</unicode>
+		<consonant>0</consonant>
+		<uni2>0CC2</uni2>
+	</pattern>
 
-<pattern>
-<char>i</char>
-<unicode>0C87</unicode>
-<consonant>0</consonant>
-<uni2>0CBF</uni2>
-</pattern>
+	<pattern>
+		<char>i</char>
+		<unicode>0C87</unicode>
+		<consonant>0</consonant>
+		<uni2>0CBF</uni2>
+	</pattern>
 
-<pattern>
-<char>I</char>
-<unicode>0C88</unicode>
-<consonant>0</consonant>
-<uni2>0CC0</uni2>
-</pattern>
+	<pattern>
+		<char>I</char>
+		<unicode>0C88</unicode>
+		<consonant>0</consonant>
+		<uni2>0CC0</uni2>
+	</pattern>
 
-<pattern>
-<char>o</char>
-<unicode>0C92</unicode>
-<consonant>0</consonant>
-<uni2>0CCA</uni2>
-</pattern>
+	<pattern>
+		<char>o</char>
+		<unicode>0C92</unicode>
+		<consonant>0</consonant>
+		<uni2>0CCA</uni2>
+	</pattern>
 
-<pattern>
-<char>O</char>
-<unicode>0C93</unicode>
-<consonant>0</consonant>
-<uni2>0CCB</uni2>
-</pattern>
+	<pattern>
+		<char>O</char>
+		<unicode>0C93</unicode>
+		<consonant>0</consonant>
+		<uni2>0CCB</uni2>
+	</pattern>
 
-<pattern>
-<char>p</char>
-<unicode>0CAA</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>p</char>
+		<unicode>0CAA</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>P</char>
-<unicode>0CAB</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>P</char>
+		<unicode>0CAB</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>z</char>
-<unicode>0C9E</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>z</char>
+		<unicode>0C9E</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>Z</char>
-<unicode>0C99</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>Z</char>
+		<unicode>0C99</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>x</char>
-<unicode>0CB7</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>x</char>
+		<unicode>0CB7</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>X</char>
-<unicode>0C950CCD0CB7</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>X</char>
+		<unicode>0C950CCD0CB7</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>c</char>
-<unicode>0C9A</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>c</char>
+		<unicode>0C9A</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>C</char>
-<unicode>0C9B</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>C</char>
+		<unicode>0C9B</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>v</char>
-<unicode>0CB5</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>v</char>
+		<unicode>0CB5</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>V</char>
-<unicode>0C94</unicode>
-<consonant>0</consonant>
-<uni2>0CCC</uni2>
-</pattern>
+	<pattern>
+		<char>V</char>
+		<unicode>0C94</unicode>
+		<consonant>0</consonant>
+		<uni2>0CCC</uni2>
+	</pattern>
 
-<pattern>
-<char>b</char>
-<unicode>0CAC</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>b</char>
+		<unicode>0CAC</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>B</char>
-<unicode>0CAD</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>B</char>
+		<unicode>0CAD</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>n</char>
-<unicode>0CA8</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>n</char>
+		<unicode>0CA8</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>N</char>
-<unicode>0CA3</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>N</char>
+		<unicode>0CA3</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>m</char>
-<unicode>0CAE</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>m</char>
+		<unicode>0CAE</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>M</char>
-<unicode>0C82</unicode>
-<consonant>1</consonant>
-</pattern>
+	<pattern>
+		<char>M</char>
+		<unicode>0C82</unicode>
+		<consonant>1</consonant>
+	</pattern>
 
-<pattern>
-<char>1</char>
-<unicode>0CE7</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>1</char>
+		<unicode>0CE7</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>2</char>
-<unicode>0CE8</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>2</char>
+		<unicode>0CE8</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>3</char>
-<unicode>0CE9</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>3</char>
+		<unicode>0CE9</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>4</char>
-<unicode>0CEA</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>4</char>
+		<unicode>0CEA</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>5</char>
-<unicode>0CEB</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>5</char>
+		<unicode>0CEB</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>6</char>
-<unicode>0CEC</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>6</char>
+		<unicode>0CEC</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>7</char>
-<unicode>0CED</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>7</char>
+		<unicode>0CED</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>8</char>
-<unicode>0CEE</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>8</char>
+		<unicode>0CEE</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>9</char>
-<unicode>0CEF</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>9</char>
+		<unicode>0CEF</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
-<pattern>
-<char>0</char>
-<unicode>0CE6</unicode>
-<consonant>0</consonant>
-</pattern>
+	<pattern>
+		<char>0</char>
+		<unicode>0CE6</unicode>
+		<consonant>0</consonant>
+	</pattern>
 
 </kan_kagapa>
