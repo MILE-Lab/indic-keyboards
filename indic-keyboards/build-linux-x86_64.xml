@@ -28,7 +28,7 @@
 	</fileset>
 
 	<fileset id="ourso" dir=".">
-		<patternset includes="lib*.so.*" />
+		<patternset includes="lib*x86_64.so.*" />
 	</fileset>
 
 	<target name="init" description="Initialization by creating the directory structure">
