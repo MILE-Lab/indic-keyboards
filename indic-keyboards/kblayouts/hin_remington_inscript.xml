@@ -175,8 +175,12 @@
 </char><unicode>0926094D0930</unicode>
 </pattern>
 
+<pattern><char>]
+</char><unicode>002C</unicode>
+</pattern>
+
 <pattern><char>|
-</char><unicode>0918</unicode>
+</char><unicode>0926094D092F</unicode>
 </pattern>
 
 <pattern><char>A
@@ -188,11 +192,11 @@
 </pattern>
 
 <pattern><char>S
-</char><unicode>094C</unicode>
+</char><unicode>0948</unicode>
 </pattern>
 
 <pattern><char>s
-</char><unicode>094B</unicode>
+</char><unicode>0947</unicode>
 </pattern>
 
 <pattern><char>d
@@ -243,10 +247,13 @@
 </char><unicode>093E</unicode>
 </pattern>
 
-<pattern><char>l
+<pattern><char>L
 </char><unicode>0938094D</unicode>
 </pattern>
 
+<pattern><char>l
+</char><unicode>0938</unicode>
+</pattern>
 <pattern><char>:
 </char><unicode>09300941</unicode>
 </pattern>
@@ -260,7 +267,7 @@
 </pattern>
 
 <pattern><char>'
-</char><unicode>0937094D</unicode>
+</char><unicode>0936094D</unicode>
 </pattern>
 
 <pattern><char>Z
@@ -325,7 +332,7 @@
 </pattern>
 
 <pattern><char>.
-</char><unicode>0923</unicode>
+</char><unicode>0923094D</unicode>
 </pattern>
 
 <pattern><char>&gt;

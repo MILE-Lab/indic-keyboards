@@ -276,7 +276,7 @@
 
 	<pattern>
 		<char>B</char>
-		<unicode>AAAA</unicode>
+		<unicode>0BF7</unicode>
 	</pattern>
 
 	<pattern>
@@ -333,11 +333,15 @@
 	<pattern>
 		<char>:</char>
 		<unicode>003B</unicode>
+		<consonant>0</consonant>
+		<uni2>003B</uni2>
 	</pattern>
 
 	<pattern>
 		<char>"</char>
 		<unicode>002E</unicode>
+		<consonant>0</consonant>
+		<uni2>002E</uni2>
 	</pattern>
 
 	<pattern>

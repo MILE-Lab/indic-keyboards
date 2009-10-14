@@ -384,8 +384,8 @@
 	</pattern>
 
 	<pattern>
-		<char>_</char>
-		<unicode>0A83</unicode>
+		<char>&lt</char>
+		<unicode>0AB7</unicode>
 	</pattern>
 
 </guj_inscript>
