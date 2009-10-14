@@ -1207,7 +1207,7 @@ public class XMLGenerator extends org.eclipse.swt.widgets.Composite {
              * only after the user presses ok button
              */
             //Write header
-
+            newXML.println("<?xml version=\"1.0\"?>");
 
             //Start of the XML Data
 
