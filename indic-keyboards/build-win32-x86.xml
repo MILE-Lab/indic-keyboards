@@ -71,12 +71,12 @@
 		<javac srcdir="src" destdir="bin" classpath="${swt}" debug="${debug}" verbose="${verbose}" />
 	</target>
 
-	<target name="run" depends="compile,build" description="Executes the project">
+	<target name="run" depends="compile" description="Executes the project">
 		<echo>Using Java ${ant.java.version} present at ${java.home}</echo>
 		<java classpath="${swt}:./bin" classname="org.iisc.mile.indickeyboards.IndicKeyboards" fork="true" />
 	</target>
 
-	<target name="jar" depends="compile,build" description="Packages into an executable JAR">
+	<target name="jar" depends="compile" description="Packages into an executable JAR">
 		<mkdir dir="dist" />
 		<mkdir dir="swt" />
 		<unjar src="${swt}" dest="./swt" />
@@ -104,6 +104,11 @@
 		<mkdir dir="./dist/resources" />
 		<copy todir="./dist/resources">
 			<fileset dir="./resources" />
+		</copy>
+
+		<mkdir dir="./dist/docs" />
+		<copy todir="./dist/docs">
+			<fileset dir="./docs" />
 		</copy>
 
 		<copy todir="./dist">
