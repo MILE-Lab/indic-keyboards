@@ -151,6 +151,12 @@
 		<unicode>0920</unicode> <consonant>1</consonant> </pattern>
 	-->
 	<pattern>
+		<char>q</char>
+		<unicode>0901</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	
+	<pattern>
 		<char>w</char>
 		<unicode>0935</unicode>
 		<consonant>1</consonant>
