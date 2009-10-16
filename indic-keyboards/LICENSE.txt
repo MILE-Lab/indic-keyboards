@@ -203,9 +203,9 @@
 
 
 
-Indic Keyboards SUBCOMPONENT:
+indic-keyboards SUBCOMPONENT:
 
-Indic Keyboards includes Eclipse SWT (The Standard Widget Toolkit) which has separate copyright notices
+indic-keyboards includes Eclipse SWT (The Standard Widget Toolkit) which has separate copyright notices
 and license terms. Your use of this subcomponent is subject to the terms and
 conditions of the following license.
 
