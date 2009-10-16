@@ -4,7 +4,7 @@
  * Authors:        Abhinava,Akshay. Revati,Arun 
  * Created:        Sun May 25 02:01:25 IST 2009
  *
- * (C) Copyright 2009, MILE Lab, IISc
+ * (C) Copyright 2009, MILE Lab, Indian Institute of Science
  ** Licensed under the Apache License, Version 2.0 (the "License");
  ** you may not use this file except in compliance with the License.
  ** You may obtain a copy of the License at
@@ -233,7 +233,7 @@ public class AboutUs {
 	private Control getTabLicenseControl(TabFolder tabFolder) {
 
 		link4 = new Link(tabFolder, SWT.NONE);
-		String text = "\n\n\n\u00A9 Copyright 2009, MILE Lab, Indian Institute of Science\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at <a href=\"http://www.apache.org/licenses/LICENSE-2.0\">http://www.apache.org/licenses/LICENSE-2.0</a> . Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language overning permissions and limitations under the License.";
+		String text = "\n\n\n\u00A9 Copyright 2009, MILE Lab, Indian Institute of Science\n\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at <a href=\"http://www.apache.org/licenses/LICENSE-2.0\">http://www.apache.org/licenses/LICENSE-2.0</a> . Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language overning permissions and limitations under the License.";
 		link4.setText(text);
 		return link4;
 	}
