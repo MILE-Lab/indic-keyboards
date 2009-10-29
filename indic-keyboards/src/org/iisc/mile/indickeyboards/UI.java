@@ -1193,8 +1193,8 @@ public class UI {
 	}
 
 	public static void showCurrentLayout(String text, String imagePath) {
-
-		Shell currentLayout = new Shell(Display.getCurrent(), SWT.DIALOG_TRIM);
+		final Shell currentLayout = new Shell(Display.getCurrent(),
+				SWT.DIALOG_TRIM | SWT.ON_TOP);
 
 		Image currentLayoutShellIcon = new Image(Display.getCurrent(),
 				IndicKeyboards.workingDirectory + "/resources/trayicon.ico");
