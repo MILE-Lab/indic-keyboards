@@ -278,6 +278,8 @@ public class UI {
 			tamil99.setText("Tamil99");
 			final MenuItem tamInscript = new MenuItem(submenu_tam, SWT.PUSH);
 			tamInscript.setText("Inscript");
+			final MenuItem tamBamini = new MenuItem(submenu_tam, SWT.PUSH);
+			tamBamini.setText("Bamini");
 			final MenuItem tamRemington = new MenuItem(submenu_tam, SWT.PUSH);
 			tamRemington.setText("Remington");
 			new MenuItem(submenu_tam, SWT.SEPARATOR);
@@ -594,6 +596,27 @@ public class UI {
 					}
 				});
 
+				tamBamini.addListener(SWT.Selection, new Listener() {
+
+					public void handleEvent(Event event) {
+						{
+							layoutImg = "tamil_bamini_inscript";
+							currentLayout.setEnabled(true);
+							tip.setMessage("Tamil Bamini");
+							tip.setVisible(true);
+							ParseXML.setlang("tam_bamini_inscript.xml");
+							PhoneticParseXML.PhoneticFlag = 0;
+							Image image1 = new Image(display,
+									IndicKeyboards.workingDirectory
+											+ "/resources/tamil.ico");
+							item.setImage(image1);
+							item
+									.setToolTipText("indic-keyboards - TAMIL Bamini");
+							previousKeyboardIcon = item.getImage();
+						}
+
+					}
+				});
 				tamRemington.addListener(SWT.Selection, new Listener() {
 
 					public void handleEvent(Event event) {
@@ -993,6 +1016,11 @@ public class UI {
 							showCurrentLayout("Tamil Inscript",
 									IndicKeyboards.workingDirectory
 											+ "/resources/tamil_inscript.png");
+						}
+						if (layoutImg.compareTo("tamil_bamini_inscript") == 0) {
+							showCurrentLayout("Tamil Bamini",
+									IndicKeyboards.workingDirectory
+											+ "/resources/tamil_bamini_inscript.png");
 						}
 						if (layoutImg.compareTo("tamil_remington") == 0) {
 							showCurrentLayout("Tamil Remington",
