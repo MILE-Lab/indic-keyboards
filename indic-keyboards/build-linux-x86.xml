@@ -5,7 +5,7 @@
 	<property name="debug" value="false" />
 	<property name="verbose" value="false" />
 	<property name="main.class" value="org.iisc.mile.indickeyboards.IndicKeyboards" />
-	<property name="swt" value="swt-3.4-gtk-linux-x86.jar" />
+	<property name="swt" value="swt.jar" />
 
 	<fileset id="ImagesIcons" dir="./resources">
 		<patternset includes="*.ico,*.png,*.gif,*.jpg,*.jpeg" />
@@ -28,7 +28,7 @@
 	</fileset>
 
 	<fileset id="ourso" dir=".">
-		<patternset includes="lib*x86.so.*" />
+		<patternset includes="libIndicKeyboards-x86.so.*" />
 	</fileset>
 
 	<target name="init" description="Initialization by creating the directory structure">
@@ -48,7 +48,7 @@
 			<arg line="-fPIC -D_REENTRANT -g -c -W -Wall -Wno-unused -Wno-parentheses -I/${env.JAVA_HOME}/include -I/${env.JAVA_HOME}/include/linux  -I/usr/include/X11 linuxLibraries.c -m32" />
 		</exec>
 		<exec dir="./src/org/iisc/mile/indickeyboards/linux" executable="gcc">
-			<arg line="-shared -Wl,-soname=libMIKI-x86.so.1 -o libMIKI-x86.so.1.0 linuxLibraries.o -lc -lX11 -m32" />
+			<arg line="-shared -Wl,-soname=libIndicKeyboards-x86.so.1 -o libIndicKeyboards-x86.so.1.0 linuxLibraries.o -lc -lX11 -m32" />
 		</exec>
 		<move todir=".">
 			<fileset dir="./src/org/iisc/mile/indickeyboards/linux">
@@ -70,12 +70,12 @@
 		<javac srcdir="src" destdir="bin" classpath="${swt}" debug="${debug}" verbose="${verbose}" />
 	</target>
 
-	<target name="run" depends="compile" description="Executes the project">
+	<target name="run" depends="build" description="Executes the project">
 		<echo>Using Java ${ant.java.version} present at ${java.home}</echo>
 		<java classpath="${swt}:./bin" classname="org.iisc.mile.indickeyboards.IndicKeyboards" fork="true" />
 	</target>
 
-	<target name="jar" depends="compile" description="Packages into an executable JAR">
+	<target name="jar" depends="build" description="Packages into an executable JAR">
 		<mkdir dir="dist" />
 		<mkdir dir="swt" />
 		<unjar src="${swt}" dest="./swt" />
@@ -126,6 +126,9 @@
 		<delete dir="./bin" />
 		<delete dir="./javadoc" />
 		<delete dir="./dist" />
+		<delete>
+			<fileset dir="./" includes="*.so*" />
+		</delete>
 	</target>
 
 </project>

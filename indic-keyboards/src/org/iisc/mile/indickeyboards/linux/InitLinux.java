@@ -206,17 +206,17 @@ public class InitLinux {
 	}// end of InitLinuxStart
 
 	 /**
-	 * Static block which loads the libMIKI.so.1.0/libMIKI-x64.so.1.0 library.
+	 * Static block which loads the libIndicKeyboards.so.1.0/libIndicKeyboards-x64.so.1.0 library.
 	 */
 	static {
 		System.out.println(System.getProperty("user.dir"));
 		String path = System.getProperty("user.dir");
 		String arch = System.getProperty("os.arch");
-		String linuxLibraryName = "libMIKI-x86.so.1.0";
+		String linuxLibraryName = "libIndicKeyboards-x86.so.1.0";
 		if (arch.contains("86")) {
-			linuxLibraryName = "libMIKI-x86.so.1.0";
+			linuxLibraryName = "libIndicKeyboards-x86.so.1.0";
 		} else if (arch.contains("64")) {
-			linuxLibraryName = "libMIKI-x86_64.so.1.0";
+			linuxLibraryName = "libIndicKeyboards-x86_64.so.1.0";
 		}
 		try {
 			System.load(path + "/" + linuxLibraryName);

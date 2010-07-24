@@ -39,7 +39,7 @@ public class OutputCharToActiveWindow {
 	static {
 		try {
 			// Load the dll for output
-			System.loadLibrary("opChars");
+			System.loadLibrary("indic-keyboards-opChars");
 		} catch (UnsatisfiedLinkError e) {
 			
 		}

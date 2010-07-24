@@ -72,10 +72,10 @@ class PollThread extends Thread {
 	public PollThread(KeyboardHook kh) {
 		kbh = kh;
 		try {
-			System.loadLibrary("Syshook");
-			System.loadLibrary("opChars");
+			System.loadLibrary("indic-keyboards-sysHook");
+			System.loadLibrary("indic-keyboards-opChars");
 		} catch (UnsatisfiedLinkError e) {
-			String windowsSysHookLibraryName = "Syshook.dll or opChars.dll";
+			String windowsSysHookLibraryName = "indic-keyboards-sysHook.dll or indic-keyboards-opChars.dll";
 			Display display = Display.getCurrent();
 			Shell shell = new Shell(display);
 			MessageBox messageBox = new MessageBox(shell, SWT.OK
