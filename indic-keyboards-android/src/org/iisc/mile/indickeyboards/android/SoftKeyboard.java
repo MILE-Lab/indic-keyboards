@@ -98,25 +98,20 @@ implements KeyboardView.OnKeyboardActionListener {
 
 	private String mWordSeparators;
 
-	private int mLastKey = -44;
-
-	static private boolean disable = true;
-
 	static private Set<Integer> mConsonants ;
 	static private HashMap<Integer, Integer> mVowels;
 
 	static {
-		mConsonants = new HashSet<Integer>() ;
-		for(int i = 'ಕ' ; i<'ಹ';++i){
+		mConsonants = new HashSet<Integer>();
+		for (int i = 'ಕ'; i <= 'ಹ'; i++) {
 			mConsonants.add(i);
 		}
 
 		mVowels = new HashMap<Integer, Integer>();
-		for(int i='ಆ',j='ಾ';i<'ಔ';++i,++j){
-			mVowels.put(i, j);			
-		}	
+		for (int i = 'ಆ', j = 'ಾ'; i <= 'ಔ'; i++, j++) {
+			mVowels.put(i, j);
+		}
 	}
-
 
 	/***
 	 * Main initialization of the input method component.  Be sure to call
@@ -550,22 +545,13 @@ implements KeyboardView.OnKeyboardActionListener {
 	public void onKey(int presentKeycode, int[] keyCodes) {
 		InputConnection ic = getCurrentInputConnection();
 		String lastChar;
-		if (check34Layout()) {
-			lastChar = ic.getTextBeforeCursor(2, 0).toString();
-			if (lastChar.length() > 1) {
-				mLastKey = lastChar.codePointAt(1);
-			} else if(lastChar.length() == 1){
-				mLastKey = lastChar.codePointAt(0);
-			} else {
-				mLastKey = -44; // dummy
-			}
+		int mLastKey = -44;
+
+		lastChar = ic.getTextBeforeCursor(1, 0).toString();
+		if (lastChar.length() > 0) {
+			mLastKey = lastChar.codePointAt(0);
 		} else {
-			lastChar = ic.getTextBeforeCursor(1, 0).toString();
-			if (lastChar.length() > 0) {
-				mLastKey = lastChar.codePointAt(0);
-			} else {
-				mLastKey = -44; // dummy
-			}
+			mLastKey = -44; // dummy
 		}
 
 		if (isWordSeparator(presentKeycode)) {
@@ -596,14 +582,14 @@ implements KeyboardView.OnKeyboardActionListener {
 				current.setShifted(false);
 			}
 		} else if (mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode)
-				&& checkCurrentKeyboard()) {
-			sendKey(mVowels.get(presentKeycode));
+				&& !checkInScriptKeyboard()) {
+			handleCharacter(mVowels.get(presentKeycode), keyCodes);
 		} else {
 			handleCharacter(presentKeycode, keyCodes);
 		}
 	}
 
-	private boolean check34Layout() {
+	private boolean check34Keyboard() {
 		Keyboard current = mInputView.getKeyboard();
 		if (current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard) {
 			return true;
@@ -611,12 +597,12 @@ implements KeyboardView.OnKeyboardActionListener {
 		return false;
 	}
 
-	private boolean checkCurrentKeyboard() {
+	private boolean checkInScriptKeyboard() {
 		Keyboard current = mInputView.getKeyboard();
 		if (current == mQwertyinscriptKeyboard || current == mQwertyShiftedinscriptKeyboard) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	private void showLanguageOptionsMenu() {
