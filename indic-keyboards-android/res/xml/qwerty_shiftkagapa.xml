@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* 
+**
+** Copyright 2008, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+**
+**     http://www.apache.org/licenses/LICENSE-2.0 
+**
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+*/
+-->
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android" android:keyWidth="10%p"
+  android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
+
+  <Row>
+    <Key android:codes="0x0ca0" android:keyIcon="@drawable/q1" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0ca2" android:keyIcon="@drawable/w1" />
+    <Key android:codes="0x0c8f" android:keyIcon="@drawable/e1" />
+    <Key android:codes="0x0c8b" android:keyIcon="@drawable/r1" />
+    <Key android:codes="0x0ca5" android:keyIcon="@drawable/t1" />
+    <Key android:codes="0x0c90" android:keyIcon="@drawable/y1" />
+    <Key android:codes="0x0c8a" android:keyIcon="@drawable/u1" />
+    <Key android:codes="0x0c88" android:keyIcon="@drawable/i1" />
+    <Key android:codes="0x0c93" android:keyIcon="@drawable/o1" />
+    <Key android:codes="0x0cab" android:keyIcon="@drawable/p1" android:keyEdgeFlags="right" />
+  </Row>
+
+  <Row>
+    <Key android:codes="0x0c86" android:keyIcon="@drawable/a1" android:horizontalGap="5%p"
+      android:keyEdgeFlags="left" />
+    <Key android:codes="0x0cb6" android:keyIcon="@drawable/s1" />
+    <Key android:codes="0x0ca7" android:keyIcon="@drawable/d1" />
+    <Key android:codes="0x0cef" android:keyIcon="@drawable/f1" />
+    <Key android:codes="0x0c98" android:keyIcon="@drawable/g1" />
+    <Key android:codes="0x0c83" android:keyIcon="@drawable/h1" />
+    <Key android:codes="0x0c9d" android:keyIcon="@drawable/j1" />
+    <Key android:codes="0x0c96" android:keyIcon="@drawable/k1" />
+    <Key android:codes="0x0cb3" android:keyIcon="@drawable/l1" android:keyEdgeFlags="right" />
+  </Row>
+
+  <Row>
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="15%p"
+      android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0c99" android:keyIcon="@drawable/z1" />
+    <Key android:codes=" " android:keyIcon="@drawable/x1" />
+    <Key android:codes="0x0c9b" android:keyIcon="@drawable/c1" />
+    <Key android:codes="0x0c94" android:keyIcon="@drawable/v1" />
+    <Key android:codes="0x0cad" android:keyIcon="@drawable/b1" />
+    <Key android:codes="0x0ca3" android:keyIcon="@drawable/n1" />
+    <Key android:codes="0x0c82" android:keyIcon="@drawable/m1" />
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="15%p"
+      android:keyEdgeFlags="right" android:isRepeatable="true" />
+  </Row>
+
+  <Row android:rowEdgeFlags="bottom">
+    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="15%p"
+      android:keyEdgeFlags="left" />
+    <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
+
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="35%p"
+      android:isRepeatable="true" />
+    <Key android:codes="-2" android:keyLabel="12#%" android:keyWidth="15%p" />
+    <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="15%p"
+      android:keyEdgeFlags="right" />
+  </Row>
+</Keyboard>
