@@ -554,8 +554,10 @@ implements KeyboardView.OnKeyboardActionListener {
 			lastChar = ic.getTextBeforeCursor(2, 0).toString();
 			if (lastChar.length() > 1) {
 				mLastKey = lastChar.codePointAt(1);
-			} else {
+			} else if(lastChar.length() == 1){
 				mLastKey = lastChar.codePointAt(0);
+			} else {
+				mLastKey = -44; // dummy
 			}
 		} else {
 			lastChar = ic.getTextBeforeCursor(1, 0).toString();
