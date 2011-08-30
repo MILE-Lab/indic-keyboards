@@ -569,7 +569,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			handleShift();
 		}else if (primaryCode == SETTINGS_OPTION && mInputView != null) {
 
-			showOptionsMenu();
+			showLanguageOptionsMenu();
 		
 		} else if (primaryCode == Keyboard.KEYCODE_CANCEL) {
 			handleClose();
@@ -618,47 +618,30 @@ implements KeyboardView.OnKeyboardActionListener {
 		return true;
 	}
 
-	private void showOptionsMenu() {
+	private void showLanguageOptionsMenu() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setCancelable(true);
 		builder.setIcon(R.drawable.icon);
-		builder.setNegativeButton("Cancel", null);
-		builder.setTitle("Keyboard Options");
-
-		builder.setItems(new CharSequence[] { "Select Language", "Select Layout"}, new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface di, int position) {
-				di.dismiss();
-				switch (position) {
-				case 0:
-					launchLanguageSettings();
-					break;
-				case 1:
-					launchLayoutSettings();
-					break;
-				}
-			}
-			
-		});
-		mOptionsDialog = builder.create();
-		Window window = mOptionsDialog.getWindow();
-		WindowManager.LayoutParams lp = window.getAttributes();
-
-		lp.token = mInputView.getWindowToken();
-		lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
-		window.setAttributes(lp);
-		window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
-		mOptionsDialog.show();
+		launchLanguageSettings();
 	}
+
+	private void showLayoutOptionsMenu() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setCancelable(true);
+		builder.setIcon(R.drawable.icon);
+		launchLayoutSettings();
+	}
+
 	private AlertDialog mOptionsDialog;
 	private void launchLayoutSettings() {
 		// TODO Auto-generated method stub
 		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
 		lyBuilder.setCancelable(true);
-		lyBuilder.setTitle("Layout Options");
+		lyBuilder.setTitle("Select Layout");
 		lyBuilder.setIcon(R.drawable.icon);
-		lyBuilder.setItems(new CharSequence[]{"Phonetic","KaGaPa", "3 cross 4", "Inscript"}, new OnClickListener() {
+		lyBuilder.setItems(new CharSequence[]{"Phonetic","KaGaPa", "3x4 Keyboard", "InScript"}, new OnClickListener() {
 			
-	
+			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				Keyboard current = mInputView.getKeyboard();
 				// TODO Auto-generated method stub
@@ -729,13 +712,11 @@ implements KeyboardView.OnKeyboardActionListener {
 		mOptionsDialog.show();
 		
 
-	}
-
-	private void launchLanguageSettings() {
+	}	private void launchLanguageSettings() {
 		// TODO Auto-generated method stub
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
 		lanBuilder.setCancelable(true);
-		lanBuilder.setTitle("Language Options");
+		lanBuilder.setTitle("Select Language");
 		lanBuilder.setIcon(R.drawable.icon);
 		lanBuilder.setItems(new CharSequence[]{"English","Kannada","Tamil","Telugu","Malayam"}, new OnClickListener() {
 			
@@ -749,7 +730,7 @@ implements KeyboardView.OnKeyboardActionListener {
 					break;
 				case 1: //Kannada
 					Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT).show();
-					
+					showLayoutOptionsMenu();
 					break;
 				default :
 					Toast.makeText(getBaseContext(), "This Language Keyboard not available", Toast.LENGTH_SHORT).show();
