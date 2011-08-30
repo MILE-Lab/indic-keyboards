@@ -52,8 +52,8 @@
     <Key android:codes=" " android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="25%p"
       android:keyEdgeFlags="left" />
     <Key android:codes="3255,3256,3257,3251" android:keyIcon="@drawable/sha_la" android:keyWidth="25%p" />
-    <Key android:codes="3277,3202,3203" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="25%p" />
-    <Key android:codes="3257" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
-    <Key android:codes="-3" android:keyLabel="KL" android:keyWidth="13%p" android:keyEdgeFlags="right" />
+    <Key android:codes="-1" android:keyLabel="abcd" android:keyWidth="25%p" />
+    <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="13%p" />
+    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p" android:keyEdgeFlags="right" />
   </Row>
 </Keyboard>

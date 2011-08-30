@@ -581,6 +581,39 @@ implements KeyboardView.OnKeyboardActionListener {
 			if (current == mSymbolsKeyboard) {
 				current.setShifted(false);
 			}
+		} else if (presentKeycode == Keyboard.KEYCODE_ALT && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mQwertykagapaKeyboard || current == mQwertyShiftedkagapaKeyboard) {
+				current = mSymbolskagapaKeyboard;
+			} else {
+				current = mQwertykagapaKeyboard;
+			}
+			mInputView.setKeyboard(current);
+			if (current == mSymbolskagapaKeyboard) {
+				current.setShifted(false);
+			}
+		} else if (presentKeycode == Keyboard.EDGE_LEFT && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mQwertyinscriptKeyboard || current == mQwertyShiftedinscriptKeyboard) {
+				current = mSymbolsinscriptKeyboard;
+			} else {
+				current = mQwertyinscriptKeyboard;
+			}
+			mInputView.setKeyboard(current);
+			if (current == mSymbolsinscriptKeyboard) {
+				current.setShifted(false);
+			}
+		} else if (presentKeycode == Keyboard.EDGE_TOP && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard) {
+				current = mSymbols34Keyboard;
+			} else {
+				current = mQwerty34Keyboard;
+			}
+			mInputView.setKeyboard(current);
+			if (current == mSymbols34Keyboard) {
+				current.setShifted(false);
+			}
 		} else if (mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode)
 				&& !checkInScriptKeyboard()) {
 			handleCharacter(mVowels.get(presentKeycode), keyCodes);
