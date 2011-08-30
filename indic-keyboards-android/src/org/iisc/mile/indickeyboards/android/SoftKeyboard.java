@@ -552,17 +552,18 @@ implements KeyboardView.OnKeyboardActionListener {
 		String lastChar;
 		if (check34Layout()) {
 			lastChar = ic.getTextBeforeCursor(2, 0).toString();
-			if(lastChar.length()>1)
+			if (lastChar.length() > 1) {
 				mLastKey = lastChar.codePointAt(1);
-			else
+			} else {
 				mLastKey = lastChar.codePointAt(0);
-			
+			}
 		} else {
 			lastChar = ic.getTextBeforeCursor(1, 0).toString();
-			if(lastChar.length()>0)
+			if (lastChar.length() > 0) {
 				mLastKey = lastChar.codePointAt(0);
-			else
-				mLastKey = -44; //dummy
+			} else {
+				mLastKey = -44; // dummy
+			}
 		}
 
 		if (isWordSeparator(presentKeycode)) {
