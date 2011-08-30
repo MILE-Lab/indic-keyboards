@@ -94,7 +94,6 @@ implements KeyboardView.OnKeyboardActionListener {
 	private LatinKeyboard mQwerty34Keyboard;
 	private LatinKeyboard mQwertyShifted34Keyboard;
 
-
 	static private LatinKeyboard mCurKeyboard;
 
 	private String mWordSeparators;
@@ -105,7 +104,6 @@ implements KeyboardView.OnKeyboardActionListener {
 
 	static private Set<Integer> mConsonants ;
 	static private HashMap<Integer, Integer> mVowels;
-
 
 	static {
 		mConsonants = new HashSet<Integer>() ;
@@ -125,9 +123,7 @@ implements KeyboardView.OnKeyboardActionListener {
 	 * to super class.
 	 */
 	@Override public void onCreate() {
-
 		super.onCreate();
-
 		mWordSeparators = getResources().getString(R.string.word_separators);
 	}
 
@@ -163,8 +159,6 @@ implements KeyboardView.OnKeyboardActionListener {
 		mSymbols34Keyboard = new LatinKeyboard(this, R.xml.symbols34);
 		mSymbolsShifted34Keyboard = new LatinKeyboard(this, R.xml.symbols_shift34);
 		mQwertyShifted34Keyboard = new LatinKeyboard(this, R.xml.qwerty_shift34);
-
-
 	}
 
 	/**
@@ -553,16 +547,17 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	// Implementation of KeyboardViewListener
-
-	public void onKey(int presentKeycode, int[] keyCodes) {		
-		String lastChar = getCurrentInputConnection().getTextBeforeCursor(2,0).toString();
-		if(lastChar.length() > 1 )
-			if(check34Layout())
-				mLastKey = lastChar.codePointAt(1) ;
-			else
+	public void onKey(int presentKeycode, int[] keyCodes) {
+		String lastChar = getCurrentInputConnection().getTextBeforeCursor(2, 0).toString();
+		if (lastChar.length() > 1) {
+			if (check34Layout()) {
+				mLastKey = lastChar.codePointAt(1);
+			} else {
 				mLastKey = lastChar.codePointAt(0);
-		else
-			mLastKey = -44; //dummy value
+			}
+		} else {
+			mLastKey = -44; // dummy value
+		}
 
 		if (isWordSeparator(presentKeycode)) {
 			// Handle separator
@@ -575,15 +570,12 @@ implements KeyboardView.OnKeyboardActionListener {
 			handleBackspace();
 		} else if (presentKeycode == Keyboard.KEYCODE_SHIFT) {
 			handleShift();
-		}else if (presentKeycode == SETTINGS_OPTION && mInputView != null) {
-
+		} else if (presentKeycode == SETTINGS_OPTION && mInputView != null) {
 			showLanguageOptionsMenu();
-
 		} else if (presentKeycode == Keyboard.KEYCODE_CANCEL) {
 			handleClose();
 			return;
-		}  else if (presentKeycode == Keyboard.KEYCODE_MODE_CHANGE
-				&& mInputView != null) {
+		} else if (presentKeycode == Keyboard.KEYCODE_MODE_CHANGE && mInputView != null) {
 			Keyboard current = mInputView.getKeyboard();
 			if (current == mQwertyKeyboard || current == mQwertyShiftedKeyboard) {
 				current = mSymbolsKeyboard;
@@ -594,31 +586,27 @@ implements KeyboardView.OnKeyboardActionListener {
 			if (current == mSymbolsKeyboard) {
 				current.setShifted(false);
 			}
-		} 
-		else if( mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode) && checkCurrentKeyboard() ){
-
+		} else if (mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode)
+				&& checkCurrentKeyboard()) {
 			sendKey(mVowels.get(presentKeycode));
-
-		}
-		else
-		{
+		} else {
 			handleCharacter(presentKeycode, keyCodes);
 		}
 	}
+
 	private boolean check34Layout() {
-		// TODO Auto-generated method stub
 		Keyboard current = mInputView.getKeyboard();
-		if(current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard)
+		if (current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard) {
 			return true;
+		}
 		return false;
 	}
 
 	private boolean checkCurrentKeyboard() {
-		// TODO Auto-generated method stub
 		Keyboard current = mInputView.getKeyboard();
-
-		if(current == mQwertyinscriptKeyboard || current == mQwertyShiftedinscriptKeyboard)
+		if (current == mQwertyinscriptKeyboard || current == mQwertyShiftedinscriptKeyboard) {
 			return false;
+		}
 		return true;
 	}
 
@@ -637,6 +625,7 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	private AlertDialog mOptionsDialog;
+
 	private void launchLayoutSettings() {
 		// TODO Auto-generated method stub
 		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
@@ -659,10 +648,8 @@ implements KeyboardView.OnKeyboardActionListener {
 					if (current == mSymbolsKeyboard) {
 						current.setShifted(false);
 					}
-
 					break;
 				case 1: //KaGaPa
-
 					if (current == mQwertykagapaKeyboard || current == mQwertyShiftedkagapaKeyboard) {
 						current = mSymbolskagapaKeyboard;
 					} else {
@@ -672,10 +659,8 @@ implements KeyboardView.OnKeyboardActionListener {
 					if (current == mSymbolskagapaKeyboard) {
 						current.setShifted(false);
 					}
-
 					break;
 				case 2: //3*4 Keyboard
-
 					if (current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard) {
 						current = mSymbols34Keyboard;
 					} else {
@@ -685,10 +670,8 @@ implements KeyboardView.OnKeyboardActionListener {
 					if (current == mSymbols34Keyboard) {
 						current.setShifted(false);
 					}
-
 					break;
 				case 3: //Inscript Keyboard
-
 					if (current == mQwertyinscriptKeyboard || current == mQwertyShiftedinscriptKeyboard) {
 						current = mSymbolsinscriptKeyboard;
 					} else {
@@ -698,7 +681,6 @@ implements KeyboardView.OnKeyboardActionListener {
 					if (current == mSymbolsinscriptKeyboard) {
 						current.setShifted(false);
 					}
-
 					break;
 				}
 
@@ -713,9 +695,9 @@ implements KeyboardView.OnKeyboardActionListener {
 		window.setAttributes(lp);
 		window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
 		mOptionsDialog.show();
+	}
 
-
-	}	private void launchLanguageSettings() {
+	private void launchLanguageSettings() {
 		// TODO Auto-generated method stub
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
 		lanBuilder.setCancelable(true);
@@ -723,13 +705,11 @@ implements KeyboardView.OnKeyboardActionListener {
 		lanBuilder.setIcon(R.drawable.icon);
 		lanBuilder.setItems(new CharSequence[]{"English","Kannada","Tamil","Telugu","Malayam"}, new OnClickListener() {
 
-
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				switch(which){
 				case 0: //English	
 					Toast.makeText(getBaseContext(), "English Keyboard selected", Toast.LENGTH_SHORT).show();
-
 					break;
 				case 1: //Kannada
 					Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT).show();
