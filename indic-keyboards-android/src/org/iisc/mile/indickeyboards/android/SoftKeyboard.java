@@ -548,15 +548,21 @@ implements KeyboardView.OnKeyboardActionListener {
 
 	// Implementation of KeyboardViewListener
 	public void onKey(int presentKeycode, int[] keyCodes) {
-		String lastChar = getCurrentInputConnection().getTextBeforeCursor(2, 0).toString();
-		if (lastChar.length() > 1) {
-			if (check34Layout()) {
+		InputConnection ic = getCurrentInputConnection();
+		String lastChar;
+		if (check34Layout()) {
+			lastChar = ic.getTextBeforeCursor(2, 0).toString();
+			if(lastChar.length()>1)
 				mLastKey = lastChar.codePointAt(1);
-			} else {
+			else
 				mLastKey = lastChar.codePointAt(0);
-			}
+			
 		} else {
-			mLastKey = -44; // dummy value
+			lastChar = ic.getTextBeforeCursor(1, 0).toString();
+			if(lastChar.length()>0)
+				mLastKey = lastChar.codePointAt(0);
+			else
+				mLastKey = -44; //dummy
 		}
 
 		if (isWordSeparator(presentKeycode)) {
