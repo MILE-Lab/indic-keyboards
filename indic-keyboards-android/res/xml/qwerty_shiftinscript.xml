@@ -41,7 +41,7 @@
     <Key android:codes="0x0c87" android:keyIcon="@drawable/inscript_f1" />
     <Key android:codes="0x0c89" android:keyIcon="@drawable/inscript_g1" />
     <Key android:codes="0x0cab" android:keyIcon="@drawable/inscript_h1" />
-    <Key android:codes="0x0cb5" android:keyIcon="@drawable/inscript_j1" />
+    <Key android:codes="0x0caf" android:keyIcon="@drawable/inscript_j1" />
     <Key android:codes="0x0c96" android:keyIcon="@drawable/inscript_k1" />
     <Key android:codes="0x0ca5" android:keyIcon="@drawable/inscript_l1" />
     <Key android:codes="0x0c9a" android:keyIcon="@drawable/inscript_cha1" android:keyEdgeFlags="right" />

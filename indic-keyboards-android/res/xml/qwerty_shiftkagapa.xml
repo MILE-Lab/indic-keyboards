@@ -35,7 +35,7 @@
   </Row>
 
   <Row>
-    <Key android:codes="0x0c86" android:keyIcon="@drawable/a1" android:horizontalGap="5%p"
+    <Key android:codes="0x0c85" android:keyIcon="@drawable/a1" android:horizontalGap="5%p"
       android:keyEdgeFlags="left" />
     <Key android:codes="0x0cb6" android:keyIcon="@drawable/s1" />
     <Key android:codes="0x0ca7" android:keyIcon="@drawable/d1" />

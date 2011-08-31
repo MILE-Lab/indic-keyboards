@@ -54,7 +54,7 @@
     <Key android:codes="0x0c82" android:keyIcon="@drawable/inscript_x" />
     <Key android:codes="0x0cae" android:keyIcon="@drawable/inscript_c" />
     <Key android:codes="0x0ca8" android:keyIcon="@drawable/inscript_v" />
-    <Key android:codes="0x0caf" android:keyIcon="@drawable/inscript_ya" />
+    <Key android:codes="0x0cb5" android:keyIcon="@drawable/inscript_ya" />
     <Key android:codes="0x0cb2" android:keyIcon="@drawable/inscript_n" />
     <Key android:codes="0x0cb8" android:keyIcon="@drawable/inscript_m" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="10%p"
