@@ -659,23 +659,12 @@ implements KeyboardView.OnKeyboardActionListener {
 		lyBuilder.setCancelable(true);
 		lyBuilder.setTitle("Select Layout");
 		lyBuilder.setIcon(R.drawable.icon);
-		lyBuilder.setItems(new CharSequence[]{"Phonetic","KaGaPa", "3x4 Keyboard", "InScript"}, new OnClickListener() {
+		lyBuilder.setItems(new CharSequence[]{"KaGaPa", "InScript", "3x4 Keyboard", "Phonetic"}, new OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
 				Keyboard current = mInputView.getKeyboard();
 				switch(which){
-				case 0: //Phonetic
-					if (current == mQwertyKeyboard || current == mQwertyShiftedKeyboard) {
-						current = mSymbolsKeyboard;
-					} else {
-						current = mQwertyKeyboard;
-					}
-					mInputView.setKeyboard(current);
-					if (current == mSymbolsKeyboard) {
-						current.setShifted(false);
-					}
-					break;
-				case 1: //KaGaPa
+				case 0: //KaGaPa
 					if (current == mQwertykagapaKeyboard || current == mQwertyShiftedkagapaKeyboard) {
 						current = mSymbolskagapaKeyboard;
 					} else {
@@ -686,18 +675,7 @@ implements KeyboardView.OnKeyboardActionListener {
 						current.setShifted(false);
 					}
 					break;
-				case 2: //3*4 Keyboard
-					if (current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard) {
-						current = mSymbols34Keyboard;
-					} else {
-						current = mQwerty34Keyboard;
-					}
-					mInputView.setKeyboard(current);
-					if (current == mSymbols34Keyboard) {
-						current.setShifted(false);
-					}
-					break;
-				case 3: //InScript Keyboard
+				case 1: //InScript Keyboard
 					if (current == mQwertyinscriptKeyboard || current == mQwertyShiftedinscriptKeyboard) {
 						current = mSymbolsinscriptKeyboard;
 					} else {
@@ -708,8 +686,29 @@ implements KeyboardView.OnKeyboardActionListener {
 						current.setShifted(false);
 					}
 					break;
+				case 2: //3x4 Keyboard
+					if (current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard) {
+						current = mSymbols34Keyboard;
+					} else {
+						current = mQwerty34Keyboard;
+					}
+					mInputView.setKeyboard(current);
+					if (current == mSymbols34Keyboard) {
+						current.setShifted(false);
+					}
+					break;
+				case 3: //Phonetic
+					if (current == mQwertyKeyboard || current == mQwertyShiftedKeyboard) {
+						current = mSymbolsKeyboard;
+					} else {
+						current = mQwertyKeyboard;
+					}
+					mInputView.setKeyboard(current);
+					if (current == mSymbolsKeyboard) {
+						current.setShifted(false);
+					}
+					break;
 				}
-
 			}
 		});
 		mOptionsDialog = lyBuilder.create();
