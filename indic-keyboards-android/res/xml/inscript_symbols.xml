@@ -22,16 +22,16 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="49" android:keyIcon="@drawable/num_eng_1" android:keyEdgeFlags="left" />
-    <Key android:codes="50" android:keyIcon="@drawable/num_eng_2" />
-    <Key android:codes="51" android:keyIcon="@drawable/num_eng_3" />
-    <Key android:codes="52" android:keyIcon="@drawable/num_eng_4" />
-    <Key android:codes="53" android:keyIcon="@drawable/num_eng_5" />
-    <Key android:codes="54" android:keyIcon="@drawable/num_eng_6" />
-    <Key android:codes="55" android:keyIcon="@drawable/num_eng_7" />
-    <Key android:codes="56" android:keyIcon="@drawable/num_eng_8" />
-    <Key android:codes="57" android:keyIcon="@drawable/num_eng_9" />
-    <Key android:codes="48" android:keyIcon="@drawable/num_eng_0" android:keyEdgeFlags="right" />
+    <Key android:codes="49" android:keyIcon="@drawable/kan_num_1" android:keyEdgeFlags="left" />
+    <Key android:codes="50" android:keyIcon="@drawable/kan_num_2" />
+    <Key android:codes="51" android:keyIcon="@drawable/kan_num_3" />
+    <Key android:codes="52" android:keyIcon="@drawable/kan_num_4" />
+    <Key android:codes="53" android:keyIcon="@drawable/kan_num_5" />
+    <Key android:codes="54" android:keyIcon="@drawable/kan_num_6" />
+    <Key android:codes="55" android:keyIcon="@drawable/kan_num_7" />
+    <Key android:codes="56" android:keyIcon="@drawable/kan_num_8" />
+    <Key android:codes="57" android:keyIcon="@drawable/kan_num_9" />
+    <Key android:codes="48" android:keyIcon="@drawable/kan_num_0" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -48,8 +48,8 @@
   </Row>
 
   <Row>
-    <Key android:codes="33" android:keyIcon="@drawable/inscript_ksha" android:keyEdgeFlags="left" />
-    <Key android:codes="33" android:keyIcon="@drawable/inscript_ra_signs" />
+    <Key android:codes="33" android:keyIcon="@drawable/kan_inscript_ksha" android:keyEdgeFlags="left" />
+    <Key android:codes="33" android:keyIcon="@drawable/kan_inscript_jnya" />
     <Key android:codes="33" android:keyIcon="@drawable/sym_exclamation" />
     <Key android:codes="34" android:keyIcon="@drawable/sym_double_quotes" />
     <Key android:codes="39" android:keyIcon="@drawable/sym_single_quotes" />
@@ -66,8 +66,8 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="10%p"
       android:isModifier="true" android:isSticky="true" />
-    <Key android:codes="0x0ca1" android:keyIcon="@drawable/inscript_tra" />
-    <Key android:codes="0x0ca1" android:keyIcon="@drawable/inscript_old_ra" />
+    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_tra" />
+    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_rra" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="18%p"
       android:isRepeatable="true" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />

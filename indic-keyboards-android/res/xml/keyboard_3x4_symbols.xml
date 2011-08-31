@@ -22,38 +22,39 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="3205,3206,3207,3208" android:keyIcon="@drawable/am_halanth" android:keyWidth="25%p"
+    <Key android:codes="3202,3203,3277" android:keyIcon="@drawable/kan_3x4_anusvara_visarga_halant" android:keyWidth="25%p"
       android:keyEdgeFlags="left" />
-    <Key android:codes="3209,3210,3211,3214" android:keyIcon="@drawable/a_ru" android:keyWidth="25%p" />
-    <Key android:codes="3215,3216,3218,3219,3220" android:keyIcon="@drawable/e_au" android:keyWidth="25%p" />
+    <Key android:codes="3205,3206,3207,3208,3209,3210,3211" android:keyIcon="@drawable/kan_3x4_a_vocalic_r"
+      android:keyWidth="25%p" />
+    <Key android:codes="3214,3215,3216,3218,3219,3220" android:keyIcon="@drawable/kan_3x4_e_au" android:keyWidth="25%p" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="25%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 
   <Row>
-    <Key android:codes="3221,3222,3223,3224,3225" android:keyIcon="@drawable/ka_na" android:keyWidth="25%p"
+    <Key android:codes="3221,3222,3223,3224,3225" android:keyIcon="@drawable/kan_3x4_ka_nga" android:keyWidth="25%p"
       android:keyEdgeFlags="left" />
-    <Key android:codes="3226,3227,3228,3229,3230" android:keyIcon="@drawable/cha_na" android:keyWidth="25%p" />
-    <Key android:codes="3231,3232,3233,3234,3235" android:keyIcon="@drawable/ta_na" android:keyWidth="25%p" />
+    <Key android:codes="3226,3227,3228,3229,3230" android:keyIcon="@drawable/kan_3x4_ca_nya" android:keyWidth="25%p" />
+    <Key android:codes="3231,3232,3233,3234,3235" android:keyIcon="@drawable/kan_3x4_tta_nna" android:keyWidth="25%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="25%p"
       android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
-    <Key android:codes="3236,3237,3238,3239,3240" android:keyIcon="@drawable/tha_na" android:keyWidth="25%p"
+    <Key android:codes="3236,3237,3238,3239,3240" android:keyIcon="@drawable/kan_3x4_ta_na" android:keyWidth="25%p"
       android:keyEdgeFlags="left" />
-    <Key android:codes="3242,3243,3244,3245,3246" android:keyIcon="@drawable/pa_ma" android:keyWidth="25%p" />
-    <Key android:codes="3247,3248,3250,3253" android:keyIcon="@drawable/ya_sha" android:keyWidth="25%p" />
+    <Key android:codes="3242,3243,3244,3245,3246" android:keyIcon="@drawable/kan_3x4_pa_ma" android:keyWidth="25%p" />
+    <Key android:codes="3247,3248,3250,3253,3254" android:keyIcon="@drawable/kan_3x4_ya_sha" android:keyWidth="25%p" />
     <Key android:codes="4" android:keyLabel="123" android:keyWidth="25%p" android:keyEdgeFlags="right"
       android:isRepeatable="true" />
   </Row>
 
   <Row android:rowEdgeFlags="bottom">
-    <Key android:codes=" " android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="25%p"
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="25%p"
       android:keyEdgeFlags="left" />
-    <Key android:codes="3255,3256,3257,3251" android:keyIcon="@drawable/sha_la" android:keyWidth="25%p" />
-    <Key android:codes="-1" android:keyLabel="abcd" android:keyWidth="25%p" />
+    <Key android:codes="3255,3256,3257,3251" android:keyIcon="@drawable/kan_3x4_ssa_lla" android:keyWidth="25%p" />
+    <Key android:codes="-1" android:keyLabel=". ; @" android:keyWidth="25%p" />
     <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
-    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="13%p" android:keyEdgeFlags="right" />
+    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="13%p" />
   </Row>
 </Keyboard>

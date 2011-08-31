@@ -22,16 +22,16 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="3303" android:keyIcon="@drawable/num_kan_1" android:keyEdgeFlags="left" />
-    <Key android:codes="3304" android:keyIcon="@drawable/num_kan_2" />
-    <Key android:codes="3305" android:keyIcon="@drawable/num_kan_3" />
-    <Key android:codes="3306" android:keyIcon="@drawable/num_kan_4" />
-    <Key android:codes="3307" android:keyIcon="@drawable/num_kan_5" />
-    <Key android:codes="3308" android:keyIcon="@drawable/num_kan_6" />
-    <Key android:codes="3309" android:keyIcon="@drawable/num_kan_7" />
-    <Key android:codes="3310" android:keyIcon="@drawable/num_kan_8" />
-    <Key android:codes="3311" android:keyIcon="@drawable/num_kan_9" />
-    <Key android:codes="3302" android:keyIcon="@drawable/num_kan_0" android:keyEdgeFlags="right" />
+    <Key android:codes="3303" android:keyIcon="@drawable/kan_num_1_kan" android:keyEdgeFlags="left" />
+    <Key android:codes="3304" android:keyIcon="@drawable/kan_num_2_kan" />
+    <Key android:codes="3305" android:keyIcon="@drawable/kan_num_3_kan" />
+    <Key android:codes="3306" android:keyIcon="@drawable/kan_num_4_kan" />
+    <Key android:codes="3307" android:keyIcon="@drawable/kan_num_5_kan" />
+    <Key android:codes="3308" android:keyIcon="@drawable/kan_num_6_kan" />
+    <Key android:codes="3309" android:keyIcon="@drawable/kan_num_7_kan" />
+    <Key android:codes="3310" android:keyIcon="@drawable/kan_num_8_kan" />
+    <Key android:codes="3311" android:keyIcon="@drawable/kan_num_9_kan" />
+    <Key android:codes="3302" android:keyIcon="@drawable/kan_num_0_kan" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -48,8 +48,8 @@
   </Row>
 
   <Row>
-    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="15%p"
-      android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
+    <Key android:codes="33" android:keyIcon="@drawable/kan_inscript_arkaaottu" android:keyEdgeFlags="left" />
+    <Key android:codes="33" android:keyIcon="@drawable/kan_inscript_r" />
     <Key android:codes="60" android:keyIcon="@drawable/sym_less_than" />
     <Key android:codes="62" android:keyIcon="@drawable/sym_greater_than" />
     <Key android:codes="123" android:keyIcon="@drawable/sym_left_curly_bracket" />
@@ -57,19 +57,23 @@
     <Key android:codes="124" android:keyIcon="@drawable/sym_vertical_bar" />
     <Key android:codes="92" android:keyIcon="@drawable/sym_backward_slash" />
     <Key android:codes="169" android:keyIcon="@drawable/sym_copyright" />
-    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="15%p"
-      android:keyEdgeFlags="right" android:isRepeatable="true" />
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" 
+      android:isRepeatable="true" />
   </Row>
 
   <Row android:rowEdgeFlags="bottom">
-    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="15%p"
+    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p"
       android:keyEdgeFlags="left" />
-    <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
-    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="35%p"
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="10%p"
+      android:isModifier="true" android:isSticky="true" />
+    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_shra" />
+    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_llla" />
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="18%p"
       android:isRepeatable="true" />
-    <Key android:codes="-6" android:keyIcon="@drawable/n_to_a" android:keyWidth="15%p" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
-    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="15%p"
+    <Key android:codes="1" android:keyIcon="@drawable/n_to_a" android:keyWidth="10%p" />
+    <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="10%p"
       android:keyEdgeFlags="right" />
   </Row>
 </Keyboard>

@@ -135,25 +135,25 @@ implements KeyboardView.OnKeyboardActionListener {
 			if (displayWidth == mLastDisplayWidth) return;
 			mLastDisplayWidth = displayWidth;
 		}
-		mQwertyKeyboard = new LatinKeyboard(this, R.xml.qwerty);
-		mSymbolsKeyboard = new LatinKeyboard(this, R.xml.symbols);
-		mSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.symbols_shift);
-		mQwertyShiftedKeyboard = new LatinKeyboard(this, R.xml.qwerty_shift);
+		mQwertyKeyboard = new LatinKeyboard(this, R.xml.phonetic);
+		mQwertyShiftedKeyboard = new LatinKeyboard(this, R.xml.phonetic_shift);
+		mSymbolsKeyboard = new LatinKeyboard(this, R.xml.phonetic_symbols);
+		mSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.phonetic_symbols_shift);
 
-		mQwertykagapaKeyboard = new LatinKeyboard(this, R.xml.qwertykagapa);
-		mSymbolskagapaKeyboard = new LatinKeyboard(this, R.xml.symbolskagapa);
-		mSymbolsShiftedkagapaKeyboard = new LatinKeyboard(this, R.xml.symbols_shiftkagapa);
-		mQwertyShiftedkagapaKeyboard = new LatinKeyboard(this, R.xml.qwerty_shiftkagapa);
+		mQwertykagapaKeyboard = new LatinKeyboard(this, R.xml.kagapa);
+		mQwertyShiftedkagapaKeyboard = new LatinKeyboard(this, R.xml.kagapa_shift);
+		mSymbolskagapaKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols);
+		mSymbolsShiftedkagapaKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols_shift);
 
-		mQwertyinscriptKeyboard = new LatinKeyboard(this, R.xml.qwertyinscript);
-		mSymbolsinscriptKeyboard = new LatinKeyboard(this, R.xml.symbolsinscript);
-		mSymbolsShiftedinscriptKeyboard = new LatinKeyboard(this, R.xml.symbols_shiftinscript);
-		mQwertyShiftedinscriptKeyboard = new LatinKeyboard(this, R.xml.qwerty_shiftinscript);
+		mQwertyinscriptKeyboard = new LatinKeyboard(this, R.xml.inscript);
+		mQwertyShiftedinscriptKeyboard = new LatinKeyboard(this, R.xml.inscript_shift);
+		mSymbolsinscriptKeyboard = new LatinKeyboard(this, R.xml.inscript_symbols);
+		mSymbolsShiftedinscriptKeyboard = new LatinKeyboard(this, R.xml.inscript_symbols_shift);
 
-		mQwerty34Keyboard = new LatinKeyboard(this, R.xml.qwerty34);
-		mSymbols34Keyboard = new LatinKeyboard(this, R.xml.symbols34);
-		mSymbolsShifted34Keyboard = new LatinKeyboard(this, R.xml.symbols_shift34);
-		mQwertyShifted34Keyboard = new LatinKeyboard(this, R.xml.qwerty_shift34);
+		mQwerty34Keyboard = new LatinKeyboard(this, R.xml.keyboard_3x4);
+		mSymbols34Keyboard = new LatinKeyboard(this, R.xml.keyboard_3x4_numbers);
+		mSymbolsShifted34Keyboard = new LatinKeyboard(this, R.xml.keyboard_3x4_numbers_shift);
+		mQwertyShifted34Keyboard = new LatinKeyboard(this, R.xml.keyboard_3x4_symbols);
 	}
 
 	/**
@@ -826,7 +826,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mInputView.setKeyboard(mQwertyShiftedKeyboard);
 			mQwertyShiftedKeyboard.setShifted(true);
 			// mInputView.setShifted(mCapsLock || !mInputView.isShifted());
-		}else if (currentKeyboard == mQwertyShiftedKeyboard) {
+		} else if (currentKeyboard == mQwertyShiftedKeyboard) {
 			mQwertyShiftedKeyboard.setShifted(false);
 			mInputView.setKeyboard(mQwertyKeyboard);
 			mQwertyKeyboard.setShifted(false);
@@ -838,7 +838,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mSymbolsShiftedKeyboard.setShifted(false);
 			mInputView.setKeyboard(mSymbolsKeyboard);
 			mSymbolsKeyboard.setShifted(false);
-		}else if (currentKeyboard == mSymbolskagapaKeyboard) {
+		} else if (currentKeyboard == mSymbolskagapaKeyboard) {
 			mSymbolskagapaKeyboard.setShifted(true);
 			mInputView.setKeyboard(mSymbolsShiftedkagapaKeyboard);
 			mSymbolsShiftedkagapaKeyboard.setShifted(true);
@@ -846,7 +846,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mSymbolsShiftedkagapaKeyboard.setShifted(false);
 			mInputView.setKeyboard(mSymbolskagapaKeyboard);
 			mSymbolskagapaKeyboard.setShifted(false);
-		}else if (currentKeyboard == mQwertykagapaKeyboard) {
+		} else if (currentKeyboard == mQwertykagapaKeyboard) {
 			mQwertykagapaKeyboard.setShifted(true);
 			mInputView.setKeyboard(mQwertyShiftedkagapaKeyboard);
 			mQwertyShiftedkagapaKeyboard.setShifted(true);
@@ -854,7 +854,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mQwertyShiftedkagapaKeyboard.setShifted(false);
 			mInputView.setKeyboard(mQwertykagapaKeyboard);
 			mQwertykagapaKeyboard.setShifted(false);
-		}else if (currentKeyboard == mSymbolsinscriptKeyboard) {
+		} else if (currentKeyboard == mSymbolsinscriptKeyboard) {
 			mSymbolsinscriptKeyboard.setShifted(true);
 			mInputView.setKeyboard(mSymbolsShiftedinscriptKeyboard);
 			mSymbolsShiftedinscriptKeyboard.setShifted(true);
@@ -862,7 +862,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mSymbolsShiftedinscriptKeyboard.setShifted(false);
 			mInputView.setKeyboard(mSymbolsinscriptKeyboard);
 			mSymbolsinscriptKeyboard.setShifted(false);
-		}else if (currentKeyboard == mQwertyinscriptKeyboard) {
+		} else if (currentKeyboard == mQwertyinscriptKeyboard) {
 			mQwertyinscriptKeyboard.setShifted(true);
 			mInputView.setKeyboard(mQwertyShiftedinscriptKeyboard);
 			mQwertyShiftedinscriptKeyboard.setShifted(true);
@@ -870,7 +870,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mQwertyShiftedinscriptKeyboard.setShifted(false);
 			mInputView.setKeyboard(mQwertyinscriptKeyboard);
 			mQwertyinscriptKeyboard.setShifted(false);
-		}else if (currentKeyboard == mSymbols34Keyboard) {
+		} else if (currentKeyboard == mSymbols34Keyboard) {
 			mSymbols34Keyboard.setShifted(true);
 			mInputView.setKeyboard(mSymbolsShifted34Keyboard);
 			mSymbolsShifted34Keyboard.setShifted(true);
@@ -878,7 +878,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mSymbolsShifted34Keyboard.setShifted(false);
 			mInputView.setKeyboard(mSymbols34Keyboard);
 			mSymbols34Keyboard.setShifted(false);
-		}else if (currentKeyboard == mQwerty34Keyboard) {
+		} else if (currentKeyboard == mQwerty34Keyboard) {
 			mQwerty34Keyboard.setShifted(true);
 			mInputView.setKeyboard(mQwertyShifted34Keyboard);
 			mQwertyShifted34Keyboard.setShifted(true);
@@ -888,6 +888,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			mQwerty34Keyboard.setShifted(false);
 		}
 	}
+
 	private void handleCharacter(int primaryCode, int[] keyCodes) {
 		if (isInputViewShown()) {
 			if (mInputView.isShifted()) {
