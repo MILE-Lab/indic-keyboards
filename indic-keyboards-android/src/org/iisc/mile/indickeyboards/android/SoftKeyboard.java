@@ -622,7 +622,7 @@ implements KeyboardView.OnKeyboardActionListener {
 		}
 	}
 
-	private boolean check34Keyboard() {
+	private boolean check3x4Keyboard() {
 		Keyboard current = mInputView.getKeyboard();
 		if (current == mQwerty34Keyboard || current == mQwertyShifted34Keyboard) {
 			return true;
@@ -655,7 +655,6 @@ implements KeyboardView.OnKeyboardActionListener {
 	private AlertDialog mOptionsDialog;
 
 	private void launchLayoutSettings() {
-		// TODO Auto-generated method stub
 		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
 		lyBuilder.setCancelable(true);
 		lyBuilder.setTitle("Select Layout");
@@ -664,7 +663,6 @@ implements KeyboardView.OnKeyboardActionListener {
 
 			public void onClick(DialogInterface dialog, int which) {
 				Keyboard current = mInputView.getKeyboard();
-				// TODO Auto-generated method stub
 				switch(which){
 				case 0: //Phonetic
 					if (current == mQwertyKeyboard || current == mQwertyShiftedKeyboard) {
@@ -699,7 +697,7 @@ implements KeyboardView.OnKeyboardActionListener {
 						current.setShifted(false);
 					}
 					break;
-				case 3: //Inscript Keyboard
+				case 3: //InScript Keyboard
 					if (current == mQwertyinscriptKeyboard || current == mQwertyShiftedinscriptKeyboard) {
 						current = mSymbolsinscriptKeyboard;
 					} else {
@@ -731,22 +729,20 @@ implements KeyboardView.OnKeyboardActionListener {
 		lanBuilder.setCancelable(true);
 		lanBuilder.setTitle("Select Language");
 		lanBuilder.setIcon(R.drawable.icon);
-		lanBuilder.setItems(new CharSequence[]{"English","Kannada","Tamil","Telugu","Malayam"}, new OnClickListener() {
-
+		lanBuilder.setItems(new CharSequence[]{"Hindi","Kannada","Tamil"}, new OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				switch(which){
-				case 0: //English	
-					Toast.makeText(getBaseContext(), "English Keyboard selected", Toast.LENGTH_SHORT).show();
+				case 0: //Hindi
+					Toast.makeText(getBaseContext(), "Hindi Keyboard selected", Toast.LENGTH_SHORT).show();
 					break;
 				case 1: //Kannada
 					Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT).show();
 					showLayoutOptionsMenu();
 					break;
 				default :
-					Toast.makeText(getBaseContext(), "This Language Keyboard not available", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getBaseContext(), "Tamil Keyboard selected", Toast.LENGTH_SHORT).show();
 				}
-
 			}
 		});
 		mOptionsDialog = lanBuilder.create();

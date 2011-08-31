@@ -44,20 +44,19 @@
     <Key android:codes="0x0cb0" android:keyIcon="@drawable/inscript_j" />
     <Key android:codes="0x0c95" android:keyIcon="@drawable/inscript_k" />
     <Key android:codes="0x0ca4" android:keyIcon="@drawable/inscript_l" />
-    <Key android:codes="0x0cca" android:keyIcon="@drawable/inscript_oo" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0c9a" android:keyIcon="@drawable/inscript_cha" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
-    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="10%p"
-      android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0cca" android:keyIcon="@drawable/inscript_oo" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0cc6" android:keyIcon="@drawable/inscript_b" />
     <Key android:codes="0x0cc3" android:keyIcon="@drawable/inscript_z" />
     <Key android:codes="0x0c82" android:keyIcon="@drawable/inscript_x" />
     <Key android:codes="0x0cae" android:keyIcon="@drawable/inscript_c" />
     <Key android:codes="0x0ca8" android:keyIcon="@drawable/inscript_v" />
-    <Key android:codes="0x0cc6" android:keyIcon="@drawable/inscript_b" />
+    <Key android:codes="0x0caf" android:keyIcon="@drawable/inscript_ya" />
     <Key android:codes="0x0cb2" android:keyIcon="@drawable/inscript_n" />
     <Key android:codes="0x0cb8" android:keyIcon="@drawable/inscript_m" />
-    <Key android:codes="0x0caf" android:keyIcon="@drawable/inscript_ya" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="10%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
@@ -65,15 +64,16 @@
   <Row android:rowEdgeFlags="bottom">
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p"
       android:keyEdgeFlags="left" />
-    <Key android:codes="0x0c9a" android:keyIcon="@drawable/inscript_cha" />
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="10%p"
+      android:isModifier="true" android:isSticky="true" />
     <Key android:codes="0x0c9f" android:keyIcon="@drawable/inscript_ta" />
     <Key android:codes="0x0ca1" android:keyIcon="@drawable/inscript_da" />
-    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="19%p"
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="18%p"
       android:isRepeatable="true" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
     <Key android:codes="1" android:keyLabel="123" android:keyWidth="10%p" />
     <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
-    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="9%p"
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="10%p"
       android:keyEdgeFlags="right" />
   </Row>
 </Keyboard>

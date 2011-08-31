@@ -67,7 +67,7 @@
     <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="35%p"
       android:isRepeatable="true" />
-    <Key android:codes="-2" android:keyLabel="abc" android:keyWidth="15%p" />
+    <Key android:codes="-2" android:keyLabel="ABC" android:keyWidth="15%p" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="15%p"
       android:keyEdgeFlags="right" />
