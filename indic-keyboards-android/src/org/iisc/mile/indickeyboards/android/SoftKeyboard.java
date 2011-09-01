@@ -25,6 +25,7 @@ import java.util.Set;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -39,17 +40,14 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.Toast;
 
-public class SoftKeyboard extends InputMethodService 
-implements KeyboardView.OnKeyboardActionListener {
+public class SoftKeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 	static final boolean DEBUG = false;
 
 	/**
-	 * This boolean indicates the optional example code for performing
-	 * processing of hard keys in addition to regular text generation
-	 * from on-screen interaction.  It would be used for input methods that
-	 * perform language translations (such as converting text entered on 
-	 * a QWERTY keyboard to Chinese), but may not be used for input methods
-	 * that are primarily intended to be used for on-screen text entry.
+	 * This boolean indicates the optional example code for performing processing of hard keys in addition to
+	 * regular text generation from on-screen interaction. It would be used for input methods that perform
+	 * language translations (such as converting text entered on a QWERTY keyboard to Chinese), but may not be
+	 * used for input methods that are primarily intended to be used for on-screen text entry.
 	 */
 	static final boolean PROCESS_HARD_KEYS = true;
 
@@ -60,9 +58,23 @@ implements KeyboardView.OnKeyboardActionListener {
 	private static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = -1; // Keyboard.KEYCODE_SHIFT
 	private static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = -2; // Keyboard.KEYCODE_MODE_CHANGE
 
+	private static final String KB_CURRENT_LAYOUT = "Current Keyboard Layout";
+	private static final String KB_CURRENT_LANGUAGE = "Current Keyboard Language";
+
+	private static final int KB_PHONETIC = 0;
+	private static final int KB_KAGAPA = 1;
+	private static final int KB_3x4 = 2;
+	private static final int KB_INSCRIPT = 3;
+
+	private static final int LAN_HINDI = 0;
+	private static final int LAN_KANNADA = 1;
+	private static final int LAN_TAMIL = 2;
+
 	private KeyboardView mInputView;
 	private CandidateView mCandidateView;
 	private CompletionInfo[] mCompletions;
+	
+	SharedPreferences mSharedPreferences;
 
 	private StringBuilder mComposing = new StringBuilder();
 	private boolean mPredictionOn;
@@ -93,7 +105,9 @@ implements KeyboardView.OnKeyboardActionListener {
 
 	private String mWordSeparators;
 
-	static private Set<Integer> mConsonants ;
+	private String KEYBOARD_PREFERENCES = "IISc Mile Indic Keyboards Preferences";
+
+	static private Set<Integer> mConsonants;
 	static private HashMap<Integer, Integer> mVowels;
 
 	static {
@@ -109,19 +123,21 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	/***
-	 * Main initialization of the input method component.  Be sure to call
-	 * to super class.
+	 * Main initialization of the input method component. Be sure to call to super class.
 	 */
-	@Override public void onCreate() {
+	@Override
+	public void onCreate() {
 		super.onCreate();
+		mSharedPreferences = getSharedPreferences(KEYBOARD_PREFERENCES, MODE_PRIVATE);
 		mWordSeparators = getResources().getString(R.string.word_separators);
 	}
 
 	/**
-	 * This is the point where you can do all of your UI initialization.  It
-	 * is called after creation and any configuration change.
+	 * This is the point where you can do all of your UI initialization. It is called after creation and any
+	 * configuration change.
 	 */
-	@Override public void onInitializeInterface() {
+	@Override
+	public void onInitializeInterface() {
 		if (mPhoneticKeyboard != null) {
 			// Configuration changes can happen after the keyboard gets recreated,
 			// so we need to be able to re-build the keyboards if the available
@@ -154,46 +170,45 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	/**
-	 * Called by the framework when your view for creating input needs to
-	 * be generated.  This will be called the first time your input method
-	 * is displayed, and every time it needs to be re-created such as due to
+	 * Called by the framework when your view for creating input needs to be generated. This will be called
+	 * the first time your input method is displayed, and every time it needs to be re-created such as due to
 	 * a configuration change.
 	 */
 	@Override
 	public View onCreateInputView() {
+		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
 		mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input, null);
 		mInputView.setOnKeyboardActionListener(this);
-		if (mCurKeyboard == null) {
-			mInputView.setKeyboard(mPhoneticKeyboard);
-		} else {
-			mInputView.setKeyboard(mCurKeyboard);
-		}
+		mInputView.setKeyboard(getCurrentKeyboard(keyboard_layout));
 		return mInputView;
 	}
 
 	/**
-	 * Called by the framework when your view for showing candidates needs to
-	 * be generated, like {@link #onCreateInputView}.
+	 * Called by the framework when your view for showing candidates needs to be generated, like
+	 * {@link #onCreateInputView}.
 	 */
-	@Override public View onCreateCandidatesView() {
+	@Override
+	public View onCreateCandidatesView() {
 		mCandidateView = new CandidateView(this);
-		mCandidateView.setService(this);	
+		mCandidateView.setService(this);
 		return mCandidateView;
 	}
 
 	/**
-	 * This is the main point where we do our initialization of the input method
-	 * to begin operating on an application.  At this point we have been
-	 * bound to the client, and are now receiving all of the detailed information
-	 * about the target of our edits.
+	 * This is the main point where we do our initialization of the input method to begin operating on an
+	 * application. At this point we have been bound to the client, and are now receiving all of the detailed
+	 * information about the target of our edits.
 	 */
-	@Override public void onStartInput(EditorInfo attribute, boolean restarting) {
+	@Override
+	public void onStartInput(EditorInfo attribute, boolean restarting) {
 		super.onStartInput(attribute, restarting);
 
-		// Reset our state.  We want to do this even if restarting, because
+		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
+
+		// Reset our state. We want to do this even if restarting, because
 		// the underlying state of the text editor could have changed in any way.
 		mComposing.setLength(0);
-		updateCandidates();
+		//updateCandidates();   //Commented out this statement as we don't need any auto-complete suggestions.
 
 		if (!restarting) {
 			// Clear shift states.
@@ -206,7 +221,7 @@ implements KeyboardView.OnKeyboardActionListener {
 
 		// We are now going to initialize our state based on the type of
 		// text being edited.
-		switch (attribute.inputType&EditorInfo.TYPE_MASK_CLASS) {
+		switch (attribute.inputType & EditorInfo.TYPE_MASK_CLASS) {
 		case EditorInfo.TYPE_CLASS_NUMBER:
 		case EditorInfo.TYPE_CLASS_DATETIME:
 			// Numbers and dates default to the symbols keyboard, with
@@ -221,24 +236,24 @@ implements KeyboardView.OnKeyboardActionListener {
 			break;
 
 		case EditorInfo.TYPE_CLASS_TEXT:
-			// This is general text editing.  We will default to the
+			// This is general text editing. We will default to the
 			// normal alphabetic keyboard, and assume that we should
 			// be doing predictive text (showing candidates as the
 			// user types).
-			mCurKeyboard = mPhoneticKeyboard;
+			mCurKeyboard = getCurrentKeyboard(keyboard_layout);
 			mPredictionOn = false;
 
 			// We now look for a few special variations of text that will
 			// modify our behavior.
-			int variation = attribute.inputType &  EditorInfo.TYPE_MASK_VARIATION;
-			if (variation == EditorInfo.TYPE_TEXT_VARIATION_PASSWORD ||
-					variation == EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+			int variation = attribute.inputType & EditorInfo.TYPE_MASK_VARIATION;
+			if (variation == EditorInfo.TYPE_TEXT_VARIATION_PASSWORD
+					|| variation == EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
 				// Do not display predictions / what the user is typing
 				// when they are entering a password.
 				mPredictionOn = false;
 			}
 
-			if (variation == EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS 
+			if (variation == EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 					|| variation == EditorInfo.TYPE_TEXT_VARIATION_URI
 					|| variation == EditorInfo.TYPE_TEXT_VARIATION_FILTER) {
 				// Our predictions are not useful for e-mail addresses
@@ -246,10 +261,10 @@ implements KeyboardView.OnKeyboardActionListener {
 				mPredictionOn = false;
 			}
 
-			if ((attribute.inputType&EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE) != 0) {
+			if ((attribute.inputType & EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE) != 0) {
 				// If this is an auto-complete text view, then our predictions
 				// will not be shown and instead we will allow the editor
-				// to supply their own.  We only show the editor's
+				// to supply their own. We only show the editor's
 				// candidates when in fullscreen mode, otherwise relying
 				// own it displaying its own UI.
 				mPredictionOn = false;
@@ -265,7 +280,7 @@ implements KeyboardView.OnKeyboardActionListener {
 		default:
 			// For all unknown input types, default to the alphabetic
 			// keyboard with no special features.
-			mCurKeyboard = mPhoneticKeyboard;
+			mCurKeyboard = getCurrentKeyboard(keyboard_layout);
 			updateShiftKeyState(attribute);
 		}
 
@@ -274,12 +289,27 @@ implements KeyboardView.OnKeyboardActionListener {
 		mCurKeyboard.setImeOptions(getResources(), attribute.imeOptions);
 	}
 
+	private LatinKeyboard getCurrentKeyboard(int keyboard_layout) {
+		// TODO Auto-generated method stub
+		switch (keyboard_layout) {
+		case KB_KAGAPA:
+			return mKaGaPaKeyboard;
+		case KB_INSCRIPT:
+			return mKannadaInScriptKeyboard;
+		case KB_3x4:
+			return mKannada3x4Keyboard;
+		default:
+			return mPhoneticKeyboard;
+		}
+	}
+
 	/**
-	 * This is called when the user is done editing a field.  We can use
-	 * this to reset our state.
+	 * This is called when the user is done editing a field. We can use this to reset our state.
 	 */
-	@Override public void onFinishInput() {
+	@Override
+	public void onFinishInput() {
 		super.onFinishInput();
+		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
 
 		// Clear current composing text and candidates.
 		mComposing.setLength(0);
@@ -291,13 +321,14 @@ implements KeyboardView.OnKeyboardActionListener {
 		// its window.
 		setCandidatesViewShown(false);
 
-		mCurKeyboard = mPhoneticKeyboard;
+		mCurKeyboard = getCurrentKeyboard(keyboard_layout);
 		if (mInputView != null) {
 			mInputView.closing();
 		}
 	}
 
-	@Override public void onStartInputView(EditorInfo attribute, boolean restarting) {
+	@Override
+	public void onStartInputView(EditorInfo attribute, boolean restarting) {
 		super.onStartInputView(attribute, restarting);
 		// Apply the selected keyboard to the input view.
 		mInputView.setKeyboard(mCurKeyboard);
@@ -307,16 +338,15 @@ implements KeyboardView.OnKeyboardActionListener {
 	/**
 	 * Deal with the editor reporting movement of its cursor.
 	 */
-	@Override public void onUpdateSelection(int oldSelStart, int oldSelEnd,
-			int newSelStart, int newSelEnd,
+	@Override
+	public void onUpdateSelection(int oldSelStart, int oldSelEnd, int newSelStart, int newSelEnd,
 			int candidatesStart, int candidatesEnd) {
-		super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd,
-				candidatesStart, candidatesEnd);
+		super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd, candidatesStart,
+				candidatesEnd);
 
 		// If the current selection in the text view changes, we should
 		// clear whatever candidate text we have.
-		if (mComposing.length() > 0 && (newSelStart != candidatesEnd
-				|| newSelEnd != candidatesEnd)) {
+		if (mComposing.length() > 0 && (newSelStart != candidatesEnd || newSelEnd != candidatesEnd)) {
 			mComposing.setLength(0);
 			updateCandidates();
 			InputConnection ic = getCurrentInputConnection();
@@ -327,12 +357,12 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	/**
-	 * This tells us about completions that the editor has determined based
-	 * on the current text in it.  We want to use this in fullscreen mode
-	 * to show the completions ourself, since the editor can not be seen
-	 * in that situation.
+	 * This tells us about completions that the editor has determined based on the current text in it. We want
+	 * to use this in fullscreen mode to show the completions ourself, since the editor can not be seen in
+	 * that situation.
 	 */
-	@Override public void onDisplayCompletions(CompletionInfo[] completions) {
+	@Override
+	public void onDisplayCompletions(CompletionInfo[] completions) {
 		if (mCompletionOn) {
 			mCompletions = completions;
 			if (completions == null) {
@@ -341,22 +371,21 @@ implements KeyboardView.OnKeyboardActionListener {
 			}
 
 			List<String> stringList = new ArrayList<String>();
-			for (int i=0; i<(completions != null ? completions.length : 0); i++) {
+			for (int i = 0; i < (completions != null ? completions.length : 0); i++) {
 				CompletionInfo ci = completions[i];
-				if (ci != null) stringList.add(ci.getText().toString());
+				if (ci != null)
+					stringList.add(ci.getText().toString());
 			}
 			setSuggestions(stringList, true, true);
 		}
 	}
 
 	/**
-	 * This translates incoming hard key events in to edit operations on an
-	 * InputConnection.  It is only needed when using the
-	 * PROCESS_HARD_KEYS option.
+	 * This translates incoming hard key events in to edit operations on an InputConnection. It is only needed
+	 * when using the PROCESS_HARD_KEYS option.
 	 */
 	private boolean translateKeyDown(int keyCode, KeyEvent event) {
-		mMetaState = MetaKeyKeyListener.handleKeyDown(mMetaState,
-				keyCode, event);
+		mMetaState = MetaKeyKeyListener.handleKeyDown(mMetaState, keyCode, event);
 		int c = event.getUnicodeChar(MetaKeyKeyListener.getMetaState(mMetaState));
 		mMetaState = MetaKeyKeyListener.adjustMetaAfterKeypress(mMetaState);
 		InputConnection ic = getCurrentInputConnection();
@@ -372,12 +401,12 @@ implements KeyboardView.OnKeyboardActionListener {
 		}
 
 		if (mComposing.length() > 0) {
-			char accent = mComposing.charAt(mComposing.length() -1 );
+			char accent = mComposing.charAt(mComposing.length() - 1);
 			int composed = KeyEvent.getDeadChar(accent, c);
 
 			if (composed != 0) {
 				c = composed;
-				mComposing.setLength(mComposing.length()-1);
+				mComposing.setLength(mComposing.length() - 1);
 			}
 		}
 
@@ -387,11 +416,11 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	/**
-	 * Use this to monitor key events being delivered to the application.
-	 * We get first crack at them, and can either resume them or let them
-	 * continue to the app.
+	 * Use this to monitor key events being delivered to the application. We get first crack at them, and can
+	 * either resume them or let them continue to the app.
 	 */
-	@Override public boolean onKeyDown(int keyCode, KeyEvent event) {
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		switch (keyCode) {
 		case KeyEvent.KEYCODE_BACK:
 			// The InputMethodService already takes care of the back
@@ -424,8 +453,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			// text being entered with a hard keyboard, we need to process
 			// it and do the appropriate action.
 			if (PROCESS_HARD_KEYS) {
-				if (keyCode == KeyEvent.KEYCODE_SPACE
-						&& (event.getMetaState()&KeyEvent.META_ALT_ON) != 0) {
+				if (keyCode == KeyEvent.KEYCODE_SPACE && (event.getMetaState() & KeyEvent.META_ALT_ON) != 0) {
 					// A silly example: in our input method, Alt+Space
 					// is a shortcut for 'android' in lower case.
 					InputConnection ic = getCurrentInputConnection();
@@ -455,18 +483,17 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	/**
-	 * Use this to monitor key events being delivered to the application.
-	 * We get first crack at them, and can either resume them or let them
-	 * continue to the app.
+	 * Use this to monitor key events being delivered to the application. We get first crack at them, and can
+	 * either resume them or let them continue to the app.
 	 */
-	@Override public boolean onKeyUp(int keyCode, KeyEvent event) {
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		// If we want to do transformations on text being entered with a hard
 		// keyboard, we need to process the up events to update the meta key
 		// state we are tracking.
 		if (PROCESS_HARD_KEYS) {
 			if (mPredictionOn) {
-				mMetaState = MetaKeyKeyListener.handleKeyUp(mMetaState,
-						keyCode, event);
+				mMetaState = MetaKeyKeyListener.handleKeyUp(mMetaState, keyCode, event);
 			}
 		}
 
@@ -485,16 +512,14 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	/**
-	 * Helper to update the shift state of our keyboard based on the initial
-	 * editor state.
+	 * Helper to update the shift state of our keyboard based on the initial editor state.
 	 */
 	private void updateShiftKeyState(EditorInfo attr) {
-		if (attr != null 
-				&& mInputView != null && mPhoneticKeyboard == mInputView.getKeyboard()) {
+		if (attr != null && mInputView != null && mPhoneticKeyboard == mInputView.getKeyboard()) {
 			int caps = 0;
 			EditorInfo ei = getCurrentInputEditorInfo();
 			if (ei != null && ei.inputType != EditorInfo.TYPE_NULL) {
-				//caps = getCurrentInputConnection().getCursorCapsMode(attr.inputType);
+				// caps = getCurrentInputConnection().getCursorCapsMode(attr.inputType);
 			}
 			// mInputView.setShifted(mCapsLock || caps != 0);
 		}
@@ -515,10 +540,8 @@ implements KeyboardView.OnKeyboardActionListener {
 	 * Helper to send a key down / key up pair to the current editor.
 	 */
 	private void keyDownUp(int keyEventCode) {
-		getCurrentInputConnection().sendKeyEvent(
-				new KeyEvent(KeyEvent.ACTION_DOWN, keyEventCode));
-		getCurrentInputConnection().sendKeyEvent(
-				new KeyEvent(KeyEvent.ACTION_UP, keyEventCode));
+		getCurrentInputConnection().sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, keyEventCode));
+		getCurrentInputConnection().sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, keyEventCode));
 	}
 
 	/**
@@ -620,14 +643,6 @@ implements KeyboardView.OnKeyboardActionListener {
 		}
 	}
 
-	private boolean check3x4Keyboard() {
-		Keyboard current = mInputView.getKeyboard();
-		if (current == mKannada3x4Keyboard || current == mKannada3x4SymbolsKeyboard) {
-			return true;
-		}
-		return false;
-	}
-
 	private boolean checkInScriptKeyboard() {
 		Keyboard current = mInputView.getKeyboard();
 		if (current == mKannadaInScriptKeyboard || current == mKannadaInScriptShiftedKeyboard) {
@@ -640,57 +655,57 @@ implements KeyboardView.OnKeyboardActionListener {
 		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
 		lyBuilder.setCancelable(true);
 		lyBuilder.setTitle("Select Layout");
-		lyBuilder.setItems(new CharSequence[]{"KaGaPa", "InScript", "3x4 Keyboard", "Phonetic"}, new OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				Keyboard current = mInputView.getKeyboard();
-				switch(which){
-				case 0: //KaGaPa
-					if (current == mKaGaPaKeyboard || current == mKaGaPaShiftedKeyboard) {
-						current = mKaGaPaSymbolsKeyboard;
-					} else {
-						current = mKaGaPaKeyboard;
+		lyBuilder.setSingleChoiceItems(
+				new CharSequence[] { "Phonetic", "KaGaPa", "3x4 Keyboard", "InScript" },
+				mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_INSCRIPT),
+				new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						SharedPreferences.Editor editor = mSharedPreferences.edit();
+						Keyboard current = mInputView.getKeyboard();
+						switch (which) {
+						case KB_KAGAPA: // KaGaPa
+							editor.putInt(KB_CURRENT_LAYOUT, KB_KAGAPA);
+							if (current == mKaGaPaKeyboard || current == mKaGaPaShiftedKeyboard) {
+								current = mKaGaPaSymbolsKeyboard;
+							} else {
+								current = mKaGaPaKeyboard;
+							}
+							mInputView.setKeyboard(current);
+							break;
+						case KB_INSCRIPT: // InScript Keyboard
+							editor.putInt(KB_CURRENT_LAYOUT, KB_INSCRIPT);
+							if (current == mKannadaInScriptKeyboard
+									|| current == mKannadaInScriptShiftedKeyboard) {
+								current = mKannadaInScriptSymbolsKeyboard;
+							} else {
+								current = mKannadaInScriptKeyboard;
+							}
+							mInputView.setKeyboard(current);
+							break;
+						case KB_3x4: // 3x4 Keyboard
+							editor.putInt(KB_CURRENT_LAYOUT, KB_3x4);
+							if (current == mKannada3x4Keyboard || current == mKannada3x4SymbolsKeyboard) {
+								current = mKannada3x4NumbersKeyboard;
+							} else {
+								current = mKannada3x4Keyboard;
+							}
+							mInputView.setKeyboard(current);
+							break;
+						case KB_PHONETIC: // Phonetic
+							editor.putInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
+							if (current == mPhoneticKeyboard || current == mPhoneticShiftedKeyboard) {
+								current = mPhoneticSymbolsKeyboard;
+							} else {
+								current = mPhoneticKeyboard;
+							}
+							mInputView.setKeyboard(current);
+							break;
+						}
+						editor.commit();
+						dialog.dismiss();
+						onFinishInput();
 					}
-					mInputView.setKeyboard(current);
-					if (current == mKaGaPaSymbolsKeyboard) {
-						current.setShifted(false);
-					}
-					break;
-				case 1: //InScript Keyboard
-					if (current == mKannadaInScriptKeyboard || current == mKannadaInScriptShiftedKeyboard) {
-						current = mKannadaInScriptSymbolsKeyboard;
-					} else {
-						current = mKannadaInScriptKeyboard;
-					}
-					mInputView.setKeyboard(current);
-					if (current == mKannadaInScriptSymbolsKeyboard) {
-						current.setShifted(false);
-					}
-					break;
-				case 2: //3x4 Keyboard
-					if (current == mKannada3x4Keyboard || current == mKannada3x4SymbolsKeyboard) {
-						current = mKannada3x4NumbersKeyboard;
-					} else {
-						current = mKannada3x4Keyboard;
-					}
-					mInputView.setKeyboard(current);
-					if (current == mKannada3x4NumbersKeyboard) {
-						current.setShifted(false);
-					}
-					break;
-				case 3: //Phonetic
-					if (current == mPhoneticKeyboard || current == mPhoneticShiftedKeyboard) {
-						current = mPhoneticSymbolsKeyboard;
-					} else {
-						current = mPhoneticKeyboard;
-					}
-					mInputView.setKeyboard(current);
-					if (current == mPhoneticSymbolsKeyboard) {
-						current.setShifted(false);
-					}
-					break;
-				}
-			}
-		});
+				});
 		AlertDialog mOptionsDialog = lyBuilder.create();
 		Window window = mOptionsDialog.getWindow();
 		WindowManager.LayoutParams lp = window.getAttributes();
@@ -706,21 +721,31 @@ implements KeyboardView.OnKeyboardActionListener {
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
 		lanBuilder.setCancelable(true);
 		lanBuilder.setTitle("Select Language");
-		lanBuilder.setItems(new CharSequence[]{"Hindi","Kannada","Tamil"}, new OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				switch(which){
-				case 0: //Hindi
-					Toast.makeText(getBaseContext(), "Hindi Keyboard selected", Toast.LENGTH_SHORT).show();
-					break;
-				case 1: //Kannada
-					Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT).show();
-					showLayoutOptionsMenu();
-					break;
-				default :
-					Toast.makeText(getBaseContext(), "Tamil Keyboard selected", Toast.LENGTH_SHORT).show();
-				}
-			}
-		});
+		lanBuilder.setSingleChoiceItems(new CharSequence[] { "Hindi", "Kannada", "Tamil" }, LAN_KANNADA,
+				new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						SharedPreferences.Editor editor = mSharedPreferences.edit();
+						switch (which) {
+						case LAN_HINDI: // Hindi
+							Toast.makeText(getBaseContext(), "Hindi Keyboard selected", Toast.LENGTH_SHORT)
+									.show();
+							editor.putInt(KB_CURRENT_LANGUAGE, LAN_HINDI);
+							break;
+						case LAN_KANNADA: // Kannada
+							Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT)
+									.show();
+							editor.putInt(KB_CURRENT_LANGUAGE, LAN_KANNADA);
+							showLayoutOptionsMenu();
+							break;
+						default:
+							editor.putInt(KB_CURRENT_LANGUAGE, LAN_TAMIL);
+							Toast.makeText(getBaseContext(), "Tamil Keyboard selected", Toast.LENGTH_SHORT)
+									.show();
+						}
+						editor.commit();
+						dialog.dismiss();
+					}
+				});
 		AlertDialog mOptionsDialog = lanBuilder.create();
 		Window window = mOptionsDialog.getWindow();
 		WindowManager.LayoutParams lp = window.getAttributes();
@@ -734,7 +759,8 @@ implements KeyboardView.OnKeyboardActionListener {
 
 	public void onText(CharSequence text) {
 		InputConnection ic = getCurrentInputConnection();
-		if (ic == null) return;
+		if (ic == null)
+			return;
 		ic.beginBatchEdit();
 		if (mComposing.length() > 0) {
 			commitTyped(ic);
@@ -745,9 +771,8 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	/**
-	 * Update the list of available candidates from the current composing
-	 * text.  This will need to be filled in by however you are determining
-	 * candidates.
+	 * Update the list of available candidates from the current composing text. This will need to be filled in
+	 * by however you are determining candidates.
 	 */
 	private void updateCandidates() {
 		if (!mCompletionOn) {
@@ -761,8 +786,7 @@ implements KeyboardView.OnKeyboardActionListener {
 		}
 	}
 
-	public void setSuggestions(List<String> suggestions, boolean completions,
-			boolean typedWordValid) {
+	public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
 		if (suggestions != null && suggestions.size() > 0) {
 			setCandidatesViewShown(true);
 		} else if (isExtractViewShown()) {
@@ -868,7 +892,7 @@ implements KeyboardView.OnKeyboardActionListener {
 	private void handleCharacter(int primaryCode, int[] keyCodes) {
 		if (isInputViewShown()) {
 			if (mInputView.isShifted()) {
-				//primaryCode = Character.toUpperCase(primaryCode);
+				// primaryCode = Character.toUpperCase(primaryCode);
 			}
 		}
 		if (isAlphabet(primaryCode) && mPredictionOn) {
@@ -877,8 +901,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			updateShiftKeyState(getCurrentInputEditorInfo());
 			updateCandidates();
 		} else {
-			getCurrentInputConnection().commitText(
-					String.valueOf((char) primaryCode), 1);
+			getCurrentInputConnection().commitText(String.valueOf((char) primaryCode), 1);
 		}
 	}
 
@@ -904,7 +927,7 @@ implements KeyboardView.OnKeyboardActionListener {
 
 	public boolean isWordSeparator(int code) {
 		String separators = getWordSeparators();
-		return separators.contains(String.valueOf((char)code));
+		return separators.contains(String.valueOf((char) code));
 	}
 
 	public void pickDefaultCandidate() {
@@ -912,8 +935,7 @@ implements KeyboardView.OnKeyboardActionListener {
 	}
 
 	public void pickSuggestionManually(int index) {
-		if (mCompletionOn && mCompletions != null && index >= 0
-				&& index < mCompletions.length) {
+		if (mCompletionOn && mCompletions != null && index >= 0 && index < mCompletions.length) {
 			CompletionInfo ci = mCompletions[index];
 			getCurrentInputConnection().commitCompletion(ci);
 			if (mCandidateView != null) {
@@ -922,7 +944,7 @@ implements KeyboardView.OnKeyboardActionListener {
 			updateShiftKeyState(getCurrentInputEditorInfo());
 		} else if (mComposing.length() > 0) {
 			// If we were generating candidate suggestions for the current
-			// text, we would commit one of them here.  But for this sample,
+			// text, we would commit one of them here. But for this sample,
 			// we will just commit the current text.
 			commitTyped(getCurrentInputConnection());
 		}
