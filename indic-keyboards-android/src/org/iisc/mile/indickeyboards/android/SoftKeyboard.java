@@ -661,44 +661,22 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						SharedPreferences.Editor editor = mSharedPreferences.edit();
-						Keyboard current = mInputView.getKeyboard();
 						switch (which) {
 						case KB_KAGAPA: // KaGaPa
 							editor.putInt(KB_CURRENT_LAYOUT, KB_KAGAPA);
-							if (current == mKaGaPaKeyboard || current == mKaGaPaShiftedKeyboard) {
-								current = mKaGaPaSymbolsKeyboard;
-							} else {
-								current = mKaGaPaKeyboard;
-							}
-							mInputView.setKeyboard(current);
+							mInputView.setKeyboard(mKaGaPaKeyboard);
 							break;
 						case KB_INSCRIPT: // InScript Keyboard
 							editor.putInt(KB_CURRENT_LAYOUT, KB_INSCRIPT);
-							if (current == mKannadaInScriptKeyboard
-									|| current == mKannadaInScriptShiftedKeyboard) {
-								current = mKannadaInScriptSymbolsKeyboard;
-							} else {
-								current = mKannadaInScriptKeyboard;
-							}
-							mInputView.setKeyboard(current);
+							mInputView.setKeyboard(mKannadaInScriptKeyboard);
 							break;
 						case KB_3x4: // 3x4 Keyboard
 							editor.putInt(KB_CURRENT_LAYOUT, KB_3x4);
-							if (current == mKannada3x4Keyboard || current == mKannada3x4SymbolsKeyboard) {
-								current = mKannada3x4NumbersKeyboard;
-							} else {
-								current = mKannada3x4Keyboard;
-							}
-							mInputView.setKeyboard(current);
+							mInputView.setKeyboard(mKannada3x4Keyboard);
 							break;
 						case KB_PHONETIC: // Phonetic
 							editor.putInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
-							if (current == mPhoneticKeyboard || current == mPhoneticShiftedKeyboard) {
-								current = mPhoneticSymbolsKeyboard;
-							} else {
-								current = mPhoneticKeyboard;
-							}
-							mInputView.setKeyboard(current);
+							mInputView.setKeyboard(mKannada3x4Keyboard);
 							break;
 						}
 						editor.commit();
