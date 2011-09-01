@@ -48,8 +48,8 @@
   </Row>
 
   <Row>
-    <Key android:codes="33" android:keyIcon="@drawable/kan_inscript_ksha" android:keyEdgeFlags="left" />
-    <Key android:codes="33" android:keyIcon="@drawable/kan_inscript_jnya" />
+    <Key android:codes="0x0c95" android:keyIcon="@drawable/kan_inscript_ksha" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0c9c" android:keyIcon="@drawable/kan_inscript_jnya" />
     <Key android:codes="33" android:keyIcon="@drawable/sym_exclamation" />
     <Key android:codes="34" android:keyIcon="@drawable/sym_double_quotes" />
     <Key android:codes="39" android:keyIcon="@drawable/sym_single_quotes" />
@@ -66,8 +66,8 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="10%p"
       android:isModifier="true" android:isSticky="true" />
-    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_tra" />
-    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_rra" />
+    <Key android:codes="0x0ca4" android:keyIcon="@drawable/kan_inscript_tra" />
+    <Key android:codes="0x0cb1" android:keyIcon="@drawable/kan_inscript_rra" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="18%p"
       android:isRepeatable="true" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />

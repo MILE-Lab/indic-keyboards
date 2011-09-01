@@ -39,13 +39,6 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.Toast;
 
-/**
- * Example of writing an input method for a soft keyboard.  This code is
- * focused on simplicity over completeness, so it should in no way be considered
- * to be a complete soft keyboard implementation.  Its purpose is to provide
- * a basic example for how you would get started writing an input method, to
- * be fleshed out as appropriate.
- */
 public class SoftKeyboard extends InputMethodService 
 implements KeyboardView.OnKeyboardActionListener {
 	static final boolean DEBUG = false;
@@ -60,7 +53,7 @@ implements KeyboardView.OnKeyboardActionListener {
 	 */
 	static final boolean PROCESS_HARD_KEYS = true;
 
-	private static final int CHANGE_LANGUAGE_LAYOUT_OPTION_KEYCODE = 8; // Keyboard.EDGE_BOTTOM
+	private static final int SETTINGS_KEYCODE = 8; // Keyboard.EDGE_BOTTOM
 	private static final int KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE = -6; // Keyboard.KEYCODE_ALT
 	private static final int KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 1; // Keyboard.EDGE_LEFT
 	private static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 4; // Keyboard.EDGE_TOP
@@ -134,7 +127,9 @@ implements KeyboardView.OnKeyboardActionListener {
 			// so we need to be able to re-build the keyboards if the available
 			// space has changed.
 			int displayWidth = getMaxWidth();
-			if (displayWidth == mLastDisplayWidth) return;
+			if (displayWidth == mLastDisplayWidth) {
+				return;
+			}
 			mLastDisplayWidth = displayWidth;
 		}
 		mPhoneticKeyboard = new LatinKeyboard(this, R.xml.phonetic);
@@ -147,15 +142,15 @@ implements KeyboardView.OnKeyboardActionListener {
 		mKaGaPaSymbolsKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols);
 		mKaGaPaSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols_shift);
 
-		mKannadaInScriptKeyboard = new LatinKeyboard(this, R.xml.inscript);
-		mKannadaInScriptShiftedKeyboard = new LatinKeyboard(this, R.xml.inscript_shift);
-		mKannadaInScriptSymbolsKeyboard = new LatinKeyboard(this, R.xml.inscript_symbols);
-		mKannadaInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.inscript_symbols_shift);
+		mKannadaInScriptKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript);
+		mKannadaInScriptShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_shift);
+		mKannadaInScriptSymbolsKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_symbols);
+		mKannadaInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_symbols_shift);
 
-		mKannada3x4Keyboard = new LatinKeyboard(this, R.xml.keyboard_3x4);
-		mKannada3x4NumbersKeyboard = new LatinKeyboard(this, R.xml.keyboard_3x4_numbers);
-		mKannada3x4NumbersShiftedKeyboard = new LatinKeyboard(this, R.xml.keyboard_3x4_numbers_shift);
-		mKannada3x4SymbolsKeyboard = new LatinKeyboard(this, R.xml.keyboard_3x4_symbols);
+		mKannada3x4Keyboard = new LatinKeyboard(this, R.xml.kannada_3x4);
+		mKannada3x4NumbersKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_numbers);
+		mKannada3x4NumbersShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_numbers_shift);
+		mKannada3x4SymbolsKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_symbols);
 	}
 
 	/**
@@ -164,14 +159,15 @@ implements KeyboardView.OnKeyboardActionListener {
 	 * is displayed, and every time it needs to be re-created such as due to
 	 * a configuration change.
 	 */
-	@Override public View onCreateInputView() {
-		mInputView = (KeyboardView) getLayoutInflater().inflate(
-				R.layout.input, null);
+	@Override
+	public View onCreateInputView() {
+		mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input, null);
 		mInputView.setOnKeyboardActionListener(this);
-		if(mCurKeyboard == null)
+		if (mCurKeyboard == null) {
 			mInputView.setKeyboard(mPhoneticKeyboard);
-		else
+		} else {
 			mInputView.setKeyboard(mCurKeyboard);
+		}
 		return mInputView;
 	}
 
@@ -567,12 +563,12 @@ implements KeyboardView.OnKeyboardActionListener {
 			handleBackspace();
 		} else if (presentKeycode == Keyboard.KEYCODE_SHIFT) {
 			handleShift();
-		} else if (presentKeycode == CHANGE_LANGUAGE_LAYOUT_OPTION_KEYCODE && mInputView != null) {
+		} else if (presentKeycode == SETTINGS_KEYCODE && mInputView != null) {
 			showLanguageOptionsMenu();
 		} else if (presentKeycode == Keyboard.KEYCODE_CANCEL) {
 			handleClose();
 			return;
-		} else if (presentKeycode == Keyboard.KEYCODE_MODE_CHANGE && mInputView != null) {
+		} else if (presentKeycode == PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
 			Keyboard current = mInputView.getKeyboard();
 			if (current == mPhoneticKeyboard || current == mPhoneticShiftedKeyboard) {
 				current = mPhoneticSymbolsKeyboard;
@@ -640,29 +636,11 @@ implements KeyboardView.OnKeyboardActionListener {
 		return false;
 	}
 
-	private void showLanguageOptionsMenu() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setCancelable(true);
-		builder.setIcon(R.drawable.icon);
-		launchLanguageSettings();
-	}
-
 	private void showLayoutOptionsMenu() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setCancelable(true);
-		builder.setIcon(R.drawable.icon);
-		launchLayoutSettings();
-	}
-
-	private AlertDialog mOptionsDialog;
-
-	private void launchLayoutSettings() {
 		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
 		lyBuilder.setCancelable(true);
 		lyBuilder.setTitle("Select Layout");
-		lyBuilder.setIcon(R.drawable.icon);
 		lyBuilder.setItems(new CharSequence[]{"KaGaPa", "InScript", "3x4 Keyboard", "Phonetic"}, new OnClickListener() {
-
 			public void onClick(DialogInterface dialog, int which) {
 				Keyboard current = mInputView.getKeyboard();
 				switch(which){
@@ -713,7 +691,7 @@ implements KeyboardView.OnKeyboardActionListener {
 				}
 			}
 		});
-		mOptionsDialog = lyBuilder.create();
+		AlertDialog mOptionsDialog = lyBuilder.create();
 		Window window = mOptionsDialog.getWindow();
 		WindowManager.LayoutParams lp = window.getAttributes();
 
@@ -724,11 +702,10 @@ implements KeyboardView.OnKeyboardActionListener {
 		mOptionsDialog.show();
 	}
 
-	private void launchLanguageSettings() {
+	private void showLanguageOptionsMenu() {
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
 		lanBuilder.setCancelable(true);
 		lanBuilder.setTitle("Select Language");
-		lanBuilder.setIcon(R.drawable.icon);
 		lanBuilder.setItems(new CharSequence[]{"Hindi","Kannada","Tamil"}, new OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				switch(which){
@@ -744,7 +721,7 @@ implements KeyboardView.OnKeyboardActionListener {
 				}
 			}
 		});
-		mOptionsDialog = lanBuilder.create();
+		AlertDialog mOptionsDialog = lanBuilder.create();
 		Window window = mOptionsDialog.getWindow();
 		WindowManager.LayoutParams lp = window.getAttributes();
 
@@ -753,7 +730,6 @@ implements KeyboardView.OnKeyboardActionListener {
 		window.setAttributes(lp);
 		window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
 		mOptionsDialog.show();
-
 	}
 
 	public void onText(CharSequence text) {

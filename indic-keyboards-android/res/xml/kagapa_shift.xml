@@ -51,7 +51,7 @@
     <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="15%p"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
     <Key android:codes="0x0c99" android:keyIcon="@drawable/kagapa_nga" />
-    <Key android:codes=" " android:keyIcon="@drawable/kagapa_ksha" />
+    <Key android:codes="0x0c95" android:keyIcon="@drawable/kagapa_ksha" />
     <Key android:codes="0x0c9b" android:keyIcon="@drawable/kagapa_cha" />
     <Key android:codes="0x0c94" android:keyIcon="@drawable/kagapa_au" />
     <Key android:codes="0x0cad" android:keyIcon="@drawable/kagapa_bha" />
