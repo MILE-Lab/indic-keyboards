@@ -58,14 +58,13 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = -1; // Keyboard.KEYCODE_SHIFT
 	private static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = -2; // Keyboard.KEYCODE_MODE_CHANGE
 
-	private static final String KB_CURRENT_LAYOUT = "Current Keyboard Layout";
-	private static final String KB_CURRENT_LANGUAGE = "Current Keyboard Language";
-
-	private static final int KB_PHONETIC = 0;
-	private static final int KB_KAGAPA = 1;
+	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard", "Phonetic" };
+	private static final int KB_KAGAPA = 0;
+	private static final int KB_INSCRIPT = 1;
 	private static final int KB_3x4 = 2;
-	private static final int KB_INSCRIPT = 3;
+	private static final int KB_PHONETIC = 3;
 
+	String[] LANGUAGE_CHOICES = new String[] { "Hindi", "Kannada", "Tamil" };
 	private static final int LAN_HINDI = 0;
 	private static final int LAN_KANNADA = 1;
 	private static final int LAN_TAMIL = 2;
@@ -73,8 +72,11 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private KeyboardView mInputView;
 	private CandidateView mCandidateView;
 	private CompletionInfo[] mCompletions;
-	
-	SharedPreferences mSharedPreferences;
+
+	private SharedPreferences mSharedPreferences;
+	private String KEYBOARD_PREFERENCES = "IISc MILE Indic Keyboards Preferences";
+	private static final String KB_CURRENT_LANGUAGE = "Current Keyboard Language";
+	private static final String KB_CURRENT_LAYOUT = "Current Keyboard Layout";
 
 	private StringBuilder mComposing = new StringBuilder();
 	private boolean mPredictionOn;
@@ -104,8 +106,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	static private LatinKeyboard mCurKeyboard;
 
 	private String mWordSeparators;
-
-	private String KEYBOARD_PREFERENCES = "IISc Mile Indic Keyboards Preferences";
 
 	static private Set<Integer> mConsonants;
 	static private HashMap<Integer, Integer> mVowels;
@@ -176,7 +176,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	 */
 	@Override
 	public View onCreateInputView() {
-		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
+		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_KAGAPA);
 		mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input, null);
 		mInputView.setOnKeyboardActionListener(this);
 		mInputView.setKeyboard(getCurrentKeyboard(keyboard_layout));
@@ -203,12 +203,12 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public void onStartInput(EditorInfo attribute, boolean restarting) {
 		super.onStartInput(attribute, restarting);
 
-		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
+		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_KAGAPA);
 
 		// Reset our state. We want to do this even if restarting, because
 		// the underlying state of the text editor could have changed in any way.
 		mComposing.setLength(0);
-		//updateCandidates();   //Commented out this statement as we don't need any auto-complete suggestions.
+		updateCandidates();
 
 		if (!restarting) {
 			// Clear shift states.
@@ -290,7 +290,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	}
 
 	private LatinKeyboard getCurrentKeyboard(int keyboard_layout) {
-		// TODO Auto-generated method stub
 		switch (keyboard_layout) {
 		case KB_KAGAPA:
 			return mKaGaPaKeyboard;
@@ -655,10 +654,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
 		lyBuilder.setCancelable(true);
 		lyBuilder.setTitle("Select Layout");
-		lyBuilder.setSingleChoiceItems(
-				new CharSequence[] { "Phonetic", "KaGaPa", "3x4 Keyboard", "InScript" },
-				mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_INSCRIPT),
-				new OnClickListener() {
+		lyBuilder.setSingleChoiceItems(KANNADA_LAYOUT_CHOICES,
+				mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_INSCRIPT), new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						SharedPreferences.Editor editor = mSharedPreferences.edit();
 						switch (which) {
@@ -676,7 +673,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 							break;
 						case KB_PHONETIC: // Phonetic
 							editor.putInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
-							mInputView.setKeyboard(mKannada3x4Keyboard);
+							mInputView.setKeyboard(mPhoneticKeyboard);
 							break;
 						}
 						editor.commit();
@@ -699,7 +696,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
 		lanBuilder.setCancelable(true);
 		lanBuilder.setTitle("Select Language");
-		lanBuilder.setSingleChoiceItems(new CharSequence[] { "Hindi", "Kannada", "Tamil" }, LAN_KANNADA,
+		int prevSelectedLanguage = mSharedPreferences.getInt(KB_CURRENT_LANGUAGE, LAN_KANNADA);
+		lanBuilder.setSingleChoiceItems(LANGUAGE_CHOICES, prevSelectedLanguage,
 				new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						SharedPreferences.Editor editor = mSharedPreferences.edit();
