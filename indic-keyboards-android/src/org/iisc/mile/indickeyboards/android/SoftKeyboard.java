@@ -59,6 +59,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = -1; // Keyboard.KEYCODE_SHIFT
 	private static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = -2; // Keyboard.KEYCODE_MODE_CHANGE
 
+	private static final int KSHA_OTTU = 0xfc95;
+	private static final int ARKAA_OTTU = 0xfcef;
+
 	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard", "Phonetic" };
 	private static final int KB_KAGAPA = 0;
 	private static final int KB_INSCRIPT = 1;
@@ -996,14 +999,12 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			updateShiftKeyState(getCurrentInputEditorInfo());
 			updateCandidates();
 		} else {
-			int KSHA_VATTU = 3221, ARKA_VATTU = 3211;
-			if (primaryCode == ARKA_VATTU) {
+			if (primaryCode == ARKAA_OTTU) {
 				getCurrentInputConnection().commitText("ರ್", 2);
-			} else if (primaryCode == KSHA_VATTU) {
+			} else if (primaryCode == KSHA_OTTU) {
 				getCurrentInputConnection().commitText("ಕ್ಷ", 3);
 			} else {
-				getCurrentInputConnection().commitText(
-						String.valueOf((char) primaryCode), 1);
+				getCurrentInputConnection().commitText(String.valueOf((char) primaryCode), 1);
 			}
 		}
 	}
