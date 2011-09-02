@@ -25,6 +25,7 @@ import java.util.Set;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.res.Configuration;
 import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
@@ -103,6 +104,137 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private LatinKeyboard mKannada3x4Keyboard;
 	private LatinKeyboard mKannada3x4SymbolsKeyboard;
 
+	private LatinKeyboard getPhoneticKeyboard() {
+		if (mPhoneticKeyboard == null) {
+			mPhoneticKeyboard = new LatinKeyboard(this, R.xml.phonetic);
+		}
+		return mPhoneticKeyboard;
+	}
+
+	private LatinKeyboard getPhoneticShiftedKeyboard() {
+		if (mPhoneticShiftedKeyboard == null) {
+			mPhoneticShiftedKeyboard = new LatinKeyboard(this, R.xml.phonetic_shift);
+		}
+		return mPhoneticShiftedKeyboard;
+	}
+
+	private LatinKeyboard getPhoneticSymbolsKeyboard() {
+		if (mPhoneticSymbolsKeyboard == null) {
+			mPhoneticSymbolsKeyboard = new LatinKeyboard(this, R.xml.phonetic_symbols);
+		}
+		return mPhoneticSymbolsKeyboard;
+	}
+
+	private LatinKeyboard getPhoneticSymbolsShiftedKeyboard() {
+		if (mPhoneticSymbolsShiftedKeyboard == null) {
+			mPhoneticSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.phonetic_symbols_shift);
+		}
+		return mPhoneticSymbolsShiftedKeyboard;
+	}
+
+	private LatinKeyboard getKaGaPaKeyboard() {
+		if (mKaGaPaKeyboard == null) {
+			mKaGaPaKeyboard = new LatinKeyboard(this, R.xml.kagapa);
+		}
+		return mKaGaPaKeyboard;
+	}
+
+	private LatinKeyboard getKaGaPaShiftedKeyboard() {
+		if (mKaGaPaShiftedKeyboard == null) {
+			mKaGaPaShiftedKeyboard = new LatinKeyboard(this, R.xml.kagapa_shift);
+		}
+		return mKaGaPaShiftedKeyboard;
+	}
+
+	private LatinKeyboard getKaGaPaSymbolsKeyboard() {
+		if (mKaGaPaSymbolsKeyboard == null) {
+			mKaGaPaSymbolsKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols);
+		}
+		return mKaGaPaSymbolsKeyboard;
+	}
+
+	private LatinKeyboard getKaGaPaSymbolsShiftedKeyboard() {
+		if (mKaGaPaSymbolsShiftedKeyboard == null) {
+			mKaGaPaSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols_shift);
+		}
+		return mKaGaPaSymbolsShiftedKeyboard;
+	}
+
+	private LatinKeyboard getKannadaInScriptKeyboard() {
+		if (mKannadaInScriptKeyboard == null) {
+			mKannadaInScriptKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript);
+		}
+		return mKannadaInScriptKeyboard;
+	}
+
+	private LatinKeyboard getKannadaInScriptShiftedKeyboard() {
+		if (mKannadaInScriptShiftedKeyboard == null) {
+			mKannadaInScriptShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_shift);
+		}
+		return mKannadaInScriptShiftedKeyboard;
+	}
+
+	private LatinKeyboard getKannadaInScriptSymbolsKeyboard() {
+		if (mKannadaInScriptSymbolsKeyboard == null) {
+			mKannadaInScriptSymbolsKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_symbols);
+		}
+		return mKannadaInScriptSymbolsKeyboard;
+	}
+
+	private LatinKeyboard getKannadaInScriptSymbolsShiftedKeyboard() {
+		if (mKannadaInScriptSymbolsShiftedKeyboard == null) {
+			mKannadaInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_symbols_shift);
+		}
+		return mKannadaInScriptSymbolsShiftedKeyboard;
+	}
+
+	private LatinKeyboard getKannada3x4Keyboard() {
+		if (mKannada3x4Keyboard == null) {
+			mKannada3x4Keyboard = new LatinKeyboard(this, R.xml.kannada_3x4);
+		}
+		return mKannada3x4Keyboard;
+	}
+
+	private LatinKeyboard getKannada3x4NumbersKeyboard() {
+		if (mKannada3x4NumbersKeyboard == null) {
+			mKannada3x4NumbersKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_numbers);
+		}
+		return mKannada3x4NumbersKeyboard;
+	}
+
+	private LatinKeyboard getKannada3x4NumbersShiftedKeyboard() {
+		if (mKannada3x4NumbersShiftedKeyboard == null) {
+			mKannada3x4NumbersShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_numbers_shift);
+		}
+		return mKannada3x4NumbersShiftedKeyboard;
+	}
+
+	private LatinKeyboard getKannada3x4SymbolsKeyboard() {
+		if (mKannada3x4SymbolsKeyboard == null) {
+			mKannada3x4SymbolsKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_symbols);
+		}
+		return mKannada3x4SymbolsKeyboard;
+	}
+
+	private void resetKeyboards() {
+		mPhoneticSymbolsKeyboard = null;
+		mPhoneticSymbolsShiftedKeyboard = null;
+		mPhoneticKeyboard = null;
+		mPhoneticShiftedKeyboard = null;
+		mKaGaPaSymbolsKeyboard = null;
+		mKaGaPaSymbolsShiftedKeyboard = null;
+		mKaGaPaKeyboard = null;
+		mKaGaPaShiftedKeyboard = null;
+		mKannadaInScriptSymbolsKeyboard = null;
+		mKannadaInScriptSymbolsShiftedKeyboard = null;
+		mKannadaInScriptKeyboard = null;
+		mKannadaInScriptShiftedKeyboard = null;
+		mKannada3x4NumbersKeyboard = null;
+		mKannada3x4NumbersShiftedKeyboard = null;
+		mKannada3x4Keyboard = null;
+		mKannada3x4SymbolsKeyboard = null;
+	}
+
 	static private LatinKeyboard mCurKeyboard;
 
 	private String mWordSeparators;
@@ -120,6 +252,12 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		for (int i = 'ಆ', j = 'ಾ'; i <= 'ಔ'; i++, j++) {
 			mVowels.put(i, j);
 		}
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		resetKeyboards();
 	}
 
 	/***
@@ -148,25 +286,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			}
 			mLastDisplayWidth = displayWidth;
 		}
-		mPhoneticKeyboard = new LatinKeyboard(this, R.xml.phonetic);
-		mPhoneticShiftedKeyboard = new LatinKeyboard(this, R.xml.phonetic_shift);
-		mPhoneticSymbolsKeyboard = new LatinKeyboard(this, R.xml.phonetic_symbols);
-		mPhoneticSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.phonetic_symbols_shift);
-
-		mKaGaPaKeyboard = new LatinKeyboard(this, R.xml.kagapa);
-		mKaGaPaShiftedKeyboard = new LatinKeyboard(this, R.xml.kagapa_shift);
-		mKaGaPaSymbolsKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols);
-		mKaGaPaSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.kagapa_symbols_shift);
-
-		mKannadaInScriptKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript);
-		mKannadaInScriptShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_shift);
-		mKannadaInScriptSymbolsKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_symbols);
-		mKannadaInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_symbols_shift);
-
-		mKannada3x4Keyboard = new LatinKeyboard(this, R.xml.kannada_3x4);
-		mKannada3x4NumbersKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_numbers);
-		mKannada3x4NumbersShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_numbers_shift);
-		mKannada3x4SymbolsKeyboard = new LatinKeyboard(this, R.xml.kannada_3x4_symbols);
 	}
 
 	/**
@@ -226,13 +345,13 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		case EditorInfo.TYPE_CLASS_DATETIME:
 			// Numbers and dates default to the symbols keyboard, with
 			// no extra features.
-			mCurKeyboard = mPhoneticSymbolsKeyboard;
+			mCurKeyboard = getPhoneticSymbolsKeyboard();
 			break;
 
 		case EditorInfo.TYPE_CLASS_PHONE:
 			// Phones will also default to the symbols keyboard, though
 			// often you will want to have a dedicated phone keyboard.
-			mCurKeyboard = mPhoneticSymbolsKeyboard;
+			mCurKeyboard = getPhoneticSymbolsKeyboard();
 			break;
 
 		case EditorInfo.TYPE_CLASS_TEXT:
@@ -292,13 +411,13 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private LatinKeyboard getCurrentKeyboard(int keyboard_layout) {
 		switch (keyboard_layout) {
 		case KB_KAGAPA:
-			return mKaGaPaKeyboard;
+			return getKaGaPaKeyboard();
 		case KB_INSCRIPT:
-			return mKannadaInScriptKeyboard;
+			return getKannadaInScriptKeyboard();
 		case KB_3x4:
-			return mKannada3x4Keyboard;
+			return getKannada3x4Keyboard();
 		default:
-			return mPhoneticKeyboard;
+			return getPhoneticKeyboard();
 		}
 	}
 
@@ -593,9 +712,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else if (presentKeycode == PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
 			Keyboard current = mInputView.getKeyboard();
 			if (current == mPhoneticKeyboard || current == mPhoneticShiftedKeyboard) {
-				current = mPhoneticSymbolsKeyboard;
+				current = getPhoneticSymbolsKeyboard();
 			} else {
-				current = mPhoneticKeyboard;
+				current = getPhoneticKeyboard();
 			}
 			mInputView.setKeyboard(current);
 			if (current == mPhoneticSymbolsKeyboard) {
@@ -604,9 +723,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else if (presentKeycode == KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
 			Keyboard current = mInputView.getKeyboard();
 			if (current == mKaGaPaKeyboard || current == mKaGaPaShiftedKeyboard) {
-				current = mKaGaPaSymbolsKeyboard;
+				current = getKaGaPaSymbolsKeyboard();
 			} else {
-				current = mKaGaPaKeyboard;
+				current = getKaGaPaKeyboard();
 			}
 			mInputView.setKeyboard(current);
 			if (current == mKaGaPaSymbolsKeyboard) {
@@ -615,9 +734,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else if (presentKeycode == KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
 			Keyboard current = mInputView.getKeyboard();
 			if (current == mKannadaInScriptKeyboard || current == mKannadaInScriptShiftedKeyboard) {
-				current = mKannadaInScriptSymbolsKeyboard;
+				current = getKannadaInScriptSymbolsKeyboard();
 			} else {
-				current = mKannadaInScriptKeyboard;
+				current = getKannadaInScriptKeyboard();
 			}
 			mInputView.setKeyboard(current);
 			if (current == mKannadaInScriptSymbolsKeyboard) {
@@ -626,9 +745,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else if (presentKeycode == KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE && mInputView != null) {
 			Keyboard current = mInputView.getKeyboard();
 			if (current == mKannada3x4Keyboard || current == mKannada3x4SymbolsKeyboard) {
-				current = mKannada3x4NumbersKeyboard;
+				current = getKannada3x4NumbersKeyboard();
 			} else {
-				current = mKannada3x4Keyboard;
+				current = getKannada3x4Keyboard();
 			}
 			mInputView.setKeyboard(current);
 			if (current == mKannada3x4NumbersKeyboard) {
@@ -661,19 +780,19 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 						switch (which) {
 						case KB_KAGAPA: // KaGaPa
 							editor.putInt(KB_CURRENT_LAYOUT, KB_KAGAPA);
-							mInputView.setKeyboard(mKaGaPaKeyboard);
+							mInputView.setKeyboard(getKaGaPaKeyboard());
 							break;
 						case KB_INSCRIPT: // InScript Keyboard
 							editor.putInt(KB_CURRENT_LAYOUT, KB_INSCRIPT);
-							mInputView.setKeyboard(mKannadaInScriptKeyboard);
+							mInputView.setKeyboard(getKannadaInScriptKeyboard());
 							break;
 						case KB_3x4: // 3x4 Keyboard
 							editor.putInt(KB_CURRENT_LAYOUT, KB_3x4);
-							mInputView.setKeyboard(mKannada3x4Keyboard);
+							mInputView.setKeyboard(getKannada3x4Keyboard());
 							break;
 						case KB_PHONETIC: // Phonetic
 							editor.putInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
-							mInputView.setKeyboard(mPhoneticKeyboard);
+							mInputView.setKeyboard(getPhoneticKeyboard());
 							break;
 						}
 						editor.commit();
@@ -799,68 +918,68 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			// Alphabet keyboard
 			checkToggleCapsLock();
 			mPhoneticKeyboard.setShifted(true);
-			mInputView.setKeyboard(mPhoneticShiftedKeyboard);
+			mInputView.setKeyboard(getPhoneticShiftedKeyboard());
 			mPhoneticShiftedKeyboard.setShifted(true);
 			// mInputView.setShifted(mCapsLock || !mInputView.isShifted());
 		} else if (currentKeyboard == mPhoneticShiftedKeyboard) {
 			mPhoneticShiftedKeyboard.setShifted(false);
-			mInputView.setKeyboard(mPhoneticKeyboard);
+			mInputView.setKeyboard(getPhoneticKeyboard());
 			mPhoneticKeyboard.setShifted(false);
 		} else if (currentKeyboard == mPhoneticSymbolsKeyboard) {
 			mPhoneticSymbolsKeyboard.setShifted(true);
-			mInputView.setKeyboard(mPhoneticSymbolsShiftedKeyboard);
+			mInputView.setKeyboard(getPhoneticSymbolsShiftedKeyboard());
 			mPhoneticSymbolsShiftedKeyboard.setShifted(true);
 		} else if (currentKeyboard == mPhoneticSymbolsShiftedKeyboard) {
 			mPhoneticSymbolsShiftedKeyboard.setShifted(false);
-			mInputView.setKeyboard(mPhoneticSymbolsKeyboard);
+			mInputView.setKeyboard(getPhoneticSymbolsKeyboard());
 			mPhoneticSymbolsKeyboard.setShifted(false);
 		} else if (currentKeyboard == mKaGaPaSymbolsKeyboard) {
 			mKaGaPaSymbolsKeyboard.setShifted(true);
-			mInputView.setKeyboard(mKaGaPaSymbolsShiftedKeyboard);
+			mInputView.setKeyboard(getKaGaPaSymbolsShiftedKeyboard());
 			mKaGaPaSymbolsShiftedKeyboard.setShifted(true);
 		} else if (currentKeyboard == mKaGaPaSymbolsShiftedKeyboard) {
 			mKaGaPaSymbolsShiftedKeyboard.setShifted(false);
-			mInputView.setKeyboard(mKaGaPaSymbolsKeyboard);
+			mInputView.setKeyboard(getKaGaPaSymbolsKeyboard());
 			mKaGaPaSymbolsKeyboard.setShifted(false);
 		} else if (currentKeyboard == mKaGaPaKeyboard) {
 			mKaGaPaKeyboard.setShifted(true);
-			mInputView.setKeyboard(mKaGaPaShiftedKeyboard);
+			mInputView.setKeyboard(getKaGaPaShiftedKeyboard());
 			mKaGaPaShiftedKeyboard.setShifted(true);
 		} else if (currentKeyboard == mKaGaPaShiftedKeyboard) {
 			mKaGaPaShiftedKeyboard.setShifted(false);
-			mInputView.setKeyboard(mKaGaPaKeyboard);
+			mInputView.setKeyboard(getKaGaPaKeyboard());
 			mKaGaPaKeyboard.setShifted(false);
 		} else if (currentKeyboard == mKannadaInScriptSymbolsKeyboard) {
 			mKannadaInScriptSymbolsKeyboard.setShifted(true);
-			mInputView.setKeyboard(mKannadaInScriptSymbolsShiftedKeyboard);
+			mInputView.setKeyboard(getKannadaInScriptSymbolsShiftedKeyboard());
 			mKannadaInScriptSymbolsShiftedKeyboard.setShifted(true);
 		} else if (currentKeyboard == mKannadaInScriptSymbolsShiftedKeyboard) {
 			mKannadaInScriptSymbolsShiftedKeyboard.setShifted(false);
-			mInputView.setKeyboard(mKannadaInScriptSymbolsKeyboard);
+			mInputView.setKeyboard(getKannadaInScriptSymbolsKeyboard());
 			mKannadaInScriptSymbolsKeyboard.setShifted(false);
 		} else if (currentKeyboard == mKannadaInScriptKeyboard) {
 			mKannadaInScriptKeyboard.setShifted(true);
-			mInputView.setKeyboard(mKannadaInScriptShiftedKeyboard);
+			mInputView.setKeyboard(getKannadaInScriptShiftedKeyboard());
 			mKannadaInScriptShiftedKeyboard.setShifted(true);
 		} else if (currentKeyboard == mKannadaInScriptShiftedKeyboard) {
 			mKannadaInScriptShiftedKeyboard.setShifted(false);
-			mInputView.setKeyboard(mKannadaInScriptKeyboard);
+			mInputView.setKeyboard(getKannadaInScriptKeyboard());
 			mKannadaInScriptKeyboard.setShifted(false);
 		} else if (currentKeyboard == mKannada3x4NumbersKeyboard) {
 			mKannada3x4NumbersKeyboard.setShifted(true);
-			mInputView.setKeyboard(mKannada3x4NumbersShiftedKeyboard);
+			mInputView.setKeyboard(getKannada3x4NumbersShiftedKeyboard());
 			mKannada3x4NumbersShiftedKeyboard.setShifted(true);
 		} else if (currentKeyboard == mKannada3x4NumbersShiftedKeyboard) {
 			mKannada3x4NumbersShiftedKeyboard.setShifted(false);
-			mInputView.setKeyboard(mKannada3x4NumbersKeyboard);
+			mInputView.setKeyboard(getKannada3x4NumbersKeyboard());
 			mKannada3x4NumbersKeyboard.setShifted(false);
 		} else if (currentKeyboard == mKannada3x4Keyboard) {
 			mKannada3x4Keyboard.setShifted(true);
-			mInputView.setKeyboard(mKannada3x4SymbolsKeyboard);
+			mInputView.setKeyboard(getKannada3x4SymbolsKeyboard());
 			mKannada3x4SymbolsKeyboard.setShifted(true);
 		} else if (currentKeyboard == mKannada3x4SymbolsKeyboard) {
 			mKannada3x4SymbolsKeyboard.setShifted(false);
-			mInputView.setKeyboard(mKannada3x4Keyboard);
+			mInputView.setKeyboard(getKannada3x4Keyboard());
 			mKannada3x4Keyboard.setShifted(false);
 		}
 	}
