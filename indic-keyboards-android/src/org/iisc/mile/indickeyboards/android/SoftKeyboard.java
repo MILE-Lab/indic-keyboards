@@ -996,7 +996,15 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			updateShiftKeyState(getCurrentInputEditorInfo());
 			updateCandidates();
 		} else {
-			getCurrentInputConnection().commitText(String.valueOf((char) primaryCode), 1);
+			int KSHA_VATTU = 3221, ARKA_VATTU = 3211;
+			if (primaryCode == ARKA_VATTU) {
+				getCurrentInputConnection().commitText("ರ್", 2);
+			} else if (primaryCode == KSHA_VATTU) {
+				getCurrentInputConnection().commitText("ಕ್ಷ", 3);
+			} else {
+				getCurrentInputConnection().commitText(
+						String.valueOf((char) primaryCode), 1);
+			}
 		}
 	}
 
