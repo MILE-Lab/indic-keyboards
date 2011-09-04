@@ -77,6 +77,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private CandidateView mCandidateView;
 	private CompletionInfo[] mCompletions;
 
+	private boolean SHIFT_STATE_INITIAL;
+	private boolean SHIFT_STATE_INTERMEDiATE;
+	private boolean SHIFT_STATE_FINAL;
+
 	private SharedPreferences mSharedPreferences;
 	private String KEYBOARD_PREFERENCES = "IISc MILE Indic Keyboards Preferences";
 	private static final String KB_CURRENT_LANGUAGE = "Current Keyboard Language";
@@ -186,7 +190,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 
 	private LatinKeyboard getKannadaInScriptSymbolsShiftedKeyboard() {
 		if (mKannadaInScriptSymbolsShiftedKeyboard == null) {
-			mKannadaInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.kannada_inscript_symbols_shift);
+			mKannadaInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this,
+					R.xml.kannada_inscript_symbols_shift);
 		}
 		return mKannadaInScriptSymbolsShiftedKeyboard;
 	}
@@ -302,6 +307,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input, null);
 		mInputView.setOnKeyboardActionListener(this);
 		mInputView.setKeyboard(getCurrentKeyboard(keyboard_layout));
+		onFinishInput();
 		return mInputView;
 	}
 
@@ -326,6 +332,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		super.onStartInput(attribute, restarting);
 
 		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_KAGAPA);
+		SHIFT_STATE_INITIAL = true;
+		SHIFT_STATE_INTERMEDiATE = SHIFT_STATE_FINAL = false;
 
 		// Reset our state. We want to do this even if restarting, because
 		// the underlying state of the text editor could have changed in any way.
@@ -435,6 +443,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		// Clear current composing text and candidates.
 		mComposing.setLength(0);
 		updateCandidates();
+
+		SHIFT_STATE_INITIAL = true;
+		SHIFT_STATE_INTERMEDiATE = SHIFT_STATE_FINAL = false;
 
 		// We only hide the candidates window when finishing input on
 		// a particular editor, to avoid popping the underlying application
@@ -706,7 +717,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else if (presentKeycode == Keyboard.KEYCODE_DELETE) {
 			handleBackspace();
 		} else if (presentKeycode == Keyboard.KEYCODE_SHIFT) {
-			handleShift();
 		} else if (presentKeycode == SETTINGS_KEYCODE && mInputView != null) {
 			showLanguageOptionsMenu();
 		} else if (presentKeycode == Keyboard.KEYCODE_CANCEL) {
@@ -761,6 +771,11 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			handleCharacter(mVowels.get(presentKeycode), keyCodes);
 		} else {
 			handleCharacter(presentKeycode, keyCodes);
+		}
+		if (SHIFT_STATE_INTERMEDiATE) {
+			SHIFT_STATE_INITIAL = true;
+			SHIFT_STATE_FINAL = SHIFT_STATE_INTERMEDiATE = false;
+			handleShift();
 		}
 	}
 
@@ -819,31 +834,27 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		lanBuilder.setCancelable(true);
 		lanBuilder.setTitle("Select Language");
 		int prevSelectedLanguage = mSharedPreferences.getInt(KB_CURRENT_LANGUAGE, LAN_KANNADA);
-		lanBuilder.setSingleChoiceItems(LANGUAGE_CHOICES, prevSelectedLanguage,
-				new OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-						SharedPreferences.Editor editor = mSharedPreferences.edit();
-						switch (which) {
-						case LAN_HINDI: // Hindi
-							Toast.makeText(getBaseContext(), "Hindi Keyboard selected", Toast.LENGTH_SHORT)
-									.show();
-							editor.putInt(KB_CURRENT_LANGUAGE, LAN_HINDI);
-							break;
-						case LAN_KANNADA: // Kannada
-							Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT)
-									.show();
-							editor.putInt(KB_CURRENT_LANGUAGE, LAN_KANNADA);
-							showLayoutOptionsMenu();
-							break;
-						default:
-							editor.putInt(KB_CURRENT_LANGUAGE, LAN_TAMIL);
-							Toast.makeText(getBaseContext(), "Tamil Keyboard selected", Toast.LENGTH_SHORT)
-									.show();
-						}
-						editor.commit();
-						dialog.dismiss();
-					}
-				});
+		lanBuilder.setSingleChoiceItems(LANGUAGE_CHOICES, prevSelectedLanguage, new OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				SharedPreferences.Editor editor = mSharedPreferences.edit();
+				switch (which) {
+				case LAN_HINDI: // Hindi
+					Toast.makeText(getBaseContext(), "Hindi Keyboard selected", Toast.LENGTH_SHORT).show();
+					editor.putInt(KB_CURRENT_LANGUAGE, LAN_HINDI);
+					break;
+				case LAN_KANNADA: // Kannada
+					Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT).show();
+					editor.putInt(KB_CURRENT_LANGUAGE, LAN_KANNADA);
+					showLayoutOptionsMenu();
+					break;
+				default:
+					editor.putInt(KB_CURRENT_LANGUAGE, LAN_TAMIL);
+					Toast.makeText(getBaseContext(), "Tamil Keyboard selected", Toast.LENGTH_SHORT).show();
+				}
+				editor.commit();
+				dialog.dismiss();
+			}
+		});
 		AlertDialog mOptionsDialog = lanBuilder.create();
 		Window window = mOptionsDialog.getWindow();
 		WindowManager.LayoutParams lp = window.getAttributes();
@@ -1072,6 +1083,20 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	}
 
 	public void onPress(int primaryCode) {
+		if (primaryCode == Keyboard.KEYCODE_SHIFT) {
+			if (SHIFT_STATE_INITIAL) {
+				SHIFT_STATE_INITIAL = SHIFT_STATE_FINAL = false;
+				SHIFT_STATE_INTERMEDiATE = true;
+				handleShift();
+			} else if (SHIFT_STATE_INTERMEDiATE) {
+				SHIFT_STATE_FINAL = true;
+				SHIFT_STATE_INITIAL = SHIFT_STATE_INTERMEDiATE = false;
+			} else if (SHIFT_STATE_FINAL) {
+				SHIFT_STATE_INITIAL = true;
+				SHIFT_STATE_FINAL = SHIFT_STATE_INTERMEDiATE = false;
+				handleShift();
+			}
+		}
 	}
 
 	public void onRelease(int primaryCode) {
