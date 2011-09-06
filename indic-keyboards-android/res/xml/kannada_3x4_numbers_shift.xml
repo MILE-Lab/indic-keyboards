@@ -44,7 +44,7 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="0x0cee" android:keyIcon="@drawable/kan_3x4_8_kan" android:keyWidth="25%p" />
     <Key android:codes="0x0cef" android:keyIcon="@drawable/kan_3x4_9_kan" android:keyWidth="25%p" />
-    <Key android:codes="4" android:keyIcon="@drawable/n_to_a" android:keyWidth="25%p"
+    <Key android:codes="0xF003" android:keyIcon="@drawable/n_to_a" android:keyWidth="25%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 
@@ -53,7 +53,7 @@
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
     <Key android:codes="0x0ce6" android:keyIcon="@drawable/kan_3x4_0_kan" android:keyWidth="25%p" />
     <Key android:codes="0xF004" android:keyLabel=". , @" android:keyWidth="25%p" />
-    <Key android:codes="8" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
+    <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="13%p"
       android:keyEdgeFlags="right" />
   </Row>

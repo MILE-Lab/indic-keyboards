@@ -52,12 +52,12 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	 */
 	static final boolean PROCESS_HARD_KEYS = true;
 
-	public static final int SETTINGS_KEYCODE = 8; // Keyboard.EDGE_BOTTOM
-	public static final int KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE = -6; // Keyboard.KEYCODE_ALT
-	public static final int KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 1; // Keyboard.EDGE_LEFT
-	public static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 4; // Keyboard.EDGE_TOP
-	public static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF004; // Keyboard.KEYCODE_SHIFT
-	public static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = -2; // Keyboard.KEYCODE_MODE_CHANGE
+	public static final int SETTINGS_KEYCODE = 0xF000;
+	public static final int KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE = 0xF001;
+	public static final int KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 0xF002;
+	public static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 0xF003;
+	public static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF004;
+	public static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = 0xF005;
 
 	public static final int KSHA_COMPOUND_LETTER = 0xF010;
 	public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
