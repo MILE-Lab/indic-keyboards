@@ -19,14 +19,15 @@ package org.iisc.mile.indickeyboards.android;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.Keyboard.Key;
-import android.inputmethodservice.Keyboard.Row;
 import android.view.inputmethod.EditorInfo;
 
 public class LatinKeyboard extends Keyboard {
 
     private Key mEnterKey;
+    private Key mShiftKey;
     
     public LatinKeyboard(Context context, int xmlLayoutResId) {
         super(context, xmlLayoutResId);
@@ -41,12 +42,22 @@ public class LatinKeyboard extends Keyboard {
     protected Key createKeyFromXml(Resources res, Row parent, int x, int y, 
             XmlResourceParser parser) {
         Key key = new LatinKey(res, parent, x, y, parser);
-        if (key.codes[0] == 10) {
-            mEnterKey = key;
-        }
+		if (key.codes[0] == 10) {
+			mEnterKey = key;
+		} else if (key.codes[0] == -1) {
+			mShiftKey = key;
+		}
         return key;
     }
-    
+
+	void setShiftIcon(boolean sticky) {
+		if (sticky) {
+			mShiftKey.icon.setColorFilter(Color.BLUE, PorterDuff.Mode.DARKEN);
+		} else {
+			mShiftKey.icon.setColorFilter(null);
+		}
+	}
+
     /**
      * This looks at the ime options given by the current editor, to set the
      * appropriate label on the keyboard's enter key (if it has one).
