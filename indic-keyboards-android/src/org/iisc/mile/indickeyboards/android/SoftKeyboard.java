@@ -56,7 +56,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE = -6; // Keyboard.KEYCODE_ALT
 	public static final int KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 1; // Keyboard.EDGE_LEFT
 	public static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 4; // Keyboard.EDGE_TOP
-	public static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = -1; // Keyboard.KEYCODE_SHIFT
+	public static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF004; // Keyboard.KEYCODE_SHIFT
 	public static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = -2; // Keyboard.KEYCODE_MODE_CHANGE
 
 	public static final int KSHA_COMPOUND_LETTER = 0xF010;
@@ -780,6 +780,17 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			if (current == mKannada3x4NumbersKeyboard) {
 				current.setShifted(false);
 			}
+		} else if (presentKeycode == KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mKannada3x4Keyboard || current == mKannada3x4NumbersKeyboard) {
+				current = getKannada3x4SymbolsKeyboard();
+			} else {
+				current = getKannada3x4Keyboard();
+			}
+			mInputView.setKeyboard(current);
+			if (current == mKannada3x4SymbolsKeyboard) {
+				current.setShifted(false);
+			}
 		} else if (mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode)
 				&& !checkInScriptKeyboard()) {
 			handleCharacter(mVowels.get(presentKeycode), keyCodes);
@@ -999,14 +1010,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			mKannada3x4NumbersShiftedKeyboard.setShifted(false);
 			mInputView.setKeyboard(getKannada3x4NumbersKeyboard());
 			mKannada3x4NumbersKeyboard.setShifted(false);
-		} else if (currentKeyboard == mKannada3x4Keyboard) {
-			mKannada3x4Keyboard.setShifted(true);
-			mInputView.setKeyboard(getKannada3x4SymbolsKeyboard());
-			mKannada3x4SymbolsKeyboard.setShifted(true);
-		} else if (currentKeyboard == mKannada3x4SymbolsKeyboard) {
-			mKannada3x4SymbolsKeyboard.setShifted(false);
-			mInputView.setKeyboard(getKannada3x4Keyboard());
-			mKannada3x4Keyboard.setShifted(false);
 		}
 	}
 
