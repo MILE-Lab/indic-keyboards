@@ -77,9 +77,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private CandidateView mCandidateView;
 	private CompletionInfo[] mCompletions;
 
-	private boolean SHIFT_STATE_INITIAL;
-	private boolean SHIFT_STATE_INTERMEDiATE;
-	private boolean SHIFT_STATE_FINAL;
+	private static final int SHIFT_STATE_INITIAL = 1;
+	private static final int SHIFT_STATE_INTERMEDIATE = 2;
+	private static final int SHIFT_STATE_FINAL = 3;
+	private int shiftState;
 
 	private SharedPreferences mSharedPreferences;
 	private String KEYBOARD_PREFERENCES = "IISc MILE Indic Keyboards Preferences";
@@ -307,7 +308,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input, null);
 		mInputView.setOnKeyboardActionListener(this);
 		mInputView.setKeyboard(getCurrentKeyboard(keyboard_layout));
-		onFinishInput();
 		return mInputView;
 	}
 
@@ -332,8 +332,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		super.onStartInput(attribute, restarting);
 
 		int keyboard_layout = mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_KAGAPA);
-		SHIFT_STATE_INITIAL = true;
-		SHIFT_STATE_INTERMEDiATE = SHIFT_STATE_FINAL = false;
+		shiftState = SHIFT_STATE_INITIAL;
 
 		// Reset our state. We want to do this even if restarting, because
 		// the underlying state of the text editor could have changed in any way.
@@ -444,8 +443,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mComposing.setLength(0);
 		updateCandidates();
 
-		SHIFT_STATE_INITIAL = true;
-		SHIFT_STATE_INTERMEDiATE = SHIFT_STATE_FINAL = false;
+		shiftState = SHIFT_STATE_INITIAL;
 
 		// We only hide the candidates window when finishing input on
 		// a particular editor, to avoid popping the underlying application
@@ -717,6 +715,15 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else if (presentKeycode == Keyboard.KEYCODE_DELETE) {
 			handleBackspace();
 		} else if (presentKeycode == Keyboard.KEYCODE_SHIFT) {
+			if (shiftState == SHIFT_STATE_INITIAL) {
+				shiftState = SHIFT_STATE_INTERMEDIATE;
+				handleShift();
+			} else if (shiftState == SHIFT_STATE_INTERMEDIATE) {
+				shiftState = SHIFT_STATE_FINAL;
+			} else if (shiftState == SHIFT_STATE_FINAL) {
+				shiftState = SHIFT_STATE_INITIAL;
+				handleShift();
+			}
 		} else if (presentKeycode == SETTINGS_KEYCODE && mInputView != null) {
 			showLanguageOptionsMenu();
 		} else if (presentKeycode == Keyboard.KEYCODE_CANCEL) {
@@ -772,9 +779,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else {
 			handleCharacter(presentKeycode, keyCodes);
 		}
-		if (SHIFT_STATE_INTERMEDiATE) {
-			SHIFT_STATE_INITIAL = true;
-			SHIFT_STATE_FINAL = SHIFT_STATE_INTERMEDiATE = false;
+		if (shiftState == SHIFT_STATE_INTERMEDIATE && presentKeycode != Keyboard.KEYCODE_SHIFT) {
+			shiftState = SHIFT_STATE_INITIAL;
 			handleShift();
 		}
 	}
@@ -926,7 +932,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		if (mInputView == null) {
 			return;
 		}
-
 		Keyboard currentKeyboard = mInputView.getKeyboard();
 		if (currentKeyboard == mPhoneticKeyboard) {
 			// Alphabet keyboard
@@ -1083,20 +1088,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	}
 
 	public void onPress(int primaryCode) {
-		if (primaryCode == Keyboard.KEYCODE_SHIFT) {
-			if (SHIFT_STATE_INITIAL) {
-				SHIFT_STATE_INITIAL = SHIFT_STATE_FINAL = false;
-				SHIFT_STATE_INTERMEDiATE = true;
-				handleShift();
-			} else if (SHIFT_STATE_INTERMEDiATE) {
-				SHIFT_STATE_FINAL = true;
-				SHIFT_STATE_INITIAL = SHIFT_STATE_INTERMEDiATE = false;
-			} else if (SHIFT_STATE_FINAL) {
-				SHIFT_STATE_INITIAL = true;
-				SHIFT_STATE_FINAL = SHIFT_STATE_INTERMEDiATE = false;
-				handleShift();
-			}
-		}
 	}
 
 	public void onRelease(int primaryCode) {
