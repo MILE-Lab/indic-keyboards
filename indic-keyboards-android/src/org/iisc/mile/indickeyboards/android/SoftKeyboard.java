@@ -61,7 +61,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int HINDI_REMINGTON_LETTERS_TO_SYMBOLS_KEYCODE = 0xF101;
 	public static final int HINDI_3X4_LETTERS_TO_NUMBERS_KEYCODE = 0xF102;
 	public static final int HINDI_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF103;
-	
+	public static final int HINDI_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 0xF104;
 	
 	public static final int KSHA_COMPOUND_LETTER = 0xF010;
 	public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
@@ -133,7 +133,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private LatinKeyboard mHindi3x4NumbersShiftedKeyboard;
 	private LatinKeyboard mHindi3x4Keyboard;
 	private LatinKeyboard mHindi3x4SymbolsKeyboard;
-	
+	private LatinKeyboard mHindiInScriptSymbolsKeyboard;
+	private LatinKeyboard mHindiInScriptSymbolsShiftedKeyboard;
+	private LatinKeyboard mHindiInScriptKeyboard;
+	private LatinKeyboard mHindiInScriptShiftedKeyboard;
 	
 	private LatinKeyboard getPhoneticKeyboard() {
 		if (mPhoneticKeyboard == null) {
@@ -304,6 +307,36 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		return mHindi3x4SymbolsKeyboard;
 	}
 	
+	private LatinKeyboard getHindiInScriptKeyboard() {
+		if (mHindiInScriptKeyboard == null) {
+			mHindiInScriptKeyboard = new LatinKeyboard(this, R.xml.hindi_inscript);
+		}
+		return mHindiInScriptKeyboard;
+	}
+
+	private LatinKeyboard getHindiInScriptShiftedKeyboard() {
+		if (mHindiInScriptShiftedKeyboard == null) {
+			mHindiInScriptShiftedKeyboard = new LatinKeyboard(this, R.xml.hindi_inscript_shift);
+		}
+		return mHindiInScriptShiftedKeyboard;
+	}
+
+	private LatinKeyboard getHindiInScriptSymbolsKeyboard() {
+		if (mHindiInScriptSymbolsKeyboard == null) {
+			mHindiInScriptSymbolsKeyboard = new LatinKeyboard(this, R.xml.hindi_inscript_symbols);
+		}
+		return mHindiInScriptSymbolsKeyboard;
+	}
+
+	private LatinKeyboard getHindiInScriptSymbolsShiftedKeyboard() {
+		if (mHindiInScriptSymbolsShiftedKeyboard == null) {
+			mHindiInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this,
+					R.xml.hindi_inscript_symbols_shift);
+		}
+		return mHindiInScriptSymbolsShiftedKeyboard;
+	}
+
+	
 	private void resetKeyboards() {
 		mPhoneticSymbolsKeyboard = null;
 		mPhoneticSymbolsShiftedKeyboard = null;
@@ -329,6 +362,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mHindi3x4NumbersShiftedKeyboard = null;
 		mHindi3x4Keyboard = null;
 		mHindi3x4SymbolsKeyboard = null;
+		mHindiInScriptSymbolsKeyboard = null;
+		mHindiInScriptSymbolsShiftedKeyboard = null;
+		mHindiInScriptKeyboard = null;
+		mHindiInScriptShiftedKeyboard = null;
 	}
 
 	static private LatinKeyboard mCurKeyboard;
@@ -515,10 +552,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			return getKannada3x4Keyboard();
 		case HKB_REMINGTON:
 			return getHindiRemingtonKeyboard();
+		case HKB_INSCRIPT:
+			return getHindiInScriptKeyboard();
 		case HKB_3x4:
 			return getHindi3x4Keyboard();
-		case HKB_INSCRIPT:
-			//return getHindiInScriptKeyboard();
 		default:
 			return getPhoneticKeyboard();
 		}
@@ -913,6 +950,17 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			if (current == mHindi3x4SymbolsKeyboard) {
 				current.setShifted(false);
 			}
+		} else if (presentKeycode == HINDI_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mHindiInScriptKeyboard || current == mHindiInScriptShiftedKeyboard) {
+				current = getHindiInScriptSymbolsKeyboard();
+			} else {
+				current = getHindiInScriptKeyboard();
+			}
+			mInputView.setKeyboard(current);
+			if (current == mHindiInScriptSymbolsKeyboard) {
+				current.setShifted(false);
+			}
 		} else if (mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode)
 				&& !checkInScriptKeyboard()) {
 			handleCharacter(mVowels.get(presentKeycode), keyCodes);
@@ -990,7 +1038,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 							break;
 						case 1: // InScript Keyboard
 							editor.putInt(KB_CURRENT_LAYOUT, HKB_INSCRIPT);
-							mInputView.setKeyboard(getKannadaInScriptKeyboard());
+							mInputView.setKeyboard(getHindiInScriptKeyboard());
 							break;
 						case 2: // 3x4 Keyboard
 							editor.putInt(KB_CURRENT_LAYOUT, HKB_3x4);
@@ -1199,6 +1247,22 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			mHindi3x4NumbersShiftedKeyboard.setShifted(false);
 			mInputView.setKeyboard(getHindi3x4NumbersKeyboard());
 			mHindi3x4NumbersKeyboard.setShifted(false);
+		} else if (currentKeyboard == mHindiInScriptSymbolsKeyboard) {
+			mHindiInScriptSymbolsKeyboard.setShifted(true);
+			mInputView.setKeyboard(getHindiInScriptSymbolsShiftedKeyboard());
+			mHindiInScriptSymbolsShiftedKeyboard.setShifted(true);
+		} else if (currentKeyboard == mHindiInScriptSymbolsShiftedKeyboard) {
+			mHindiInScriptSymbolsShiftedKeyboard.setShifted(false);
+			mInputView.setKeyboard(getHindiInScriptSymbolsKeyboard());
+			mHindiInScriptSymbolsKeyboard.setShifted(false);
+		} else if (currentKeyboard == mHindiInScriptKeyboard) {
+			mHindiInScriptKeyboard.setShifted(true);
+			mInputView.setKeyboard(getHindiInScriptShiftedKeyboard());
+			mHindiInScriptShiftedKeyboard.setShifted(true);
+		} else if (currentKeyboard == mHindiInScriptShiftedKeyboard) {
+			mHindiInScriptShiftedKeyboard.setShifted(false);
+			mInputView.setKeyboard(getHindiInScriptKeyboard());
+			mHindiInScriptKeyboard.setShifted(false);
 		}
 	}
 
