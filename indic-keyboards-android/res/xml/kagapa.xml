@@ -35,8 +35,7 @@
   </Row>
 
   <Row>
-    <Key android:codes="0x0c86" android:keyIcon="@drawable/kagapa_aa" android:horizontalGap="5%p"
-      android:keyEdgeFlags="left" />
+    <Key android:codes="0x0c86" android:keyIcon="@drawable/kagapa_aa" android:keyEdgeFlags="left" />
     <Key android:codes="0x0cb8" android:keyIcon="@drawable/kagapa_sa" />
     <Key android:codes="0x0ca6" android:keyIcon="@drawable/kagapa_da" />
     <Key android:codes="0x0ccd" android:keyIcon="@drawable/kagapa_halant" />
@@ -44,7 +43,8 @@
     <Key android:codes="0x0cb9" android:keyIcon="@drawable/kagapa_ha" />
     <Key android:codes="0x0c9c" android:keyIcon="@drawable/kagapa_ja" />
     <Key android:codes="0x0c95" android:keyIcon="@drawable/kagapa_ka" />
-    <Key android:codes="0x0cb2" android:keyIcon="@drawable/kagapa_la" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0cb2" android:keyIcon="@drawable/kagapa_la" />
+    <Key android:codes="0x200C" android:keyIcon="@drawable/sym_zwnj" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
