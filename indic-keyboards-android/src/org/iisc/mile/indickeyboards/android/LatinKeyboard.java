@@ -52,7 +52,7 @@ public class LatinKeyboard extends Keyboard {
 
 	void setShiftIcon(boolean sticky) {
 		if (sticky) {
-			mShiftKey.icon.setColorFilter(Color.BLUE, PorterDuff.Mode.DARKEN);
+			mShiftKey.icon.setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
 		} else {
 			mShiftKey.icon.setColorFilter(null);
 		}
