@@ -722,14 +722,14 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			if (shiftState == SHIFT_STATE_INITIAL) {
 				shiftState = SHIFT_STATE_INTERMEDIATE;
 				handleShift();
-				((LatinKeyboard)mInputView.getKeyboard()).setShiftIcon(false);
+				((LatinKeyboard) mInputView.getKeyboard()).setShiftIconToSticky(false);
 			} else if (shiftState == SHIFT_STATE_INTERMEDIATE) {
 				shiftState = SHIFT_STATE_FINAL;
-				((LatinKeyboard)mInputView.getKeyboard()).setShiftIcon(true);
+				((LatinKeyboard) mInputView.getKeyboard()).setShiftIconToSticky(true);
 			} else if (shiftState == SHIFT_STATE_FINAL) {
 				shiftState = SHIFT_STATE_INITIAL;
 				handleShift();
-				((LatinKeyboard)mInputView.getKeyboard()).setShiftIcon(false);
+				((LatinKeyboard) mInputView.getKeyboard()).setShiftIconToSticky(false);
 			}
 		} else if (presentKeycode == SETTINGS_KEYCODE && mInputView != null) {
 			showLanguageOptionsMenu();

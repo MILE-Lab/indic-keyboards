@@ -50,9 +50,10 @@ public class LatinKeyboard extends Keyboard {
         return key;
     }
 
-	void setShiftIcon(boolean sticky) {
+	void setShiftIconToSticky(boolean sticky) {
 		if (sticky) {
 			mShiftKey.icon.setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+			setShifted(true);
 		} else {
 			mShiftKey.icon.setColorFilter(null);
 		}
