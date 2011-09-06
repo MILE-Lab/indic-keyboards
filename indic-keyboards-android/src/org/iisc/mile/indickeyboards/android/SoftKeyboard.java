@@ -52,15 +52,19 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	 */
 	static final boolean PROCESS_HARD_KEYS = true;
 
-	private static final int SETTINGS_KEYCODE = 8; // Keyboard.EDGE_BOTTOM
-	private static final int KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE = -6; // Keyboard.KEYCODE_ALT
-	private static final int KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 1; // Keyboard.EDGE_LEFT
-	private static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 4; // Keyboard.EDGE_TOP
-	private static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = -1; // Keyboard.KEYCODE_SHIFT
-	private static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = -2; // Keyboard.KEYCODE_MODE_CHANGE
+	public static final int SETTINGS_KEYCODE = 8; // Keyboard.EDGE_BOTTOM
+	public static final int KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE = -6; // Keyboard.KEYCODE_ALT
+	public static final int KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 1; // Keyboard.EDGE_LEFT
+	public static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 4; // Keyboard.EDGE_TOP
+	public static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = -1; // Keyboard.KEYCODE_SHIFT
+	public static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = -2; // Keyboard.KEYCODE_MODE_CHANGE
 
-	private static final int KSHA_OTTU = 0xfc95;
-	private static final int ARKAA_OTTU = 0xfcef;
+	public static final int KSHA_COMPOUND_LETTER = 0xF010;
+	public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
+	public static final int JNYA_COMPOUND_LETTER = 0xF012;
+	public static final int OTTU_R_COMPOUND_LETTER = 0xF013;
+	public static final int TRA_COMPOUND_LETTER = 0xF014;
+	public static final int SHRA_COMPOUND_LETTER = 0xF015;
 
 	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard", "Phonetic" };
 	private static final int KB_KAGAPA = 0;
@@ -1015,10 +1019,24 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			updateShiftKeyState(getCurrentInputEditorInfo());
 			updateCandidates();
 		} else {
-			if (primaryCode == ARKAA_OTTU) {
-				getCurrentInputConnection().commitText("ರ್", 2);
-			} else if (primaryCode == KSHA_OTTU) {
+//			public static final int KSHA_COMPOUND_LETTER = 0xF010;
+//			public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
+//			public static final int JNYA_COMPOUND_LETTER = 0xF012;
+//			public static final int R_COMPOUND_LETTER = 0xF013;
+//			public static final int TRA_COMPOUND_LETTER = 0xF014;
+//			public static final int SHRA_COMPOUND_LETTER = 0xF015;
+			if (primaryCode == KSHA_COMPOUND_LETTER) {
 				getCurrentInputConnection().commitText("ಕ್ಷ", 3);
+			} else if (primaryCode == ARKAAOTTU_COMPOUND_LETTER) {
+				getCurrentInputConnection().commitText("ರ್", 2);
+			} else if (primaryCode == JNYA_COMPOUND_LETTER) {
+				getCurrentInputConnection().commitText("ಜ್ಞ", 2);
+			} else if (primaryCode == OTTU_R_COMPOUND_LETTER) {
+				getCurrentInputConnection().commitText("್ರ", 2);
+			} else if (primaryCode == TRA_COMPOUND_LETTER) {
+				getCurrentInputConnection().commitText("ತ್ರ", 2);
+			} else if (primaryCode == SHRA_COMPOUND_LETTER) {
+				getCurrentInputConnection().commitText("ಶ್ರ", 2);
 			} else {
 				getCurrentInputConnection().commitText(String.valueOf((char) primaryCode), 1);
 			}

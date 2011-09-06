@@ -48,8 +48,8 @@
   </Row>
 
   <Row>
-    <Key android:codes="0x0cef" android:keyIcon="@drawable/kan_inscript_arkaaottu" android:keyEdgeFlags="left" />
-    <Key android:codes="0x0cb0" android:keyIcon="@drawable/kan_inscript_r" />
+    <Key android:codes="0xF011" android:keyIcon="@drawable/kan_inscript_arkaaottu" android:keyEdgeFlags="left" />
+    <Key android:codes="0xF013" android:keyIcon="@drawable/kan_inscript_ottu_r" />
     <Key android:codes="60" android:keyIcon="@drawable/sym_less_than" />
     <Key android:codes="62" android:keyIcon="@drawable/sym_greater_than" />
     <Key android:codes="123" android:keyIcon="@drawable/sym_left_curly_bracket" />
@@ -65,7 +65,7 @@
     <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="10%p"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
     <Key android:codes="1" android:keyIcon="@drawable/n_to_a" android:keyWidth="10%p" />
-    <Key android:codes="0x0cb6" android:keyIcon="@drawable/kan_inscript_shra" />
+    <Key android:codes="0xF015" android:keyIcon="@drawable/kan_inscript_shra" />
     <Key android:codes="0x0cde" android:keyIcon="@drawable/kan_inscript_llla" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="18%p"
       android:isRepeatable="true" />
