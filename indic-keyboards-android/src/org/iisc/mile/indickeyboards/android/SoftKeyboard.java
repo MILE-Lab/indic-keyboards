@@ -1019,12 +1019,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			updateShiftKeyState(getCurrentInputEditorInfo());
 			updateCandidates();
 		} else {
-//			public static final int KSHA_COMPOUND_LETTER = 0xF010;
-//			public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
-//			public static final int JNYA_COMPOUND_LETTER = 0xF012;
-//			public static final int R_COMPOUND_LETTER = 0xF013;
-//			public static final int TRA_COMPOUND_LETTER = 0xF014;
-//			public static final int SHRA_COMPOUND_LETTER = 0xF015;
 			if (primaryCode == KSHA_COMPOUND_LETTER) {
 				getCurrentInputConnection().commitText("ಕ್ಷ", 3);
 			} else if (primaryCode == ARKAAOTTU_COMPOUND_LETTER) {
