@@ -58,6 +58,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 0xF003;
 	public static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF004;
 	public static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = 0xF005;
+	public static final int HINDI_REMINGTON_LETTERS_TO_SYMBOLS_KEYCODE = 0xF101;
 
 	public static final int KSHA_COMPOUND_LETTER = 0xF010;
 	public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
@@ -71,7 +72,13 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private static final int KB_INSCRIPT = 1;
 	private static final int KB_3x4 = 2;
 	private static final int KB_PHONETIC = 3;
-
+	
+	String[] HINDI_LAYOUT_CHOICES = new String[] { "Remington", "InScript", "3x4 Keyboard", "Phonetic" };
+	private static final int HKB_REMINGTON = 4;
+	private static final int HKB_INSCRIPT = 5;
+	private static final int HKB_3x4 = 6;
+	private static final int HKB_PHONETIC = 7;
+	
 	String[] LANGUAGE_CHOICES = new String[] { "Hindi", "Kannada", "Tamil" };
 	private static final int LAN_HINDI = 0;
 	private static final int LAN_KANNADA = 1;
@@ -115,6 +122,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private LatinKeyboard mKannada3x4NumbersShiftedKeyboard;
 	private LatinKeyboard mKannada3x4Keyboard;
 	private LatinKeyboard mKannada3x4SymbolsKeyboard;
+	private LatinKeyboard mHindiRemingtonKeyboard;
+	private LatinKeyboard mHindiRemingtonShiftedKeyboard;
+	private LatinKeyboard mHindiRemingtonSymbolsKeyboard;
+	private LatinKeyboard mHindiRemingtonSymbolsShiftedKeyboard;
 
 	private LatinKeyboard getPhoneticKeyboard() {
 		if (mPhoneticKeyboard == null) {
@@ -228,6 +239,35 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		}
 		return mKannada3x4SymbolsKeyboard;
 	}
+	
+	private LatinKeyboard getHindiRemingtonKeyboard() {
+		if (mHindiRemingtonKeyboard == null) {
+			mHindiRemingtonKeyboard = new LatinKeyboard(this, R.xml.hindi_remington);
+		}
+		return mHindiRemingtonKeyboard;
+	}
+
+	private LatinKeyboard getHindiRemingtonShiftedKeyboard() {
+		if (mHindiRemingtonShiftedKeyboard == null) {
+			mHindiRemingtonShiftedKeyboard = new LatinKeyboard(this, R.xml.hindi_remington_shift);
+		}
+		return mHindiRemingtonShiftedKeyboard;
+	}
+
+	private LatinKeyboard getHindiRemingtonSymbolsKeyboard() {
+		if (mHindiRemingtonSymbolsKeyboard == null) {
+			mHindiRemingtonSymbolsKeyboard = new LatinKeyboard(this, R.xml.hindi_remington_symbols);
+		}
+		return mHindiRemingtonSymbolsKeyboard;
+	}
+
+	private LatinKeyboard getHindiRemingtonSymbolsShiftedKeyboard() {
+		if (mHindiRemingtonSymbolsShiftedKeyboard == null) {
+			mHindiRemingtonSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.hindi_remington_symbols_shift);
+		}
+		return mHindiRemingtonSymbolsShiftedKeyboard;
+	}
+
 
 	private void resetKeyboards() {
 		mPhoneticSymbolsKeyboard = null;
@@ -246,6 +286,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mKannada3x4NumbersShiftedKeyboard = null;
 		mKannada3x4Keyboard = null;
 		mKannada3x4SymbolsKeyboard = null;
+		mHindiRemingtonKeyboard = null;
+		mHindiRemingtonShiftedKeyboard = null;
+		mHindiRemingtonSymbolsKeyboard = null;
+		mHindiRemingtonSymbolsShiftedKeyboard = null;
 	}
 
 	static private LatinKeyboard mCurKeyboard;
@@ -430,6 +474,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			return getKannadaInScriptKeyboard();
 		case KB_3x4:
 			return getKannada3x4Keyboard();
+		case HKB_REMINGTON:
+			return getHindiRemingtonKeyboard();
 		default:
 			return getPhoneticKeyboard();
 		}
@@ -791,6 +837,17 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			if (current == mKannada3x4SymbolsKeyboard) {
 				current.setShifted(false);
 			}
+		} else if (presentKeycode == HINDI_REMINGTON_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mHindiRemingtonKeyboard || current == mHindiRemingtonShiftedKeyboard) {
+				current = getHindiRemingtonSymbolsKeyboard();
+			} else {
+				current = getHindiRemingtonKeyboard();
+			}
+			mInputView.setKeyboard(current);
+			if (current == mHindiRemingtonSymbolsKeyboard) {
+				current.setShifted(false);
+			}
 		} else if (mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode)
 				&& !checkInScriptKeyboard()) {
 			handleCharacter(mVowels.get(presentKeycode), keyCodes);
@@ -811,7 +868,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		return false;
 	}
 
-	private void showLayoutOptionsMenu() {
+	private void showKannadaLayoutOptionsMenu() {
 		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
 		lyBuilder.setCancelable(true);
 		lyBuilder.setTitle("Select Layout");
@@ -853,6 +910,48 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mOptionsDialog.show();
 	}
 
+	private void showHindiLayoutOptionsMenu() {
+		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
+		lyBuilder.setCancelable(true);
+		lyBuilder.setTitle("Select Layout");
+		lyBuilder.setSingleChoiceItems(HINDI_LAYOUT_CHOICES,
+				mSharedPreferences.getInt(KB_CURRENT_LAYOUT, KB_INSCRIPT), new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						SharedPreferences.Editor editor = mSharedPreferences.edit();
+						switch (which) {
+						case 0: // Hindi Remington
+							editor.putInt(KB_CURRENT_LAYOUT, HKB_REMINGTON);
+							mInputView.setKeyboard(getHindiRemingtonKeyboard());
+							break;
+						case HKB_INSCRIPT: // InScript Keyboard
+							editor.putInt(KB_CURRENT_LAYOUT, HKB_INSCRIPT);
+							mInputView.setKeyboard(getKannadaInScriptKeyboard());
+							break;
+						case HKB_3x4: // 3x4 Keyboard
+							editor.putInt(KB_CURRENT_LAYOUT, HKB_3x4);
+							mInputView.setKeyboard(getKannada3x4Keyboard());
+							break;
+						case KB_PHONETIC: // Phonetic
+							editor.putInt(KB_CURRENT_LAYOUT, KB_PHONETIC);
+							mInputView.setKeyboard(getPhoneticKeyboard());
+							break;
+						}
+						editor.commit();
+						dialog.dismiss();
+						onFinishInput();
+					}
+				});
+		AlertDialog mOptionsDialog = lyBuilder.create();
+		Window window = mOptionsDialog.getWindow();
+		WindowManager.LayoutParams lp = window.getAttributes();
+
+		lp.token = mInputView.getWindowToken();
+		lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
+		window.setAttributes(lp);
+		window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+		mOptionsDialog.show();
+	}
+
 	private void showLanguageOptionsMenu() {
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
 		lanBuilder.setCancelable(true);
@@ -865,11 +964,12 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				case LAN_HINDI: // Hindi
 					Toast.makeText(getBaseContext(), "Hindi Keyboard selected", Toast.LENGTH_SHORT).show();
 					editor.putInt(KB_CURRENT_LANGUAGE, LAN_HINDI);
+					showHindiLayoutOptionsMenu();
 					break;
 				case LAN_KANNADA: // Kannada
 					Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT).show();
 					editor.putInt(KB_CURRENT_LANGUAGE, LAN_KANNADA);
-					showLayoutOptionsMenu();
+					showKannadaLayoutOptionsMenu();
 					break;
 				default:
 					editor.putInt(KB_CURRENT_LANGUAGE, LAN_TAMIL);
@@ -1010,6 +1110,22 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			mKannada3x4NumbersShiftedKeyboard.setShifted(false);
 			mInputView.setKeyboard(getKannada3x4NumbersKeyboard());
 			mKannada3x4NumbersKeyboard.setShifted(false);
+		}else if (currentKeyboard == mHindiRemingtonSymbolsKeyboard) {
+			mHindiRemingtonSymbolsKeyboard.setShifted(true);
+			mInputView.setKeyboard(getHindiRemingtonSymbolsShiftedKeyboard());
+			mHindiRemingtonSymbolsShiftedKeyboard.setShifted(true);
+		} else if (currentKeyboard == mHindiRemingtonSymbolsShiftedKeyboard) {
+			mHindiRemingtonSymbolsShiftedKeyboard.setShifted(false);
+			mInputView.setKeyboard(getHindiRemingtonSymbolsKeyboard());
+			mHindiRemingtonSymbolsKeyboard.setShifted(false);
+		} else if (currentKeyboard == mHindiRemingtonKeyboard) {
+			mHindiRemingtonKeyboard.setShifted(true);
+			mInputView.setKeyboard(getHindiRemingtonShiftedKeyboard());
+			mHindiRemingtonShiftedKeyboard.setShifted(true);
+		} else if (currentKeyboard == mHindiRemingtonShiftedKeyboard) {
+			mHindiRemingtonShiftedKeyboard.setShifted(false);
+			mInputView.setKeyboard(getHindiRemingtonKeyboard());
+			mHindiRemingtonKeyboard.setShifted(false);
 		}
 	}
 
