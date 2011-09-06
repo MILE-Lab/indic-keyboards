@@ -42,7 +42,7 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="56" android:keyIcon="@drawable/hindi_3x4_num_8" android:keyWidth="25%p" />
     <Key android:codes="57" android:keyIcon="@drawable/hindi_3x4_num_9" android:keyWidth="25%p" />
-    <Key android:codes="0xF102" android:keyIcon="@drawable/n_to_a" android:keyWidth="25%p"
+    <Key android:codes="0xF102" android:keyIcon="@drawable/hindi_3x4_num_sym_to_a" android:keyWidth="25%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 

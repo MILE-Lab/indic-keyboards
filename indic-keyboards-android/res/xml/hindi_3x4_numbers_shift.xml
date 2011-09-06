@@ -44,7 +44,7 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="0x096e" android:keyIcon="@drawable/hindi_3x4_num_8_hindi" android:keyWidth="25%p" />
     <Key android:codes="0x096f" android:keyIcon="@drawable/hindi_3x4_num_9_hindi" android:keyWidth="25%p" />
-    <Key android:codes="0xF102" android:keyIcon="@drawable/n_to_a" android:keyWidth="25%p"
+    <Key android:codes="0xF102" android:keyIcon="@drawable/hindi_3x4_num_sym_to_a" android:keyWidth="25%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 
