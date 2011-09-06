@@ -22,16 +22,16 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="3303" android:keyIcon="@drawable/hindi_num_1_hindi" android:keyEdgeFlags="left" />
-    <Key android:codes="3304" android:keyIcon="@drawable/hindi_num_2_hindi" />
-    <Key android:codes="3305" android:keyIcon="@drawable/hindi_num_3_hindi" />
-    <Key android:codes="3306" android:keyIcon="@drawable/hindi_num_4_hindi" />
-    <Key android:codes="3307" android:keyIcon="@drawable/hindi_num_5_hindi" />
-    <Key android:codes="3308" android:keyIcon="@drawable/hindi_num_6_hindi" />
-    <Key android:codes="3309" android:keyIcon="@drawable/hindi_num_7_hindi" />
-    <Key android:codes="3310" android:keyIcon="@drawable/hindi_num_8_hindi" />
-    <Key android:codes="3311" android:keyIcon="@drawable/hindi_num_9_hindi" />
-    <Key android:codes="3302" android:keyIcon="@drawable/hindi_num_0_hindi" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0967" android:keyIcon="@drawable/hindi_num_1_hindi" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0968" android:keyIcon="@drawable/hindi_num_2_hindi" />
+    <Key android:codes="0x0969" android:keyIcon="@drawable/hindi_num_3_hindi" />
+    <Key android:codes="0x096a" android:keyIcon="@drawable/hindi_num_4_hindi" />
+    <Key android:codes="0x096b" android:keyIcon="@drawable/hindi_num_5_hindi" />
+    <Key android:codes="0x096c" android:keyIcon="@drawable/hindi_num_6_hindi" />
+    <Key android:codes="0x096d" android:keyIcon="@drawable/hindi_num_7_hindi" />
+    <Key android:codes="0x096e" android:keyIcon="@drawable/hindi_num_8_hindi" />
+    <Key android:codes="0x096f" android:keyIcon="@drawable/hindi_num_9_hindi" />
+    <Key android:codes="0x0966" android:keyIcon="@drawable/hindi_num_0_hindi" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
