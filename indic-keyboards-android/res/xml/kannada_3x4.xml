@@ -22,7 +22,7 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="3202,3203,3277" android:keyIcon="@drawable/kan_3x4_anusvara_visarga_halant" android:keyWidth="25%p"
+    <Key android:codes="3277,3202,3203" android:keyIcon="@drawable/kan_3x4_halant_anusvara_visarga" android:keyWidth="25%p"
       android:keyEdgeFlags="left" />
     <Key android:codes="3205,3206,3207,3208,3209,3210,3211" android:keyIcon="@drawable/kan_3x4_a_vocalic_r"
       android:keyWidth="25%p" />
