@@ -25,8 +25,8 @@ import java.util.Set;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.content.res.Configuration;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -869,17 +869,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 
 	// Implementation of KeyboardViewListener
 	public void onKey(int presentKeycode, int[] keyCodes) {
-		InputConnection ic = getCurrentInputConnection();
-		String lastChar;
-		int mLastKey = -44;
-
-		lastChar = ic.getTextBeforeCursor(1, 0).toString();
-		if (lastChar.length() > 0) {
-			mLastKey = lastChar.codePointAt(0);
-		} else {
-			mLastKey = -44; // dummy
-		}
-
 		if (isWordSeparator(presentKeycode)) {
 			// Handle separator
 			if (mComposing.length() > 0) {
@@ -1028,9 +1017,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			if (current == mTamil3x4SymbolsKeyboard) {
 				current.setShifted(false);
 			}
-		} else if (mConsonants.contains(mLastKey) && mVowels.containsKey(presentKeycode)
-				&& !checkInScriptKeyboard()) {
-			handleCharacter(mVowels.get(presentKeycode), keyCodes);
 		} else {
 			handleCharacter(presentKeycode, keyCodes);
 		}
@@ -1038,14 +1024,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			shiftState = SHIFT_STATE_INITIAL;
 			handleShift();
 		}
-	}
-
-	private boolean checkInScriptKeyboard() {
-		Keyboard current = mInputView.getKeyboard();
-		if (current == mKannadaInScriptKeyboard || current == mKannadaInScriptShiftedKeyboard) {
-			return true;
-		}
-		return false;
 	}
 
 	private void showKannadaLayoutOptionsMenu() {
@@ -1384,7 +1362,39 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		}
 	}
 
+	private boolean isKaGaPaKeyboard() {
+		Keyboard current = mInputView.getKeyboard();
+		if (current == mKaGaPaKeyboard || current == mKaGaPaShiftedKeyboard) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean isKannada3x4Keyboard() {
+		Keyboard current = mInputView.getKeyboard();
+		if (current == mKannada3x4Keyboard) {
+			return true;
+		}
+		return false;
+	}
+
 	private void handleCharacter(int primaryCode, int[] keyCodes) {
+		if (isKaGaPaKeyboard() || isKannada3x4Keyboard()) {
+			InputConnection ic = getCurrentInputConnection();
+			if (isKannada3x4Keyboard()) {
+				// Don't delete this dummy code.
+				// Without this the 3x4 keyboard won't work reliably on Samsung Galaxy 5!
+				// Need to understand as to why this is happening.
+				ic.getTextBeforeCursor(2, 0).toString();
+			}
+			String previousCodes = ic.getTextBeforeCursor(1, 0).toString();
+			if (previousCodes.length() > 0) {
+				int previousCode = previousCodes.codePointAt(0);
+				if (mConsonants.contains(previousCode) && mVowels.containsKey(primaryCode)) {
+					primaryCode = mVowels.get(primaryCode);
+				}
+			}
+		}
 		if (isInputViewShown()) {
 			if (mInputView.isShifted()) {
 				// primaryCode = Character.toUpperCase(primaryCode);
