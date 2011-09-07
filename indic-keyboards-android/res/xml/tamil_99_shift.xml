@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* 
+**
+** Copyright 2008, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+**
+**     http://www.apache.org/licenses/LICENSE-2.0 
+**
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+*/
+-->
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android" android:keyWidth="10%p"
+  android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
+
+  <Row>
+    <Key android:codes="0x0bb8" android:keyIcon="@drawable/tamil_99_sa" android:keyWidth="11%p" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0bb7" android:keyIcon="@drawable/tamil_99_ssa" android:keyWidth="11%p" />
+    <Key android:codes="0x0b9c" android:keyIcon="@drawable/tamil_99_ja" android:keyWidth="11%p" />
+    <Key android:codes="0x0bb9" android:keyIcon="@drawable/tamil_99_ha" android:keyWidth="11%p" />
+    <Key android:codes=" " android:keyIcon="@drawable/tamil_99_ksha" android:keyWidth="11%p" />
+    <Key android:codes=" " android:keyIcon="@drawable/tamil_99_y_unknown" android:keyWidth="11%p" />
+    <Key android:codes="0x0ba9" android:keyIcon="@drawable/tamil_99_nnna" android:keyWidth="11%p" />
+    <Key android:codes="0x0ba3" android:keyIcon="@drawable/tamil_99_nna" android:keyWidth="11%p" />
+    <Key android:codes="0x0b82" android:keyIcon="@drawable/tamil_99_anuswara" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+  </Row>
+
+  <Row>
+    <Key android:codes="0x0bf9" android:keyIcon="@drawable/tamil_99_a_unknown" android:keyWidth="11%p" android:keyEdgeFlags="left" />
+    <Key android:codes=" " android:keyIcon="@drawable/tamil_99_s_unknown" android:keyWidth="11%p" />
+    <Key android:codes="0x0bf8" android:keyIcon="@drawable/tamil_99_tamil_as_above_sign" android:keyWidth="11%p" />
+    <Key android:codes="0x0b83" android:keyIcon="@drawable/tamil_99_visarga" android:keyWidth="11%p" />
+    <Key android:codes="0x0baa" android:keyIcon="@drawable/tamil_99_pa" android:keyWidth="11%p" />
+    <Key android:codes="0x0ba4" android:keyIcon="@drawable/tamil_99_ta" android:keyWidth="11%p" />
+    <Key android:codes="0x0baf" android:keyIcon="@drawable/tamil_99_ya" android:keyWidth="11%p" />
+    <Key android:codes="0x0bae" android:keyIcon="@drawable/tamil_99_nya" android:keyWidth="11%p" />
+    <Key android:codes="0x0bcd" android:keyIcon="@drawable/tamil_99_virama" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+  </Row>
+
+  <Row>
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:horizontalGap="1%p" android:keyWidth="15%p"
+      android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0bf3" android:keyIcon="@drawable/tamil_99_tamil_day_sign" android:keyWidth="13%p" />
+    <Key android:codes="0x0bf4" android:keyIcon="@drawable/tamil_99_tamil_month_sign" android:keyWidth="11%p" />
+    <Key android:codes="0x0bf5" android:keyIcon="@drawable/tamil_99_tamil_year_sign" android:keyWidth="11%p" />
+    <Key android:codes="0x0bf6" android:keyIcon="@drawable/tamil_99_tamil_debit_sign" android:keyWidth="11%p" />
+    <Key android:codes="0x0bff" android:keyIcon="@drawable/tamil_99_tamil_credit_sign" android:keyWidth="11%p" />
+    <Key android:codes="0x0bb0" android:keyIcon="@drawable/tamil_99_ra" android:keyWidth="11%p" />
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="15%p"
+      android:keyEdgeFlags="right" android:isRepeatable="true" />
+  </Row>
+
+  <Row android:rowEdgeFlags="bottom">
+    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="15%p"
+      android:keyEdgeFlags="left" />
+    <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="35%p"
+      android:isRepeatable="true" />
+    <Key android:codes="0xF203" android:keyLabel="\?123" android:keyWidth="15%p" />
+    <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="15%p"
+      android:keyEdgeFlags="right" />
+  </Row>
+</Keyboard>
