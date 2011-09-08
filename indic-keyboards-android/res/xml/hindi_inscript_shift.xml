@@ -37,11 +37,11 @@
   <Row>
     <Key android:codes="0x0913" android:keyIcon="@drawable/hindi_inscript_oo" android:keyEdgeFlags="left" />
     <Key android:codes="0x090f" android:keyIcon="@drawable/hindi_inscript_e" />
-    <Key android:codes="0x0904" android:keyIcon="@drawable/hindi_inscript_a" />
-    <Key android:codes="0x0917" android:keyIcon="@drawable/hindi_inscript_i" />
+    <Key android:codes="0x0905" android:keyIcon="@drawable/hindi_inscript_a" />
+    <Key android:codes="0x0907" android:keyIcon="@drawable/hindi_inscript_i" />
     <Key android:codes="0x0909" android:keyIcon="@drawable/hindi_inscript_u" />
     <Key android:codes="0x092b" android:keyIcon="@drawable/hindi_inscript_pha" />
-    <Key android:codes="0x0930" android:keyIcon="@drawable/hindi_inscript_ya" />
+    <Key android:codes="0x092f" android:keyIcon="@drawable/hindi_inscript_ya" />
     <Key android:codes="0x0916" android:keyIcon="@drawable/hindi_inscript_kha" />
     <Key android:codes="0x0925" android:keyIcon="@drawable/hindi_inscript_tha" />
     <Key android:codes="0x091b" android:keyIcon="@drawable/hindi_inscript_cha" android:keyEdgeFlags="right" />
@@ -50,13 +50,13 @@
   <Row>
     <Key android:codes="0x0912" android:keyIcon="@drawable/hindi_inscript_short_o" android:keyEdgeFlags="left" />
     <Key android:codes="0x090e" android:keyIcon="@drawable/hindi_inscript_short_e" />
-    <Key android:codes="0x0901" android:keyIcon="@drawable/hindi_inscript_vocalic_r" />
-    <Key android:codes="0x0923" android:keyIcon="@drawable/hindi_inscript_visarga" />
-    <Key android:codes="0x091e" android:keyIcon="@drawable/hindi_inscript_nna" />
-    <Key android:codes="0x0937" android:keyIcon="@drawable/hindi_inscript_nya" />
-    <Key android:codes="0x0932" android:keyIcon="@drawable/hindi_inscript_ssa" />
-    <Key android:codes="0x0936" android:keyIcon="@drawable/hindi_inscript_lla" />
-    <Key android:codes="0x090b" android:keyIcon="@drawable/hindi_inscript_sha" />
+    <Key android:codes="0x090b" android:keyIcon="@drawable/hindi_inscript_vocalic_r" />
+    <Key android:codes="0x0903" android:keyIcon="@drawable/hindi_inscript_visarga" />
+    <Key android:codes="0x0923" android:keyIcon="@drawable/hindi_inscript_nna" />
+    <Key android:codes="0x091e" android:keyIcon="@drawable/hindi_inscript_nya" />
+    <Key android:codes="0x0937" android:keyIcon="@drawable/hindi_inscript_ssa" />
+    <Key android:codes="0x0933" android:keyIcon="@drawable/hindi_inscript_lla" />
+    <Key android:codes="0x0936" android:keyIcon="@drawable/hindi_inscript_sha" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="10%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
