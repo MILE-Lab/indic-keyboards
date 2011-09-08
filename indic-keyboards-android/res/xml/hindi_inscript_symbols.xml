@@ -48,14 +48,14 @@
   </Row>
 
   <Row>
-    <Key android:codes=" " android:keyIcon="@drawable/hindi_inscript_ksha" android:keyEdgeFlags="left" />
-    <Key android:codes=" " android:keyIcon="@drawable/hindi_inscript_jnya" />
-    <Key android:codes="33" android:keyIcon="@drawable/sym_exclamation" />
+    <Key android:codes="33" android:keyIcon="@drawable/sym_exclamation" android:keyEdgeFlags="left" />
     <Key android:codes="34" android:keyIcon="@drawable/sym_double_quotes" />
     <Key android:codes="39" android:keyIcon="@drawable/sym_single_quotes" />
     <Key android:codes="58" android:keyIcon="@drawable/sym_colon" />
     <Key android:codes="59" android:keyIcon="@drawable/sym_semi_colon" />
     <Key android:codes="47" android:keyIcon="@drawable/sym_forward_slash" />
+    <Key android:codes=" " android:keyIcon="@drawable/hindi_inscript_ksha" />
+    <Key android:codes=" " android:keyIcon="@drawable/hindi_inscript_jnya" />
     <Key android:codes="63" android:keyIcon="@drawable/sym_question_mark" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" 
       android:isRepeatable="true" />

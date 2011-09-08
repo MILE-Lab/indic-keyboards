@@ -48,14 +48,14 @@
   </Row>
 
   <Row>
-    <Key android:codes="0xF011" android:keyIcon="@drawable/kan_inscript_arkaaottu" android:keyEdgeFlags="left" />
-    <Key android:codes="0xF013" android:keyIcon="@drawable/kan_inscript_ottu_r" />
-    <Key android:codes="60" android:keyIcon="@drawable/sym_less_than" />
+    <Key android:codes="60" android:keyIcon="@drawable/sym_less_than" android:keyEdgeFlags="left" />
     <Key android:codes="62" android:keyIcon="@drawable/sym_greater_than" />
     <Key android:codes="123" android:keyIcon="@drawable/sym_left_curly_bracket" />
     <Key android:codes="125" android:keyIcon="@drawable/sym_right_curly_bracket" />
     <Key android:codes="124" android:keyIcon="@drawable/sym_vertical_bar" />
     <Key android:codes="92" android:keyIcon="@drawable/sym_backward_slash" />
+    <Key android:codes="0xF011" android:keyIcon="@drawable/kan_inscript_arkaaottu" />
+    <Key android:codes="0xF013" android:keyIcon="@drawable/kan_inscript_ottu_r" />
     <Key android:codes="169" android:keyIcon="@drawable/sym_copyright" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" 
       android:isRepeatable="true" />
