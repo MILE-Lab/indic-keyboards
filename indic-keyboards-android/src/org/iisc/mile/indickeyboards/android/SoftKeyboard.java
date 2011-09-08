@@ -66,7 +66,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int TAMIL_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF202;
 	public static final int TAMIL_99_LETTERS_TO_SYMBOLS_KEYCODE = 0xF203;
 	public static final int TAMIL_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 0xF204;
-	
+
 	public static final int KSHA_COMPOUND_LETTER = 0xF010;
 	public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
 	public static final int JNYA_COMPOUND_LETTER = 0xF012;
@@ -86,7 +86,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private static final int KB_HINDI_3x4 = 2;
 	private static final int KB_HINDI_PHONETIC = 3;
 
-	String[] TAMIL_LAYOUT_CHOICES = new String[] { "TamilNet99","InScript","3x4 Keyboard", "Phonetic" };
+	String[] TAMIL_LAYOUT_CHOICES = new String[] { "TamilNet99", "InScript", "3x4 Keyboard", "Phonetic" };
 	private static final int KB_TAMILNET99 = 0;
 	private static final int KB_TAMIL_INSCRIPT = 1;
 	// private static final int KB_TAMIL_REMINGTON = 2;
@@ -419,7 +419,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		}
 		return mTamilNet99SymbolsShiftedKeyboard;
 	}
-	
+
 	private LatinKeyboard getTamilInScriptKeyboard() {
 		if (mTamilInScriptKeyboard == null) {
 			mTamilInScriptKeyboard = new LatinKeyboard(this, R.xml.tamil_inscript);
@@ -443,13 +443,11 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 
 	private LatinKeyboard getTamilInScriptSymbolsShiftedKeyboard() {
 		if (mTamilInScriptSymbolsShiftedKeyboard == null) {
-			mTamilInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this,
-					R.xml.tamil_inscript_symbols_shift);
+			mTamilInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.tamil_inscript_symbols_shift);
 		}
 		return mTamilInScriptSymbolsShiftedKeyboard;
 	}
-	
-	
+
 	private void resetKeyboards() {
 		mPhoneticSymbolsKeyboard = null;
 		mPhoneticSymbolsShiftedKeyboard = null;
@@ -1264,10 +1262,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 							editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMILNET99);
 							mInputView.setKeyboard(getTamilNet99Keyboard());
 							break;
-//						case KB_TAMIL_REMINGTON:
-//							editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_REMINGTON);
-//							mInputView.setKeyboard(getTamilRemingtonKeyboard());
-//							break;
+						// case KB_TAMIL_REMINGTON:
+						// editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_REMINGTON);
+						// mInputView.setKeyboard(getTamilRemingtonKeyboard());
+						// break;
 						case KB_TAMIL_INSCRIPT:
 							editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_INSCRIPT);
 							mInputView.setKeyboard(getTamilInScriptKeyboard());
