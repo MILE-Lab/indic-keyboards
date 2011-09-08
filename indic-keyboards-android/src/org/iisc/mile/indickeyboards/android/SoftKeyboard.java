@@ -1581,21 +1581,22 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			updateShiftKeyState(getCurrentInputEditorInfo());
 			updateCandidates();
 		} else {
+			int keyboardLanguage = mSharedPreferences.getInt(KB_CURRENT_LANGUAGE, KB_DEFAULT_LANGUAGE);
+			String text = String.valueOf((char) primaryCode);
 			if (primaryCode == KSHA_COMPOUND_LETTER) {
-				getCurrentInputConnection().commitText("ಕ್ಷ", 3);
-			} else if (primaryCode == ARKAAOTTU_COMPOUND_LETTER) {
-				getCurrentInputConnection().commitText("ರ್", 2);
+				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಕ್ಷ" : "क्ष";
 			} else if (primaryCode == JNYA_COMPOUND_LETTER) {
-				getCurrentInputConnection().commitText("ಜ್ಞ", 2);
-			} else if (primaryCode == OTTU_R_COMPOUND_LETTER) {
-				getCurrentInputConnection().commitText("್ರ", 2);
+				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಜ್ಞ" : "ज्ञ";
 			} else if (primaryCode == TRA_COMPOUND_LETTER) {
-				getCurrentInputConnection().commitText("ತ್ರ", 2);
+				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ತ್ರ" : "त्र";
 			} else if (primaryCode == SHRA_COMPOUND_LETTER) {
-				getCurrentInputConnection().commitText("ಶ್ರ", 2);
-			} else {
-				getCurrentInputConnection().commitText(String.valueOf((char) primaryCode), 1);
+				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಶ್ರ" : "श्र";
+			} else if (primaryCode == ARKAAOTTU_COMPOUND_LETTER) {
+				text = "ರ್";
+			} else if (primaryCode == OTTU_R_COMPOUND_LETTER) {
+				text = "್ರ";
 			}
+			getCurrentInputConnection().commitText(text, text.length());
 		}
 	}
 

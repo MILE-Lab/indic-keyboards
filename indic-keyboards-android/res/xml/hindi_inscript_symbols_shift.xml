@@ -54,8 +54,9 @@
     <Key android:codes="125" android:keyIcon="@drawable/sym_right_curly_bracket" />
     <Key android:codes="124" android:keyIcon="@drawable/sym_vertical_bar" />
     <Key android:codes="92" android:keyIcon="@drawable/sym_backward_slash" />
-    <Key android:codes="0x0903" android:keyIcon="@drawable/hindi_inscript_visarga" />
-    <Key android:codes="0x095f" android:keyIcon="@drawable/hindi_inscript_yya" />
+    <Key android:codes="61460,61461" android:keyIcon="@drawable/hindi_inscript_tra" />
+    <Key android:codes="0x200D" android:keyIcon="@drawable/sym_zwj" />
+    <!-- Key android:codes="2419,2420,2421,2422,2423" android:keyIcon="@drawable/hindi_inscript_kashmiri_vowel" / -->
     <Key android:codes="169" android:keyIcon="@drawable/sym_copyright" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" 
       android:isRepeatable="true" />
@@ -69,8 +70,8 @@
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="18%p"
       android:isRepeatable="true" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
-    <Key android:codes=" " android:keyIcon="@drawable/hindi_inscript_shra" />
-    <Key android:codes="0x0934" android:keyIcon="@drawable/hindi_inscript_llla" />
+    <Key android:codes="0x0950" android:keyIcon="@drawable/hindi_inscript_om" />
+    <Key android:codes="0x093d" android:keyIcon="@drawable/hindi_inscript_avagraha" />
     <Key android:codes="0xF104" android:keyIcon="@drawable/hindi_inscript_num_to_letters" android:keyWidth="10%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="10%p"
       android:keyEdgeFlags="right" />
