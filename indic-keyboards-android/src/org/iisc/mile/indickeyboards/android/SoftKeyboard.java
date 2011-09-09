@@ -1619,7 +1619,17 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			String text = String.valueOf((char) primaryCode);
 			switch (primaryCode) {
 			case KSHA_COMPOUND_LETTER:
-				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಕ್ಷ" : "क्ष";
+				switch (keyboardLanguage) {
+				case KB_LANGUAGE_KANNADA:
+					text = "ಕ್ಷ";
+					break;
+				case KB_LANGUAGE_HINDI:
+					text = "क्ष";
+					break;
+				case KB_LANGUAGE_TAMIL:
+					text = "க்ஷ";
+					break;
+				}
 				break;
 			case JNYA_COMPOUND_LETTER:
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಜ್ಞ" : "ज्ञ";
@@ -1628,7 +1638,17 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ತ್ರ" : "त्र";
 				break;
 			case SHRA_COMPOUND_LETTER:
-				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಶ್ರ" : "श्र";
+				switch (keyboardLanguage) {
+				case KB_LANGUAGE_KANNADA:
+					text = "ಶ್ರ";
+					break;
+				case KB_LANGUAGE_HINDI:
+					text = "श्र";
+					break;
+				case KB_LANGUAGE_TAMIL:
+					text = "ஷ்ர";
+					break;
+				}
 				break;
 			case ARKAAOTTU_COMPOUND_LETTER:
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ರ್" : "र्";

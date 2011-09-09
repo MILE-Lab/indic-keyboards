@@ -30,7 +30,7 @@
     <Key android:codes="0x0b99" android:keyIcon="@drawable/tamil_inscript_nga" android:keyWidth="11%p" />
     <Key android:codes="0x0b9e" android:keyIcon="@drawable/tamil_inscript_nya" android:keyWidth="11%p" />
     <Key android:codes="0x0b83" android:keyIcon="@drawable/tamil_inscript_anusvara" android:keyWidth="11%p" />
-    <Key android:codes=" " android:keyIcon="@drawable/tamil_inscript_ksha" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+    <Key android:codes="0xF010" android:keyIcon="@drawable/tamil_inscript_ksha" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
