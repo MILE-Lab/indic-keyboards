@@ -53,15 +53,18 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	static final boolean PROCESS_HARD_KEYS = true;
 
 	public static final int SETTINGS_KEYCODE = 0xF000;
+
 	public static final int KAGAPA_LETTERS_TO_SYMBOLS_KEYCODE = 0xF001;
 	public static final int KANNADA_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 0xF002;
 	public static final int KANNADA_3X4_LETTERS_TO_NUMBERS_KEYCODE = 0xF003;
 	public static final int KANNADA_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF004;
 	public static final int PHONETIC_LETTERS_TO_SYMBOLS_KEYCODE = 0xF005;
+
 	public static final int HINDI_REMINGTON_LETTERS_TO_SYMBOLS_KEYCODE = 0xF101;
 	public static final int HINDI_3X4_LETTERS_TO_NUMBERS_KEYCODE = 0xF102;
 	public static final int HINDI_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF103;
 	public static final int HINDI_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 0xF104;
+
 	public static final int TAMIL_3X4_LETTERS_TO_NUMBERS_KEYCODE = 0xF201;
 	public static final int TAMIL_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF202;
 	public static final int TAMIL_99_LETTERS_TO_SYMBOLS_KEYCODE = 0xF203;
@@ -73,6 +76,31 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int OTTU_R_COMPOUND_LETTER = 0xF013;
 	public static final int TRA_COMPOUND_LETTER = 0xF014;
 	public static final int SHRA_COMPOUND_LETTER = 0xF015;
+
+	public static final int DVA_COMPOUND_LETTER = 0xF016;
+	public static final int DDHA_COMPOUND_LETTER = 0xF017;
+	public static final int DYA_COMPOUND_LETTER = 0xF018;
+
+	public static final int REMINGTON_LETTER_M = 0xF020;
+	public static final int REMINGTON_LETTER_T = 0xF021;
+	public static final int REMINGTON_LETTER_J = 0xF022;
+	public static final int REMINGTON_LETTER_L = 0xF023;
+	public static final int REMINGTON_LETTER_N = 0xF024;
+	public static final int REMINGTON_LETTER_P = 0xF025;
+	public static final int REMINGTON_LETTER_V = 0xF026;
+	public static final int REMINGTON_LETTER_C = 0xF027;
+	public static final int REMINGTON_LETTER_K = 0xF028;
+	public static final int REMINGTON_LETTER_TH = 0xF029;
+	public static final int REMINGTON_LETTER_BH = 0xF02A;
+	public static final int REMINGTON_LETTER_S = 0xF02B;
+	public static final int REMINGTON_LETTER_SS = 0xF02C;
+	public static final int REMINGTON_LETTER_SH = 0xF02D;
+	public static final int REMINGTON_LETTER_G = 0xF02E;
+	public static final int REMINGTON_LETTER_B = 0xF02F;
+	public static final int REMINGTON_LETTER_NN = 0xF030;
+	public static final int REMINGTON_LETTER_GH = 0xF031;
+	public static final int REMINGTON_LETTER_DH = 0xF032;
+	public static final int REMINGTON_LETTER_KH = 0xF033;
 
 	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard" };
 	private static final int KB_KAGAPA = 0;
@@ -1589,18 +1617,94 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		} else {
 			int keyboardLanguage = mSharedPreferences.getInt(KB_CURRENT_LANGUAGE, KB_DEFAULT_LANGUAGE);
 			String text = String.valueOf((char) primaryCode);
-			if (primaryCode == KSHA_COMPOUND_LETTER) {
+			switch (primaryCode) {
+			case KSHA_COMPOUND_LETTER:
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಕ್ಷ" : "क्ष";
-			} else if (primaryCode == JNYA_COMPOUND_LETTER) {
+				break;
+			case JNYA_COMPOUND_LETTER:
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಜ್ಞ" : "ज्ञ";
-			} else if (primaryCode == TRA_COMPOUND_LETTER) {
+				break;
+			case TRA_COMPOUND_LETTER:
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ತ್ರ" : "त्र";
-			} else if (primaryCode == SHRA_COMPOUND_LETTER) {
+				break;
+			case SHRA_COMPOUND_LETTER:
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಶ್ರ" : "श्र";
-			} else if (primaryCode == ARKAAOTTU_COMPOUND_LETTER) {
-				text = "ರ್";
-			} else if (primaryCode == OTTU_R_COMPOUND_LETTER) {
-				text = "್ರ";
+				break;
+			case ARKAAOTTU_COMPOUND_LETTER:
+				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ರ್" : "र्";
+				break;
+			case OTTU_R_COMPOUND_LETTER:
+				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "್ರ" : "्र";
+				break;
+			case DVA_COMPOUND_LETTER:
+				text = "द्व";
+				break;
+			case DDHA_COMPOUND_LETTER:
+				text = "द्ध";
+				break;
+			case DYA_COMPOUND_LETTER:
+				text = "द्य";
+				break;
+			case REMINGTON_LETTER_M:
+				text = "म्";
+				break;
+			case REMINGTON_LETTER_T:
+				text = "त्";
+				break;
+			case REMINGTON_LETTER_J:
+				text = "ज्";
+				break;
+			case REMINGTON_LETTER_L:
+				text = "ल्";
+				break;
+			case REMINGTON_LETTER_N:
+				text = "न्";
+				break;
+			case REMINGTON_LETTER_P:
+				text = "प्";
+				break;
+			case REMINGTON_LETTER_V:
+				text = "व्";
+				break;
+			case REMINGTON_LETTER_C:
+				text = "च्";
+				break;
+			case REMINGTON_LETTER_K:
+				text = "क्";
+				break;
+			case REMINGTON_LETTER_TH:
+				text = "थ्";
+				break;
+			case REMINGTON_LETTER_BH:
+				text = "भ्";
+				break;
+			case REMINGTON_LETTER_S:
+				text = "स्";
+				break;
+			case REMINGTON_LETTER_SS:
+				text = "ष्";
+				break;
+			case REMINGTON_LETTER_SH:
+				text = "श्";
+				break;
+			case REMINGTON_LETTER_G:
+				text = "ग्";
+				break;
+			case REMINGTON_LETTER_B:
+				text = "ब्";
+				break;
+			case REMINGTON_LETTER_NN:
+				text = "ण्";
+				break;
+			case REMINGTON_LETTER_GH:
+				text = "घ्";
+				break;
+			case REMINGTON_LETTER_DH:
+				text = "ध्";
+				break;
+			case REMINGTON_LETTER_KH:
+				text = "ख्";
+				break;
 			}
 			getCurrentInputConnection().commitText(text, text.length());
 		}
