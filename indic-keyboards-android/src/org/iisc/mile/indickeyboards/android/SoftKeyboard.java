@@ -74,35 +74,36 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int TRA_COMPOUND_LETTER = 0xF014;
 	public static final int SHRA_COMPOUND_LETTER = 0xF015;
 
-	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard", "Phonetic" };
+	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard" };
 	private static final int KB_KAGAPA = 0;
 	private static final int KB_KANNADA_INSCRIPT = 1;
 	private static final int KB_KANNADA_3x4 = 2;
-	private static final int KB_KANNADA_PHONETIC = 3;
+	// private static final int KB_KANNADA_PHONETIC = 3;
 
-	String[] HINDI_LAYOUT_CHOICES = new String[] { "Remington", "InScript", "3x4 Keyboard", "Phonetic" };
-	private static final int KB_HINDI_REMINGTON = 0;
-	private static final int KB_HINDI_INSCRIPT = 1;
+	String[] HINDI_LAYOUT_CHOICES = new String[] { "InScript", "Remington", "3x4 Keyboard" };
+	private static final int KB_HINDI_INSCRIPT = 0;
+	private static final int KB_HINDI_REMINGTON = 1;
 	private static final int KB_HINDI_3x4 = 2;
-	private static final int KB_HINDI_PHONETIC = 3;
+	// private static final int KB_HINDI_PHONETIC = 3;
 
-	String[] TAMIL_LAYOUT_CHOICES = new String[] { "TamilNet99", "InScript", "3x4 Keyboard", "Phonetic" };
+	String[] TAMIL_LAYOUT_CHOICES = new String[] { "TamilNet99", "InScript", "3x4 Keyboard" };
 	private static final int KB_TAMILNET99 = 0;
 	private static final int KB_TAMIL_INSCRIPT = 1;
 	// private static final int KB_TAMIL_REMINGTON = 2;
 	private static final int KB_TAMIL_3x4 = 2;
-	private static final int KB_TAMIL_PHONETIC = 3;
+	// private static final int KB_TAMIL_PHONETIC = 3;
 
-	String[] LANGUAGE_CHOICES = new String[] { "Hindi", "Kannada", "Tamil" };
+	String[] LANGUAGE_CHOICES = new String[] { "Devanagari", "Kannada", "Tamil", "Roman" };
 	private static final int KB_LANGUAGE_HINDI = 0;
 	private static final int KB_LANGUAGE_KANNADA = 1;
 	private static final int KB_LANGUAGE_TAMIL = 2;
+	private static final int KB_LANGUAGE_ENGLISH = 3;
 
 	private SharedPreferences mSharedPreferences;
 	private String KEYBOARD_PREFERENCES = "IISc MILE Indic Keyboards Preferences";
 	private static final String KB_CURRENT_LANGUAGE = "Current Keyboard Language";
 	private static final String KB_CURRENT_KANNADA_LAYOUT = "Current Kannada Keyboard Layout";
-	private static final String KB_CURRENT_HINDI_LAYOUT = "Current Hindi Keyboard Layout";
+	private static final String KB_CURRENT_HINDI_LAYOUT = "Current Devanagari Keyboard Layout";
 	private static final String KB_CURRENT_TAMIL_LAYOUT = "Current Tamil Keyboard Layout";
 
 	private static final int KB_DEFAULT_LANGUAGE = KB_LANGUAGE_KANNADA;
@@ -692,8 +693,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				return getKannadaInScriptKeyboard();
 			case KB_KANNADA_3x4:
 				return getKannada3x4Keyboard();
-			case KB_KANNADA_PHONETIC:
-				return getPhoneticKeyboard();
+				// case KB_KANNADA_PHONETIC:
+				// return getPhoneticKeyboard();
 			}
 		case KB_LANGUAGE_HINDI:
 			switch (keyboardLayout) {
@@ -703,8 +704,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				return getHindiInScriptKeyboard();
 			case KB_HINDI_3x4:
 				return getHindi3x4Keyboard();
-			case KB_HINDI_PHONETIC:
-				return getPhoneticKeyboard();
+				// case KB_HINDI_PHONETIC:
+				// return getPhoneticKeyboard();
 			}
 		case KB_LANGUAGE_TAMIL:
 			switch (keyboardLayout) {
@@ -714,8 +715,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				return getTamilNet99Keyboard();
 			case KB_TAMIL_3x4:
 				return getTamil3x4Keyboard();
-			case KB_TAMIL_PHONETIC:
-				return getPhoneticKeyboard();
+				// case KB_TAMIL_PHONETIC:
+				// return getPhoneticKeyboard();
 			}
 		default:
 			return getPhoneticKeyboard();
@@ -1186,10 +1187,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 							editor.putInt(KB_CURRENT_KANNADA_LAYOUT, KB_KANNADA_3x4);
 							mInputView.setKeyboard(getKannada3x4Keyboard());
 							break;
-						case KB_KANNADA_PHONETIC:
-							editor.putInt(KB_CURRENT_KANNADA_LAYOUT, KB_KANNADA_PHONETIC);
-							mInputView.setKeyboard(getPhoneticKeyboard());
-							break;
+						// case KB_KANNADA_PHONETIC:
+						// editor.putInt(KB_CURRENT_KANNADA_LAYOUT, KB_KANNADA_PHONETIC);
+						// mInputView.setKeyboard(getPhoneticKeyboard());
+						// break;
 						}
 						editor.commit();
 						dialog.dismiss();
@@ -1228,10 +1229,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 							editor.putInt(KB_CURRENT_HINDI_LAYOUT, KB_HINDI_3x4);
 							mInputView.setKeyboard(getHindi3x4Keyboard());
 							break;
-						case KB_HINDI_PHONETIC:
-							editor.putInt(KB_CURRENT_HINDI_LAYOUT, KB_HINDI_PHONETIC);
-							mInputView.setKeyboard(getPhoneticKeyboard());
-							break;
+						// case KB_HINDI_PHONETIC:
+						// editor.putInt(KB_CURRENT_HINDI_LAYOUT, KB_HINDI_PHONETIC);
+						// mInputView.setKeyboard(getPhoneticKeyboard());
+						// break;
 						}
 						editor.commit();
 						dialog.dismiss();
@@ -1274,10 +1275,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 							editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_3x4);
 							mInputView.setKeyboard(getTamil3x4Keyboard());
 							break;
-						case KB_TAMIL_PHONETIC:
-							editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_PHONETIC);
-							mInputView.setKeyboard(getPhoneticKeyboard());
-							break;
+						// case KB_TAMIL_PHONETIC:
+						// editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_PHONETIC);
+						// mInputView.setKeyboard(getPhoneticKeyboard());
+						// break;
 						}
 						editor.commit();
 						dialog.dismiss();
@@ -1298,26 +1299,31 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private void showLanguageOptionsMenu() {
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
 		lanBuilder.setCancelable(true);
-		lanBuilder.setTitle("Select Language");
+		lanBuilder.setTitle("Select Script");
 		int prevSelectedLanguage = mSharedPreferences.getInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_KANNADA);
 		lanBuilder.setSingleChoiceItems(LANGUAGE_CHOICES, prevSelectedLanguage, new OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				SharedPreferences.Editor editor = mSharedPreferences.edit();
 				switch (which) {
-				case KB_LANGUAGE_HINDI: // Hindi
-					Toast.makeText(getBaseContext(), "Hindi Keyboard selected", Toast.LENGTH_SHORT).show();
+				case KB_LANGUAGE_HINDI:
+					Toast.makeText(getBaseContext(), "Devanagari Keyboard selected", Toast.LENGTH_SHORT).show();
 					editor.putInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_HINDI);
 					showHindiLayoutOptionsMenu();
 					break;
-				case KB_LANGUAGE_KANNADA: // Kannada
+				case KB_LANGUAGE_KANNADA:
 					Toast.makeText(getBaseContext(), "Kannada Keyboard selected", Toast.LENGTH_SHORT).show();
 					editor.putInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_KANNADA);
 					showKannadaLayoutOptionsMenu();
 					break;
-				default:
+				case KB_LANGUAGE_TAMIL:
 					editor.putInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_TAMIL);
 					showTamilLayoutOptionsMenu();
 					Toast.makeText(getBaseContext(), "Tamil Keyboard selected", Toast.LENGTH_SHORT).show();
+					break;
+				default:
+					editor.putInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_ENGLISH);
+					mInputView.setKeyboard(getPhoneticKeyboard());
+					Toast.makeText(getBaseContext(), "Roman Keyboard selected", Toast.LENGTH_SHORT).show();
 				}
 				editor.commit();
 				dialog.dismiss();

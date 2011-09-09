@@ -22,8 +22,8 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="0x0ccc" android:keyIcon="@drawable/hindi_remington_pha" android:keyEdgeFlags="left" />
-    <Key android:codes="0x0cc8" android:keyIcon="@drawable/hindi_remington_candra_e_matra" />
+    <Key android:codes="0x092b" android:keyIcon="@drawable/hindi_remington_pha" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0945" android:keyIcon="@drawable/hindi_remington_candra_e_matra" />
     <Key android:codes=" " android:keyIcon="@drawable/hindi_remington_ma_halant" />
     <Key android:codes=" " android:keyIcon="@drawable/hindi_remington_ta_halant" />
     <Key android:codes=" " android:keyIcon="@drawable/hindi_remington_ja_halant" />
