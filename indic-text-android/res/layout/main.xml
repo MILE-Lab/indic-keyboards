@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+  android:layout_height="wrap_content" android:scrollbars="none">
+  <LinearLayout android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <EditText android:id="@+id/editBoxHindi" android:layout_height="wrap_content" android:hint="Type Hindi text here"
+      android:text="हिन्दी" android:layout_width="fill_parent"></EditText>
+    <EditText android:id="@+id/editBoxKannada" android:layout_height="wrap_content" android:hint="Type Kannada text here"
+      android:text="ಕನ್ನಡ" android:layout_width="fill_parent"></EditText>
+    <EditText android:id="@+id/editBoxTamil" android:layout_height="wrap_content" android:hint="Type Tamil text here"
+      android:text="தமிழ்" android:layout_width="fill_parent"></EditText>
+  </LinearLayout>
+</ScrollView>
