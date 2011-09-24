@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:scrollbars="none">
+  <TableLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:stretchColumns="*">
+
+    <TableRow>
+      <ImageView android:layout_span="6" android:src="@drawable/logomile" android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+      <ImageButton android:src="@drawable/editor" android:padding="3dip" android:id="@+id/imageButtonTextEditor"
+        android:layout_column="1" />
+      <ImageButton android:src="@drawable/browser" android:padding="3dip" android:id="@+id/imageButtonBrowser"
+        android:layout_column="4" />
+    </TableRow>
+
+    <TableRow>
+      <TextView android:text="Text Editor" android:gravity="center" android:padding="3dip"
+        android:layout_span="3" />
+      <TextView android:text="Browser" android:gravity="center" android:padding="3dip"
+        android:layout_span="3" />
+    </TableRow>
+
+    <!-- Dummy row to create extra space between the two rows of buttons -->
+    <TableRow>
+      <TextView android:text="" android:gravity="center" android:padding="3dip" android:layout_span="6" />
+    </TableRow>
+
+    <TableRow>
+      <ImageButton android:src="@drawable/messaging" android:padding="3dip" android:id="@+id/imageButtonMessaging"
+        android:layout_column="1" />
+      <ImageButton android:src="@drawable/about" android:padding="3dip" android:id="@+id/imageButtonAbout"
+        android:layout_column="4" />
+    </TableRow>
+
+    <TableRow>
+      <TextView android:text="Messaging" android:gravity="center" android:padding="3dip"
+        android:layout_span="3" />
+      <TextView android:text="About" android:gravity="center" android:padding="3dip"
+        android:layout_span="3" />
+    </TableRow>
+
+  </TableLayout>
+</ScrollView>

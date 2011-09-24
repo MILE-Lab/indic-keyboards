@@ -1,0 +1,1 @@
+"Lohit-*.ttf" fonts are taken from https://fedorahosted.org/lohit/ . They are open source fonts licensed under the GPL.
