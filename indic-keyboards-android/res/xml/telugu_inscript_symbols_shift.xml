@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* 
+**
+** Copyright 2008, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+**
+**     http://www.apache.org/licenses/LICENSE-2.0 
+**
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+*/
+-->
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android" android:keyWidth="10%p"
+  android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
+
+  <Row>
+    <Key android:codes="0x0c67" android:keyIcon="@drawable/telugu_inscript_num_1_telugu" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0c68" android:keyIcon="@drawable/telugu_inscript_num_2_telugu" />
+    <Key android:codes="0x0c69" android:keyIcon="@drawable/telugu_inscript_num_3_telugu" />
+    <Key android:codes="0x0c6a" android:keyIcon="@drawable/telugu_inscript_num_4_telugu" />
+    <Key android:codes="0x0c6b" android:keyIcon="@drawable/telugu_inscript_num_5_telugu" />
+    <Key android:codes="0x0c6c" android:keyIcon="@drawable/telugu_inscript_num_6_telugu" />
+    <Key android:codes="0x0c6d" android:keyIcon="@drawable/telugu_inscript_num_7_telugu" />
+    <Key android:codes="0x0c6e" android:keyIcon="@drawable/telugu_inscript_num_8_telugu" />
+    <Key android:codes="0x0c6f" android:keyIcon="@drawable/telugu_inscript_num_9_telugu" />
+    <Key android:codes="0x0c66" android:keyIcon="@drawable/telugu_inscript_num_0_telugu" android:keyEdgeFlags="right" />
+  </Row>
+
+  <Row>
+    <Key android:codes="95" android:keyIcon="@drawable/sym_underscore" android:keyEdgeFlags="left" />
+    <Key android:codes="177" android:keyIcon="@drawable/sym_plus_minus" />
+    <Key android:codes="176" android:keyIcon="@drawable/sym_degree" />
+    <Key android:codes="247" android:keyIcon="@drawable/sym_division" />
+    <Key android:codes="94" android:keyIcon="@drawable/sym_circumflex_accent" />
+    <Key android:codes="215" android:keyIcon="@drawable/sym_multiplication" />
+    <Key android:codes="43" android:keyIcon="@drawable/sym_plus" />
+    <Key android:codes="126" android:keyIcon="@drawable/sym_tilde" />
+    <Key android:codes="91" android:keyIcon="@drawable/sym_left_square_bracket" />
+    <Key android:codes="93" android:keyIcon="@drawable/sym_right_square_bracket" android:keyEdgeFlags="right" />
+  </Row>
+
+  <Row>
+    <Key android:codes="60" android:keyIcon="@drawable/sym_less_than" android:keyEdgeFlags="left" />
+    <Key android:codes="62" android:keyIcon="@drawable/sym_greater_than" />
+    <Key android:codes="123" android:keyIcon="@drawable/sym_left_curly_bracket" />
+    <Key android:codes="125" android:keyIcon="@drawable/sym_right_curly_bracket" />
+    <Key android:codes="124" android:keyIcon="@drawable/sym_vertical_bar" />
+    <Key android:codes="92" android:keyIcon="@drawable/sym_backward_slash" />
+    <Key android:codes="0x0c31" android:keyIcon="@drawable/telugu_inscript_rra" />
+    <Key android:codes="0xF038" android:keyIcon="@drawable/telugu_inscript_ottu_r" />
+    <Key android:codes="0xF037" android:keyIcon="@drawable/telugu_inscript_shra" />    
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" 
+      android:isRepeatable="true" />
+  </Row>
+
+  <Row android:rowEdgeFlags="bottom">
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="11%p"
+      android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
+    <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
+    <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="15%p" />
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="20%p"
+      android:isRepeatable="true" />
+    <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
+    <Key android:codes="169" android:keyIcon="@drawable/sym_copyright" />
+    <Key android:codes="0xF205" android:keyIcon="@drawable/n_to_a" android:keyWidth="11%p" />
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="11%p"
+      android:keyEdgeFlags="right" />
+  </Row>
+</Keyboard>

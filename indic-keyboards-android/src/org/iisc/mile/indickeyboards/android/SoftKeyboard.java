@@ -69,7 +69,11 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int TAMIL_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF202;
 	public static final int TAMIL_99_LETTERS_TO_SYMBOLS_KEYCODE = 0xF203;
 	public static final int TAMIL_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 0xF204;
-
+	
+	public static final int TELUGU_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE = 0xF205;
+	public static final int TELUGU_3X4_LETTERS_TO_NUMBERS_KEYCODE = 0xF206;
+	public static final int TELUGU_3X4_LETTERS_TO_SYMBOLS_KEYCODE = 0xF207;
+	
 	public static final int KSHA_COMPOUND_LETTER = 0xF010;
 	public static final int ARKAAOTTU_COMPOUND_LETTER = 0xF011;
 	public static final int JNYA_COMPOUND_LETTER = 0xF012;
@@ -101,6 +105,12 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int REMINGTON_LETTER_GH = 0xF031;
 	public static final int REMINGTON_LETTER_DH = 0xF032;
 	public static final int REMINGTON_LETTER_KH = 0xF033;
+	
+	public static final int TELUGU_LETTER_KSHA = 0xF034;
+	public static final int TELUGU_LETTER_TRA = 0xF035;
+	public static final int TELUGU_LETTER_JNYA = 0xF036;
+	public static final int TELUGU_LETTER_SHRA = 0xF037;
+	public static final int TELUGU_LETTER_OTTU_R = 0xF038;
 
 	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard" };
 	private static final int KB_KAGAPA = 0;
@@ -121,19 +131,26 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private static final int KB_TAMIL_3x4 = 2;
 	// private static final int KB_TAMIL_PHONETIC = 3;
 
-	String[] LANGUAGE_CHOICES = new String[] { "Devanagari", "Kannada", "Tamil", "Roman" };
+	String[] TELUGU_LAYOUT_CHOICES = new String[] { "InScript", "3x4 Keyboard" };
+	private static final int KB_TELUGU_INSCRIPT = 0;
+	private static final int KB_TELUGU_3x4 = 1;
+	// private static final int KB_KANNADA_PHONETIC = 3;
+
+	String[] LANGUAGE_CHOICES = new String[] { "Devanagari", "Kannada", "Tamil", "Telugu", "Roman" };
 	private static final int KB_LANGUAGE_HINDI = 0;
 	private static final int KB_LANGUAGE_KANNADA = 1;
 	private static final int KB_LANGUAGE_TAMIL = 2;
-	private static final int KB_LANGUAGE_ENGLISH = 3;
-
+	private static final int KB_LANGUAGE_TELUGU = 3;
+	private static final int KB_LANGUAGE_ENGLISH = 4;
+        
 	private SharedPreferences mSharedPreferences;
 	private String KEYBOARD_PREFERENCES = "IISc MILE Indic Keyboards Preferences";
 	private static final String KB_CURRENT_LANGUAGE = "Current Keyboard Language";
 	private static final String KB_CURRENT_KANNADA_LAYOUT = "Current Kannada Keyboard Layout";
 	private static final String KB_CURRENT_HINDI_LAYOUT = "Current Devanagari Keyboard Layout";
 	private static final String KB_CURRENT_TAMIL_LAYOUT = "Current Tamil Keyboard Layout";
-
+    private static final String KB_CURRENT_TELUGU_LAYOUT = "Current Telugu Keyboard Layout";
+	
 	private static final int KB_DEFAULT_LANGUAGE = KB_LANGUAGE_KANNADA;
 	private static final int KB_DEFAULT_LAYOUT = KB_KAGAPA;
 
@@ -194,7 +211,15 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private LatinKeyboard mTamilInScriptSymbolsShiftedKeyboard;
 	private LatinKeyboard mTamilInScriptKeyboard;
 	private LatinKeyboard mTamilInScriptShiftedKeyboard;
-
+	private LatinKeyboard mTeluguInScriptSymbolsKeyboard;
+	private LatinKeyboard mTeluguInScriptSymbolsShiftedKeyboard;
+	private LatinKeyboard mTeluguInScriptKeyboard;
+	private LatinKeyboard mTeluguInScriptShiftedKeyboard;
+	private LatinKeyboard mTelugu3x4NumbersKeyboard;
+	private LatinKeyboard mTelugu3x4NumbersShiftedKeyboard;
+	private LatinKeyboard mTelugu3x4Keyboard;
+	private LatinKeyboard mTelugu3x4SymbolsKeyboard;
+	
 	private LatinKeyboard getPhoneticKeyboard() {
 		if (mPhoneticKeyboard == null) {
 			mPhoneticKeyboard = new LatinKeyboard(this, R.xml.phonetic);
@@ -476,6 +501,62 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		}
 		return mTamilInScriptSymbolsShiftedKeyboard;
 	}
+	
+	private LatinKeyboard getTeluguInScriptKeyboard() {
+		if (mTeluguInScriptKeyboard == null) {
+			mTeluguInScriptKeyboard = new LatinKeyboard(this, R.xml.telugu_inscript);
+		}
+		return mTeluguInScriptKeyboard;
+	}
+
+	private LatinKeyboard getTeluguInScriptShiftedKeyboard() {
+		if (mTeluguInScriptShiftedKeyboard == null) {
+			mTeluguInScriptShiftedKeyboard = new LatinKeyboard(this, R.xml.telugu_inscript_shift);
+		}
+		return mTeluguInScriptShiftedKeyboard;
+	}
+
+	private LatinKeyboard getTeluguInScriptSymbolsKeyboard() {
+		if (mTeluguInScriptSymbolsKeyboard == null) {
+			mTeluguInScriptSymbolsKeyboard = new LatinKeyboard(this, R.xml.telugu_inscript_symbols);
+		}
+		return mTeluguInScriptSymbolsKeyboard;
+	}
+
+	private LatinKeyboard getTeluguInScriptSymbolsShiftedKeyboard() {
+		if (mTeluguInScriptSymbolsShiftedKeyboard == null) {
+			mTeluguInScriptSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.telugu_inscript_symbols_shift);
+		}
+		return mTeluguInScriptSymbolsShiftedKeyboard;
+	}
+	
+	private LatinKeyboard getTelugu3x4Keyboard() {
+		if (mTelugu3x4Keyboard == null) {
+			mTelugu3x4Keyboard = new LatinKeyboard(this, R.xml.telugu_3x4);
+		}
+		return mTelugu3x4Keyboard;
+	}
+
+	private LatinKeyboard getTelugu3x4NumbersKeyboard() {
+		if (mTelugu3x4NumbersKeyboard == null) {
+			mTelugu3x4NumbersKeyboard = new LatinKeyboard(this, R.xml.telugu_3x4_numbers);
+		}
+		return mTelugu3x4NumbersKeyboard;
+	}
+
+	private LatinKeyboard getTelugu3x4NumbersShiftedKeyboard() {
+		if (mTelugu3x4NumbersShiftedKeyboard == null) {
+			mTelugu3x4NumbersShiftedKeyboard = new LatinKeyboard(this, R.xml.telugu_3x4_numbers_shift);
+		}
+		return mTelugu3x4NumbersShiftedKeyboard;
+	}
+
+	private LatinKeyboard getTelugu3x4SymbolsKeyboard() {
+		if (mTelugu3x4SymbolsKeyboard == null) {
+			mTelugu3x4SymbolsKeyboard = new LatinKeyboard(this, R.xml.telugu_3x4_symbols);
+		}
+		return mTelugu3x4SymbolsKeyboard;
+	}
 
 	private void resetKeyboards() {
 		mPhoneticSymbolsKeyboard = null;
@@ -518,6 +599,14 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mTamilInScriptSymbolsShiftedKeyboard = null;
 		mTamilInScriptKeyboard = null;
 		mTamilInScriptShiftedKeyboard = null;
+		mTeluguInScriptSymbolsKeyboard = null;
+		mTeluguInScriptSymbolsShiftedKeyboard = null;
+		mTeluguInScriptKeyboard = null;
+		mTeluguInScriptShiftedKeyboard = null;
+		mTelugu3x4NumbersKeyboard = null;
+		mTelugu3x4NumbersShiftedKeyboard = null;
+		mTelugu3x4Keyboard = null;
+		mTelugu3x4SymbolsKeyboard = null;
 	}
 
 	static private LatinKeyboard mCurKeyboard;
@@ -581,6 +670,8 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			return KB_CURRENT_KANNADA_LAYOUT;
 		case KB_LANGUAGE_TAMIL:
 			return KB_CURRENT_TAMIL_LAYOUT;
+		case KB_LANGUAGE_TELUGU:
+			return KB_CURRENT_TELUGU_LAYOUT;
 		default:
 			return KB_CURRENT_KANNADA_LAYOUT;
 		}
@@ -744,6 +835,15 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			case KB_TAMIL_3x4:
 				return getTamil3x4Keyboard();
 				// case KB_TAMIL_PHONETIC:
+				// return getPhoneticKeyboard();
+			}
+		case KB_LANGUAGE_TELUGU:
+			switch (keyboardLayout) {
+			case KB_TELUGU_INSCRIPT:
+				return getTeluguInScriptKeyboard();
+			case KB_TELUGU_3x4:
+				return getTelugu3x4Keyboard();
+				// case KB_TELUGU_PHONETIC:
 				// return getPhoneticKeyboard();
 			}
 		default:
@@ -1097,7 +1197,40 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			if (current == mKannada3x4SymbolsKeyboard) {
 				current.setShifted(false);
 			}
-		} else if (presentKeycode == HINDI_REMINGTON_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
+		} else if (presentKeycode == TELUGU_INSCRIPT_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mTeluguInScriptKeyboard || current == mTeluguInScriptShiftedKeyboard) {
+				current = getTeluguInScriptSymbolsKeyboard();
+			} else {
+				current = getTeluguInScriptKeyboard();
+			}
+			mInputView.setKeyboard(current);
+			if (current == mTeluguInScriptSymbolsKeyboard) {
+				current.setShifted(false);
+			}
+		} else if (presentKeycode == TELUGU_3X4_LETTERS_TO_NUMBERS_KEYCODE && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mTelugu3x4Keyboard || current == mTelugu3x4SymbolsKeyboard) {
+				current = getTelugu3x4NumbersKeyboard();
+			} else {
+				current = getTelugu3x4Keyboard();
+			}
+			mInputView.setKeyboard(current);
+			if (current == mTelugu3x4NumbersKeyboard) {
+				current.setShifted(false);
+			}
+		} else if (presentKeycode == TELUGU_3X4_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
+			Keyboard current = mInputView.getKeyboard();
+			if (current == mTelugu3x4Keyboard || current == mTelugu3x4NumbersKeyboard) {
+				current = getTelugu3x4SymbolsKeyboard();
+			} else {
+				current = getTelugu3x4Keyboard();
+			}
+			mInputView.setKeyboard(current);
+			if (current == mTelugu3x4SymbolsKeyboard) {
+				current.setShifted(false);
+			}
+		}else if (presentKeycode == HINDI_REMINGTON_LETTERS_TO_SYMBOLS_KEYCODE && mInputView != null) {
 			Keyboard current = mInputView.getKeyboard();
 			if (current == mHindiRemingtonKeyboard || current == mHindiRemingtonShiftedKeyboard) {
 				current = getHindiRemingtonSymbolsKeyboard();
@@ -1323,6 +1456,48 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
 		mOptionsDialog.show();
 	}
+	
+	private void showTeluguLayoutOptionsMenu() {
+		AlertDialog.Builder lyBuilder = new AlertDialog.Builder(this);
+		lyBuilder.setCancelable(true);
+		lyBuilder.setTitle("Select Layout");
+		lyBuilder.setSingleChoiceItems(TELUGU_LAYOUT_CHOICES,
+				mSharedPreferences.getInt(KB_CURRENT_TELUGU_LAYOUT, KB_TELUGU_3x4), new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						SharedPreferences.Editor editor = mSharedPreferences.edit();
+						switch (which) {
+						// case KB_TAMIL_REMINGTON:
+						// editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_REMINGTON);
+						// mInputView.setKeyboard(getTamilRemingtonKeyboard());
+						// break;
+						case KB_TELUGU_INSCRIPT:
+							editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_TELUGU_INSCRIPT);
+							mInputView.setKeyboard(getTeluguInScriptKeyboard());
+							break;
+						case KB_TELUGU_3x4:
+							editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_TELUGU_3x4);
+							mInputView.setKeyboard(getTelugu3x4Keyboard());
+							break;
+						// case KB_TELUGU_PHONETIC:
+						// editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_TELUGU_PHONETIC);
+						// mInputView.setKeyboard(getPhoneticKeyboard());
+						// break;
+						}
+						editor.commit();
+						dialog.dismiss();
+						onFinishInput();
+					}
+				});
+		AlertDialog mOptionsDialog = lyBuilder.create();
+		Window window = mOptionsDialog.getWindow();
+		WindowManager.LayoutParams lp = window.getAttributes();
+
+		lp.token = mInputView.getWindowToken();
+		lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
+		window.setAttributes(lp);
+		window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+		mOptionsDialog.show();
+	}
 
 	private void showLanguageOptionsMenu() {
 		AlertDialog.Builder lanBuilder = new AlertDialog.Builder(this);
@@ -1347,6 +1522,11 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 					editor.putInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_TAMIL);
 					showTamilLayoutOptionsMenu();
 					Toast.makeText(getBaseContext(), "Tamil Keyboard selected", Toast.LENGTH_SHORT).show();
+					break;
+				case KB_LANGUAGE_TELUGU:
+					editor.putInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_TELUGU);
+					showTeluguLayoutOptionsMenu();
+					Toast.makeText(getBaseContext(), "Telugu Keyboard selected", Toast.LENGTH_SHORT).show();
 					break;
 				default:
 					editor.putInt(KB_CURRENT_LANGUAGE, KB_LANGUAGE_ENGLISH);
@@ -1568,6 +1748,30 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			mTamilInScriptShiftedKeyboard.setShifted(false);
 			mInputView.setKeyboard(getTamilInScriptKeyboard());
 			mTamilInScriptKeyboard.setShifted(false);
+		} else if (currentKeyboard == mTelugu3x4NumbersKeyboard) {
+			mTelugu3x4NumbersKeyboard.setShifted(true);
+			mInputView.setKeyboard(getTelugu3x4NumbersShiftedKeyboard());
+			mTelugu3x4NumbersShiftedKeyboard.setShifted(true);
+		} else if (currentKeyboard == mTelugu3x4NumbersShiftedKeyboard) {
+			mTelugu3x4NumbersShiftedKeyboard.setShifted(false);
+			mInputView.setKeyboard(getTelugu3x4NumbersKeyboard());
+			mTelugu3x4NumbersKeyboard.setShifted(false);
+		} else if (currentKeyboard == mTeluguInScriptSymbolsKeyboard) {
+			mTeluguInScriptSymbolsKeyboard.setShifted(true);
+			mInputView.setKeyboard(getTeluguInScriptSymbolsShiftedKeyboard());
+			mTeluguInScriptSymbolsShiftedKeyboard.setShifted(true);
+		} else if (currentKeyboard == mTeluguInScriptSymbolsShiftedKeyboard) {
+			mTeluguInScriptSymbolsShiftedKeyboard.setShifted(false);
+			mInputView.setKeyboard(getTeluguInScriptSymbolsKeyboard());
+			mTeluguInScriptSymbolsKeyboard.setShifted(false);
+		} else if (currentKeyboard == mTeluguInScriptKeyboard) {
+			mTeluguInScriptKeyboard.setShifted(true);
+			mInputView.setKeyboard(getTeluguInScriptShiftedKeyboard());
+			mTeluguInScriptShiftedKeyboard.setShifted(true);
+		} else if (currentKeyboard == mTeluguInScriptShiftedKeyboard) {
+			mTeluguInScriptShiftedKeyboard.setShifted(false);
+			mInputView.setKeyboard(getTeluguInScriptKeyboard());
+			mTeluguInScriptKeyboard.setShifted(false);
 		}
 	}
 
