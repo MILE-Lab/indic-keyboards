@@ -39,8 +39,6 @@ import org.iisc.mile.indickeyboards.linux.InitLinux;
 import org.iisc.mile.indickeyboards.linux.KeyMonitorMethods;
 import org.iisc.mile.indickeyboards.windows.InitWin;
 
-import sun.management.ManagementFactory;
-
 /**
  * Creating the Main User Interface. Uses SWT.
  * <p>
@@ -407,13 +405,14 @@ public class UI {
 					if (System.getProperty("os.name").contains("Windows")) {
 						messageBox.setMessage("Do you want to exit indic-keyboards?");
 					} else {
-						String pid = ManagementFactory.getRuntimeMXBean()
-								.getName();
-						int index = pid.indexOf("@");
+//						String pid = ManagementFactory.getRuntimeMXBean()
+//								.getName();
+//						int index = pid.indexOf("@");
 						messageBox.setMessage("Do you want to exit indic-keyboards?"
 										+ "\n\nIf the application doesn't close\nwhen Exit is selected, "
 										+ "kill the process.\n\n(The process ID is "
-										+ pid.substring(0, index) + ")");
+//										+ pid.substring(0, index) 
+										+ ")");
 					}
 					int rCode = messageBox.open();
 					if (rCode == SWT.YES) {
