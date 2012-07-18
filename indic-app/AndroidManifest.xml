@@ -12,5 +12,6 @@
     </activity>
     <activity android:name=".TextEditorActivity" android:label="@string/text_editor_name"
       android:theme="@android:style/Theme.Light"></activity>
+    <activity android:name=".MemoActivity" android:label="@string/text_editor_name"></activity>
   </application>
 </manifest>

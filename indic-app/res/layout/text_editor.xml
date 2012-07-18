@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
-  android:layout_height="wrap_content" android:stretchColumns="*" android:padding="3dip" android:background="@android:color/darker_gray">
-  <TableRow android:background="#ffff8040" android:layout_weight="1">
+  android:layout_height="wrap_content" android:stretchColumns="*" android:padding="3dip" android:background="@color/black">
+  <TableRow android:layout_weight="1">
     <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"
-      android:layout_span="4" android:padding="2dp">
+      android:layout_span="2" android:padding="2dp">
       <org.iisc.mile.indicapp.LinedEditText android:id="@+id/textEditor"
-        android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="#ffff80"
+        android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/yellow1"
         android:padding="3dp" android:lines="10" android:gravity="top" />
     </ScrollView>
   </TableRow>
   <TableRow>
-    <Button android:id="@+id/buttonNew" android:text="New" android:padding="3dip" />
-    <Button android:id="@+id/buttonOpen" android:text="Open" android:padding="3dip" />
-    <Button android:id="@+id/buttonSave" android:text="Save" android:padding="3dip" />
-    <Button android:id="@+id/buttonCancel" android:text="Cancel" android:padding="3dip" />
+    <Button android:id="@+id/buttonSave" android:text="Save" android:background="@drawable/custom_button"
+      style="@style/ButtonText2" />
+    <Button android:id="@+id/buttonCancel" android:text="Cancel" android:background="@drawable/custom_button"
+      style="@style/ButtonText2" />
   </TableRow>
 </TableLayout>

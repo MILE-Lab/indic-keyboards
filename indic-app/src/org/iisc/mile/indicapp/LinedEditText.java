@@ -20,7 +20,7 @@ public class LinedEditText extends EditText {
 		super(context, attrs);
 		mRect = new Rect();
 		mPaint = new Paint();
-		mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+		//mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 		mPaint.setColor(Color.GRAY);
 	}
 

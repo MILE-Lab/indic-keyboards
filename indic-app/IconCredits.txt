@@ -11,3 +11,6 @@ help.png (Help icon): VisualPharm, http://www.visualpharm.com/
 folder.png (Folder icon): FatCow, http://www.fatcow.com
 file_text.png (Document icon): S.Shek, http://shek0101.deviantart.com/
 file_font.png (File font icon): Andy Gongea, http://www.graphicrating.com/
+
+edit_32.png (Edit icon): VisualPharm, http://www.visualpharm.com/
+x_32.png (X icon): Elegantthemes, http://www.elegantthemes.com/

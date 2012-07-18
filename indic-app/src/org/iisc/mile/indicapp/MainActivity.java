@@ -9,9 +9,9 @@ import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 
-	private ImageButton textEditorButton;
-	private ImageButton browserButton;
 	private ImageButton messagingButton;
+	private ImageButton memoButton;
+	private ImageButton browserButton;
 	private ImageButton aboutButton;
 
 	@Override
@@ -19,33 +19,29 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		textEditorButton = (ImageButton) findViewById(R.id.imageButtonTextEditor);
-		browserButton = (ImageButton) findViewById(R.id.imageButtonBrowser);
 		messagingButton = (ImageButton) findViewById(R.id.imageButtonMessaging);
+		memoButton = (ImageButton) findViewById(R.id.imageButtonTextEditor);
+		browserButton = (ImageButton) findViewById(R.id.imageButtonBrowser);
 		aboutButton = (ImageButton) findViewById(R.id.imageButtonAbout);
 
-		textEditorButton.setOnClickListener(new OnClickListener() {
-			@Override
+		messagingButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				Intent intent = new Intent(getBaseContext(), TextEditorActivity.class);
+			}
+		});
+
+		memoButton.setOnClickListener(new OnClickListener() {
+			public void onClick(View arg0) {
+				Intent intent = new Intent(getBaseContext(), MemoActivity.class);
 				startActivity(intent);
 			}
 		});
 
-		messagingButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-			}
-		});
-
 		browserButton.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View arg0) {
 			}
 		});
 
 		aboutButton.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View arg0) {
 			}
 		});

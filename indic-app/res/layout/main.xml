@@ -9,16 +9,16 @@
     </TableRow>
 
     <TableRow>
-      <ImageButton android:src="@drawable/editor" android:padding="3dip" android:id="@+id/imageButtonTextEditor"
+      <ImageButton android:src="@drawable/messaging" android:padding="3dip" android:id="@+id/imageButtonMessaging"
         android:layout_column="1" />
-      <ImageButton android:src="@drawable/browser" android:padding="3dip" android:id="@+id/imageButtonBrowser"
+      <ImageButton android:src="@drawable/editor" android:padding="3dip" android:id="@+id/imageButtonTextEditor"
         android:layout_column="4" />
     </TableRow>
 
     <TableRow>
-      <TextView android:text="Text Editor" android:gravity="center" android:padding="3dip"
+      <TextView android:text="Messaging" android:gravity="center" android:padding="3dip"
         android:layout_span="3" />
-      <TextView android:text="Browser" android:gravity="center" android:padding="3dip"
+      <TextView android:text="Memo" android:gravity="center" android:padding="3dip"
         android:layout_span="3" />
     </TableRow>
 
@@ -28,14 +28,14 @@
     </TableRow>
 
     <TableRow>
-      <ImageButton android:src="@drawable/messaging" android:padding="3dip" android:id="@+id/imageButtonMessaging"
+      <ImageButton android:src="@drawable/browser" android:padding="3dip" android:id="@+id/imageButtonBrowser"
         android:layout_column="1" />
       <ImageButton android:src="@drawable/about" android:padding="3dip" android:id="@+id/imageButtonAbout"
         android:layout_column="4" />
     </TableRow>
 
     <TableRow>
-      <TextView android:text="Messaging" android:gravity="center" android:padding="3dip"
+      <TextView android:text="Browser" android:gravity="center" android:padding="3dip"
         android:layout_span="3" />
       <TextView android:text="About" android:gravity="center" android:padding="3dip"
         android:layout_span="3" />
