@@ -51,8 +51,8 @@ public class MemoActivity extends ListActivity {
 		memoDbAdapter.open();
 		fillData();
 
-		// // Use our own list adapter
-		// setListAdapter(new MemoListAdapter(this));
+		// Use our own list adapter
+		setListAdapter(new MemoListAdapter(this));
 
 		newMemoButton = (Button) findViewById(R.id.buttonNewMemo);
 		newMemoButton.setOnClickListener(new OnClickListener() {
