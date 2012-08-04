@@ -55,9 +55,10 @@ public class MemoActivity extends ListActivity {
 		setListAdapter(new MemoListAdapter(this));
 
 		newMemoButton = (Button) findViewById(R.id.buttonNewMemo);
-		newMemoButton.setOnClickListener(new OnClickListener() {
+		newMemoButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getBaseContext(), TextEditorActivity.class);
+				// Intent intent = new Intent(MemoActivity.this, TextEditorActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -122,7 +123,7 @@ public class MemoActivity extends ListActivity {
 		}
 
 		public void toggle(int position) {
-			//mExpanded[position] = !mExpanded[position];
+			// mExpanded[position] = !mExpanded[position];
 			notifyDataSetChanged();
 		}
 	}
@@ -303,7 +304,22 @@ public class MemoActivity extends ListActivity {
 		}
 
 		public void onClick(View arg0) {
-			Toast.makeText(getBaseContext(), "Edit item " + mPosition, Toast.LENGTH_SHORT).show();
+			Toast.makeText(getBaseContext(), "Edit item " + (mPosition + 1), Toast.LENGTH_SHORT).show();
+
+			Cursor cursor = memoDbAdapter.fetchAllMemos();
+			cursor.moveToPosition(mPosition + 1);
+			String message = cursor.getString(1);
+			String date = cursor.getString(2);
+			String time = cursor.getString(3);
+			cursor.close();
+
+			Intent intent = new Intent(MemoActivity.this, TextEditorActivity.class);
+			Bundle bundle = new Bundle();
+			bundle.putString("message", message);
+			bundle.putString("date", date);
+			bundle.putString("time", time);
+			intent.putExtras(bundle);
+			startActivityForResult(intent, 110);
 		}
 	}
 
@@ -315,7 +331,11 @@ public class MemoActivity extends ListActivity {
 		}
 
 		public void onClick(View arg0) {
-			Toast.makeText(getBaseContext(), "Delete item " + mPosition, Toast.LENGTH_SHORT).show();
+			Toast.makeText(getBaseContext(), "Delete item " + (mPosition + 1), Toast.LENGTH_SHORT).show();
+			// mContext.getContentResolver().delete( DATABASE_TABLE, KEY_ROWID + "=" + rowId, null);
+			memoDbAdapter.deleteMemo(mPosition + 1);
+			Intent intent = new Intent(MemoActivity.this, MemoActivity.class);
+			startActivity(intent);
 		}
 	}
 

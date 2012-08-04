@@ -2,7 +2,6 @@ package org.iisc.mile.indicapp;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,21 +23,29 @@ public class TextEditorActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.text_editor);
 
 		indicTextEditor = (EditText) findViewById(R.id.textEditor);
-		indicTextEditor.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lohit-Kannada.ttf"));
 
 		if (savedInstanceState != null) {
 			String previousEditorContent = savedInstanceState.getString(EDITOR_CONTENT);
 			if (previousEditorContent != null) {
 				indicTextEditor.setText(previousEditorContent);
 			}
+		} else {
+			Bundle bundle = getIntent().getExtras();
+			if (bundle != null) {
+				String msg = bundle.getString("message");
+				String date = bundle.getString("date");
+				String time = bundle.getString("time");
+				if (msg != null) {
+					indicTextEditor.setText(msg);
+				}
+			}
 		}
 
 		buttonSave = (Button) findViewById(R.id.buttonSave);
-		buttonSave.setOnClickListener(new OnClickListener() {
+		buttonSave.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 			}
 		});
