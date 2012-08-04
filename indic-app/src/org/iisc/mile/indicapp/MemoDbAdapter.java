@@ -196,7 +196,7 @@ public class MemoDbAdapter {
 	/** * Return a Cursor positioned at the defined Memo */
 	public Cursor fetchMemo(long rowId) throws SQLException {
 		Cursor mCursor = database.query(true, DATABASE_TABLE, new String[] { KEY_ROWID, KEY_NOTE,
-				KEY_CREATED_DATE, KEY_CREATED_DATE }, KEY_ROWID + "=" + rowId, null, null, null, null, null);
+				KEY_CREATED_DATE, KEY_CREATED_TIME }, KEY_ROWID + "=" + rowId, null, null, null, null, null);
 		if (mCursor != null) {
 			mCursor.moveToFirst();
 		}
