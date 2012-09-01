@@ -12,11 +12,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class TextEditorActivity extends Activity {
-
 	private EditText indicTextEditor;
-
 	private Button buttonSave;
 	private Button buttonCancel;
+
+	int memoId;
+	String memoNote;
+	String memoCreatedDate;
+	String memoCreatedTime;
 
 	private static final String EDITOR_CONTENT = "Current contents of text editor";
 
@@ -35,12 +38,15 @@ public class TextEditorActivity extends Activity {
 		} else {
 			Bundle bundle = getIntent().getExtras();
 			if (bundle != null) {
-				String msg = bundle.getString("message");
-				String date = bundle.getString("date");
-				String time = bundle.getString("time");
-				if (msg != null) {
-					indicTextEditor.setText(msg);
+				memoId = bundle.getInt(MemoDbAdapter.KEY_ROWID);
+				memoNote = bundle.getString(MemoDbAdapter.KEY_NOTE);
+				memoCreatedDate = bundle.getString(MemoDbAdapter.KEY_CREATED_DATE);
+				memoCreatedTime = bundle.getString(MemoDbAdapter.KEY_CREATED_TIME);
+				if (memoNote != null) {
+					indicTextEditor.setText(memoNote);
 				}
+			} else {
+				memoId = -1;
 			}
 		}
 

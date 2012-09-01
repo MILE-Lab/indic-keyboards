@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
@@ -22,6 +23,8 @@ public class LinedEditText extends EditText {
 		mPaint = new Paint();
 		//mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 		mPaint.setColor(Color.GRAY);
+		Typeface kannadaFont = Typeface.createFromAsset(context.getAssets(), "fonts/Lohit-Kannada.ttf");
+		setTypeface(kannadaFont);
 	}
 
 	@Override
