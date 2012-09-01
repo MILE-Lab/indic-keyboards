@@ -16,6 +16,11 @@
 
 package org.iisc.mile.indicapp;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -41,6 +46,11 @@ public class MemoActivity extends ListActivity {
 	SimpleCursorAdapter listAdapter;
 	private Cursor cursor;
 
+	static final int NEW_MEMO_ACTIVITY = 1;
+	static final int EDIT_MEMO_ACTIVITY = 2;
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	DateFormat timeFormat = new SimpleDateFormat("h:mm a");
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -62,7 +72,7 @@ public class MemoActivity extends ListActivity {
 		newMemoButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(MemoActivity.this, TextEditorActivity.class);
-				startActivity(intent);
+				startActivityForResult(intent, NEW_MEMO_ACTIVITY);
 			}
 		});
 	}
@@ -73,6 +83,45 @@ public class MemoActivity extends ListActivity {
 		if (memoDbAdapter != null) {
 			memoDbAdapter.close();
 		}
+	}
+
+	String getCurrentDate() {
+		return dateFormat.format(new Date());
+	}
+
+	String getCurrentTime() {
+		return timeFormat.format(new Date());
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+		case NEW_MEMO_ACTIVITY:
+			if (resultCode == Activity.RESULT_OK) {
+				String memoNote = data.getExtras().getString(MemoDbAdapter.KEY_NOTE);
+				String memoCreationDate = getCurrentDate();
+				String memoCreationTime = getCurrentTime();
+				memoDbAdapter.createMemo(memoNote, memoCreationDate, memoCreationTime);
+				resetCursor();
+			}
+			break;
+		case EDIT_MEMO_ACTIVITY:
+			if (resultCode == Activity.RESULT_OK) {
+				Bundle bundle = data.getExtras();
+				int memoId = bundle.getInt(MemoDbAdapter.KEY_ROWID);
+				String memoNote = bundle.getString(MemoDbAdapter.KEY_NOTE);
+				String memoCreationDate = bundle.getString(MemoDbAdapter.KEY_CREATED_DATE);
+				String memoCreationTime = bundle.getString(MemoDbAdapter.KEY_CREATED_TIME);
+				memoDbAdapter.updateMemo(memoId, memoNote, memoCreationDate, memoCreationTime);
+				resetCursor();
+			}
+			break;
+		}
+	}
+
+	void resetCursor() {
+		listAdapter.changeCursor(memoDbAdapter.fetchAllMemos());
 	}
 
 	private class MemoListAdapter extends SimpleCursorAdapter {
@@ -154,7 +203,7 @@ public class MemoActivity extends ListActivity {
 			bundle.putString(MemoDbAdapter.KEY_CREATED_DATE, date);
 			bundle.putString(MemoDbAdapter.KEY_CREATED_TIME, time);
 			intent.putExtras(bundle);
-			startActivityForResult(intent, 110);
+			startActivityForResult(intent, EDIT_MEMO_ACTIVITY);
 		}
 	}
 
@@ -168,7 +217,7 @@ public class MemoActivity extends ListActivity {
 		public void onClick(View arg0) {
 			Toast.makeText(getBaseContext(), "Delete item " + (memoId + 1), Toast.LENGTH_SHORT).show();
 			memoDbAdapter.deleteMemo(memoId);
-			listAdapter.changeCursor(memoDbAdapter.fetchAllMemos());
+			resetCursor();
 		}
 	}
 

@@ -16,8 +16,8 @@
   </TableRow>
 
   <TableRow android:paddingTop="1dip" android:paddingBottom="3dip" android:background="@color/black">
-    <TextView android:id="@+id/content" android:text="" android:layout_gravity="center"
-      android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_span="5"
+    <TextView android:id="@+id/content" android:text="" android:layout_gravity="fill_horizontal"
+      android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_span="5"
       android:background="@color/yellow1" android:textColor="@color/black" android:padding="3dip"
       android:textSize="18px" />
   </TableRow>

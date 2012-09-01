@@ -2,6 +2,7 @@ package org.iisc.mile.indicapp;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,9 +18,9 @@ public class TextEditorActivity extends Activity {
 	private Button buttonCancel;
 
 	int memoId;
-	String memoNote;
-	String memoCreatedDate;
-	String memoCreatedTime;
+	String memoNote = "";
+	String memoCreatedDate = "";
+	String memoCreatedTime = "";
 
 	private static final String EDITOR_CONTENT = "Current contents of text editor";
 
@@ -53,12 +54,22 @@ public class TextEditorActivity extends Activity {
 		buttonSave = (Button) findViewById(R.id.buttonSave);
 		buttonSave.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
+				Intent resultIntent = new Intent();
+				Bundle bundle = new Bundle();
+				bundle.putInt(MemoDbAdapter.KEY_ROWID, memoId);
+				bundle.putString(MemoDbAdapter.KEY_NOTE, indicTextEditor.getText().toString());
+				bundle.putString(MemoDbAdapter.KEY_CREATED_DATE, memoCreatedDate);
+				bundle.putString(MemoDbAdapter.KEY_CREATED_TIME, memoCreatedTime);
+				resultIntent.putExtras(bundle);
+				setResult(Activity.RESULT_OK, resultIntent);
+				finish();
 			}
 		});
 
 		buttonCancel = (Button) findViewById(R.id.buttonCancel);
 		buttonCancel.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
+				setResult(Activity.RESULT_CANCELED, null);
 				finish();
 			}
 		});

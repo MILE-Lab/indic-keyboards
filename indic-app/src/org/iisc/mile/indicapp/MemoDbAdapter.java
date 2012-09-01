@@ -35,8 +35,7 @@ public class MemoDbAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL("CREATE TABLE " + DATABASE_TABLE + " (" + KEY_ROWID + " INTEGER PRIMARY KEY,"
-					+ KEY_NOTE + " TEXT," + KEY_CREATED_DATE + " TEXT," + KEY_CREATED_TIME + " TEXT"
-					+ ");");
+					+ KEY_NOTE + " TEXT," + KEY_CREATED_DATE + " TEXT," + KEY_CREATED_TIME + " TEXT" + ");");
 			for (int i = 0; i < mDates.length; i++) {
 				ContentValues initialValues = createContentValues(mContents[i], mDates[i], mTimes[i]);
 				db.insert(DATABASE_TABLE, null, initialValues);
@@ -120,14 +119,15 @@ public class MemoDbAdapter {
 						+ "ಮತ್ತು ಚಲನಚಿತ್ರ ರಂಗಗಳಲ್ಲಿ ಒಂದು ದೊಡ್ಡ ವಿವಾದವನ್ನೇ ಮಾಡಿದ ಅನಂತಮೂರ್ತಿ "
 						+ "ಅವರು ಹುಟ್ಟಿದ್ದು ಶಿವಮೊಗ್ಗ ಜಿಲ್ಲೆಯ ತೀರ್ಥಹಳ್ಳಿ ತಾಲ್ಲೂಕಿನ ಮೇಳಿಗೆ ಹಳ್ಳಿಯಲ್ಲಿ. "
 						+ "ಇಬ್ಬರು ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ ವಿಜೇತ (ಕುವೆಂಪು ಮತ್ತು ಅನಂತಮೂರ್ತಿ) ರನ್ನು "
-						+ "ನೀಡಿದ ಹೆಗ್ಗಳಿಕೆ ತೀರ್ಥಹಳ್ಳಿ ತಾಲ್ಲೂಕಿನದು. " + "ಇವರು ಹುಟ್ಟಿದ್ದು ೧೯೩೨ರ ಡಿಸೆಂಬರ್ ೨೧ರಂದು. "
+						+ "ನೀಡಿದ ಹೆಗ್ಗಳಿಕೆ ತೀರ್ಥಹಳ್ಳಿ ತಾಲ್ಲೂಕಿನದು. "
+						+ "ಇವರು ಹುಟ್ಟಿದ್ದು ೧೯೩೨ರ ಡಿಸೆಂಬರ್ ೨೧ರಂದು. "
 						+ "ತಂದೆ ಉಡುಪಿ ರಾಜಗೋಪಾಲಾಚಾರ್ಯ. ತಾಯಿ ಸತ್ಯಮ್ಮ (ಸತ್ಯಭಾಮ).",
 
 				"ಗಿರೀಶ್ ರಘುನಾಥ್ ಕಾರ್ನಾಡ್ (ಹುಟ್ಟು - ಮೇ ೧೯, ೧೯೩೮) "
 						+ "ಕನ್ನಡಕ್ಕೆ ಏಳನೇ ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ ತಂದುಕೊಟ್ಟ ಕನ್ನಡ "
 						+ "ಸಾಹಿತ್ಯದ ನಾಟಕ ಕ್ಷೇತ್ರಕ್ಕೆ ಸಾಹಿತಿ. "
-						+ "ಭಾರತದಲ್ಲೇ ನಾಟಕ ಸಾಹಿತ್ಯ ರಚನೆಗೆ ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ " + "ಪಡೆದವರಲ್ಲಿ ಕಾರ್ನಾಡ್ ಮೊದಲಿಗರು. "
-						+ "ಮತ್ತು ಇಬ್ಬರು ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ ಪುರಸ್ಕೃತರ "
+						+ "ಭಾರತದಲ್ಲೇ ನಾಟಕ ಸಾಹಿತ್ಯ ರಚನೆಗೆ ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ "
+						+ "ಪಡೆದವರಲ್ಲಿ ಕಾರ್ನಾಡ್ ಮೊದಲಿಗರು. " + "ಮತ್ತು ಇಬ್ಬರು ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ ಪುರಸ್ಕೃತರ "
 						+ "ಕಾದಂಬರಿಗಳನ್ನು ಸಿನಿಮಾ ಮಾಡಿದ ಏಕೈಕ ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ "
 						+ "ಪುರಸ್ಕೃತರೆಂಬ ಗೌರವಕ್ಕೆ ಕಾರ್ನಾಡ್ ಪಾತ್ರರಾಗಿದ್ದಾರೆ.",
 
@@ -190,7 +190,7 @@ public class MemoDbAdapter {
 	 */
 	public Cursor fetchAllMemos() {
 		return database.query(DATABASE_TABLE, new String[] { KEY_ROWID, KEY_NOTE, KEY_CREATED_DATE,
-				KEY_CREATED_TIME }, null, null, null, null, null);
+				KEY_CREATED_TIME }, null, null, null, null, KEY_ROWID + " DESC");
 	}
 
 	/** * Return a Cursor positioned at the defined Memo */
