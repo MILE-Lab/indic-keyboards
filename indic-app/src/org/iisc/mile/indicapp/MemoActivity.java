@@ -139,7 +139,7 @@ public class MemoActivity extends ListActivity {
 
 			MemoView mv = new MemoView(context, LayoutInflater.from(context), createdDate, createdTime,
 					memoNote, false);
-			mv.setOnClickListener(new OnItemClickListener(position));
+			mv.setOnClickListener(new OnItemClickListener(mv));
 			mv.editButton.setOnClickListener(new OnEditMemoClickListener(position));
 			mv.deleteButton.setOnClickListener(new OnDeleteMemoClickListener(position));
 			return mv;
@@ -156,27 +156,21 @@ public class MemoActivity extends ListActivity {
 			mv.setCreatedDate(createdDate);
 			mv.setCreatedTime(createdTime);
 			mv.setContent(memoNote);
-			mv.setExpanded(false);
-			mv.setOnClickListener(new OnItemClickListener(memoId));
+			mv.setOnClickListener(new OnItemClickListener(mv));
 			mv.editButton.setOnClickListener(new OnEditMemoClickListener(memoId));
 			mv.deleteButton.setOnClickListener(new OnDeleteMemoClickListener(memoId));
-		}
-
-		public void toggle(int position) {
-			// mExpanded[position] = !mExpanded[position];
-			notifyDataSetChanged();
 		}
 	}
 
 	private class OnItemClickListener implements OnClickListener {
-		private int memoId;
+		private MemoView memoView;
 
-		OnItemClickListener(int _memoId) {
-			memoId = _memoId;
+		OnItemClickListener(MemoView _memoView) {
+			memoView = _memoView;
 		}
 
 		public void onClick(View arg0) {
-			((MemoListAdapter) getListAdapter()).toggle(memoId);
+			memoView.toggleExpanded();
 		}
 	}
 
@@ -227,6 +221,7 @@ public class MemoActivity extends ListActivity {
 		private TextView createdDate;
 		private TextView createdTime;
 		private TextView content;
+		boolean expanded = false;
 
 		public MemoView(Context context, LayoutInflater inflater, String _createdDate, String _createdTime,
 				String _content, boolean expanded) {
@@ -263,7 +258,8 @@ public class MemoActivity extends ListActivity {
 			content.setText(_content);
 		}
 
-		public void setExpanded(boolean expanded) {
+		public void toggleExpanded() {
+			expanded = !expanded;
 			content.setSingleLine(expanded ? false : true);
 		}
 	}

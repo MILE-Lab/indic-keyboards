@@ -139,10 +139,6 @@ public class MemoDbAdapter {
 						+ "ನವದೆಹಲಿಯ ರಾಷ್ಟ್ರೀಯ ನಾಟಕ ಶಾಲೆಯ ನಿರ್ದೇಶಕ,ಹಂಪಿ ಕನ್ನಡ ವಿವಿಯ "
 						+ "ಮೊದಲ ಕುಲಪತಿಯಾಗಿ ಡಾ. ಚಂದ್ರಶೇಖರ ಕಂಬಾರ ಕಾರ್ಯನಿರ್ವಹಿಸಿದ್ದಾರೆ." };
 
-		/**
-		 * Our data, part 4.
-		 */
-		private boolean[] mExpanded = { false, false, false, false, false, false, false, false, false };
 	}
 
 	private Context context;
