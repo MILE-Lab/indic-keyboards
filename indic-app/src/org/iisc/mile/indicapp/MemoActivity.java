@@ -182,8 +182,6 @@ public class MemoActivity extends ListActivity {
 		}
 
 		public void onClick(View arg0) {
-			Toast.makeText(getBaseContext(), "Edit item " + memoId, Toast.LENGTH_SHORT).show();
-
 			Cursor cursor = memoDbAdapter.fetchMemo(memoId);
 			String note = cursor.getString(1);
 			String date = cursor.getString(2);
@@ -209,7 +207,6 @@ public class MemoActivity extends ListActivity {
 		}
 
 		public void onClick(View arg0) {
-			Toast.makeText(getBaseContext(), "Delete item " + (memoId + 1), Toast.LENGTH_SHORT).show();
 			memoDbAdapter.deleteMemo(memoId);
 			resetCursor();
 		}
