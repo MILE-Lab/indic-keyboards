@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
 
 		messagingButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
+				Intent intent = new Intent(getBaseContext(), MessageActivity.class);
+				startActivity(intent);
 			}
 		});
 
