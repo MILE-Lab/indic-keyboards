@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:stretchColumns="*" >
+
+    <TableRow android:layout_weight="1" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:padding="2dp" >
+
+            <org.iisc.mile.indicapp.LinedEditText
+                android:id="@+id/textEditor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow1"
+                android:gravity="top"
+                android:lines="10"
+                android:padding="3dp" />
+        </ScrollView>
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/buttonSynthesize"
+            style="@style/ButtonText2"
+            android:background="@drawable/custom_button"
+            android:text="Synthesize" />
+
+        <Button
+            android:id="@+id/buttonPlay"
+            style="@style/ButtonText2"
+            android:background="@drawable/custom_button"
+            android:text="Play" />
+    </TableRow>
+
+</TableLayout>

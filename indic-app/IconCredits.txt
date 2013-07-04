@@ -14,3 +14,5 @@ file_font.png (File font icon): Andy Gongea, http://www.graphicrating.com/
 
 edit_32.png (Edit icon): VisualPharm, http://www.visualpharm.com/
 x_32.png (X icon): Elegantthemes, http://www.elegantthemes.com/
+
+tts.png from http://www.iconspedia.com/icon/speaker-louder-icon-22944.html

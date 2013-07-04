@@ -29,12 +29,6 @@
         <category android:name="android.intent.category.DEFAULT" />
       </intent-filter>
     </activity>
-    <activity android:name=".SoundPlayer" android:label="@string/app_name" >
-      <intent-filter>
-        <action android:name="android.intent.action.SoundPlayer" />
-        <category android:name="android.intent.category.DEFAULT" />
-      </intent-filter>
-    </activity>
     <receiver android:name=".MessageReceiveActivity"> 
       <intent-filter> 
         <action android:name="android.provider.Telephony.SMS_RECEIVED" /> 
