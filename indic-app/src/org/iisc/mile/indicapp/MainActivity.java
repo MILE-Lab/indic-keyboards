@@ -11,7 +11,7 @@ public class MainActivity extends Activity {
 
 	private ImageButton messagingButton;
 	private ImageButton memoButton;
-	private ImageButton browserButton;
+	private ImageButton ttsButton;
 	private ImageButton aboutButton;
 
 	@Override
@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 
 		messagingButton = (ImageButton) findViewById(R.id.imageButtonMessaging);
 		memoButton = (ImageButton) findViewById(R.id.imageButtonTextEditor);
-		browserButton = (ImageButton) findViewById(R.id.imageButtonBrowser);
+		ttsButton = (ImageButton) findViewById(R.id.imageButtonTextToSpeech);
 		aboutButton = (ImageButton) findViewById(R.id.imageButtonAbout);
 
 		messagingButton.setOnClickListener(new OnClickListener() {
@@ -38,8 +38,10 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		browserButton.setOnClickListener(new OnClickListener() {
+		ttsButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
+				Intent intent = new Intent(getBaseContext(), TtsActivity.class);
+				startActivity(intent);
 			}
 		});
 

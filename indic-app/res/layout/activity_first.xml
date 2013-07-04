@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/intro"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        
+        android:text="Enter text only of Kannada or Tamil (Please make sure that you enter text of only 1 language):-" 
+         android:textColor="@color/white"/>
+    <EditText
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/enter"
+		android:maxHeight="300dp"
+		android:inputType="textMultiLine"
+		android:text="ನಮಸ್ತೆ "        
+        />
+
+    <Button
+        android:id="@+id/speak"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="54dp"
+        android:text="Speak" />
+
+</LinearLayout>

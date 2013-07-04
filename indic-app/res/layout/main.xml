@@ -28,14 +28,14 @@
     </TableRow>
 
     <TableRow>
-      <ImageButton android:src="@drawable/browser" android:padding="3dip" android:id="@+id/imageButtonBrowser"
+      <ImageButton android:src="@drawable/tts" android:padding="3dip" android:id="@+id/imageButtonTextToSpeech"
         android:layout_column="1" />
       <ImageButton android:src="@drawable/about" android:padding="3dip" android:id="@+id/imageButtonAbout"
         android:layout_column="4" />
     </TableRow>
 
     <TableRow>
-      <TextView android:text="Browser" android:gravity="center" android:padding="3dip"
+      <TextView android:text="TextToSpeech" android:gravity="center" android:padding="3dip"
         android:layout_span="3" />
       <TextView android:text="About" android:gravity="center" android:padding="3dip"
         android:layout_span="3" />
