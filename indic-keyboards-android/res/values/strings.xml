@@ -15,17 +15,27 @@
 ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ** See the License for the specific language governing permissions and
 ** limitations under the License.
-*/
--->
+*/-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Title for Latin keyboard  -->
+
+    <!-- Title for Latin keyboard -->
     <string name="ime_name">IISc MILE Indic Keyboards</string>
 
     <!-- Symbols that are commonly considered word separators in this language -->
     <string name="word_separators">\u0020.,;:!?\n()[]*&amp;@{}/&lt;&gt;_+=|&quot;</string>
-    
+
     <!-- Labels on soft keys -->
     <string name="label_go_key">Go</string>
     <string name="label_next_key">Next</string>
     <string name="label_send_key">Send</string>
+
+    <!-- Labels on Settings page -->
+    <string name="settings_title">IISc MILE Indic Keyboards Settings</string>
+    <string name="settings_about">About</string>
+    <string name="settings_about_description">Click to open</string>
+
+    <!-- Labels on About page -->
+    <string name="about_title">About IISc MILE Indic Keyboards</string>
+    <string name="about_logo_description">IISc MILE lab logo</string>
+
 </resources>

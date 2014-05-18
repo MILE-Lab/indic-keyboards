@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="indic_keyboards_settings"
+    android:title="@string/settings_title" >
+
+    <Preference
+        android:summary="@string/settings_about_description"
+        android:title="@string/settings_about" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="org.iisc.mile.indickeyboards.android.AboutActivity"
+            android:targetPackage="org.iisc.mile.indickeyboards.android" />
+    </Preference>
+
+</PreferenceScreen>

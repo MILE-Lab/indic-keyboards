@@ -10,9 +10,10 @@
 
     <application
         android:allowBackup="true"
+        android:icon="@drawable/icon"
         android:label="@string/ime_name" >
         <service
-            android:name=".SoftKeyboard"
+            android:name="org.iisc.mile.indickeyboards.android.SoftKeyboard"
             android:permission="android.permission.BIND_INPUT_METHOD" >
             <intent-filter>
                 <action android:name="android.view.InputMethod" />
@@ -22,6 +23,17 @@
                 android:name="android.view.im"
                 android:resource="@xml/method" />
         </service>
+
+        <activity
+            android:name="org.iisc.mile.indickeyboards.android.SettingsActivity"
+            android:icon="@drawable/icon"
+            android:label="@string/settings_title" >
+        </activity>
+        <activity
+            android:name="org.iisc.mile.indickeyboards.android.AboutActivity"
+            android:icon="@drawable/icon"
+            android:label="@string/about_title" >
+        </activity>
     </application>
 
 </manifest>
