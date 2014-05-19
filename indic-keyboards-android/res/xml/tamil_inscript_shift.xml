@@ -46,15 +46,16 @@
   </Row>
 
   <Row>
-    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:horizontalGap="1%p" android:keyWidth="15%p"
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="11%p"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
-    <Key android:codes="0x0b92" android:keyIcon="@drawable/tamil_inscript_o" android:keyWidth="13%p" />
+    <Key android:codes="0x0b92" android:keyIcon="@drawable/tamil_inscript_o" android:keyWidth="11%p" />
     <Key android:codes="0x0b8e" android:keyIcon="@drawable/tamil_inscript_e" android:keyWidth="11%p" />
     <Key android:codes="0x0ba3" android:keyIcon="@drawable/tamil_inscript_nna" android:keyWidth="11%p" />
     <Key android:codes="0x0ba9" android:keyIcon="@drawable/tamil_inscript_nnna" android:keyWidth="11%p" />
     <Key android:codes="0x0bb4" android:keyIcon="@drawable/tamil_inscript_llla" android:keyWidth="11%p" />
     <Key android:codes="0x0bb3" android:keyIcon="@drawable/tamil_inscript_lla" android:keyWidth="11%p" />
-    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="15%p"
+    <Key android:codes="0x0b9e" android:keyIcon="@drawable/tamil_inscript_nya2" android:keyWidth="11%p" />
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="11%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 
