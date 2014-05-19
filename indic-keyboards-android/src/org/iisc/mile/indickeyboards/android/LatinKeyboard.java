@@ -20,7 +20,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
 import android.view.inputmethod.EditorInfo;
 
@@ -101,6 +104,10 @@ public class LatinKeyboard extends Keyboard {
         
         public LatinKey(Resources res, Keyboard.Row parent, int x, int y, XmlResourceParser parser) {
             super(res, parent, x, y, parser);
+			if (icon != null) {
+				// http://stackoverflow.com/questions/5988699/custom-popup-for-key-of-keyboard?lq=1
+//				iconPreview = getNegative(getClone(icon.mutate())); // the clone part isn't working, hence commenting out
+			}
         }
         
         /**
@@ -111,6 +118,24 @@ public class LatinKeyboard extends Keyboard {
         public boolean isInside(int x, int y) {
             return super.isInside(x, codes[0] == KEYCODE_CANCEL ? y - 10 : y);
         }
+
+		public Drawable getClone(Drawable drawable) {
+			// http://stackoverflow.com/questions/7979440/android-cloning-a-drawable-in-order-to-make-a-statelistdrawable-with-filters
+			return drawable.getConstantState().newDrawable();
+		}
+
+		public Drawable getNegative(Drawable drawable) {
+			// http://stackoverflow.com/questions/1309629/how-to-change-colors-of-a-drawable-in-android
+			// To generate negative image
+			float[] colorMatrix_Negative = { -1.0f, 0, 0, 0, 255, // red
+					0, -1.0f, 0, 0, 255, // green
+					0, 0, -1.0f, 0, 255, // blue
+					0, 0, 0, 1.0f, 0 // alpha
+			};
+			ColorFilter colorFilter_Negative = new ColorMatrixColorFilter(colorMatrix_Negative);
+			drawable.setColorFilter(colorFilter_Negative);
+			return drawable;
+		}
     }
 
 }

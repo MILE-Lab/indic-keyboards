@@ -775,6 +775,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input, null);
 		mInputView.setOnKeyboardActionListener(this);
 		mInputView.setKeyboard(getCurrentKeyboard(keyboardLanguage, keyboardLayout));
+		mInputView.setPreviewEnabled(false);
 		return mInputView;
 	}
 
