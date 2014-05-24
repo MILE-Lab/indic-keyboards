@@ -28,10 +28,10 @@
     <Key android:codes="0x0940" android:keyIcon="@drawable/hindi_inscript_ii_matra" />
     <Key android:codes="0x0942" android:keyIcon="@drawable/hindi_inscript_uu_matra" />
     <Key android:codes="0x092c" android:keyIcon="@drawable/hindi_inscript_ba" />
-    <Key android:codes="0x0939" android:keyIcon="@drawable/hindi_inscript_ha" />
     <Key android:codes="0x0917" android:keyIcon="@drawable/hindi_inscript_ga" />
     <Key android:codes="0x0926" android:keyIcon="@drawable/hindi_inscript_da" />
-    <Key android:codes="0x091c" android:keyIcon="@drawable/hindi_inscript_ja" android:keyEdgeFlags="right" />
+    <Key android:codes="0x091c" android:keyIcon="@drawable/hindi_inscript_ja" />
+    <Key android:codes="0x0921" android:keyIcon="@drawable/hindi_inscript_dda" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -41,10 +41,10 @@
     <Key android:codes="0x093f" android:keyIcon="@drawable/hindi_inscript_i_matra" />
     <Key android:codes="0x0941" android:keyIcon="@drawable/hindi_inscript_u_matra" />
     <Key android:codes="0x092a" android:keyIcon="@drawable/hindi_inscript_pa" />
-    <Key android:codes="0x0930" android:keyIcon="@drawable/hindi_inscript_ra" />
     <Key android:codes="0x0915" android:keyIcon="@drawable/hindi_inscript_ka" />
     <Key android:codes="0x0924" android:keyIcon="@drawable/hindi_inscript_ta" />
-    <Key android:codes="0x091a" android:keyIcon="@drawable/hindi_inscript_ca" android:keyEdgeFlags="right" />
+    <Key android:codes="0x091a" android:keyIcon="@drawable/hindi_inscript_ca" />
+    <Key android:codes="0x091f" android:keyIcon="@drawable/hindi_inscript_tta" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -54,8 +54,8 @@
     <Key android:codes="2306,2305" android:keyIcon="@drawable/hindi_inscript_anusvara" />
     <Key android:codes="0x092e" android:keyIcon="@drawable/hindi_inscript_ma" />
     <Key android:codes="0x0928" android:keyIcon="@drawable/hindi_inscript_na" />
-    <Key android:codes="0x0935" android:keyIcon="@drawable/hindi_inscript_va" />
     <Key android:codes="0x0932" android:keyIcon="@drawable/hindi_inscript_la" />
+    <Key android:codes="0x0935" android:keyIcon="@drawable/hindi_inscript_va" />
     <Key android:codes="0x0938" android:keyIcon="@drawable/hindi_inscript_sa" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="10%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
@@ -68,8 +68,8 @@
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="20%p"
       android:isRepeatable="true" />
-    <Key android:codes="0x091f" android:keyIcon="@drawable/hindi_inscript_tta" android:keyWidth="10%p" />
-    <Key android:codes="0x0921" android:keyIcon="@drawable/hindi_inscript_dda" android:keyWidth="10%p" />
+    <Key android:codes="0x0939" android:keyIcon="@drawable/hindi_inscript_ha" android:keyWidth="10%p" />
+    <Key android:codes="0x0930" android:keyIcon="@drawable/hindi_inscript_ra" android:keyWidth="10%p" />
     <Key android:codes="0xF104" android:keyLabel="123" android:keyWidth="14%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="12%p"
       android:keyEdgeFlags="right" />
