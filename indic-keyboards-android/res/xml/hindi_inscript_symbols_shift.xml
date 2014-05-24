@@ -70,7 +70,7 @@
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="20%p"
       android:isRepeatable="true" />
-    <Key android:codes="44,46" android:keyLabel=". ," android:keyWidth="8%p" />
+    <Key android:codes="44,46" android:keyLabel=", ." android:keyWidth="8%p" />
     <Key android:codes="0x0950" android:keyIcon="@drawable/hindi_inscript_om" android:keyWidth="12%p" />
     <Key android:codes="0xF104" android:keyIcon="@drawable/hindi_inscript_num_to_letters" android:keyWidth="14%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="12%p"
