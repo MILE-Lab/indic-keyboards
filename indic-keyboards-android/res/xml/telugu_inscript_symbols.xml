@@ -54,9 +54,10 @@
     <Key android:codes="58" android:keyIcon="@drawable/sym_colon" />
     <Key android:codes="59" android:keyIcon="@drawable/sym_semi_colon" />
     <Key android:codes="47" android:keyIcon="@drawable/sym_forward_slash" />
-    <Key android:codes="0xF034" android:keyIcon="@drawable/telugu_inscript_ksha" />
-    <Key android:codes="0xF036" android:keyIcon="@drawable/telugu_inscript_jnya" />
-    <Key android:codes="0xF035" android:keyIcon="@drawable/telugu_inscript_tra" />
+    <!-- Key android:codes="0xF012" android:keyIcon="@drawable/telugu_inscript_jnya" / -->
+    <Key android:codes="0x0c31" android:keyIcon="@drawable/telugu_inscript_rra" />
+    <Key android:codes="0x200C" android:keyIcon="@drawable/sym_zwnj" />
+    <Key android:codes="63" android:keyIcon="@drawable/sym_question_mark" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" 
       android:isRepeatable="true" />
   </Row>
@@ -68,7 +69,7 @@
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p"/>
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="20%p"
       android:isRepeatable="true" />
-    <Key android:codes="63" android:keyIcon="@drawable/sym_question_mark" android:keyWidth="10%p" />
+    <Key android:codes="0xF014" android:keyIcon="@drawable/telugu_inscript_tra" android:keyWidth="10%p" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
     <Key android:codes="0xF205" android:keyIcon="@drawable/n_to_a" android:keyWidth="14%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="12%p"

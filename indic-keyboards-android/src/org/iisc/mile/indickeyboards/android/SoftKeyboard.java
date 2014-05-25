@@ -110,12 +110,6 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int REMINGTON_LETTER_DH = 0xF032;
 	public static final int REMINGTON_LETTER_KH = 0xF033;
 	
-	public static final int TELUGU_LETTER_KSHA = 0xF034;
-	public static final int TELUGU_LETTER_TRA = 0xF035;
-	public static final int TELUGU_LETTER_JNYA = 0xF036;
-	public static final int TELUGU_LETTER_SHRA = 0xF037;
-	public static final int TELUGU_LETTER_OTTU_R = 0xF038;
-
 	String[] KANNADA_LAYOUT_CHOICES = new String[] { "KaGaPa", "InScript", "3x4 Keyboard" };
 	private static final int KB_KAGAPA = 0;
 	private static final int KB_KANNADA_INSCRIPT = 1;
@@ -2032,13 +2026,36 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				case KB_LANGUAGE_TAMIL:
 					text = "க்ஷ";
 					break;
+				case KB_LANGUAGE_TELUGU:
+					text = "క్ష";
+					break;
 				}
 				break;
 			case JNYA_COMPOUND_LETTER:
-				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ಜ್ಞ" : "ज्ञ";
+				switch (keyboardLanguage) {
+				case KB_LANGUAGE_KANNADA:
+					text = "ಜ್ಞ";
+					break;
+				case KB_LANGUAGE_HINDI:
+					text = "ज्ञ";
+					break;
+				case KB_LANGUAGE_TELUGU:
+					text = "జ్ఞ";
+					break;
+				}
 				break;
 			case TRA_COMPOUND_LETTER:
-				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ತ್ರ" : "त्र";
+				switch (keyboardLanguage) {
+				case KB_LANGUAGE_KANNADA:
+					text = "ತ್ರ";
+					break;
+				case KB_LANGUAGE_HINDI:
+					text = "त्र";
+					break;
+				case KB_LANGUAGE_TELUGU:
+					text = "త్ర";
+					break;
+				}
 				break;
 			case SHRA_COMPOUND_LETTER:
 				switch (keyboardLanguage) {
@@ -2051,13 +2068,26 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				case KB_LANGUAGE_TAMIL:
 					text = "ஷ்ர";
 					break;
+				case KB_LANGUAGE_TELUGU:
+					text = "శ్ర";
+					break;
 				}
 				break;
 			case ARKAAOTTU_COMPOUND_LETTER:
 				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "ರ್" : "र्";
 				break;
 			case OTTU_R_COMPOUND_LETTER:
-				text = keyboardLanguage == KB_LANGUAGE_KANNADA ? "್ರ" : "्र";
+				switch (keyboardLanguage) {
+				case KB_LANGUAGE_KANNADA:
+					text = "್ರ";
+					break;
+				case KB_LANGUAGE_HINDI:
+					text = "्र";
+					break;
+				case KB_LANGUAGE_TELUGU:
+					text = "్ర";
+					break;
+				}
 				break;
 			case DVA_COMPOUND_LETTER:
 				text = "द्व";
