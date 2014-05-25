@@ -42,7 +42,7 @@
     <Key android:codes="0x0b9f" android:keyIcon="@drawable/tamil_inscript_tta" android:keyWidth="11%p" />
     <Key android:codes="0x0bb1" android:keyIcon="@drawable/tamil_inscript_rra" android:keyWidth="11%p" />
     <Key android:codes="0x0ba4" android:keyIcon="@drawable/tamil_inscript_ta" android:keyWidth="11%p" />
-    <Key android:codes="0x0bb7" android:keyIcon="@drawable/tamil_inscript_ssa" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0b9e" android:keyIcon="@drawable/tamil_inscript_nya2" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -54,7 +54,7 @@
     <Key android:codes="0x0ba9" android:keyIcon="@drawable/tamil_inscript_nnna" android:keyWidth="11%p" />
     <Key android:codes="0x0bb4" android:keyIcon="@drawable/tamil_inscript_llla" android:keyWidth="11%p" />
     <Key android:codes="0x0bb3" android:keyIcon="@drawable/tamil_inscript_lla" android:keyWidth="11%p" />
-    <Key android:codes="0x0b9e" android:keyIcon="@drawable/tamil_inscript_nya2" android:keyWidth="11%p" />
+    <Key android:codes="0x0bb7" android:keyIcon="@drawable/tamil_inscript_ssa" android:keyWidth="11%p" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="11%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
