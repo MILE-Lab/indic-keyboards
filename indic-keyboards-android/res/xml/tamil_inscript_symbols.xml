@@ -48,7 +48,7 @@
   </Row>
 
   <Row>
-    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="15%p"
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
     <Key android:codes="33" android:keyIcon="@drawable/sym_exclamation" />
     <Key android:codes="34" android:keyIcon="@drawable/sym_double_quotes" />
@@ -56,8 +56,9 @@
     <Key android:codes="58" android:keyIcon="@drawable/sym_colon" />
     <Key android:codes="59" android:keyIcon="@drawable/sym_semi_colon" />
     <Key android:codes="47" android:keyIcon="@drawable/sym_forward_slash" />
+    <Key android:codes="0x200C" android:keyIcon="@drawable/sym_zwnj" />
     <Key android:codes="63" android:keyIcon="@drawable/sym_question_mark" />
-    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="15%p"
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 
@@ -67,8 +68,8 @@
     <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="35%p"
       android:isRepeatable="true" />
-    <Key android:codes="0xF204" android:keyIcon="@drawable/tamil_inscript_num_to_letters" android:keyWidth="15%p" />
     <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
+    <Key android:codes="0xF204" android:keyIcon="@drawable/tamil_inscript_num_to_letters" android:keyWidth="15%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="15%p"
       android:keyEdgeFlags="right" />
   </Row>
