@@ -29,8 +29,8 @@
     <Key android:codes="0x0b8a" android:keyIcon="@drawable/tamil_inscript_uu" android:keyWidth="11%p" />
     <Key android:codes="0x0b99" android:keyIcon="@drawable/tamil_inscript_nga" android:keyWidth="11%p" />
     <Key android:codes="0x0b9e" android:keyIcon="@drawable/tamil_inscript_nya" android:keyWidth="11%p" />
-    <Key android:codes="0x0b83" android:keyIcon="@drawable/tamil_inscript_anusvara" android:keyWidth="11%p" />
-    <Key android:codes="0xF010" android:keyIcon="@drawable/tamil_inscript_ksha" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0ba4" android:keyIcon="@drawable/tamil_inscript_ta" android:keyWidth="11%p" />
+    <Key android:codes="0xF015" android:keyIcon="@drawable/tamil_inscript_shra" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -39,10 +39,10 @@
     <Key android:codes="0x0b85" android:keyIcon="@drawable/tamil_inscript_a" android:keyWidth="11%p" />
     <Key android:codes="0x0b87" android:keyIcon="@drawable/tamil_inscript_i" android:keyWidth="11%p" />
     <Key android:codes="0x0b89" android:keyIcon="@drawable/tamil_inscript_u" android:keyWidth="11%p" />
-    <Key android:codes="0x0b9f" android:keyIcon="@drawable/tamil_inscript_tta" android:keyWidth="11%p" />
+    <Key android:codes="0x0ba4" android:keyIcon="@drawable/tamil_inscript_ta2" android:keyWidth="11%p" />
+    <Key android:codes="0x0b83" android:keyIcon="@drawable/tamil_inscript_anusvara" android:keyWidth="11%p" />
     <Key android:codes="0x0bb1" android:keyIcon="@drawable/tamil_inscript_rra" android:keyWidth="11%p" />
-    <Key android:codes="0x0ba4" android:keyIcon="@drawable/tamil_inscript_ta" android:keyWidth="11%p" />
-    <Key android:codes="0x0b9e" android:keyIcon="@drawable/tamil_inscript_nya2" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0b9c" android:keyIcon="@drawable/tamil_inscript_ja" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
