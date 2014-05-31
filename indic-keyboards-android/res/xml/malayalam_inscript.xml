@@ -28,23 +28,23 @@
     <Key android:codes="0x0d40" android:keyIcon="@drawable/malayalam_inscript_ii_matra" />
     <Key android:codes="0x0d42" android:keyIcon="@drawable/malayalam_inscript_uu_matra" />
     <Key android:codes="0x0d2c" android:keyIcon="@drawable/malayalam_inscript_ba" />
-    <Key android:codes="0x0d39" android:keyIcon="@drawable/malayalam_inscript_ha" />
     <Key android:codes="0x0d17" android:keyIcon="@drawable/malayalam_inscript_ga" />
     <Key android:codes="0x0d26" android:keyIcon="@drawable/malayalam_inscript_da" />
-    <Key android:codes="0x0d1c" android:keyIcon="@drawable/malayalam_inscript_ja" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0d1c" android:keyIcon="@drawable/malayalam_inscript_ja" />
+    <Key android:codes="0x0d21" android:keyIcon="@drawable/malayalam_inscript_dda" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
     <Key android:codes="0x0d4b" android:keyIcon="@drawable/malayalam_inscript_oo_matra" android:keyEdgeFlags="left" />
-    <Key android:codes="0x0d47" android:keyIcon="@drawable/malayalam_inscript_e_matra" />
+    <Key android:codes="0x0d47" android:keyIcon="@drawable/malayalam_inscript_ee_matra" />
     <Key android:codes="0x0d4d" android:keyIcon="@drawable/malayalam_inscript_a_matra" />
     <Key android:codes="0x0d3f" android:keyIcon="@drawable/malayalam_inscript_i_matra" />
     <Key android:codes="0x0d41" android:keyIcon="@drawable/malayalam_inscript_u_matra" />
     <Key android:codes="0x0d2a" android:keyIcon="@drawable/malayalam_inscript_pa" />
-    <Key android:codes="0x0d30" android:keyIcon="@drawable/malayalam_inscript_ra" />
     <Key android:codes="0x0d15" android:keyIcon="@drawable/malayalam_inscript_ka" />
     <Key android:codes="0x0d24" android:keyIcon="@drawable/malayalam_inscript_ta" />
-    <Key android:codes="0x0d1a" android:keyIcon="@drawable/malayalam_inscript_ca" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0d1a" android:keyIcon="@drawable/malayalam_inscript_ca" />
+    <Key android:codes="0x0d1f" android:keyIcon="@drawable/malayalam_inscript_tta" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -54,24 +54,24 @@
     <Key android:codes="0x0d02" android:keyIcon="@drawable/malayalam_inscript_anusvara" />
     <Key android:codes="0x0d2e" android:keyIcon="@drawable/malayalam_inscript_ma" />
     <Key android:codes="0x0d28" android:keyIcon="@drawable/malayalam_inscript_na" />
-    <Key android:codes="0x0d35" android:keyIcon="@drawable/malayalam_inscript_va" />
     <Key android:codes="0x0d32" android:keyIcon="@drawable/malayalam_inscript_la" />
+    <Key android:codes="0x0d35" android:keyIcon="@drawable/malayalam_inscript_va" />
     <Key android:codes="0x0d38" android:keyIcon="@drawable/malayalam_inscript_sa" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="10%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 
   <Row android:rowEdgeFlags="bottom">
-    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="10%p"
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="12%p"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
     <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p" />
-    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="28%p"
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="20%p"
       android:isRepeatable="true" />
-    <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
-    <Key android:codes="0x0d1f" android:keyIcon="@drawable/malayalam_inscript_tta" />
-    <Key android:codes="0xF208" android:keyLabel="123" android:keyWidth="10%p" />
-    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="10%p"
+    <Key android:codes="0x0d39" android:keyIcon="@drawable/malayalam_inscript_ha" android:keyWidth="10%p" />
+    <Key android:codes="0x0d2f" android:keyIcon="@drawable/malayalam_inscript_ya" android:keyWidth="10%p" />
+    <Key android:codes="0xF208" android:keyLabel="123" android:keyWidth="14%p" />
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="12%p"
       android:keyEdgeFlags="right" />
   </Row>
 </Keyboard>
