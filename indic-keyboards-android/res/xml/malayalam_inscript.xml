@@ -50,7 +50,7 @@
   <Row>
     <Key android:codes="0x0d4a" android:keyIcon="@drawable/malayalam_inscript_o_matra" android:keyEdgeFlags="left" />
     <Key android:codes="0x0d46" android:keyIcon="@drawable/malayalam_inscript_e_matra" />
-    <Key android:codes="0x0d43" android:keyIcon="@drawable/malayalam_inscript_vocalic_r_matra" />
+    <Key android:codes="3395,3396,3426,3427" android:keyIcon="@drawable/malayalam_inscript_vocalic_r_matra" />
     <Key android:codes="0x0d02" android:keyIcon="@drawable/malayalam_inscript_anusvara" />
     <Key android:codes="0x0d2e" android:keyIcon="@drawable/malayalam_inscript_ma" />
     <Key android:codes="0x0d28" android:keyIcon="@drawable/malayalam_inscript_na" />
