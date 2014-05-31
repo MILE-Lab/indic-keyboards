@@ -48,17 +48,18 @@
   </Row>
 
   <Row>
-    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="15%p"
-      android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
+    <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyEdgeFlags="left"
+      android:isModifier="true" android:isSticky="true" />
     <Key android:codes="60" android:keyIcon="@drawable/sym_less_than" />
     <Key android:codes="62" android:keyIcon="@drawable/sym_greater_than" />
     <Key android:codes="123" android:keyIcon="@drawable/sym_left_curly_bracket" />
     <Key android:codes="125" android:keyIcon="@drawable/sym_right_curly_bracket" />
     <Key android:codes="124" android:keyIcon="@drawable/sym_vertical_bar" />
     <Key android:codes="92" android:keyIcon="@drawable/sym_backward_slash" />
+    <Key android:codes="0x200D" android:keyIcon="@drawable/sym_zwj" />
     <Key android:codes="169" android:keyIcon="@drawable/sym_copyright" />
-    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="15%p"
-      android:keyEdgeFlags="right" android:isRepeatable="true" />
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right"
+      android:isRepeatable="true" />
   </Row>
 
   <Row android:rowEdgeFlags="bottom">
@@ -68,7 +69,7 @@
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="35%p"
       android:isRepeatable="true" />
     <Key android:codes="0xF203" android:keyIcon="@drawable/tamil_inscript_num_to_letters" android:keyWidth="15%p" />
-    <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="10%p" />
+    <Key android:codes="44,46" android:keyLabel=", ." android:keyWidth="10%p" />
     <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="15%p"
       android:keyEdgeFlags="right" />
   </Row>
