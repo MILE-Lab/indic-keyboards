@@ -26,22 +26,22 @@
     <Key android:codes="0x0bb7" android:keyIcon="@drawable/tamil_99_ssa" android:keyWidth="11%p" />
     <Key android:codes="0x0b9c" android:keyIcon="@drawable/tamil_99_ja" android:keyWidth="11%p" />
     <Key android:codes="0x0bb9" android:keyIcon="@drawable/tamil_99_ha" android:keyWidth="11%p" />
-    <Key android:codes=" " android:keyIcon="@drawable/tamil_99_ksha" android:keyWidth="11%p" />
-    <Key android:codes=" " android:keyIcon="@drawable/tamil_99_y_unknown" android:keyWidth="11%p" />
+    <Key android:codes="0xF010" android:keyIcon="@drawable/tamil_99_ksha" android:keyWidth="11%p" />
+    <Key android:codes="0xF034" android:keyIcon="@drawable/tamil_99_shri" android:keyWidth="11%p" />
     <Key android:codes="0x0ba9" android:keyIcon="@drawable/tamil_99_nnna" android:keyWidth="11%p" />
     <Key android:codes="0x0ba3" android:keyIcon="@drawable/tamil_99_nna" android:keyWidth="11%p" />
     <Key android:codes="0x0b82" android:keyIcon="@drawable/tamil_99_anuswara" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
-    <Key android:codes="0x0bf9" android:keyIcon="@drawable/tamil_99_a_unknown" android:keyWidth="11%p" android:keyEdgeFlags="left" />
-    <Key android:codes=" " android:keyIcon="@drawable/tamil_99_s_unknown" android:keyWidth="11%p" />
+    <Key android:codes="0x0bf9" android:keyIcon="@drawable/tamil_99_rupee" android:keyWidth="11%p" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0bfa" android:keyIcon="@drawable/tamil_99_number" android:keyWidth="11%p" />
     <Key android:codes="0x0bf8" android:keyIcon="@drawable/tamil_99_tamil_as_above_sign" android:keyWidth="11%p" />
     <Key android:codes="0x0b83" android:keyIcon="@drawable/tamil_99_visarga" android:keyWidth="11%p" />
     <Key android:codes="0x0baa" android:keyIcon="@drawable/tamil_99_pa" android:keyWidth="11%p" />
     <Key android:codes="0x0ba4" android:keyIcon="@drawable/tamil_99_ta" android:keyWidth="11%p" />
     <Key android:codes="0x0baf" android:keyIcon="@drawable/tamil_99_ya" android:keyWidth="11%p" />
-    <Key android:codes="0x0bae" android:keyIcon="@drawable/tamil_99_nya" android:keyWidth="11%p" />
+    <Key android:codes="0x0b9e" android:keyIcon="@drawable/tamil_99_nya" android:keyWidth="11%p" />
     <Key android:codes="0x0bcd" android:keyIcon="@drawable/tamil_99_virama" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 

@@ -84,6 +84,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	public static final int OTTU_R_COMPOUND_LETTER = 0xF013;
 	public static final int TRA_COMPOUND_LETTER = 0xF014;
 	public static final int SHRA_COMPOUND_LETTER = 0xF015;
+	public static final int SHRI_COMPOUND_LETTER = 0xF034;
 
 	public static final int DVA_COMPOUND_LETTER = 0xF016;
 	public static final int DDHA_COMPOUND_LETTER = 0xF017;
@@ -2071,6 +2072,22 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 					break;
 				case KB_LANGUAGE_TELUGU:
 					text = "శ్ర";
+					break;
+				}
+				break;
+			case SHRI_COMPOUND_LETTER:
+				switch (keyboardLanguage) {
+				case KB_LANGUAGE_KANNADA:
+					text = "ಶ್ರೀ";
+					break;
+				case KB_LANGUAGE_HINDI:
+					text = "श्री";
+					break;
+				case KB_LANGUAGE_TAMIL:
+					text = "ஸ்ரீ";
+					break;
+				case KB_LANGUAGE_TELUGU:
+					text = "శ్రీ";
 					break;
 				}
 				break;
