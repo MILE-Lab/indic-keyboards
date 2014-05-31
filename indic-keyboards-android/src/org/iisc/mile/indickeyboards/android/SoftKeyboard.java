@@ -116,10 +116,11 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 	private static final int KB_KANNADA_3x4 = 2;
 	// private static final int KB_KANNADA_PHONETIC = 3;
 
-	String[] HINDI_LAYOUT_CHOICES = new String[] { "InScript", "Remington", "3x4 Keyboard" };
+	// String[] HINDI_LAYOUT_CHOICES = new String[] { "InScript", "Remington", "3x4 Keyboard" };
+	String[] HINDI_LAYOUT_CHOICES = new String[] { "InScript", "3x4 Keyboard" };
 	private static final int KB_HINDI_INSCRIPT = 0;
-	private static final int KB_HINDI_REMINGTON = 1;
-	private static final int KB_HINDI_3x4 = 2;
+	private static final int KB_HINDI_REMINGTON = 2;
+	private static final int KB_HINDI_3x4 = 1;
 	// private static final int KB_HINDI_PHONETIC = 3;
 
 	String[] TAMIL_LAYOUT_CHOICES = new String[] { "TamilNet99", "InScript", "3x4 Keyboard" };
