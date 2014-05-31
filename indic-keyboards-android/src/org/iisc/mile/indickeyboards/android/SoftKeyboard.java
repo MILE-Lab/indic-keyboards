@@ -930,10 +930,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		case KB_LANGUAGE_MALAYALAM:
 			switch (keyboardLayout) {
 			case KB_MALAYALAM_INSCRIPT:
-				return getTeluguInScriptKeyboard();
+				return getMalayalamInScriptKeyboard();
 			case KB_MALAYALAM_3x4:
-				return getTelugu3x4Keyboard();
-				// case KB_TELUGU_PHONETIC:
+				return getMalayalam3x4Keyboard();
+				// case KB_MALAYALAM_PHONETIC:
 				// return getPhoneticKeyboard();
 			}	
 		default:
@@ -1589,9 +1589,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 					public void onClick(DialogInterface dialog, int which) {
 						SharedPreferences.Editor editor = mSharedPreferences.edit();
 						switch (which) {
-						// case KB_TAMIL_REMINGTON:
-						// editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_REMINGTON);
-						// mInputView.setKeyboard(getTamilRemingtonKeyboard());
+						// case KB_TELUGU_REMINGTON:
+						// editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_TELUGU_REMINGTON);
+						// mInputView.setKeyboard(getTeluguRemingtonKeyboard());
 						// break;
 						case KB_TELUGU_INSCRIPT:
 							editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_TELUGU_INSCRIPT);
@@ -1631,20 +1631,20 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 					public void onClick(DialogInterface dialog, int which) {
 						SharedPreferences.Editor editor = mSharedPreferences.edit();
 						switch (which) {
-						// case KB_TAMIL_REMINGTON:
-						// editor.putInt(KB_CURRENT_TAMIL_LAYOUT, KB_TAMIL_REMINGTON);
-						// mInputView.setKeyboard(getTamilRemingtonKeyboard());
+						// case KB_MALAYALAM_REMINGTON:
+						// editor.putInt(KB_CURRENT_MALAYALAM_LAYOUT, KB_MALAYALAM_REMINGTON);
+						// mInputView.setKeyboard(getMalayalamRemingtonKeyboard());
 						// break;
 						case KB_MALAYALAM_INSCRIPT:
-							editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_MALAYALAM_INSCRIPT);
+							editor.putInt(KB_CURRENT_MALAYALAM_LAYOUT, KB_MALAYALAM_INSCRIPT);
 							mInputView.setKeyboard(getMalayalamInScriptKeyboard());
 							break;
 						case KB_MALAYALAM_3x4:
-							editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_MALAYALAM_3x4);
+							editor.putInt(KB_CURRENT_MALAYALAM_LAYOUT, KB_MALAYALAM_3x4);
 							mInputView.setKeyboard(getMalayalam3x4Keyboard());
 							break;
-						// case KB_TELUGU_PHONETIC:
-						// editor.putInt(KB_CURRENT_TELUGU_LAYOUT, KB_TELUGU_PHONETIC);
+						// case KB_MALAYALAM_PHONETIC:
+						// editor.putInt(KB_CURRENT_MALAYALAM_LAYOUT, KB_MALAYALAM_PHONETIC);
 						// mInputView.setKeyboard(getPhoneticKeyboard());
 						// break;
 						}
