@@ -2224,6 +2224,21 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				text = "ख्";
 				break;
 			}
+			if (isTamilNet99Keyboard()) {
+				InputConnection ic = getCurrentInputConnection();
+				String previousCodes = ic.getTextBeforeCursor(1, 0).toString();
+				if (previousCodes.length() > 0) {
+					int previousCode = previousCodes.codePointAt(0);
+					if (mTamilConsonants.contains(primaryCode) && previousCode == primaryCode) {
+						String previousToPreviousCodes = ic.getTextBeforeCursor(2, 0).toString();
+						if (previousToPreviousCodes != null && previousToPreviousCodes.codePointAt(0) == '்') {
+							//
+						} else {
+							text = "்" + text;
+						}
+					}
+				}
+			}
 			getCurrentInputConnection().commitText(text, text.length());
 		}
 	}
