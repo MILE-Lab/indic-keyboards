@@ -41,7 +41,7 @@
     <Key android:codes="0x0b99" android:keyIcon="@drawable/tamil_99_nga2" android:keyWidth="11%p" />
     <Key android:codes="0x0bae" android:keyIcon="@drawable/tamil_99_ma" android:keyWidth="11%p" />
     <Key android:codes="0x0ba8" android:keyIcon="@drawable/tamil_99_na" android:keyWidth="11%p" />
-    <Key android:codes="0x0bb0" android:keyIcon="@drawable/tamil_99_ra2" android:keyWidth="11%p" />
+    <Key android:codes="0x0bb0" android:keyIcon="@drawable/tamil_99_ra" android:keyWidth="11%p" />
     <Key android:codes="0x0bcd" android:keyIcon="@drawable/tamil_99_virama" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
@@ -53,7 +53,7 @@
     <Key android:codes="0x0bf5" android:keyIcon="@drawable/tamil_99_tamil_year_sign" android:keyWidth="11%p" />
     <Key android:codes="0x0bf6" android:keyIcon="@drawable/tamil_99_tamil_debit_sign" android:keyWidth="11%p" />
     <Key android:codes="0x0bff" android:keyIcon="@drawable/tamil_99_tamil_credit_sign" android:keyWidth="11%p" />
-    <Key android:codes="0x0bb0" android:keyIcon="@drawable/tamil_99_ra" android:keyWidth="11%p" />
+    <Key android:codes="0x0bb3" android:keyIcon="@drawable/tamil_99_lla2" android:keyWidth="11%p" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="15%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
