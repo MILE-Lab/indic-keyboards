@@ -36,7 +36,7 @@ public class AboutActivity extends Activity {
 		stringBuffer.append("\n  Satvik Neelakant <nsatvik@gmail.com>");
 		stringBuffer.append("\n  Shruthi R <shruthir.colours@gmail.com>");
 		stringBuffer.append("\n  Priya S <priyasnb@gmail.com>");
-		stringBuffer.append("\n  Sandesh S <sandy.s2991@gmail.com>");
+		stringBuffer.append("\n  Sandesh S <sandy.s2991@gmail.com>\n");
 		return stringBuffer.toString();
 	}
 

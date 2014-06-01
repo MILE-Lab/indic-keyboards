@@ -694,17 +694,32 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 
 	static private Set<Integer> mConsonants;
 	static private HashMap<Integer, Integer> mVowels;
+	static private Set<Integer> mTamilConsonants;
+	static private HashMap<Integer, Integer> mTamilVowels;
 
 	static {
 		mConsonants = new HashSet<Integer>();
 		for (int i = 'ಕ'; i <= 'ಹ'; i++) {
 			mConsonants.add(i);
 		}
-
 		mVowels = new HashMap<Integer, Integer>();
 		for (int i = 'ಆ', j = 'ಾ'; i <= 'ಔ'; i++, j++) {
 			mVowels.put(i, j);
 		}
+
+		char[] tamilConsonants = { 'க', 'ங', 'ச', 'ஞ', 'ட', 'ண', 'த', 'ந', 'ப', 'ம', 'ய', 'ர', 'ல', 'வ', 'ழ',
+				'ள', 'ற', 'ன', 'ஶ', 'ஜ', 'ஷ', 'ஸ', 'ஹ' };
+		mTamilConsonants = new HashSet<Integer>();
+		for (int i = 0; i < tamilConsonants.length; i++) {
+			mTamilConsonants.add((int) tamilConsonants[i]);
+		}
+		char[] tamilVowels = { 'ஆ', 'இ', 'ஈ', 'உ', 'ஊ', 'எ', 'ஏ', 'ஐ', 'ஒ', 'ஓ', 'ஔ' };
+		char[] tamilVowelSigns = { 'ா', 'ி', 'ீ', 'ு', 'ூ', 'ெ', 'ே', 'ை', 'ொ', 'ோ', 'ௌ' };
+		mTamilVowels = new HashMap<Integer, Integer>();
+		for (int i = 0; i < tamilVowels.length; i++) {
+			mTamilVowels.put((int) tamilVowels[i], (int) tamilVowelSigns[i]);
+		}
+		mTamilVowels.put((int) 'அ', 0x200C);
 	}
 
 	@Override
@@ -1986,6 +2001,22 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		return false;
 	}
 
+	private boolean isTamilNet99Keyboard() {
+		Keyboard current = mInputView.getKeyboard();
+		if (current == mTamilNet99Keyboard || current == mTamilNet99ShiftedKeyboard) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean isTamil3x4Keyboard() {
+		Keyboard current = mInputView.getKeyboard();
+		if (current == mTamil3x4Keyboard) {
+			return true;
+		}
+		return false;
+	}
+
 	private void handleCharacter(int primaryCode, int[] keyCodes) {
 		if (isKaGaPaKeyboard() || isKannada3x4Keyboard()) {
 			InputConnection ic = getCurrentInputConnection();
@@ -2000,6 +2031,22 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				int previousCode = previousCodes.codePointAt(0);
 				if (mConsonants.contains(previousCode) && mVowels.containsKey(primaryCode)) {
 					primaryCode = mVowels.get(primaryCode);
+				}
+			}
+		}
+		if (isTamilNet99Keyboard() || isTamil3x4Keyboard()) {
+			InputConnection ic = getCurrentInputConnection();
+			if (isTamil3x4Keyboard()) {
+				// Don't delete this dummy code.
+				// Without this the 3x4 keyboard won't work reliably on Samsung Galaxy 5!
+				// Need to understand as to why this is happening.
+				ic.getTextBeforeCursor(2, 0).toString();
+			}
+			String previousCodes = ic.getTextBeforeCursor(1, 0).toString();
+			if (previousCodes.length() > 0) {
+				int previousCode = previousCodes.codePointAt(0);
+				if (mTamilConsonants.contains(previousCode) && mTamilVowels.containsKey(primaryCode)) {
+					primaryCode = mTamilVowels.get(primaryCode);
 				}
 			}
 		}
