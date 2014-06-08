@@ -26,7 +26,7 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="2309,2310,2311,2312,2313,2314,2315" android:keyIcon="@drawable/hindi_3x4_a_to_vocalic_r"
       android:keyWidth="25%p" />
-    <Key android:codes="2319,2318,2320,2322,2323,2324" android:keyIcon="@drawable/hindi_3x4_e_to_au" android:keyWidth="25%p" />
+    <Key android:codes="2319,2320,2323,2324" android:keyIcon="@drawable/hindi_3x4_e_to_au" android:keyWidth="25%p" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="25%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
