@@ -2033,8 +2033,7 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 					primaryCode = mVowels.get(primaryCode);
 				}
 			}
-		}
-		if (isTamilNet99Keyboard() || isTamil3x4Keyboard()) {
+		} else if (isTamilNet99Keyboard() || isTamil3x4Keyboard()) {
 			InputConnection ic = getCurrentInputConnection();
 			if (isTamil3x4Keyboard()) {
 				// Don't delete this dummy code.
