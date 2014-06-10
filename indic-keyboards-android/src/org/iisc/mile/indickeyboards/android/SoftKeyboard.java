@@ -739,7 +739,10 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		for (int i = 'आ', j = 'ा'; i <= 'औ'; i++, j++) {
 			mDevanagariVowels.put(i, j);
 		}
-		mDevanagariVowels.put((int) 'अ', 0x094D);
+		mDevanagariVowels.put((int) 'अ', (int)'्');
+		mDevanagariVowels.put((int) 'ॠ', (int)'ॄ');
+		mDevanagariVowels.put((int) 'ऌ', (int)'ॢ');
+		mDevanagariVowels.put((int) 'ॡ', (int)'ॣ');
 
 		mTeluguConsonants = new HashSet<Integer>();
 		for (int i = 'క'; i <= 'హ'; i++) {
