@@ -51,7 +51,7 @@
     <Key android:codes="2322,2321" android:keyIcon="@drawable/hindi_inscript_short_o" android:keyEdgeFlags="left" />
     <Key android:codes="2318,2317" android:keyIcon="@drawable/hindi_inscript_short_e" />
     <Key android:codes="2315,2400,2316,2401" android:keyIcon="@drawable/hindi_inscript_vocalic_r" />
-    <Key android:codes="2307,2304" android:keyIcon="@drawable/hindi_inscript_visarga" />
+    <Key android:codes="2307,2364" android:keyIcon="@drawable/hindi_inscript_visarga" />
     <Key android:codes="0x0923" android:keyIcon="@drawable/hindi_inscript_nna" />
     <Key android:codes="0x091e" android:keyIcon="@drawable/hindi_inscript_nya" />
     <Key android:codes="0x0933" android:keyIcon="@drawable/hindi_inscript_lla" />
