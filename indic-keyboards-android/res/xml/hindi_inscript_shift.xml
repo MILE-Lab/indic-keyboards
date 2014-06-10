@@ -37,7 +37,7 @@
   <Row>
     <Key android:codes="0x0913" android:keyIcon="@drawable/hindi_inscript_oo" android:keyEdgeFlags="left" />
     <Key android:codes="0x090f" android:keyIcon="@drawable/hindi_inscript_e" />
-    <Key android:codes="2309,2418" android:keyIcon="@drawable/hindi_inscript_a" />
+    <Key android:codes="2309,2308,2418" android:keyIcon="@drawable/hindi_inscript_a" />
     <Key android:codes="0x0907" android:keyIcon="@drawable/hindi_inscript_i" />
     <Key android:codes="0x0909" android:keyIcon="@drawable/hindi_inscript_u" />
     <Key android:codes="0x092b" android:keyIcon="@drawable/hindi_inscript_pha" />
