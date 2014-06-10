@@ -2097,8 +2097,17 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 		}
 		String previousCodes = ic.getTextBeforeCursor(1, 0).toString();
 		if (previousCodes.length() > 0) {
-			int previousCode = previousCodes.codePointAt(0);
-			return previousCode;
+			return previousCodes.codePointAt(0);
+		} else {
+			return null;
+		}
+	}
+
+	Integer getPreviousToPreviousCode() {
+		InputConnection ic = getCurrentInputConnection();
+		String previousToPreviousCodes = ic.getTextBeforeCursor(2, 0).toString();
+		if (previousToPreviousCodes.length() > 1) {
+			return previousToPreviousCodes.codePointAt(0);
 		} else {
 			return null;
 		}
@@ -2137,6 +2146,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			}
 		} else if (isHindi3x4Keyboard()) {
 			Integer previousCode = getPreviousCode();
+			if (previousCode != null && previousCode == '़') {
+				previousCode = getPreviousToPreviousCode();
+			}
 			if (previousCode != null && mDevanagariConsonants.contains(previousCode)
 					&& mDevanagariVowels.containsKey(primaryCode)) {
 				primaryCode = mDevanagariVowels.get(primaryCode);
