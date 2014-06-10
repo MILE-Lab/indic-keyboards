@@ -22,7 +22,7 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="2306,2307,2404,2405,2305,2364,2365,2384,2308,2418" android:keyIcon="@drawable/hindi_3x4_anusvara_visarga" android:keyWidth="25%p"
+    <Key android:codes="2306,2307,2305,2364,2308,2418" android:keyIcon="@drawable/hindi_3x4_anusvara_visarga" android:keyWidth="25%p"
       android:keyEdgeFlags="left" />
     <Key android:codes="2309,2310,2311,2312,2313,2314,2315,2400,2316,2401" android:keyIcon="@drawable/hindi_3x4_a_to_vocalic_r"
       android:keyWidth="25%p" />
@@ -45,7 +45,8 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="2346,2347,2348,2349,2350" android:keyIcon="@drawable/hindi_3x4_pa_to_ma" android:keyWidth="25%p" />
     <Key android:codes="2351,2352,2354,2357" android:keyIcon="@drawable/hindi_3x4_ya_to_va" android:keyWidth="25%p" />
-    <Key android:codes="0xF103" android:keyLabel=". , @" android:keyWidth="25%p" android:keyEdgeFlags="right"
+    <Key android:codes="2404,2405,2365,2384" android:keyIcon="@drawable/hindi_3x4_danda" android:keyWidth="12%p" />
+    <Key android:codes="0xF103" android:keyLabel=". , @" android:keyWidth="13%p" android:keyEdgeFlags="right"
       android:isRepeatable="true" />
   </Row>
 
