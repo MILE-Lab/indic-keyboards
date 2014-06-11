@@ -48,8 +48,8 @@
   </Row>
 
   <Row>
-    <Key android:codes="2378,2377" android:keyIcon="@drawable/hindi_inscript_short_o_matra" android:keyEdgeFlags="left" />
-    <Key android:codes="2374,2373" android:keyIcon="@drawable/hindi_inscript_short_e_matra" />
+    <Key android:codes="2377,2378" android:keyIcon="@drawable/hindi_inscript_short_o_matra" android:keyEdgeFlags="left" />
+    <Key android:codes="2373,2374" android:keyIcon="@drawable/hindi_inscript_short_e_matra" />
     <Key android:codes="2371,2372,2402,2403" android:keyIcon="@drawable/hindi_inscript_vocalic_r_matra" />
     <Key android:codes="2306,2305" android:keyIcon="@drawable/hindi_inscript_anusvara" />
     <Key android:codes="0x092e" android:keyIcon="@drawable/hindi_inscript_ma" />
