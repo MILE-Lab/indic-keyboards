@@ -44,7 +44,7 @@
     <Key android:codes="0x0c9c" android:keyIcon="@drawable/kagapa_ja" />
     <Key android:codes="0x0c95" android:keyIcon="@drawable/kagapa_ka" />
     <Key android:codes="0x0cb2" android:keyIcon="@drawable/kagapa_la" />
-    <Key android:codes="0x200C" android:keyIcon="@drawable/sym_zwnj" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0cb1" android:keyIcon="@drawable/kan_inscript_rra" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
