@@ -54,7 +54,7 @@
     <Key android:codes="125" android:keyIcon="@drawable/sym_right_curly_bracket" />
     <Key android:codes="124" android:keyIcon="@drawable/sym_vertical_bar" />
     <Key android:codes="92" android:keyIcon="@drawable/sym_backward_slash" />
-    <Key android:codes="0x0d3d" android:keyIcon="@drawable/malayalam_inscript_praslesham" />
+    <Key android:codes="3389,2404,2405" android:keyIcon="@drawable/malayalam_inscript_praslesham" />
     <Key android:codes="0x200D" android:keyIcon="@drawable/sym_zwj" />
     <Key android:codes="169" android:keyIcon="@drawable/sym_copyright" />
     <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" 
