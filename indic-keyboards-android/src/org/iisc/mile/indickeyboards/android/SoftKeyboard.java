@@ -766,6 +766,9 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 			mMalayalamVowels.put(i, j);
 		}
 		mMalayalamVowels.put((int) 'അ', 0x0D4D);
+		mMalayalamVowels.put((int) 'ൠ', 0x0D44);
+		mMalayalamVowels.put((int) 'ഌ', 0x0D62);
+		mMalayalamVowels.put((int) 'ൡ', 0x0D63);
 	}
 
 	@Override
