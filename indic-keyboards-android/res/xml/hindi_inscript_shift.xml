@@ -67,14 +67,13 @@
   <Row android:rowEdgeFlags="bottom">
     <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="12%p"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
-    <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
+    <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p" />
-    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="20%p"
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="24%p"
       android:isRepeatable="true" />
-    <Key android:codes="0x0965" android:keyIcon="@drawable/hindi_inscript_doubledanda" android:keyWidth="10%p" />
-    <Key android:codes="0x093d" android:keyIcon="@drawable/hindi_inscript_avagraha" android:keyWidth="10%p" />
+    <Key android:codes="0x0965" android:keyIcon="@drawable/hindi_inscript_doubledanda" android:keyWidth="12%p" />
     <Key android:codes="0xF104" android:keyLabel="123" android:keyWidth="14%p" />
-    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="12%p"
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="14%p"
       android:keyEdgeFlags="right" />
   </Row>
 </Keyboard>
