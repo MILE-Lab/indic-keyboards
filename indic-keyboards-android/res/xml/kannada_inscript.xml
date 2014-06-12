@@ -22,56 +22,58 @@
   android:horizontalGap="0px" android:verticalGap="0px" android:keyHeight="@dimen/key_height">
 
   <Row>
-    <Key android:codes="0x0ccc" android:keyIcon="@drawable/kan_inscript_au_matra" android:keyEdgeFlags="left" />
-    <Key android:codes="0x0cc8" android:keyIcon="@drawable/kan_inscript_ai_matra" />
-    <Key android:codes="0x0cbe" android:keyIcon="@drawable/kan_inscript_aa_matra" />
-    <Key android:codes="0x0cc0" android:keyIcon="@drawable/kan_inscript_ii_matra" />
-    <Key android:codes="0x0cc2" android:keyIcon="@drawable/kan_inscript_uu_matra" />
-    <Key android:codes="0x0cac" android:keyIcon="@drawable/kan_inscript_ba" />
-    <Key android:codes="0x0c97" android:keyIcon="@drawable/kan_inscript_ga" />
-    <Key android:codes="0x0ca6" android:keyIcon="@drawable/kan_inscript_da" />
-    <Key android:codes="0x0c9c" android:keyIcon="@drawable/kan_inscript_ja" />
-    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_dda" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0ccc" android:keyIcon="@drawable/kan_inscript_au_matra" android:keyWidth="9.1%p" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0cc8" android:keyIcon="@drawable/kan_inscript_ai_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cbe" android:keyIcon="@drawable/kan_inscript_aa_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cc0" android:keyIcon="@drawable/kan_inscript_ii_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cc2" android:keyIcon="@drawable/kan_inscript_uu_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cac" android:keyIcon="@drawable/kan_inscript_ba" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cb9" android:keyIcon="@drawable/kan_inscript_ha" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0c97" android:keyIcon="@drawable/kan_inscript_ga" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0ca6" android:keyIcon="@drawable/kan_inscript_da" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0c9c" android:keyIcon="@drawable/kan_inscript_ja" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0ca1" android:keyIcon="@drawable/kan_inscript_dda" android:keyWidth="9%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
-    <Key android:codes="0x0ccb" android:keyIcon="@drawable/kan_inscript_oo_matra" android:keyEdgeFlags="left" />
-    <Key android:codes="0x0cc7" android:keyIcon="@drawable/kan_inscript_ee_matra" />
-    <Key android:codes="0x0ccd" android:keyIcon="@drawable/kan_inscript_halant" />
-    <Key android:codes="0x0cbf" android:keyIcon="@drawable/kan_inscript_i_matra" />
-    <Key android:codes="0x0cc1" android:keyIcon="@drawable/kan_inscript_u_matra" />
-    <Key android:codes="0x0caa" android:keyIcon="@drawable/kan_inscript_pa" />
-    <Key android:codes="0x0c95" android:keyIcon="@drawable/kan_inscript_ka" />
-    <Key android:codes="0x0ca4" android:keyIcon="@drawable/kan_inscript_ta" />
-    <Key android:codes="0x0c9a" android:keyIcon="@drawable/kan_inscript_ca" />
-    <Key android:codes="0x0c9f" android:keyIcon="@drawable/kan_inscript_tta" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0ccb" android:keyIcon="@drawable/kan_inscript_oo_matra" android:keyWidth="9.1%p" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0cc7" android:keyIcon="@drawable/kan_inscript_ee_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0ccd" android:keyIcon="@drawable/kan_inscript_halant" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cbf" android:keyIcon="@drawable/kan_inscript_i_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cc1" android:keyIcon="@drawable/kan_inscript_u_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0caa" android:keyIcon="@drawable/kan_inscript_pa" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cb0" android:keyIcon="@drawable/kan_inscript_ra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0c95" android:keyIcon="@drawable/kan_inscript_ka" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0ca4" android:keyIcon="@drawable/kan_inscript_ta" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0c9a" android:keyIcon="@drawable/kan_inscript_ca" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0c9f" android:keyIcon="@drawable/kan_inscript_tta" android:keyWidth="9%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
-    <Key android:codes="0x0cca" android:keyIcon="@drawable/kan_inscript_o_matra" android:keyEdgeFlags="left" />
-    <Key android:codes="0x0cc6" android:keyIcon="@drawable/kan_inscript_e_matra" />
-    <Key android:codes="0x0cc3" android:keyIcon="@drawable/kan_inscript_vocalic_r_matra" />
-    <Key android:codes="0x0c82" android:keyIcon="@drawable/kan_inscript_anusvara" />
-    <Key android:codes="0x0cae" android:keyIcon="@drawable/kan_inscript_ma" />
-    <Key android:codes="0x0ca8" android:keyIcon="@drawable/kan_inscript_na" />
-    <Key android:codes="0x0cb2" android:keyIcon="@drawable/kan_inscript_la" />
-    <Key android:codes="0x0cb5" android:keyIcon="@drawable/kan_inscript_va" />
-    <Key android:codes="0x0cb8" android:keyIcon="@drawable/kan_inscript_sa" />
-    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="10%p"
+    <Key android:codes="0x0cca" android:keyIcon="@drawable/kan_inscript_o_matra" android:keyWidth="9.1%p" android:keyEdgeFlags="left" />
+    <Key android:codes="0x0cc6" android:keyIcon="@drawable/kan_inscript_e_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cc3" android:keyIcon="@drawable/kan_inscript_vocalic_r_matra" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0c82" android:keyIcon="@drawable/kan_inscript_anusvara" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cae" android:keyIcon="@drawable/kan_inscript_ma" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0ca8" android:keyIcon="@drawable/kan_inscript_na" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cb5" android:keyIcon="@drawable/kan_inscript_va" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cb2" android:keyIcon="@drawable/kan_inscript_la" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0cb8" android:keyIcon="@drawable/kan_inscript_sa" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0caf" android:keyIcon="@drawable/kan_inscript_ya" android:keyWidth="9.1%p" />
+    <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyWidth="9%p"
       android:keyEdgeFlags="right" android:isRepeatable="true" />
   </Row>
 
   <Row android:rowEdgeFlags="bottom">
     <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="12%p"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
-    <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="10%p" />
+    <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="12%p" />
-    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="20%p"
+    <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="24%p"
       android:isRepeatable="true" />
-    <Key android:codes="0x0cb9" android:keyIcon="@drawable/kan_inscript_ha" android:keyWidth="10%p" />
-    <Key android:codes="0x0caf" android:keyIcon="@drawable/kan_inscript_ya" android:keyWidth="10%p" />
+    <Key android:codes="46,44" android:keyLabel=". ," android:keyWidth="12%p" />
     <Key android:codes="0xF002" android:keyLabel="123" android:keyWidth="14%p" />
-    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="12%p"
+    <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="14%p"
       android:keyEdgeFlags="right" />
   </Row>
 </Keyboard>
