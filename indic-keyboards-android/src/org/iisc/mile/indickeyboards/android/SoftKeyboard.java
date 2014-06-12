@@ -2136,17 +2136,12 @@ public class SoftKeyboard extends InputMethodService implements KeyboardView.OnK
 				}
 			}
 		} else if (isTamilNet99Keyboard() || isTamil3x4Keyboard()) {
-			InputConnection ic = getCurrentInputConnection();
-			if (isTamil3x4Keyboard()) {
-				// Don't delete this dummy code.
-				// Without this the 3x4 keyboard won't work reliably on Samsung Galaxy 5!
-				// Need to understand as to why this is happening.
-				ic.getTextBeforeCursor(2, 0).toString();
-			}
-			String previousCodes = ic.getTextBeforeCursor(1, 0).toString();
-			if (previousCodes.length() > 0) {
-				int previousCode = previousCodes.codePointAt(0);
-				if (mTamilConsonants.contains(previousCode) && mTamilVowels.containsKey(primaryCode)) {
+			Integer previousCode = getPreviousCode();
+			if (previousCode != null && mTamilConsonants.contains(previousCode)
+					&& mTamilVowels.containsKey(primaryCode)) {
+				if (primaryCode == 'அ' && isTamil3x4Keyboard()) {
+					primaryCode = '்';
+				} else {
 					primaryCode = mTamilVowels.get(primaryCode);
 				}
 			}
