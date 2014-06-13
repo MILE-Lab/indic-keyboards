@@ -31,7 +31,7 @@ public class AboutActivity extends Activity {
 		stringBuffer.append("\nIdea/Conceptualization by:");
 		stringBuffer.append("\n  Shiva Kumar H R <shivahr@gmail.com>");
 		stringBuffer.append("\n  Prof. A G Ramakrishnan <agrkrish@gmail.com>");
-		stringBuffer.append("\n\nDevelopers:");
+		stringBuffer.append("\n\nDeveloped by:");
 		stringBuffer.append("\n  Shiva Kumar H R <shivahr@gmail.com>");
 		stringBuffer.append("\n  Satvik Neelakant <nsatvik@gmail.com>");
 		stringBuffer.append("\n  Shruthi R <shruthir.colours@gmail.com>");
