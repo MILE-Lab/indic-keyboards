@@ -45,7 +45,7 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="2346,2347,2348,2349,2350" android:keyIcon="@drawable/hindi_3x4_pa_to_ma" android:keyWidth="25%p" />
     <Key android:codes="2351,2352,2354,2357" android:keyIcon="@drawable/hindi_3x4_ya_to_va" android:keyWidth="25%p" />
-    <Key android:codes="2404,2405,2365,2384" android:keyIcon="@drawable/hindi_3x4_danda" android:keyWidth="12%p" />
+    <Key android:codes="0xF102" android:keyLabel="123" android:keyWidth="12%p" />
     <Key android:codes="0xF103" android:keyLabel=". , @" android:keyWidth="13%p" android:keyEdgeFlags="right"
       android:isRepeatable="true" />
   </Row>
@@ -54,7 +54,7 @@
     <Key android:codes="2358,2359,2360,2361,2355" android:keyIcon="@drawable/hindi_3x4_sha_to_lla" android:keyWidth="25%p" 
       android:keyEdgeFlags="left" />
     <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="25%p" />
-    <Key android:codes="0xF102" android:keyLabel="123" android:keyWidth="25%p" />
+    <Key android:codes="2404,2405,2365,2384" android:keyIcon="@drawable/hindi_3x4_danda_to_om" android:keyWidth="25%p" />
     <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="13%p" />
   </Row>
