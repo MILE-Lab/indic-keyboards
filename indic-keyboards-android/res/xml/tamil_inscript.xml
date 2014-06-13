@@ -27,10 +27,10 @@
     <Key android:codes="0x0bbe" android:keyIcon="@drawable/tamil_inscript_aa_matra" android:keyWidth="11%p" />
     <Key android:codes="0x0bc0" android:keyIcon="@drawable/tamil_inscript_ii_matra" android:keyWidth="11%p" />
     <Key android:codes="0x0bc2" android:keyIcon="@drawable/tamil_inscript_uu_matra" android:keyWidth="11%p" />
-    <Key android:codes="0x0b95" android:keyIcon="@drawable/tamil_inscript_ka" android:keyWidth="11%p" />
+    <Key android:codes="0x0bb9" android:keyIcon="@drawable/tamil_inscript_ha" android:keyWidth="11%p" />
+    <Key android:codes="0x0ba4" android:keyIcon="@drawable/tamil_inscript_ta" android:keyWidth="11%p" />
     <Key android:codes="0x0b9a" android:keyIcon="@drawable/tamil_inscript_ca" android:keyWidth="11%p" />
-    <Key android:codes="0x0b9f" android:keyIcon="@drawable/tamil_inscript_tta" android:keyWidth="11%p" />
-    <Key android:codes="0xF010" android:keyIcon="@drawable/tamil_inscript_ksha" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0b9f" android:keyIcon="@drawable/tamil_inscript_tta" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
@@ -40,9 +40,9 @@
     <Key android:codes="0x0bbf" android:keyIcon="@drawable/tamil_inscript_i_matra" android:keyWidth="11%p" />
     <Key android:codes="0x0bc1" android:keyIcon="@drawable/tamil_inscript_u_matra" android:keyWidth="11%p" />
     <Key android:codes="0x0baa" android:keyIcon="@drawable/tamil_inscript_pa" android:keyWidth="11%p" />
-    <Key android:codes="0x0baf" android:keyIcon="@drawable/tamil_inscript_ya" android:keyWidth="11%p" />
     <Key android:codes="0x0bb0" android:keyIcon="@drawable/tamil_inscript_ra" android:keyWidth="11%p" />
-    <Key android:codes="0x0bb9" android:keyIcon="@drawable/tamil_inscript_ha" android:keyWidth="11%p" android:keyEdgeFlags="right" />
+    <Key android:codes="0x0b95" android:keyIcon="@drawable/tamil_inscript_ka" android:keyWidth="11%p" />
+    <Key android:codes="0x0baf" android:keyIcon="@drawable/tamil_inscript_ya" android:keyWidth="11%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row>
