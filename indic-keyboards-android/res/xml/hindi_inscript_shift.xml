@@ -53,7 +53,7 @@
     <Key android:codes="2321,2322" android:keyIcon="@drawable/hindi_inscript_short_o" android:keyWidth="9.1%p" android:keyEdgeFlags="left" />
     <Key android:codes="2317,2318" android:keyIcon="@drawable/hindi_inscript_short_e" android:keyWidth="9.1%p" />
     <Key android:codes="2315,2400,2316,2401" android:keyIcon="@drawable/hindi_inscript_vocalic_r" android:keyWidth="9.1%p" />
-    <Key android:codes="2307,2364" android:keyIcon="@drawable/hindi_inscript_visarga" android:keyWidth="9.1%p" />
+    <Key android:codes="0x0903" android:keyIcon="@drawable/hindi_inscript_visarga" android:keyWidth="9.1%p" />
     <Key android:codes="0x0923" android:keyIcon="@drawable/hindi_inscript_nna" android:keyWidth="9.1%p" />
     <Key android:codes="0x0901" android:keyIcon="@drawable/hindi_inscript_chandrabindu" android:keyWidth="9.1%p" />
     <Key android:codes="0x093c" android:keyIcon="@drawable/hindi_inscript_nukta" android:keyWidth="9.1%p" />
