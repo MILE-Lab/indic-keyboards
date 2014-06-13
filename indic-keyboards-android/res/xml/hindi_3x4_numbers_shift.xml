@@ -44,15 +44,14 @@
       android:keyEdgeFlags="left" />
     <Key android:codes="0x096e" android:keyIcon="@drawable/hindi_3x4_num_8_hindi" android:keyWidth="25%p" />
     <Key android:codes="0x096f" android:keyIcon="@drawable/hindi_3x4_num_9_hindi" android:keyWidth="25%p" />
-    <Key android:codes="0xF103" android:keyLabel=". , @" android:keyWidth="25%p" android:keyEdgeFlags="right" 
-      android:isRepeatable="true" />
+    <Key android:codes="0xF102" android:keyIcon="@drawable/hindi_3x4_num_sym_to_a" android:keyWidth="25%p" android:keyEdgeFlags="right" />
   </Row>
 
   <Row android:rowEdgeFlags="bottom">
     <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" android:keyWidth="25%p"
       android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
     <Key android:codes="0x0966" android:keyIcon="@drawable/hindi_3x4_num_0_hindi" android:keyWidth="25%p" />
-    <Key android:codes="0xF102" android:keyIcon="@drawable/hindi_3x4_num_sym_to_a" android:keyWidth="25%p" />
+    <Key android:codes="0xF103" android:keyLabel=". , @" android:keyWidth="25%p" />
     <Key android:codes="0xF000" android:keyIcon="@drawable/settings" android:keyWidth="12%p" />
     <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" android:keyWidth="13%p"
       android:keyEdgeFlags="right" />
