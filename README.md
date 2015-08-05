@@ -36,3 +36,5 @@ The languages and popular layouts supported by indic-keyboards:
 | Punjabi  | &#10006; | Inscript |
 | Malyalam | &#10006; | Inscript |
 | Oriya    | &#10006; | Inscript |
+
+Please check the wiki for assistance on how to use this tool.
