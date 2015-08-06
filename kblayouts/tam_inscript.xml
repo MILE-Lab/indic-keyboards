@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+
+<tam_inscript>
+
+	<pattern>
+		<char>a</char>
+		<unicode>0BCB</unicode>
+	</pattern>
+
+	<pattern>
+		<char>A</char>
+		<unicode>0B93</unicode>
+	</pattern>
+
+	<pattern>
+		<char>s</char>
+		<unicode>0BC7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>S</char>
+		<unicode>0B8F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>d</char>
+		<unicode>0BCD</unicode>
+	</pattern>
+
+	<pattern>
+		<char>D</char>
+		<unicode>0B85</unicode>
+	</pattern>
+
+	<pattern>
+		<char>f</char>
+		<unicode>0BBF</unicode>
+	</pattern>
+
+	<pattern>
+		<char>F</char>
+		<unicode>0B87</unicode>
+	</pattern>
+
+	<pattern>
+		<char>G</char>
+		<unicode>0B89</unicode>
+	</pattern>
+
+<!--
+<pattern>
+<char>g</char>
+<unicode></unicode>
+</pattern>
+-->
+
+	<pattern>
+		<char>h</char>
+		<unicode>0BAA</unicode>
+	</pattern>
+
+	<pattern>
+		<char>j</char>
+		<unicode>0BB0</unicode>
+	</pattern>
+
+	<pattern>
+		<char>J</char>
+		<unicode>0BB1</unicode>
+	</pattern>
+
+	<pattern>
+		<char>k</char>
+		<unicode>0B95</unicode>
+	</pattern>
+
+	<pattern>
+		<char>l</char>
+		<unicode>0BA4</unicode>
+	</pattern>
+
+	<pattern>
+		<char>q</char>
+		<unicode>0BCC</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Q</char>
+		<unicode>0B94</unicode>
+	</pattern>
+
+	<pattern>
+		<char>w</char>
+		<unicode>0BC8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>W</char>
+		<unicode>0B90</unicode>
+	</pattern>
+
+	<pattern>
+		<char>e</char>
+		<unicode>0BBE</unicode>
+	</pattern>
+
+	<pattern>
+		<char>E</char>
+		<unicode>0B86</unicode>
+	</pattern>
+
+	<pattern>
+		<char>r</char>
+		<unicode>0BC0</unicode>
+	</pattern>
+
+	<pattern>
+		<char>R</char>
+		<unicode>0B88</unicode>
+	</pattern>
+
+	<pattern>
+		<char>T</char>
+		<unicode>0B8A</unicode>
+	</pattern>
+
+<!--
+<pattern>
+<char>t</char>
+<unicode></unicode>
+</pattern>
+-->
+	<pattern>
+		<char>u</char>
+		<unicode>0BB9</unicode>
+	</pattern>
+
+	<pattern>
+		<char>U</char>
+		<unicode>0B99</unicode>
+	</pattern>
+
+	<pattern>
+		<char>p</char>
+		<unicode>0B9C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>z</char>
+		<unicode>0BC6</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Z</char>
+		<unicode>0B8E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>c</char>
+		<unicode>0BAE</unicode>
+	</pattern>
+
+	<pattern>
+		<char>C</char>
+		<unicode>0BA3</unicode>
+	</pattern>
+
+	<pattern>
+		<char>v</char>
+		<unicode>0BA8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>V</char>
+		<unicode>0BA9</unicode>
+	</pattern>
+
+	<pattern>
+		<char>b</char>
+		<unicode>0BB5</unicode>
+	</pattern>
+
+	<pattern>
+		<char>B</char>
+		<unicode>0BB4</unicode>
+	</pattern>
+
+	<pattern>
+		<char>n</char>
+		<unicode>0BB2</unicode>
+	</pattern>
+
+	<pattern>
+		<char>N</char>
+		<unicode>0BB3</unicode>
+	</pattern>
+
+	<pattern>
+		<char>m</char>
+		<unicode>0BB8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>0</char>
+		<unicode>0BE6</unicode>
+	</pattern>
+
+	<pattern>
+		<char>1</char>
+		<unicode>0BE7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>2</char>
+		<unicode>0BE8</unicode>
+	</pattern>
+
+	<pattern>
+		<char>3</char>
+		<unicode>0BE9</unicode>
+	</pattern>
+
+	<pattern>
+		<char>4</char>
+		<unicode>0BEA</unicode>
+	</pattern>
+
+	<pattern>
+		<char>5</char>
+		<unicode>0BEB</unicode>
+	</pattern>
+
+	<pattern>
+		<char>6</char>
+		<unicode>0BEC</unicode>
+	</pattern>
+
+	<pattern>
+		<char>7</char>
+		<unicode>0BED</unicode>
+	</pattern>
+
+
+	<pattern>
+		<char>&amp;</char>
+		<unicode>0B950BCD0BB7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>8</char>
+		<unicode>0BEE</unicode>
+	</pattern>
+
+	<pattern>
+		<char>*</char>
+		<unicode>0BB70BCD0BB0</unicode>
+	</pattern>
+
+	<pattern>
+		<char>9</char>
+		<unicode>0BEF</unicode>
+	</pattern>
+
+	<pattern>
+		<char>0</char>
+		<unicode>0BE6</unicode>
+	</pattern>
+
+	<pattern>
+		<char>_</char>
+		<unicode>0B83</unicode>
+	</pattern>
+
+	<pattern>
+		<char>}</char>
+		<unicode>0B9E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>;</char>
+		<unicode>0B9A</unicode>
+	</pattern>
+
+	<pattern>
+		<char>'</char>
+		<unicode>0B9F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>/</char>
+		<unicode>0BAF</unicode>
+	</pattern>
+
+	<pattern>
+		<char>~</char>
+		<unicode>0B92</unicode>
+	</pattern>
+
+	<pattern>
+		<char>`</char>
+		<unicode>0BC6</unicode>
+	</pattern>
+
+</tam_inscript>

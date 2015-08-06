@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+
+<tamilnet99>
+
+	<pattern>
+		<char>a</char>
+		<unicode>0B85</unicode>
+		<consonant>0</consonant>
+		<uni2>0B85</uni2>
+	</pattern>
+
+	<pattern>
+		<char>A</char>
+		<unicode>0BF9</unicode>
+	</pattern>
+
+	<pattern>
+		<char>s</char>
+		<unicode>0B87</unicode>
+		<consonant>0</consonant>
+		<uni2>0BBF</uni2>
+	</pattern>
+
+	<pattern>
+		<char>S</char>
+		<unicode>0BFA</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>d</char>
+		<unicode>0B89</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC1</uni2>
+	</pattern>
+
+	<pattern>
+		<char>D</char>
+		<unicode>0BF8</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+
+	<pattern>
+		<char>f</char>
+		<unicode>0bcd</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+
+	<pattern>
+		<char>F</char>
+		<unicode>0B83</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>g</char>
+		<unicode>0B8E</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC6</uni2>
+	</pattern>
+
+	<pattern>
+		<char>h</char>
+		<unicode>0B95</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>j</char>
+		<unicode>0BAA</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>k</char>
+		<unicode>0BAE</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+
+	<pattern>
+		<char>K</char>
+		<unicode>"</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>K</char>
+		<unicode>0B82</unicode>
+	</pattern>
+
+	<pattern>
+		<char>l</char>
+		<unicode>0BA4</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+
+	<pattern>
+		<char>L</char>
+		<unicode>003A</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>q</char>
+		<unicode>0B86</unicode>
+		<consonant>0</consonant>
+		<uni2>0BBE</uni2>
+	</pattern>
+
+	<pattern>
+		<char>Q</char>
+		<unicode>0BB8</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>w</char>
+		<unicode>0B88</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC0</uni2>
+	</pattern>
+
+	<pattern>
+		<char>W</char>
+		<unicode>0BB7</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>e</char>
+		<unicode>0B8A</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC2</uni2>
+	</pattern>
+
+	<pattern>
+		<char>E</char>
+		<unicode>0B9c</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>r</char>
+		<unicode>0B90</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC8</uni2>
+	</pattern>
+
+	<pattern>
+		<char>R</char>
+		<unicode>0BB9</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>t</char>
+		<unicode>0B8F</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC7</uni2>
+	</pattern>
+
+	<pattern>
+		<char>T</char>
+		<unicode>0B950BCD0BB7</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>y</char>
+		<unicode>0BB3</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>Y</char>
+		<unicode>0BB80BCD0BB00BC0</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>u</char>
+		<unicode>0BB1</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>i</char>
+		<unicode>0BA9</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>o</char>
+		<unicode>0B9F</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>O</char>
+		<unicode>005B</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>p</char>
+		<unicode>0BA3</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>P</char>
+		<unicode>005D</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>z</char>
+		<unicode>0B94</unicode>
+		<consonant>0</consonant>
+		<uni2>0BCC</uni2>
+	</pattern>
+
+	<pattern>
+		<char>Z</char>
+		<unicode>0BF3</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>x</char>
+		<unicode>0B93</unicode>
+		<consonant>0</consonant>
+		<uni2>0BCB</uni2>
+	</pattern>
+
+	<pattern>
+		<char>X</char>
+		<unicode>0BF4</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>c</char>
+		<unicode>0B92</unicode>
+		<consonant>0</consonant>
+		<uni2>0BCA</uni2>
+	</pattern>
+
+	<pattern>
+		<char>C</char>
+		<unicode>0BF5</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>v</char>
+		<unicode>0BB5</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>V</char>
+		<unicode>0BF6</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>b</char>
+		<unicode>0B99</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>B</char>
+		<unicode>0BF7</unicode>
+	</pattern>
+
+	<pattern>
+		<char>n</char>
+		<unicode>0BB2</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>m</char>
+		<unicode>0BB0</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>M</char>
+		<unicode>002F</unicode>
+	</pattern>
+
+	<!--
+		<pattern> <char>0</char> <unicode>0BE6</unicode>
+		<consonant>0</consonant> </pattern> <pattern> <char>1</char>
+		<unicode>0BE7</unicode> <consonant>0</consonant> </pattern> <pattern>
+		<char>2</char> <unicode>0BE8</unicode> <consonant>0</consonant>
+		</pattern> <pattern> <char>3</char> <unicode>0BE9</unicode>
+		<consonant>0</consonant> </pattern> <pattern> <char>4</char>
+		<unicode>0BEA</unicode> <consonant>0</consonant> </pattern> <pattern>
+		<char>5</char> <unicode>0BEB</unicode> <consonant>0</consonant>
+		</pattern> <pattern> <char>6</char> <unicode>0BEC</unicode>
+		<consonant>0</consonant> </pattern> <pattern> <char>7</char>
+		<unicode>0BED</unicode> <consonant>0</consonant> </pattern> <pattern>
+		<char>8</char> <unicode>0BEE</unicode> <consonant>0</consonant>
+		</pattern> <pattern> <char>9</char> <unicode>0BEF</unicode>
+		<consonant>0</consonant> </pattern>
+	-->
+	<pattern>
+		<char>[</char>
+		<unicode>0B9A</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>]</char>
+		<unicode>0B9E</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>;</char>
+		<unicode>0BA8</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>:</char>
+		<unicode>003B</unicode>
+		<consonant>0</consonant>
+		<uni2>003B</uni2>
+	</pattern>
+
+	<pattern>
+		<char>"</char>
+		<unicode>002E</unicode>
+		<consonant>0</consonant>
+		<uni2>002E</uni2>
+	</pattern>
+
+	<pattern>
+		<char>'</char>
+		<unicode>0BAF</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>/</char>
+		<unicode>0BB4</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+</tamilnet99>

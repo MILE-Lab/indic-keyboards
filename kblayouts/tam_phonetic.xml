@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<tam_phonetic>
+	<pattern>
+		<char>a</char>
+		<unicode>0B85</unicode>
+		<consonant>0</consonant>
+		<uni2>0B85</uni2>
+	</pattern>
+	<pattern>
+		<char>th</char>
+		<unicode>0BA4</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>Th</char>
+		<unicode>0BA5</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>A</char>
+		<unicode>0B86</unicode>
+		<consonant>0</consonant>
+		<uni2>0BBE</uni2>
+	</pattern>
+
+	<pattern>
+		<char>s</char>
+		<unicode>0BB8</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>S</char>
+		<unicode>0BB6</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>sh</char>
+		<unicode>0BB6</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>Sh</char>
+		<unicode>0BB7</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>d</char>
+		<unicode>0B9F</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+		<pattern> <char>D</char> <unicode>0BA2</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+	<pattern>
+		<char>dh</char>
+		<unicode>0BA4</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>Dh</char>
+		<unicode>0BA5</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+		<pattern> <char>f</char> <unicode>0BAB</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+
+	<pattern>
+		<char>F</char>
+		<unicode>0BCD</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>g</char>
+		<unicode>0B95</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>G</char>
+		<unicode>0B99</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>h</char>
+		<unicode>0BB9</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>H</char>
+		<unicode>0B83</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>j</char>
+		<unicode>0B9C</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+
+		<pattern> <char>J</char> <unicode>0B9D</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+
+	<pattern>
+		<char>k</char>
+		<unicode>0B95</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+
+		<pattern> <char>K</char> <unicode>0B96</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+	<pattern>
+		<char>l</char>
+		<unicode>0BB2</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>L</char>
+		<unicode>0BB3</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>q</char>
+		<unicode>0BA9</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>Q</char>
+		<unicode>0BB4</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<pattern>
+		<char>w</char>
+		<unicode>0BB5</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>e</char>
+		<unicode>0B8E</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC6</uni2>
+	</pattern>
+
+	<pattern>
+		<char>E</char>
+		<unicode>0B8F</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC7</uni2>
+	</pattern>
+
+	<pattern>
+		<char>r</char>
+		<unicode>0BB0</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>R</char>
+		<unicode>0BB1</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>t</char>
+		<unicode>0B9F</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+
+		<pattern> <char>T</char> <unicode>0BA0</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+
+	<pattern>
+		<char>y</char>
+		<unicode>0BAF</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>Y</char>
+		<unicode>0B90</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC8</uni2>
+	</pattern>
+
+	<pattern>
+		<char>u</char>
+		<unicode>0B89</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC1</uni2>
+	</pattern>
+
+	<pattern>
+		<char>U</char>
+		<unicode>0B8A</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC2</uni2>
+	</pattern>
+
+	<pattern>
+		<char>i</char>
+		<unicode>0B87</unicode>
+		<consonant>0</consonant>
+		<uni2>0BBF</uni2>
+	</pattern>
+
+	<pattern>
+		<char>I</char>
+		<unicode>0B88</unicode>
+		<consonant>0</consonant>
+		<uni2>0BC0</uni2>
+	</pattern>
+
+	<pattern>
+		<char>o</char>
+		<unicode>0B92</unicode>
+		<consonant>0</consonant>
+		<uni2>0BCA</uni2>
+	</pattern>
+
+	<pattern>
+		<char>O</char>
+		<unicode>0B93</unicode>
+		<consonant>0</consonant>
+		<uni2>0BCB</uni2>
+	</pattern>
+
+	<pattern>
+		<char>p</char>
+		<unicode>0BAA</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+
+		<pattern> <char>P</char> <unicode>0BAB</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+
+	<pattern>
+		<char>z</char>
+		<unicode>0B9E</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>Z</char>
+		<unicode>0B99</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>x</char>
+		<unicode>0BB7</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>X</char>
+		<unicode>0B950BCD0BB7</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>c</char>
+		<unicode>0B9A</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<!--
+		<pattern> <char>C</char> <unicode>0B9B</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+
+	<pattern>
+		<char>v</char>
+		<unicode>0BB5</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>V</char>
+		<unicode>0B94</unicode>
+		<consonant>0</consonant>
+		<uni2>0BCC</uni2>
+	</pattern>
+
+	<pattern>
+		<char>b</char>
+		<unicode>0BAA</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+		<pattern> <char>B</char> <unicode>0BAD</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+	<pattern>
+		<char>n</char>
+		<unicode>0BA8</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>N</char>
+		<unicode>0BA3</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>m</char>
+		<unicode>0BAE</unicode>
+		<consonant>1</consonant>
+	</pattern>
+
+	<pattern>
+		<char>M</char>
+		<unicode>0B82</unicode>
+		<consonant>1</consonant>
+	</pattern>
+	<!--
+		<pattern> <char>1</char> <unicode>0BE7</unicode>
+		<consonant>1</consonant> </pattern> <pattern> <char>2</char>
+		<unicode>0BE8</unicode> <consonant>1</consonant> </pattern> <pattern>
+		<char>3</char> <unicode>0BE9</unicode> <consonant>1</consonant>
+		</pattern> <pattern> <char>4</char> <unicode>0BEA</unicode>
+		<consonant>1</consonant> </pattern> <pattern> <char>5</char>
+		<unicode>0BEB</unicode> <consonant>1</consonant> </pattern> <pattern>
+		<char>6</char> <unicode>0BEC</unicode> <consonant>1</consonant>
+		</pattern> <pattern> <char>7</char> <unicode>0BED</unicode>
+		<consonant>1</consonant> </pattern> <pattern> <char>8</char>
+		<unicode>0BEE</unicode> <consonant>1</consonant> </pattern> <pattern>
+		<char>9</char> <unicode>0BEF</unicode> <consonant>1</consonant>
+		</pattern> <pattern> <char>0</char> <unicode>0BE6</unicode>
+		<consonant>1</consonant> </pattern>
+	-->
+
+
+	<pattern>
+		<char>halant</char>
+		<unicode>0BCD</unicode>
+	</pattern>
+</tam_phonetic>

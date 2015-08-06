@@ -1,0 +1,425 @@
+﻿<?xml version="1.0"?>
+
+<oriya_inscript>
+
+	<pattern>
+		<char>a</char>
+		<unicode>0b4B</unicode>
+	</pattern>
+
+	<pattern>
+		<char>A</char>
+		<unicode>0b13</unicode>
+	</pattern>
+
+	<pattern>
+		<char>s</char>
+		<unicode>0b47</unicode>
+	</pattern>
+
+	<pattern>
+		<char>S</char>
+		<unicode>0b0F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>d</char>
+		<unicode>0b4D</unicode>
+	</pattern>
+
+	<pattern>
+		<char>D</char>
+		<unicode>0b05</unicode>
+	</pattern>
+
+	<pattern>
+		<char>f</char>
+		<unicode>0b3F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>F</char>
+		<unicode>0b07</unicode>
+	</pattern>
+
+	<pattern>
+		<char>g</char>
+		<unicode>0b41</unicode>
+	</pattern>
+
+	<pattern>
+		<char>G</char>
+		<unicode>0b09</unicode>
+	</pattern>
+
+	<pattern>
+		<char>h</char>
+		<unicode>0b2A</unicode>
+	</pattern>
+
+	<pattern>
+		<char>H</char>
+		<unicode>0b2B</unicode>
+	</pattern>
+
+	<pattern>
+		<char>j</char>
+		<unicode>0b30</unicode>
+	</pattern>
+
+	<pattern>
+		<char>J</char>
+		<unicode>0b31</unicode>
+	</pattern>
+
+	<pattern>
+		<char>k</char>
+		<unicode>0b15</unicode>
+	</pattern>
+
+	<pattern>
+		<char>K</char>
+		<unicode>0b16</unicode>
+	</pattern>
+
+	<pattern>
+		<char>l</char>
+		<unicode>0b24</unicode>
+	</pattern>
+
+	<pattern>
+		<char>L</char>
+		<unicode>0b25</unicode>
+	</pattern>
+
+	<pattern>
+		<char>q</char>
+		<unicode>0b4C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Q</char>
+		<unicode>0b14</unicode>
+	</pattern>
+
+	<pattern>
+		<char>w</char>
+		<unicode>0b48</unicode>
+	</pattern>
+
+	<pattern>
+		<char>W</char>
+		<unicode>0b10</unicode>
+	</pattern>
+
+	<pattern>
+		<char>e</char>
+		<unicode>0b3E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>E</char>
+		<unicode>0b06</unicode>
+	</pattern>
+
+	<pattern>
+		<char>r</char>
+		<unicode>0b40</unicode>
+	</pattern>
+
+	<pattern>
+		<char>R</char>
+		<unicode>0b08</unicode>
+	</pattern>
+
+	<pattern>
+		<char>t</char>
+		<unicode>0b42</unicode>
+	</pattern>
+
+	<pattern>
+		<char>T</char>
+		<unicode>0b0A</unicode>
+	</pattern>
+
+	<pattern>
+		<char>y</char>
+		<unicode>0b2C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Y</char>
+		<unicode>0b2D</unicode>
+	</pattern>
+
+	<pattern>
+		<char>u</char>
+		<unicode>0b39</unicode>
+	</pattern>
+
+	<pattern>
+		<char>U</char>
+		<unicode>0b19</unicode>
+	</pattern>
+
+	<pattern>
+		<char>i</char>
+		<unicode>0b17</unicode>
+	</pattern>
+
+	<pattern>
+		<char>I</char>
+		<unicode>0b18</unicode>
+	</pattern>
+
+	<pattern>
+		<char>o</char>
+		<unicode>0b26</unicode>
+	</pattern>
+
+	<pattern>
+		<char>O</char>
+		<unicode>0b27</unicode>
+	</pattern>
+
+	<pattern>
+		<char>p</char>
+		<unicode>0b1C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>P</char>
+		<unicode>0b1D</unicode>
+	</pattern>
+
+	<pattern>
+		<char>z</char>
+		<unicode>200C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>Z</char>
+		<unicode>200D</unicode>
+	</pattern>
+
+	<pattern>
+		<char>x</char>
+		<unicode>0b02</unicode>
+	</pattern>
+
+	<pattern>
+		<char>X</char>
+		<unicode>0b01</unicode>
+	</pattern>
+
+	<pattern>
+		<char>c</char>
+		<unicode>0b2E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>C</char>
+		<unicode>0b23</unicode>
+	</pattern>
+
+	<pattern>
+		<char>v</char>
+		<unicode>0b28</unicode>
+	</pattern>
+
+	<pattern>
+		<char>b</char>
+		<unicode>0b35</unicode>
+	</pattern>
+
+	<pattern>
+		<char>B</char>
+		<unicode>0b71</unicode>
+	</pattern>
+
+	<pattern>
+		<char>n</char>
+		<unicode>0b32</unicode>
+	</pattern>
+
+	<pattern>
+		<char>N</char>
+		<unicode>0b33</unicode>
+	</pattern>
+
+	<pattern>
+		<char>m</char>
+		<unicode>0b38</unicode>
+	</pattern>
+
+	<pattern>
+		<char>M</char>
+		<unicode>0b36</unicode>
+	</pattern>
+
+	<pattern>
+		<char>0</char>
+		<unicode>0b66</unicode>
+	</pattern>
+
+	<pattern>
+		<char>1</char>
+		<unicode>0b67</unicode>
+	</pattern>
+
+	<pattern>
+		<char>2</char>
+		<unicode>0b68</unicode>
+	</pattern>
+
+	<pattern>
+		<char>3</char>
+		<unicode>0b69</unicode>
+	</pattern>
+
+	<pattern>
+		<char>#</char>
+		<unicode>0b4D0b30</unicode>
+	</pattern>
+
+	<pattern>
+		<char>4</char>
+		<unicode>0b6A</unicode>
+	</pattern>
+
+	<pattern>
+		<char>$</char>
+		<unicode>0b300b4D</unicode>
+	</pattern>
+
+	<pattern>
+		<char>5</char>
+		<unicode>0b6B</unicode>
+	</pattern>
+
+	<pattern>
+		<char>%</char>
+		<unicode>0b1C0b4D0b1E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>6</char>
+		<unicode>0b6C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>^</char>
+		<unicode>0b240b4D0b30</unicode>
+	</pattern>
+
+	<pattern>
+		<char>7</char>
+		<unicode>0b6D</unicode>
+	</pattern>
+
+	<pattern>
+		<char>&amp;</char>
+		<unicode>0b150b4D0b37</unicode>
+	</pattern>
+
+	<pattern>
+		<char>8</char>
+		<unicode>0b6E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>*</char>
+		<unicode>0b360b4D0b30</unicode>
+	</pattern>
+
+	<pattern>
+		<char>9</char>
+		<unicode>0b6F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>0</char>
+		<unicode>0b66</unicode>
+	</pattern>
+
+	<pattern>
+		<char>=</char>
+		<unicode>0b43</unicode>
+	</pattern>
+
+	<pattern>
+		<char>+</char>
+		<unicode>0b60</unicode>
+	</pattern>
+
+	<pattern>
+		<char>[</char>
+		<unicode>0b21</unicode>
+	</pattern>
+
+	<pattern>
+		<char>{</char>
+		<unicode>0b22</unicode>
+	</pattern>
+
+	<pattern>
+		<char>]</char>
+		<unicode>0b3C</unicode>
+	</pattern>
+
+	<pattern>
+		<char>}</char>
+		<unicode>0b1E</unicode>
+	</pattern>
+
+	<pattern>
+		<char>;</char>
+		<unicode>0b1A</unicode>
+	</pattern>
+
+	<pattern>
+		<char>:</char>
+		<unicode>0b1B</unicode>
+	</pattern>
+
+	<pattern>
+		<char>"</char>
+		<unicode>0b20</unicode>
+	</pattern>
+
+	<pattern>
+		<char>'</char>
+		<unicode>0b1F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>&lt;</char>
+		<unicode>0b37</unicode>
+	</pattern>
+
+	<pattern>
+		<char>&gt;</char>
+		<unicode>0964</unicode>
+	</pattern>
+
+	<pattern>
+		<char>/</char>
+		<unicode>0b5F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>?</char>
+		<unicode>0b2F</unicode>
+	</pattern>
+
+	<pattern>
+		<char>~</char>
+		<unicode>0b12</unicode>
+	</pattern>
+
+	<pattern>
+		<char>`</char>
+		<unicode>0b4A</unicode>
+	</pattern>
+
+</oriya_inscript>
