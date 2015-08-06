@@ -1,4 +1,4 @@
-![indic-keyboards logo](https://raw.github.com/ssonal/indic-keyboards/master/images/indickeyboards.png)
+![indic-keyboards logo](https://raw.github.com/ssonal/indic-keyboards/master/docs/images/indickeyboards.png)
 # <b>ವಿಶ್ವವಾಙ್ಮುಖ</b> - <b>பன்மொழி வாயில்</b>
 
 An open source project providing an input method which will allow the usage of Indic scripts on both Windows and Linux, using Java and Unicode.
